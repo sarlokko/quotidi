@@ -9,7 +9,9 @@ const CELL_COUNT = SIZE * SIZE;
 let solution = null;
 let given = null;
 let grid = null;
+let notes = null; // Array<number[]> length 81
 let selected = -1;
+let noteMode = false;
 let locked = false;
 let won = false;
 let onComplete = null;
@@ -234,11 +236,22 @@ export function initSudoku(onDone) {
     given = saved.given.map(Boolean);
     locked = Boolean(saved.locked);
     won = Boolean(saved.won);
+    notes = Array.isArray(saved.notes) && saved.notes.length === CELL_COUNT
+      ? saved.notes.map((n) => (Array.isArray(n) ? n.map(Number).filter((d) => d >= 1 && d <= 9) : []))
+      : Array.from({ length: CELL_COUNT }, () => []);
+    noteMode = Boolean(saved.noteMode);
   } else {
     grid = [...built.puzzle];
     given = [...built.givenMask];
+    notes = Array.from({ length: CELL_COUNT }, () => []);
     locked = false;
     won = false;
+    noteMode = false;
+  }
+
+  // pulisci note sulle celle già piene
+  for (let i = 0; i < CELL_COUNT; i++) {
+    if (grid[i]) notes[i] = [];
   }
 
   selected = given.findIndex((g) => !g);
@@ -250,6 +263,8 @@ function persist() {
   saveState(STORAGE_KEY, getDailyKey(), {
     grid,
     given,
+    notes,
+    noteMode,
     locked,
     won,
     completed: locked,
@@ -275,6 +290,12 @@ function cellBoxClass(idx) {
   return classes.join(" ");
 }
 
+function renderNotesHtml(idx) {
+  const set = new Set(notes[idx] || []);
+  if (!set.size) return "";
+  return `<span class="sudoku-notes">${DIGITS.map((d) => `<i class="${set.has(d) ? "on" : ""}">${set.has(d) ? d : ""}</i>`).join("")}</span>`;
+}
+
 function render() {
   const board = document.getElementById("sudoku-board");
   const pad = document.getElementById("sudoku-pad");
@@ -284,16 +305,22 @@ function render() {
     const isGiven = given[idx];
     const isSel = selected === idx;
     const bad = val && conflictsAt(grid, idx);
+    const hasNotes = !val && (notes[idx] || []).length > 0;
     const cls = [
       "sudoku-cell",
       cellBoxClass(idx),
       isGiven ? "is-given" : "is-edit",
       isSel ? "is-selected" : "",
       bad ? "is-conflict" : "",
+      hasNotes ? "has-notes" : "",
       locked && won ? "is-solved" : "",
     ].filter(Boolean).join(" ");
 
-    return `<button type="button" class="${cls}" data-idx="${idx}" ${locked && !isGiven ? "disabled" : ""} aria-label="Riga ${Math.floor(idx / SIZE) + 1}, colonna ${(idx % SIZE) + 1}">${val || ""}</button>`;
+    const body = val
+      ? `<span class="sudoku-digit">${val}</span>`
+      : renderNotesHtml(idx);
+
+    return `<button type="button" class="${cls}" data-idx="${idx}" ${locked && !isGiven ? "disabled" : ""} aria-label="Riga ${Math.floor(idx / SIZE) + 1}, colonna ${(idx % SIZE) + 1}">${body}</button>`;
   }).join("");
 
   pad.innerHTML = `
@@ -304,6 +331,8 @@ function render() {
   document.getElementById("sudoku-check").disabled = locked;
   document.getElementById("sudoku-clear").disabled = locked;
   document.getElementById("sudoku-reveal").disabled = locked;
+  document.getElementById("sudoku-mode-digit")?.classList.toggle("active", !noteMode);
+  document.getElementById("sudoku-mode-note")?.classList.toggle("active", noteMode);
 
   if (locked && won) {
     setStatus("Completato! Sudoku del giorno risolto.", "win");
@@ -313,7 +342,8 @@ function render() {
     setStatus("Qualcosa non torna: controlla le celle in rosso.", "hint");
   } else {
     const empty = grid.filter((v) => !v).length;
-    setStatus(`Sudoku classico 9×9. Righe, colonne e quadrati 3×3. Vuote: ${empty}.`);
+    const modeLabel = noteMode ? "Note ✎" : "Numero";
+    setStatus(`Modalità ${modeLabel} · celle vuote: ${empty}.`);
   }
 }
 
@@ -324,9 +354,51 @@ function shakeBoard() {
   board?.classList.add("shake");
 }
 
+function toggleNote(digit) {
+  if (locked || selected < 0 || given[selected] || grid[selected]) return;
+  if (!digit) {
+    notes[selected] = [];
+    persist();
+    render();
+    return;
+  }
+  const list = new Set(notes[selected] || []);
+  if (list.has(digit)) list.delete(digit);
+  else list.add(digit);
+  notes[selected] = [...list].sort((a, b) => a - b);
+  persist();
+  render();
+}
+
 function placeDigit(digit) {
   if (locked || selected < 0 || given[selected]) return;
+
+  if (noteMode) {
+    toggleNote(digit);
+    return;
+  }
+
   grid[selected] = digit;
+  if (digit) notes[selected] = [];
+  // rimuovi questa cifra dalle note delle celle correlate
+  if (digit) {
+    const r = Math.floor(selected / SIZE);
+    const c = selected % SIZE;
+    const br = Math.floor(r / BOX) * BOX;
+    const bc = Math.floor(c / BOX) * BOX;
+    for (let i = 0; i < SIZE; i++) {
+      const rowIdx = r * SIZE + i;
+      const colIdx = i * SIZE + c;
+      notes[rowIdx] = (notes[rowIdx] || []).filter((d) => d !== digit);
+      notes[colIdx] = (notes[colIdx] || []).filter((d) => d !== digit);
+    }
+    for (let rr = br; rr < br + BOX; rr++) {
+      for (let cc = bc; cc < bc + BOX; cc++) {
+        const bIdx = rr * SIZE + cc;
+        notes[bIdx] = (notes[bIdx] || []).filter((d) => d !== digit);
+      }
+    }
+  }
   persist();
 
   if (isCompleteAndValid(grid)) {
@@ -370,6 +442,7 @@ function checkNow() {
 function clearEdits() {
   if (locked) return;
   grid = grid.map((v, i) => (given[i] ? v : 0));
+  notes = notes.map((_, i) => (given[i] ? [] : []));
   persist();
   selected = given.findIndex((g) => !g);
   render();
@@ -378,6 +451,7 @@ function clearEdits() {
 function revealSolution() {
   if (locked) return;
   grid = [...solution];
+  notes = Array.from({ length: CELL_COUNT }, () => []);
   locked = true;
   won = false;
   persist();
@@ -403,6 +477,17 @@ function bindEvents() {
     placeDigit(Number(btn.dataset.digit));
   });
 
+  document.getElementById("sudoku-mode-digit")?.addEventListener("click", () => {
+    noteMode = false;
+    persist();
+    render();
+  });
+  document.getElementById("sudoku-mode-note")?.addEventListener("click", () => {
+    noteMode = true;
+    persist();
+    render();
+  });
+
   document.getElementById("sudoku-check")?.addEventListener("click", checkNow);
   document.getElementById("sudoku-clear")?.addEventListener("click", clearEdits);
   document.getElementById("sudoku-reveal")?.addEventListener("click", revealSolution);
@@ -410,6 +495,13 @@ function bindEvents() {
   document.addEventListener("keydown", (e) => {
     if (!document.getElementById("sudoku")?.classList.contains("active")) return;
     if (locked) return;
+    if (e.key === "n" || e.key === "N") {
+      e.preventDefault();
+      noteMode = !noteMode;
+      persist();
+      render();
+      return;
+    }
     if (/^[1-9]$/.test(e.key)) {
       e.preventDefault();
       placeDigit(Number(e.key));

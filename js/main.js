@@ -12,7 +12,6 @@ import { initRiddle, isRiddleComplete } from "./riddle.js";
 import { initJoke, isJokeComplete } from "./joke.js";
 
 const GAMES = [
-  { id: "pokemon", label: "Tipo Pokémon" },
   { id: "wordle", label: "Parola" },
   { id: "sudoku", label: "Sudoku" },
   { id: "picross", label: "Picross" },
@@ -21,6 +20,7 @@ const GAMES = [
   { id: "fact", label: "Curiosità" },
   { id: "globle", label: "Paese" },
   { id: "riddle", label: "Indovinello" },
+  { id: "pokemon", label: "Tipo Pokémon" },
   { id: "joke", label: "Barzelletta" },
 ];
 
