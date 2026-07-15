@@ -7,7 +7,7 @@ export const GAME_META = [
   { id: "wordle", label: "Parola", icon: "📝", key: "quotid-wordle" },
   { id: "sudoku", label: "Sudoku", icon: "🔢", key: "quotid-sudoku-9" },
   { id: "picross", label: "Picross", icon: "⬛", key: "quotid-picross-6" },
-  { id: "crossword", label: "Cruci", icon: "🔠", key: "quotid-crossword" },
+  { id: "crossword", label: "Cruci", icon: "🔠", key: "quotid-crossword-v2" },
   { id: "movie", label: "Film", icon: "🎬", key: "quotid-movie" },
   { id: "fact", label: "Curiosità", icon: "💡", key: "quotid-fact" },
   { id: "globle", label: "Paese", icon: "🌍", key: "quotid-globle" },
