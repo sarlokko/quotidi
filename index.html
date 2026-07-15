@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Quotidì — e ti diverti tutti i dì!</title>
-  <meta name="description" content="Quotidì: minigiochi al giorno — Pokémon, parola, Sudoku, Picross, indovinello e barzelletta. E ti diverti tutti i dì!">
+  <meta name="description" content="Quotidì: minigiochi ogni giorno — e ti diverti tutti i dì!">
   <meta name="theme-color" content="#0f1117">
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-title" content="Quotidì">
@@ -34,17 +34,21 @@
     <div class="progress-wrap">
       <div class="progress-meta">
         <span>Progresso di oggi</span>
-        <strong id="progress-text">0/6 completati oggi</strong>
+        <strong id="progress-text">0/10 completati oggi</strong>
       </div>
       <div class="progress-track"><div class="progress-bar" id="progress-bar"></div></div>
     </div>
   </header>
 
   <nav class="tabs" aria-label="Giochi">
-    <button type="button" class="tab-btn active" data-tab="pokemon">⚡ Tipo Pokémon</button>
+    <button type="button" class="tab-btn active" data-tab="pokemon">⚡ Pokémon</button>
     <button type="button" class="tab-btn" data-tab="wordle">📝 Parola</button>
     <button type="button" class="tab-btn" data-tab="sudoku">🔢 Sudoku</button>
     <button type="button" class="tab-btn" data-tab="picross">⬛ Picross</button>
+    <button type="button" class="tab-btn" data-tab="crossword">🔠 Cruci</button>
+    <button type="button" class="tab-btn" data-tab="movie">🎬 Film</button>
+    <button type="button" class="tab-btn" data-tab="fact">💡 Curiosità</button>
+    <button type="button" class="tab-btn" data-tab="globle">🌍 Paese</button>
     <button type="button" class="tab-btn" data-tab="riddle">🧩 Indovinello</button>
     <button type="button" class="tab-btn" data-tab="joke">😄 Barzelletta</button>
   </nav>
@@ -103,6 +107,71 @@
         <button type="button" id="picross-clear" class="btn ghost">Pulisci</button>
         <button type="button" id="picross-reveal" class="btn ghost">Mostra soluzione</button>
       </div>
+    </section>
+
+    <section id="crossword" class="game-panel card">
+      <h2>Cruciverba 5×5</h2>
+      <p class="game-desc">Mini cruciverba del giorno. Clicca una cella, scrivi le lettere; spazio o secondo click cambia direzione.</p>
+      <p id="crossword-status" class="game-status" role="status" aria-live="polite"></p>
+      <div id="crossword-board" class="xw-board" aria-label="Griglia cruciverba 5×5"></div>
+      <div class="xw-clues">
+        <div>
+          <h3>Orizzontali</h3>
+          <ul id="crossword-across"></ul>
+        </div>
+        <div>
+          <h3>Verticali</h3>
+          <ul id="crossword-down"></ul>
+        </div>
+      </div>
+      <div class="actions">
+        <button type="button" id="crossword-check" class="btn primary">Controlla</button>
+        <button type="button" id="crossword-clear" class="btn ghost">Pulisci</button>
+        <button type="button" id="crossword-reveal" class="btn ghost">Mostra soluzione</button>
+      </div>
+    </section>
+
+    <section id="movie" class="game-panel card">
+      <h2>Che film è?</h2>
+      <p class="game-desc">Come Framed, ma a emoji: indovina il film del giorno in 6 tentativi.</p>
+      <p id="movie-status" class="game-status" role="status" aria-live="polite"></p>
+      <p id="movie-emoji" class="movie-emoji" aria-label="Emoji del film"></p>
+      <ul id="movie-guesses" class="guess-list"></ul>
+      <form id="movie-form" autocomplete="off">
+        <label class="sr-only" for="movie-input">Titolo del film</label>
+        <input id="movie-input" class="text-input" type="text" placeholder="Scrivi il titolo..." enterkeyhint="done">
+        <div class="actions">
+          <button type="submit" id="movie-submit" class="btn primary">Indovina</button>
+          <button type="button" id="movie-reveal" class="btn ghost">Mostra risposta</button>
+        </div>
+      </form>
+    </section>
+
+    <section id="fact" class="game-panel card">
+      <h2>Curiosità del giorno</h2>
+      <p class="game-desc">Una pillola di storia o scienza, nuova ogni mattina.</p>
+      <p id="fact-status" class="game-status" role="status"></p>
+      <p class="fact-topic" id="fact-topic"></p>
+      <blockquote id="fact-text" class="fact-text"></blockquote>
+      <div class="actions">
+        <button type="button" id="fact-done" class="btn primary">Segna come letto</button>
+      </div>
+    </section>
+
+    <section id="globle" class="game-panel card">
+      <h2>Indovina il paese</h2>
+      <p class="game-desc">Stile Globle: prova un paese e vedi quanto sei lontano (km + direzione). Hai 8 tentativi.</p>
+      <p id="globle-status" class="game-status" role="status" aria-live="polite"></p>
+      <ul id="globle-guesses" class="globle-guesses"></ul>
+      <form id="globle-form" autocomplete="off">
+        <label class="sr-only" for="globle-input">Nome del paese</label>
+        <input id="globle-input" class="text-input" list="globle-list" type="text" placeholder="Es. Italia, Brasile, Giappone..." enterkeyhint="done">
+        <datalist id="globle-list"></datalist>
+        <div class="actions">
+          <button type="submit" id="globle-submit" class="btn primary">Prova</button>
+          <button type="button" id="globle-reveal" class="btn ghost">Mostra risposta</button>
+        </div>
+      </form>
     </section>
 
     <section id="riddle" class="game-panel card">

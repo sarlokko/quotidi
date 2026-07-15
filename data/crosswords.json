@@ -1,0 +1,502 @@
+[
+  {
+    "theme": "Mini",
+    "grid": [
+      "AMARO",
+      "M#M#P",
+      "ISOLE",
+      "C#R#R",
+      "OPERA"
+    ],
+    "across": [
+      {
+        "row": 0,
+        "col": 0,
+        "clue": "Non dolce",
+        "answer": "AMARO"
+      },
+      {
+        "row": 2,
+        "col": 0,
+        "clue": "Terre in mezzo al mare",
+        "answer": "ISOLE"
+      },
+      {
+        "row": 4,
+        "col": 0,
+        "clue": "Spettacolo lirico",
+        "answer": "OPERA"
+      }
+    ],
+    "down": [
+      {
+        "row": 0,
+        "col": 0,
+        "clue": "Non è un nemico",
+        "answer": "AMICO"
+      },
+      {
+        "row": 0,
+        "col": 2,
+        "clue": "Sentimento forte",
+        "answer": "AMORE"
+      },
+      {
+        "row": 0,
+        "col": 4,
+        "clue": "Spettacolo lirico",
+        "answer": "OPERA"
+      }
+    ]
+  },
+  {
+    "theme": "Mini",
+    "grid": [
+      "AMARO",
+      "S#M#P",
+      "ISOLE",
+      "N#R#R",
+      "OPERA"
+    ],
+    "across": [
+      {
+        "row": 0,
+        "col": 0,
+        "clue": "Non dolce",
+        "answer": "AMARO"
+      },
+      {
+        "row": 2,
+        "col": 0,
+        "clue": "Terre in mezzo al mare",
+        "answer": "ISOLE"
+      },
+      {
+        "row": 4,
+        "col": 0,
+        "clue": "Spettacolo lirico",
+        "answer": "OPERA"
+      }
+    ],
+    "down": [
+      {
+        "row": 0,
+        "col": 0,
+        "clue": "Animale da soma",
+        "answer": "ASINO"
+      },
+      {
+        "row": 0,
+        "col": 2,
+        "clue": "Sentimento forte",
+        "answer": "AMORE"
+      },
+      {
+        "row": 0,
+        "col": 4,
+        "clue": "Spettacolo lirico",
+        "answer": "OPERA"
+      }
+    ]
+  },
+  {
+    "theme": "Mini",
+    "grid": [
+      "BANCO",
+      "E#O#P",
+      "LATTE",
+      "L#T#R",
+      "OPERA"
+    ],
+    "across": [
+      {
+        "row": 0,
+        "col": 0,
+        "clue": "In classe o in banca",
+        "answer": "BANCO"
+      },
+      {
+        "row": 2,
+        "col": 0,
+        "clue": "Bevanda bianca",
+        "answer": "LATTE"
+      },
+      {
+        "row": 4,
+        "col": 0,
+        "clue": "Spettacolo lirico",
+        "answer": "OPERA"
+      }
+    ],
+    "down": [
+      {
+        "row": 0,
+        "col": 0,
+        "clue": "Non brutto",
+        "answer": "BELLO"
+      },
+      {
+        "row": 0,
+        "col": 2,
+        "clue": "Quando c'è il buio",
+        "answer": "NOTTE"
+      },
+      {
+        "row": 0,
+        "col": 4,
+        "clue": "Spettacolo lirico",
+        "answer": "OPERA"
+      }
+    ]
+  },
+  {
+    "theme": "Mini",
+    "grid": [
+      "BOSCO",
+      "O#A#L",
+      "SOLDI",
+      "C#S#V",
+      "OPERA"
+    ],
+    "across": [
+      {
+        "row": 0,
+        "col": 0,
+        "clue": "Tanti alberi",
+        "answer": "BOSCO"
+      },
+      {
+        "row": 2,
+        "col": 0,
+        "clue": "Quattrini",
+        "answer": "SOLDI"
+      },
+      {
+        "row": 4,
+        "col": 0,
+        "clue": "Spettacolo lirico",
+        "answer": "OPERA"
+      }
+    ],
+    "down": [
+      {
+        "row": 0,
+        "col": 0,
+        "clue": "Tanti alberi",
+        "answer": "BOSCO"
+      },
+      {
+        "row": 0,
+        "col": 2,
+        "clue": "Condimenti",
+        "answer": "SALSE"
+      },
+      {
+        "row": 0,
+        "col": 4,
+        "clue": "Frutto dell'ulivo",
+        "answer": "OLIVA"
+      }
+    ]
+  },
+  {
+    "theme": "Mini",
+    "grid": [
+      "CALDO",
+      "A#A#P",
+      "NOTTE",
+      "T#T#R",
+      "OPERA"
+    ],
+    "across": [
+      {
+        "row": 0,
+        "col": 0,
+        "clue": "Non freddo",
+        "answer": "CALDO"
+      },
+      {
+        "row": 2,
+        "col": 0,
+        "clue": "Quando c'è il buio",
+        "answer": "NOTTE"
+      },
+      {
+        "row": 4,
+        "col": 0,
+        "clue": "Spettacolo lirico",
+        "answer": "OPERA"
+      }
+    ],
+    "down": [
+      {
+        "row": 0,
+        "col": 0,
+        "clue": "Con la voce",
+        "answer": "CANTO"
+      },
+      {
+        "row": 0,
+        "col": 2,
+        "clue": "Bevanda bianca",
+        "answer": "LATTE"
+      },
+      {
+        "row": 0,
+        "col": 4,
+        "clue": "Spettacolo lirico",
+        "answer": "OPERA"
+      }
+    ]
+  },
+  {
+    "theme": "Mini",
+    "grid": [
+      "CARTA",
+      "O#I#M",
+      "SUCCO",
+      "T#C#R",
+      "AMORE"
+    ],
+    "across": [
+      {
+        "row": 0,
+        "col": 0,
+        "clue": "Si scrive sopra",
+        "answer": "CARTA"
+      },
+      {
+        "row": 2,
+        "col": 0,
+        "clue": "Di frutta",
+        "answer": "SUCCO"
+      },
+      {
+        "row": 4,
+        "col": 0,
+        "clue": "Sentimento forte",
+        "answer": "AMORE"
+      }
+    ],
+    "down": [
+      {
+        "row": 0,
+        "col": 0,
+        "clue": "Bordo del mare",
+        "answer": "COSTA"
+      },
+      {
+        "row": 0,
+        "col": 2,
+        "clue": "Non povero",
+        "answer": "RICCO"
+      },
+      {
+        "row": 0,
+        "col": 4,
+        "clue": "Sentimento forte",
+        "answer": "AMORE"
+      }
+    ]
+  },
+  {
+    "theme": "Mini",
+    "grid": [
+      "CARTA",
+      "O#O#M",
+      "SASSO",
+      "T#S#R",
+      "AMORE"
+    ],
+    "across": [
+      {
+        "row": 0,
+        "col": 0,
+        "clue": "Si scrive sopra",
+        "answer": "CARTA"
+      },
+      {
+        "row": 2,
+        "col": 0,
+        "clue": "Pietra",
+        "answer": "SASSO"
+      },
+      {
+        "row": 4,
+        "col": 0,
+        "clue": "Sentimento forte",
+        "answer": "AMORE"
+      }
+    ],
+    "down": [
+      {
+        "row": 0,
+        "col": 0,
+        "clue": "Bordo del mare",
+        "answer": "COSTA"
+      },
+      {
+        "row": 0,
+        "col": 2,
+        "clue": "Colore",
+        "answer": "ROSSO"
+      },
+      {
+        "row": 0,
+        "col": 4,
+        "clue": "Sentimento forte",
+        "answer": "AMORE"
+      }
+    ]
+  },
+  {
+    "theme": "Mini",
+    "grid": [
+      "CORSA",
+      "O#I#M",
+      "SUCCO",
+      "T#C#R",
+      "AMORE"
+    ],
+    "across": [
+      {
+        "row": 0,
+        "col": 0,
+        "clue": "Si corre",
+        "answer": "CORSA"
+      },
+      {
+        "row": 2,
+        "col": 0,
+        "clue": "Di frutta",
+        "answer": "SUCCO"
+      },
+      {
+        "row": 4,
+        "col": 0,
+        "clue": "Sentimento forte",
+        "answer": "AMORE"
+      }
+    ],
+    "down": [
+      {
+        "row": 0,
+        "col": 0,
+        "clue": "Bordo del mare",
+        "answer": "COSTA"
+      },
+      {
+        "row": 0,
+        "col": 2,
+        "clue": "Non povero",
+        "answer": "RICCO"
+      },
+      {
+        "row": 0,
+        "col": 4,
+        "clue": "Sentimento forte",
+        "answer": "AMORE"
+      }
+    ]
+  },
+  {
+    "theme": "Mini",
+    "grid": [
+      "CORSA",
+      "O#O#M",
+      "SASSO",
+      "T#S#R",
+      "AMORE"
+    ],
+    "across": [
+      {
+        "row": 0,
+        "col": 0,
+        "clue": "Si corre",
+        "answer": "CORSA"
+      },
+      {
+        "row": 2,
+        "col": 0,
+        "clue": "Pietra",
+        "answer": "SASSO"
+      },
+      {
+        "row": 4,
+        "col": 0,
+        "clue": "Sentimento forte",
+        "answer": "AMORE"
+      }
+    ],
+    "down": [
+      {
+        "row": 0,
+        "col": 0,
+        "clue": "Bordo del mare",
+        "answer": "COSTA"
+      },
+      {
+        "row": 0,
+        "col": 2,
+        "clue": "Colore",
+        "answer": "ROSSO"
+      },
+      {
+        "row": 0,
+        "col": 4,
+        "clue": "Sentimento forte",
+        "answer": "AMORE"
+      }
+    ]
+  },
+  {
+    "theme": "Mini",
+    "grid": [
+      "PASTA",
+      "E#A#M",
+      "ROSSO",
+      "L#S#R",
+      "AMORE"
+    ],
+    "across": [
+      {
+        "row": 0,
+        "col": 0,
+        "clue": "Italiana",
+        "answer": "PASTA"
+      },
+      {
+        "row": 2,
+        "col": 0,
+        "clue": "Colore",
+        "answer": "ROSSO"
+      },
+      {
+        "row": 4,
+        "col": 0,
+        "clue": "Sentimento forte",
+        "answer": "AMORE"
+      }
+    ],
+    "down": [
+      {
+        "row": 0,
+        "col": 0,
+        "clue": "Nel mollusco",
+        "answer": "PERLA"
+      },
+      {
+        "row": 0,
+        "col": 2,
+        "clue": "Pietra",
+        "answer": "SASSO"
+      },
+      {
+        "row": 0,
+        "col": 4,
+        "clue": "Sentimento forte",
+        "answer": "AMORE"
+      }
+    ]
+  }
+]
