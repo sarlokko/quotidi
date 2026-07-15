@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Quotidì — Giochi di oggi</title>
+  <meta name="description" content="Quattro minigiochi al giorno: tipo Pokémon, parola, indovinello e barzelletta. Si resetta a mezzanotte.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,600;0,9..40,700;1,9..40,400&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="header-inner">
+      <div>
+        <p class="eyebrow">Nuovi giochi ogni giorno</p>
+        <h1>Quotidì</h1>
+        <p class="subtitle" id="today-date"></p>
+      </div>
+      <div class="reset-box">
+        <p class="reset-label">Prossimo reset</p>
+        <p class="countdown" id="countdown">--:--:--</p>
+        <p class="reset-hint">Mezzanotte (Italia)</p>
+      </div>
+    </div>
+    <div class="progress-wrap">
+      <div class="progress-meta">
+        <span>Progresso di oggi</span>
+        <strong id="progress-text">0/4 completati oggi</strong>
+      </div>
+      <div class="progress-track"><div class="progress-bar" id="progress-bar"></div></div>
+    </div>
+  </header>
+
+  <nav class="tabs" aria-label="Giochi">
+    <button type="button" class="tab-btn active" data-tab="pokemon">⚡ Tipo Pokémon</button>
+    <button type="button" class="tab-btn" data-tab="wordle">📝 Parola</button>
+    <button type="button" class="tab-btn" data-tab="riddle">🧩 Indovinello</button>
+    <button type="button" class="tab-btn" data-tab="joke">😄 Barzelletta</button>
+  </nav>
+
+  <main class="container">
+    <section id="pokemon" class="game-panel active card">
+      <h2>Di che tipo è?</h2>
+      <p class="game-desc">Indovina uno o due tipi del Pokémon del giorno. Hai 3 tentativi.</p>
+      <div id="pokemon-card" class="pokemon-card"></div>
+      <p id="pokemon-attempts" class="attempts"></p>
+      <div id="pokemon-grid" class="type-grid"></div>
+      <div id="pokemon-feedback" class="feedback"></div>
+      <div id="pokemon-actions" class="actions">
+        <button type="button" id="pokemon-submit" class="btn primary">Indovina</button>
+      </div>
+    </section>
+
+    <section id="wordle" class="game-panel card">
+      <h2>Parola del giorno</h2>
+      <p class="game-desc">Wordle in italiano: 5 lettere, 6 tentativi.</p>
+      <p id="wordle-status" class="game-status"></p>
+      <div id="wordle-board" class="wordle-board"></div>
+      <div id="wordle-keyboard" class="wordle-keyboard"></div>
+    </section>
+
+    <section id="riddle" class="game-panel card">
+      <h2>Indovinello</h2>
+      <p class="game-desc">Risolvi l'indovinello di oggi o rivela la risposta.</p>
+      <blockquote id="riddle-text" class="riddle-text"></blockquote>
+      <div class="answer-box">
+        <span>Risposta:</span>
+        <strong id="riddle-answer" class="hidden-answer">???</strong>
+      </div>
+      <input id="riddle-input" class="text-input" type="text" placeholder="La tua risposta..." autocomplete="off">
+      <div id="riddle-feedback" class="feedback"></div>
+      <div class="actions">
+        <button type="button" id="riddle-check" class="btn primary">Controlla</button>
+        <button type="button" id="riddle-reveal" class="btn ghost">Mostra risposta</button>
+      </div>
+    </section>
+
+    <section id="joke" class="game-panel card">
+      <h2>Barzelletta del giorno</h2>
+      <p class="game-desc">Una barzelletta nuova ogni mattina.</p>
+      <p id="joke-setup" class="joke-setup"></p>
+      <p id="joke-punchline" class="joke-punchline hidden-answer"></p>
+      <div class="actions">
+        <button type="button" id="joke-reveal" class="btn primary">Rivela la risposta</button>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p>Quotidì — tutto si resetta a mezzanotte · Ispirato a <a href="https://github.com/sarlokko/lecartepokemondiluca" target="_blank" rel="noopener">Le Carte Pokémon di Luca</a> e <a href="https://pietroppeter.github.io/wordle-it/" target="_blank" rel="noopener">Parole</a></p>
+  </footer>
+
+  <script type="module" src="js/main.js"></script>
+</body>
+</html>
