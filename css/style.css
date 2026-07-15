@@ -62,12 +62,25 @@ a { color: var(--accent); }
   flex-wrap: wrap;
 }
 
-.eyebrow {
+.brand-block {
+  max-width: 28rem;
+}
+
+.brand {
+  font-family: "Space Grotesk", sans-serif;
+  font-size: clamp(2.75rem, 10vw, 4.25rem);
+  line-height: 0.95;
+  letter-spacing: -0.03em;
+  font-weight: 700;
+}
+
+.tagline {
+  font-family: "Space Grotesk", sans-serif;
+  font-size: clamp(1.05rem, 3.2vw, 1.35rem);
+  font-weight: 500;
   color: var(--accent-2);
-  text-transform: uppercase;
-  letter-spacing: 0.12em;
-  font-size: 0.75rem;
-  margin-bottom: 0.35rem;
+  margin-top: 0.55rem;
+  line-height: 1.25;
 }
 
 h1 {
@@ -78,8 +91,9 @@ h1 {
 
 .subtitle {
   color: var(--muted);
-  margin-top: 0.5rem;
+  margin-top: 0.65rem;
   text-transform: capitalize;
+  font-size: 0.95rem;
 }
 
 .reset-box {

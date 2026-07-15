@@ -1,5 +1,7 @@
 # Quotidì
 
+**Quotidì** — e ti diverti tutti i dì!
+
 Sito con **4 minigiochi al giorno** che si resettano a **mezzanotte** (fuso orario Italia):
 
 1. **Tipo Pokémon** — indovina i tipi del Pokémon del giorno (hint sul numero di tipi, storico tentativi, 3 prove)
