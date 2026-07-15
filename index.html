@@ -113,9 +113,24 @@
 
     <section id="crossword" class="game-panel card">
       <h2>Cruciverba 5×5</h2>
-      <p class="game-desc">Mini cruciverba del giorno. Clicca una cella, scrivi le lettere; spazio o secondo click cambia direzione.</p>
+      <p class="game-desc">Mini cruciverba del giorno. Tocca una cella e usa la tastiera a schermo (o quella del telefono). Secondo tocco o ⇄ cambia direzione.</p>
       <p id="crossword-status" class="game-status" role="status" aria-live="polite"></p>
-      <div id="crossword-board" class="xw-board" aria-label="Griglia cruciverba 5×5"></div>
+      <div class="xw-stage">
+        <div id="crossword-board" class="xw-board" aria-label="Griglia cruciverba 5×5"></div>
+        <label class="sr-only" for="crossword-input">Scrivi una lettera</label>
+        <input
+          id="crossword-input"
+          class="xw-hidden-input"
+          type="text"
+          inputmode="text"
+          enterkeyhint="done"
+          autocomplete="off"
+          autocapitalize="characters"
+          autocorrect="off"
+          spellcheck="false"
+        >
+      </div>
+      <div id="crossword-keyboard" class="xw-keyboard" aria-label="Tastiera lettere"></div>
       <div class="xw-clues">
         <div>
           <h3>Orizzontali</h3>

@@ -2,6 +2,11 @@ import { getDailyKey, pickDailyItem, loadState, saveState, normalizeText } from 
 
 const STORAGE_KEY = "quotid-crossword";
 const SIZE = 5;
+const KB_ROWS = [
+  "qwertyuiop".split(""),
+  "asdfghjkl".split(""),
+  ["⇄", ..."zxcvbnm".split(""), "⌫"],
+];
 
 let puzzle = null;
 let grid = null; // letters or '' ; '#' blocked
@@ -63,6 +68,35 @@ function extractAnswer(r, c, dir) {
   return s;
 }
 
+function wordCells(r, c, dir) {
+  if (isBlock(r, c)) return [];
+  let sr = r;
+  let sc = c;
+  if (dir === "across") {
+    while (sc > 0 && !isBlock(r, sc - 1)) sc -= 1;
+  } else {
+    while (sr > 0 && !isBlock(sr - 1, c)) sr -= 1;
+  }
+  const cells = [];
+  if (dir === "across") {
+    while (sc < SIZE && !isBlock(r, sc)) {
+      cells.push({ r, c: sc });
+      sc += 1;
+    }
+  } else {
+    while (sr < SIZE && !isBlock(sr, c)) {
+      cells.push({ r: sr, c });
+      sr += 1;
+    }
+  }
+  return cells;
+}
+
+function isInActiveWord(r, c) {
+  if (!selected) return false;
+  return wordCells(selected.r, selected.c, direction).some((p) => p.r === r && p.c === c);
+}
+
 export async function initCrossword(onDone) {
   onComplete = onDone;
   const list = await (await fetch("data/crosswords.json")).json();
@@ -115,6 +149,36 @@ function setStatus(text, kind = "") {
   el.className = `game-status${kind ? ` ${kind}` : ""}`;
 }
 
+function focusInput() {
+  const input = document.getElementById("crossword-input");
+  if (!input || locked) return;
+  input.disabled = false;
+  input.value = "";
+  try {
+    input.focus({ preventScroll: true });
+  } catch {
+    input.focus();
+  }
+}
+
+function renderKeyboard() {
+  const kb = document.getElementById("crossword-keyboard");
+  if (!kb) return;
+  kb.innerHTML = KB_ROWS.map((row) => `
+    <div class="kb-row">
+      ${row.map((key) => {
+        if (key === "⌫") {
+          return `<button type="button" class="kb-key wide" data-xw-key="Backspace" ${locked ? "disabled" : ""} aria-label="Cancella">⌫</button>`;
+        }
+        if (key === "⇄") {
+          return `<button type="button" class="kb-key wide" data-xw-key="Dir" ${locked ? "disabled" : ""} aria-label="Cambia direzione">${direction === "across" ? "→" : "↓"}</button>`;
+        }
+        return `<button type="button" class="kb-key" data-xw-key="${key}" ${locked ? "disabled" : ""}>${key.toUpperCase()}</button>`;
+      }).join("")}
+    </div>
+  `).join("");
+}
+
 function render() {
   const board = document.getElementById("crossword-board");
   const acrossEl = document.getElementById("crossword-across");
@@ -124,15 +188,22 @@ function render() {
   board.innerHTML = "";
   for (let r = 0; r < SIZE; r++) {
     for (let c = 0; c < SIZE; c++) {
-      const cell = document.createElement("div");
+      const cell = document.createElement("button");
+      cell.type = "button";
       if (isBlock(r, c)) {
         cell.className = "xw-cell is-block";
+        cell.disabled = true;
+        cell.tabIndex = -1;
+        cell.setAttribute("aria-hidden", "true");
       } else {
         const num = cellNumber(r, c);
         const sel = selected && selected.r === r && selected.c === c;
-        cell.className = `xw-cell${sel ? " is-selected" : ""}`;
+        const inWord = isInActiveWord(r, c);
+        cell.className = `xw-cell${sel ? " is-selected" : ""}${inWord && !sel ? " is-word" : ""}`;
         cell.dataset.r = r;
         cell.dataset.c = c;
+        cell.disabled = locked;
+        cell.setAttribute("aria-label", `Riga ${r + 1}, colonna ${c + 1}${grid[r][c] ? `, lettera ${grid[r][c]}` : ""}`);
         if (num) {
           const n = document.createElement("span");
           n.className = "xw-num";
@@ -159,10 +230,17 @@ function render() {
   document.getElementById("crossword-check").disabled = locked;
   document.getElementById("crossword-clear").disabled = locked;
   document.getElementById("crossword-reveal").disabled = locked;
+  const input = document.getElementById("crossword-input");
+  if (input) input.disabled = locked;
+
+  renderKeyboard();
 
   if (locked && won) setStatus("Cruciverba completato!", "win");
   else if (locked) setStatus("Soluzione rivelata. Torna domani!", "hint");
-  else setStatus(`Mini 5×5 · tema: ${puzzle.theme || "giornaliero"}`);
+  else {
+    const dirLabel = direction === "across" ? "orizzontale →" : "verticale ↓";
+    setStatus(`Direzione ${dirLabel} · tema: ${puzzle.theme || "giornaliero"}`);
+  }
 }
 
 function move(dr, dc) {
@@ -180,9 +258,11 @@ function move(dr, dc) {
 
 function typeLetter(ch) {
   if (locked || !selected) return;
+  const letter = normalizeText(ch).replace(/[^a-z]/g, "");
+  if (!letter) return;
   const { r, c } = selected;
   if (isBlock(r, c)) return;
-  grid[r][c] = ch.toUpperCase();
+  grid[r][c] = letter.toUpperCase();
   if (isSolved()) {
     locked = true;
     won = true;
@@ -193,44 +273,146 @@ function typeLetter(ch) {
     else move(1, 0);
   }
   render();
+  focusInput();
+}
+
+function deleteLetter() {
+  if (locked || !selected) return;
+  const { r, c } = selected;
+  if (grid[r][c]) grid[r][c] = "";
+  else if (direction === "across") move(0, -1);
+  else move(-1, 0);
+  persist();
+  render();
+  focusInput();
+}
+
+function toggleDirection() {
+  direction = direction === "across" ? "down" : "across";
+  render();
+  focusInput();
+}
+
+function selectCell(r, c, { toggleDir = false } = {}) {
+  if (isBlock(r, c)) return;
+  if (toggleDir && selected && selected.r === r && selected.c === c) {
+    direction = direction === "across" ? "down" : "across";
+  }
+  selected = { r, c };
+  render();
+  focusInput();
 }
 
 function bindEvents() {
   if (eventsBound) return;
   eventsBound = true;
 
-  document.getElementById("crossword-board")?.addEventListener("click", (e) => {
+  document.getElementById("crossword-board")?.addEventListener("pointerdown", (e) => {
     const cell = e.target.closest("[data-r]");
     if (!cell || locked) return;
+    // Focus nel gesto utente: fondamentale su iOS/Android
+    e.preventDefault();
     const r = Number(cell.dataset.r);
     const c = Number(cell.dataset.c);
-    if (selected && selected.r === r && selected.c === c) {
-      direction = direction === "across" ? "down" : "across";
-    }
-    selected = { r, c };
-    render();
+    selectCell(r, c, { toggleDir: true });
   });
 
+  const input = document.getElementById("crossword-input");
+  input?.addEventListener("input", () => {
+    if (locked) return;
+    const raw = input.value || "";
+    input.value = "";
+    const letters = normalizeText(raw).replace(/[^a-z]/g, "");
+    for (const ch of letters) typeLetter(ch);
+  });
+
+  input?.addEventListener("keydown", (e) => {
+    if (locked) return;
+    if (e.key === "Backspace" || e.key === "Delete") {
+      e.preventDefault();
+      deleteLetter();
+    } else if (e.key === " ") {
+      e.preventDefault();
+      toggleDirection();
+    } else if (e.key === "ArrowRight") {
+      e.preventDefault();
+      direction = "across";
+      move(0, 1);
+      render();
+      focusInput();
+    } else if (e.key === "ArrowLeft") {
+      e.preventDefault();
+      direction = "across";
+      move(0, -1);
+      render();
+      focusInput();
+    } else if (e.key === "ArrowDown") {
+      e.preventDefault();
+      direction = "down";
+      move(1, 0);
+      render();
+      focusInput();
+    } else if (e.key === "ArrowUp") {
+      e.preventDefault();
+      direction = "down";
+      move(-1, 0);
+      render();
+      focusInput();
+    }
+  });
+
+  document.getElementById("crossword-keyboard")?.addEventListener("click", (e) => {
+    const btn = e.target.closest("[data-xw-key]");
+    if (!btn || locked) return;
+    const key = btn.dataset.xwKey;
+    if (key === "Backspace") deleteLetter();
+    else if (key === "Dir") toggleDirection();
+    else typeLetter(key);
+  });
+
+  document.querySelectorAll(".tab-btn").forEach((btn) => {
+    btn.addEventListener("click", () => {
+      if (btn.dataset.tab === "crossword" && !locked) {
+        requestAnimationFrame(() => focusInput());
+      }
+    });
+  });
+
+  // Desktop: anche keydown globale se il focus non è sull'input
   document.addEventListener("keydown", (e) => {
     if (!document.getElementById("crossword")?.classList.contains("active")) return;
     if (locked) return;
+    if (e.target === input) return;
     if (/^[a-zA-Z]$/.test(e.key)) {
       e.preventDefault();
       typeLetter(normalizeText(e.key));
     } else if (e.key === "Backspace") {
       e.preventDefault();
-      if (!selected) return;
-      const { r, c } = selected;
-      if (grid[r][c]) grid[r][c] = "";
-      else if (direction === "across") move(0, -1);
-      else move(-1, 0);
-      persist();
+      deleteLetter();
+    } else if (e.key === " ") {
+      e.preventDefault();
+      toggleDirection();
+    } else if (e.key === "ArrowRight") {
+      e.preventDefault();
+      direction = "across";
+      move(0, 1);
       render();
-    } else if (e.key === "ArrowRight") { e.preventDefault(); direction = "across"; move(0, 1); render(); }
-    else if (e.key === "ArrowLeft") { e.preventDefault(); direction = "across"; move(0, -1); render(); }
-    else if (e.key === "ArrowDown") { e.preventDefault(); direction = "down"; move(1, 0); render(); }
-    else if (e.key === "ArrowUp") { e.preventDefault(); direction = "down"; move(-1, 0); render(); }
-    else if (e.key === " ") { e.preventDefault(); direction = direction === "across" ? "down" : "across"; }
+    } else if (e.key === "ArrowLeft") {
+      e.preventDefault();
+      direction = "across";
+      move(0, -1);
+      render();
+    } else if (e.key === "ArrowDown") {
+      e.preventDefault();
+      direction = "down";
+      move(1, 0);
+      render();
+    } else if (e.key === "ArrowUp") {
+      e.preventDefault();
+      direction = "down";
+      move(-1, 0);
+      render();
+    }
   });
 
   document.getElementById("crossword-check")?.addEventListener("click", () => {
@@ -243,6 +425,7 @@ function bindEvents() {
       return;
     }
     setStatus("Non ancora: controlla le lettere.", "hint");
+    focusInput();
   });
 
   document.getElementById("crossword-clear")?.addEventListener("click", () => {
@@ -250,6 +433,7 @@ function bindEvents() {
     grid = buildEmpty();
     persist();
     render();
+    focusInput();
   });
 
   document.getElementById("crossword-reveal")?.addEventListener("click", () => {
