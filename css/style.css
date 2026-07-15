@@ -373,6 +373,86 @@ h2 {
   margin: 1rem 0;
 }
 
+.sudoku-board {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(64px, 1fr));
+  gap: 0.45rem;
+  max-width: 240px;
+  margin: 1rem auto;
+}
+
+.sudoku-board.shake { animation: shake 0.45s ease; }
+
+.sudoku-cell {
+  aspect-ratio: 1;
+  display: grid;
+  place-items: center;
+  border: 2px solid var(--border);
+  border-radius: 12px;
+  background: var(--surface-2);
+  color: var(--text);
+  font-family: "Space Grotesk", sans-serif;
+  font-size: 1.6rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: border-color 0.15s ease, background 0.15s ease, transform 0.15s ease;
+}
+
+.sudoku-cell.is-given {
+  background: #151925;
+  color: var(--muted);
+  cursor: default;
+}
+
+.sudoku-cell.is-edit:hover:not(:disabled) {
+  border-color: var(--accent);
+  transform: translateY(-1px);
+}
+
+.sudoku-cell.is-selected {
+  border-color: var(--accent);
+  box-shadow: inset 0 0 0 1px var(--accent), 0 0 0 3px rgba(108, 140, 255, 0.2);
+}
+
+.sudoku-cell.is-conflict {
+  border-color: var(--danger);
+  color: var(--danger);
+  background: rgba(255, 107, 138, 0.1);
+}
+
+.sudoku-cell.is-solved {
+  border-color: var(--accent-2);
+  color: var(--accent-2);
+}
+
+.sudoku-pad {
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+  margin: 0.25rem 0 0.5rem;
+}
+
+.sudoku-key {
+  min-width: 52px;
+  height: 52px;
+  border: none;
+  border-radius: 12px;
+  background: var(--surface-2);
+  color: var(--text);
+  font-family: "Space Grotesk", sans-serif;
+  font-size: 1.25rem;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.sudoku-key:disabled { opacity: 0.5; cursor: not-allowed; }
+.sudoku-key-clear { min-width: 64px; font-size: 1rem; }
+
+.sudoku-key:hover:not(:disabled) {
+  border: 1px solid var(--accent);
+}
+
 .wordle-row { display: flex; gap: 0.45rem; }
 .wordle-row.shake { animation: shake 0.45s ease; }
 
