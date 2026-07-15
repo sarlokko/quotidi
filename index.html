@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Quotidì — Giochi di oggi</title>
   <meta name="description" content="Quattro minigiochi al giorno: tipo Pokémon, parola, indovinello e barzelletta. Si resetta a mezzanotte.">
+  <meta name="theme-color" content="#0f1117">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,600;0,9..40,700;1,9..40,400&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
@@ -43,47 +44,69 @@
   <main class="container">
     <section id="pokemon" class="game-panel active card">
       <h2>Di che tipo è?</h2>
-      <p class="game-desc">Indovina uno o due tipi del Pokémon del giorno. Hai 3 tentativi.</p>
+      <p class="game-desc">Guarda il Pokémon e indovina i suoi tipi. Seleziona fino a 2 tipi, poi conferma. Hai 3 tentativi.</p>
       <div id="pokemon-card" class="pokemon-card"></div>
+      <p id="pokemon-hint" class="pokemon-hint"></p>
       <p id="pokemon-attempts" class="attempts"></p>
+      <div id="pokemon-history" class="guess-history" hidden></div>
       <div id="pokemon-grid" class="type-grid"></div>
-      <div id="pokemon-feedback" class="feedback"></div>
+      <div id="pokemon-feedback" class="feedback" role="status" aria-live="polite"></div>
       <div id="pokemon-actions" class="actions">
-        <button type="button" id="pokemon-submit" class="btn primary">Indovina</button>
+        <button type="button" id="pokemon-submit" class="btn primary" disabled>Indovina</button>
+        <button type="button" id="pokemon-clear" class="btn ghost">Deseleziona</button>
       </div>
     </section>
 
     <section id="wordle" class="game-panel card">
       <h2>Parola del giorno</h2>
-      <p class="game-desc">Wordle in italiano: 5 lettere, 6 tentativi.</p>
-      <p id="wordle-status" class="game-status"></p>
-      <div id="wordle-board" class="wordle-board"></div>
-      <div id="wordle-keyboard" class="wordle-keyboard"></div>
+      <p class="game-desc">Wordle in italiano: 5 lettere, 6 tentativi. Usa la tastiera o quella a schermo.</p>
+      <p id="wordle-status" class="game-status" role="status" aria-live="polite"></p>
+      <div id="wordle-board" class="wordle-board" aria-label="Griglia Wordle"></div>
+      <div id="wordle-keyboard" class="wordle-keyboard" aria-label="Tastiera"></div>
+      <div id="wordle-share-wrap" class="share-wrap" hidden>
+        <button type="button" id="wordle-share" class="btn ghost">Copia risultato</button>
+      </div>
     </section>
 
     <section id="riddle" class="game-panel card">
       <h2>Indovinello</h2>
-      <p class="game-desc">Risolvi l'indovinello di oggi o rivela la risposta.</p>
+      <p class="game-desc">Risolvi l'indovinello di oggi. Puoi anche rivelare la risposta se ti arrendi.</p>
       <blockquote id="riddle-text" class="riddle-text"></blockquote>
       <div class="answer-box">
         <span>Risposta:</span>
         <strong id="riddle-answer" class="hidden-answer">???</strong>
       </div>
-      <input id="riddle-input" class="text-input" type="text" placeholder="La tua risposta..." autocomplete="off">
-      <div id="riddle-feedback" class="feedback"></div>
-      <div class="actions">
-        <button type="button" id="riddle-check" class="btn primary">Controlla</button>
-        <button type="button" id="riddle-reveal" class="btn ghost">Mostra risposta</button>
-      </div>
+      <form id="riddle-form" class="riddle-form" autocomplete="off">
+        <label class="sr-only" for="riddle-input">La tua risposta</label>
+        <input id="riddle-input" class="text-input" type="text" placeholder="Scrivi la risposta e premi Invio..." autocomplete="off" enterkeyhint="done">
+        <div id="riddle-feedback" class="feedback" role="status" aria-live="polite"></div>
+        <div class="actions">
+          <button type="submit" id="riddle-check" class="btn primary">Controlla</button>
+          <button type="button" id="riddle-reveal" class="btn ghost">Mostra risposta</button>
+        </div>
+      </form>
     </section>
 
     <section id="joke" class="game-panel card">
       <h2>Barzelletta del giorno</h2>
-      <p class="game-desc">Una barzelletta nuova ogni mattina.</p>
-      <p id="joke-setup" class="joke-setup"></p>
-      <p id="joke-punchline" class="joke-punchline hidden-answer"></p>
+      <p class="game-desc">Una barzelletta nuova ogni mattina. Leggi il setup, poi rivela la punchline.</p>
+      <div class="joke-stage">
+        <p id="joke-setup" class="joke-setup"></p>
+        <div id="joke-punch-wrap" class="joke-punch-wrap">
+          <p id="joke-punchline" class="joke-punchline is-hidden">?</p>
+        </div>
+      </div>
       <div class="actions">
         <button type="button" id="joke-reveal" class="btn primary">Rivela la risposta</button>
+      </div>
+      <div id="joke-reaction" class="joke-reaction" hidden>
+        <p>Ti ha fatto ridere?</p>
+        <div class="reaction-row">
+          <button type="button" class="btn ghost reaction-btn" data-reaction="lol">😂 Molto</button>
+          <button type="button" class="btn ghost reaction-btn" data-reaction="smile">🙂 Un po'</button>
+          <button type="button" class="btn ghost reaction-btn" data-reaction="meh">😐 Boh</button>
+        </div>
+        <p id="joke-reaction-msg" class="joke-reaction-msg" role="status"></p>
       </div>
     </section>
   </main>

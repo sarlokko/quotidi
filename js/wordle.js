@@ -11,6 +11,8 @@ let guesses = [];
 let current = "";
 let locked = false;
 let onComplete = null;
+let eventsBound = false;
+let revealBusy = false;
 
 function evaluateGuess(guess, target) {
   const result = Array(WORD_LEN).fill("absent");
@@ -41,8 +43,9 @@ function keyboardState() {
     for (let i = 0; i < WORD_LEN; i++) {
       const letter = guess.word[i];
       const rank = { absent: 0, present: 1, correct: 2 };
-      const current = state[letter] || "absent";
-      if (rank[guess.result[i]] > rank[current]) state[letter] = guess.result[i];
+      const prev = state[letter];
+      const next = guess.result[i];
+      if (!prev || rank[next] > rank[prev]) state[letter] = next;
     }
   }
   return state;
@@ -55,6 +58,12 @@ export async function initWordle(onDone) {
     fetch("data/words-answers.txt"),
     fetch("data/words-guesses.txt"),
   ]);
+
+  if (!answersRes.ok || !guessesRes.ok) {
+    document.getElementById("wordle-status").textContent = "Impossibile caricare il dizionario.";
+    document.getElementById("wordle-status").className = "game-status lose";
+    return;
+  }
 
   answerWords = (await answersRes.text()).trim().split("\n").filter(Boolean);
   guessWords = new Set((await guessesRes.text()).trim().split("\n").filter(Boolean));
@@ -77,6 +86,7 @@ export async function initWordle(onDone) {
   renderBoard();
   renderKeyboard();
   updateStatus();
+  updateShare();
   bindEvents();
 }
 
@@ -85,20 +95,31 @@ function persist() {
   if (locked && onComplete) onComplete(true);
 }
 
-function renderBoard() {
+function renderBoard(animateRow = -1) {
   const board = document.getElementById("wordle-board");
   const rows = [];
 
   for (let r = 0; r < MAX_ATTEMPTS; r++) {
     const guess = guesses[r];
-    const letters = guess?.word || (r === guesses.length ? current.padEnd(WORD_LEN, " ") : "     ");
+    const isCurrent = !guess && r === guesses.length && !locked;
+    const letters = guess?.word || (isCurrent ? current.padEnd(WORD_LEN, " ") : "     ");
     const results = guess?.result || Array(WORD_LEN).fill("empty");
 
     rows.push(`
-      <div class="wordle-row">
-        ${letters.split("").map((ch, i) => `
-          <div class="wordle-tile tile-${results[i] || "empty"}">${ch.trim() ? ch.toUpperCase() : ""}</div>
-        `).join("")}
+      <div class="wordle-row ${animateRow === r ? "reveal-row" : ""} ${isCurrent && current.length === WORD_LEN ? "row-ready" : ""}">
+        ${letters.split("").map((ch, i) => {
+          const filled = ch.trim().length > 0;
+          const isActive = isCurrent && i === current.length && current.length < WORD_LEN;
+          const base = guess
+            ? `tile-${results[i]}`
+            : filled
+              ? "tile-filled"
+              : isActive
+                ? "tile-active"
+                : "tile-empty";
+          const delay = animateRow === r ? `style="animation-delay:${i * 0.12}s"` : "";
+          return `<div class="wordle-tile ${base}" ${delay}>${filled ? ch.toUpperCase() : ""}</div>`;
+        }).join("")}
       </div>
     `);
   }
@@ -118,10 +139,10 @@ function renderKeyboard() {
   kb.innerHTML = rows.map((row) => `
     <div class="kb-row">
       ${row.map((key) => {
-        if (key === "invio") return `<button type="button" class="kb-key wide" data-key="Enter">invio</button>`;
-        if (key === "⌫") return `<button type="button" class="kb-key wide" data-key="Backspace">⌫</button>`;
+        if (key === "invio") return `<button type="button" class="kb-key wide" data-key="Enter"${locked || revealBusy ? " disabled" : ""}>invio</button>`;
+        if (key === "⌫") return `<button type="button" class="kb-key wide" data-key="Backspace"${locked || revealBusy ? " disabled" : ""}>⌫</button>`;
         const cls = state[key] ? ` key-${state[key]}` : "";
-        return `<button type="button" class="kb-key${cls}" data-key="${key}">${key.toUpperCase()}</button>`;
+        return `<button type="button" class="kb-key${cls}" data-key="${key}"${locked || revealBusy ? " disabled" : ""}>${key.toUpperCase()}</button>`;
       }).join("")}
     </div>
   `).join("");
@@ -130,25 +151,61 @@ function renderKeyboard() {
 function updateStatus() {
   const el = document.getElementById("wordle-status");
   if (locked && guesses.some((g) => g.word === answer)) {
-    el.textContent = `Complimenti! La parola era ${answer.toUpperCase()}.`;
+    const n = guesses.length;
+    el.textContent = `Complimenti! Indovinata in ${n} tentativ${n === 1 ? "o" : "i"}.`;
     el.className = "game-status win";
   } else if (locked) {
     el.textContent = `Peccato! La parola era ${answer.toUpperCase()}.`;
     el.className = "game-status lose";
   } else {
-    el.textContent = "Indovina la parola di 5 lettere in 6 tentativi.";
+    el.textContent = `Tentativo ${guesses.length + 1} di ${MAX_ATTEMPTS}.`;
     el.className = "game-status";
   }
 }
 
+function buildShareText() {
+  const won = guesses.some((g) => g.word === answer);
+  const score = won ? String(guesses.length) : "X";
+  const day = getDailyKey();
+  const grid = guesses.map((g) =>
+    g.result.map((r) => (r === "correct" ? "🟩" : r === "present" ? "🟨" : "⬛")).join("")
+  ).join("\n");
+  return `Quotidì Parola ${day} ${score}/${MAX_ATTEMPTS}\n\n${grid}\nhttps://sarlokko.github.io/quotidi/`;
+}
+
+function updateShare() {
+  const wrap = document.getElementById("wordle-share-wrap");
+  if (!wrap) return;
+  wrap.hidden = !locked;
+}
+
+async function copyShare() {
+  const text = buildShareText();
+  const btn = document.getElementById("wordle-share");
+  try {
+    await navigator.clipboard.writeText(text);
+    if (btn) {
+      btn.textContent = "Copiato!";
+      setTimeout(() => { btn.textContent = "Copia risultato"; }, 1500);
+    }
+  } catch {
+    const el = document.getElementById("wordle-status");
+    el.textContent = "Copia manuale: apri la console o riprova.";
+    el.className = "game-status hint";
+  }
+}
+
 function submitCurrent() {
+  if (revealBusy) return;
   const word = current.trim();
   if (word.length !== WORD_LEN) {
     flashMessage("Servono 5 lettere.");
+    shakeCurrentRow();
     return;
   }
   if (!guessWords.has(word)) {
     flashMessage("Parola non nel dizionario.");
+    shakeCurrentRow();
     return;
   }
 
@@ -161,9 +218,24 @@ function submitCurrent() {
   }
 
   persist();
-  renderBoard();
+  revealBusy = true;
+  renderBoard(guesses.length - 1);
+  setTimeout(() => {
+    revealBusy = false;
+    renderKeyboard();
+    updateStatus();
+    updateShare();
+  }, WORD_LEN * 120 + 200);
   renderKeyboard();
-  updateStatus();
+}
+
+function shakeCurrentRow() {
+  const board = document.getElementById("wordle-board");
+  const row = board?.children[guesses.length];
+  if (!row) return;
+  row.classList.remove("shake");
+  void row.offsetWidth;
+  row.classList.add("shake");
 }
 
 function flashMessage(msg) {
@@ -174,7 +246,7 @@ function flashMessage(msg) {
 }
 
 function handleKey(key) {
-  if (locked) return;
+  if (locked || revealBusy) return;
   if (key === "Enter") {
     submitCurrent();
     return;
@@ -183,22 +255,35 @@ function handleKey(key) {
     current = current.slice(0, -1);
   } else if (/^[a-z]$/.test(key) && current.length < WORD_LEN) {
     current += key;
+  } else {
+    return;
   }
   renderBoard();
   saveState(STORAGE_KEY, getDailyKey(), { guesses, current, locked });
 }
 
 function bindEvents() {
+  if (eventsBound) return;
+  eventsBound = true;
+
   document.getElementById("wordle-keyboard")?.addEventListener("click", (e) => {
     const btn = e.target.closest("[data-key]");
     if (btn) handleKey(btn.dataset.key);
   });
 
+  document.getElementById("wordle-share")?.addEventListener("click", copyShare);
+
   document.addEventListener("keydown", (e) => {
     if (!document.getElementById("wordle").classList.contains("active")) return;
-    if (e.key === "Enter") handleKey("Enter");
-    else if (e.key === "Backspace") handleKey("Backspace");
-    else if (/^[a-zA-Z]$/.test(e.key)) handleKey(normalizeText(e.key));
+    if (e.key === "Enter") {
+      e.preventDefault();
+      handleKey("Enter");
+    } else if (e.key === "Backspace") {
+      e.preventDefault();
+      handleKey("Backspace");
+    } else if (/^[a-zA-Z]$/.test(e.key)) {
+      handleKey(normalizeText(e.key));
+    }
   });
 }
 

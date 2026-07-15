@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "Quattro minigiochi al giorno — si resetta a mezzanotte",
   "private": true,
+  "type": "module",
   "scripts": {
     "start": "npx --yes serve . -l 3000",
     "dev": "npx --yes serve . -l 3000"
