@@ -1,12 +1,14 @@
 import { getDailyKey, msUntilMidnightRome, formatCountdown } from "./daily.js";
 import { initPokemonType, isPokemonComplete } from "./pokemon-type.js";
 import { initWordle, isWordleComplete } from "./wordle.js";
+import { initSudoku, isSudokuComplete } from "./sudoku.js";
 import { initRiddle, isRiddleComplete } from "./riddle.js";
 import { initJoke, isJokeComplete } from "./joke.js";
 
 const GAMES = [
   { id: "pokemon", label: "Tipo Pokémon", icon: "⚡" },
   { id: "wordle", label: "Parola", icon: "📝" },
+  { id: "sudoku", label: "Sudoku 3×3", icon: "🔢" },
   { id: "riddle", label: "Indovinello", icon: "🧩" },
   { id: "joke", label: "Barzelletta", icon: "😄" },
 ];
@@ -14,6 +16,7 @@ const GAMES = [
 const completionChecks = {
   pokemon: isPokemonComplete,
   wordle: isWordleComplete,
+  sudoku: isSudokuComplete,
   riddle: isRiddleComplete,
   joke: isJokeComplete,
 };
@@ -92,6 +95,7 @@ async function boot() {
     await Promise.all([
       initPokemonType(onDone),
       initWordle(onDone),
+      initSudoku(onDone),
       initRiddle(onDone),
       initJoke(onDone),
     ]);
