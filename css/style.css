@@ -791,35 +791,41 @@ h2 {
 /* Crossword */
 .xw-play {
   display: grid;
-  grid-template-columns: minmax(0, 1fr) auto;
-  gap: 0.55rem;
+  grid-template-columns: minmax(0, 1fr) 4rem;
+  gap: 0.5rem;
   align-items: stretch;
-  max-width: 360px;
+  width: 100%;
+  max-width: 340px;
   margin: 0.85rem auto 0.75rem;
+  box-sizing: border-box;
 }
 
 .xw-board {
   display: grid;
   grid-template-columns: repeat(5, minmax(0, 1fr));
-  gap: 0.18rem;
+  gap: 0.16rem;
   width: 100%;
+  max-width: 100%;
   margin: 0;
-  align-self: start;
+  min-width: 0;
 }
 
 .xw-alpha-panel {
   display: grid;
-  grid-template-rows: auto 1fr auto;
-  gap: 0.3rem;
-  min-width: 0;
+  grid-template-rows: auto minmax(0, 1fr) auto;
+  gap: 0.25rem;
+  width: 4rem;
+  min-width: 4rem;
+  max-width: 4rem;
+  box-sizing: border-box;
 }
 
 .xw-alpha {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
   grid-auto-rows: minmax(0, 1fr);
-  gap: 0.18rem;
-  align-content: stretch;
+  gap: 0.16rem;
+  min-height: 0;
   height: 100%;
 }
 
@@ -828,24 +834,25 @@ h2 {
   display: grid;
   place-items: center;
   border: 1px solid var(--border);
-  border-radius: 7px;
+  border-radius: 6px;
   background: var(--surface-2);
   color: var(--text);
   font-family: "Space Grotesk", sans-serif;
   font-weight: 700;
-  font-size: 0.72rem;
+  font-size: 0.7rem;
   line-height: 1;
   padding: 0;
   cursor: pointer;
-  min-width: 28px;
-  min-height: 22px;
+  width: 100%;
+  min-width: 0;
+  min-height: 0;
   -webkit-tap-highlight-color: transparent;
   transition: border-color 0.12s ease, background 0.12s ease, transform 0.12s ease;
 }
 
 .xw-alpha-ctrl {
-  font-size: 0.9rem;
-  min-height: 30px;
+  font-size: 0.95rem;
+  min-height: 2rem;
 }
 
 .xw-alpha-key:hover:not(:disabled),
@@ -877,6 +884,7 @@ h2 {
   color: inherit;
   font: inherit;
   padding: 0;
+  min-width: 0;
   -webkit-tap-highlight-color: transparent;
 }
 
@@ -901,7 +909,7 @@ h2 {
   position: absolute;
   top: 2px;
   left: 4px;
-  font-size: 0.58rem;
+  font-size: 0.55rem;
   color: var(--muted);
   font-weight: 700;
 }
@@ -909,7 +917,7 @@ h2 {
 .xw-letter {
   font-family: "Space Grotesk", sans-serif;
   font-weight: 700;
-  font-size: clamp(0.85rem, 4.2vw, 1.15rem);
+  font-size: clamp(0.75rem, 3.6vw, 1.1rem);
   pointer-events: none;
 }
 
@@ -1040,14 +1048,39 @@ h2 {
   .xw-clues { grid-template-columns: 1fr; }
   .xw-play {
     max-width: 100%;
-    gap: 0.4rem;
+    width: 100%;
+    grid-template-columns: 1fr;
+    gap: 0.65rem;
+  }
+  .xw-board {
+    max-width: 260px;
+    margin: 0 auto;
+  }
+  .xw-alpha-panel {
+    width: 100%;
+    min-width: 0;
+    max-width: none;
+    grid-template-rows: none;
+    grid-template-columns: 2.6rem minmax(0, 1fr) 2.6rem;
+    gap: 0.35rem;
+    align-items: stretch;
+  }
+  .xw-alpha {
+    grid-template-columns: repeat(7, minmax(0, 1fr));
+    grid-auto-rows: minmax(34px, auto);
+    height: auto;
+    gap: 0.25rem;
   }
   .xw-alpha-key {
-    min-width: 24px;
-    font-size: 0.68rem;
+    min-height: 34px;
+    font-size: 0.8rem;
   }
-  .xw-alpha-ctrl { min-height: 28px; }
-  .xw-num { font-size: 0.52rem; top: 1px; left: 3px; }
+  .xw-alpha-ctrl {
+    min-height: 100%;
+    align-self: stretch;
+    font-size: 1.05rem;
+  }
+  .xw-num { font-size: 0.5rem; top: 1px; left: 3px; }
   .wordle-tile { width: 44px; height: 44px; font-size: 1rem; }
   .kb-key { min-width: 28px; height: 42px; }
   .kb-key.wide { min-width: 52px; }
