@@ -789,43 +789,86 @@ h2 {
 }
 
 /* Crossword */
-.xw-stage {
-  position: relative;
-  max-width: 280px;
-  margin: 1rem auto 0.5rem;
+.xw-play {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 0.55rem;
+  align-items: stretch;
+  max-width: 360px;
+  margin: 0.85rem auto 0.75rem;
 }
 
 .xw-board {
   display: grid;
-  grid-template-columns: repeat(5, minmax(44px, 1fr));
-  gap: 0.2rem;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 0.18rem;
   width: 100%;
   margin: 0;
+  align-self: start;
 }
 
-.xw-hidden-input {
-  position: absolute;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  width: 100%;
+.xw-alpha-panel {
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  gap: 0.3rem;
+  min-width: 0;
+}
+
+.xw-alpha {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-auto-rows: minmax(0, 1fr);
+  gap: 0.18rem;
+  align-content: stretch;
   height: 100%;
-  opacity: 0;
-  border: 0;
+}
+
+.xw-alpha-key,
+.xw-alpha-ctrl {
+  display: grid;
+  place-items: center;
+  border: 1px solid var(--border);
+  border-radius: 7px;
+  background: var(--surface-2);
+  color: var(--text);
+  font-family: "Space Grotesk", sans-serif;
+  font-weight: 700;
+  font-size: 0.72rem;
+  line-height: 1;
   padding: 0;
-  margin: 0;
-  caret-color: transparent;
-  color: transparent;
-  background: transparent;
-  font-size: 16px; /* evita zoom iOS */
-  z-index: 2;
-  pointer-events: none;
+  cursor: pointer;
+  min-width: 28px;
+  min-height: 22px;
+  -webkit-tap-highlight-color: transparent;
+  transition: border-color 0.12s ease, background 0.12s ease, transform 0.12s ease;
+}
+
+.xw-alpha-ctrl {
+  font-size: 0.9rem;
+  min-height: 30px;
+}
+
+.xw-alpha-key:hover:not(:disabled),
+.xw-alpha-ctrl:hover:not(:disabled) {
+  border-color: var(--accent);
+  background: rgba(108, 140, 255, 0.12);
+}
+
+.xw-alpha-key:active:not(:disabled),
+.xw-alpha-ctrl:active:not(:disabled) {
+  transform: scale(0.96);
+}
+
+.xw-alpha-key:disabled,
+.xw-alpha-ctrl:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
 }
 
 .xw-cell {
   aspect-ratio: 1;
   border: 1px solid var(--border);
-  border-radius: 8px;
+  border-radius: 7px;
   background: var(--surface-2);
   position: relative;
   display: grid;
@@ -835,7 +878,6 @@ h2 {
   font: inherit;
   padding: 0;
   -webkit-tap-highlight-color: transparent;
-  z-index: 1;
 }
 
 .xw-cell.is-block {
@@ -853,14 +895,13 @@ h2 {
   border-color: var(--accent);
   box-shadow: 0 0 0 2px rgba(108, 140, 255, 0.25);
   background: rgba(108, 140, 255, 0.18);
-  z-index: 3;
 }
 
 .xw-num {
   position: absolute;
-  top: 3px;
-  left: 5px;
-  font-size: 0.65rem;
+  top: 2px;
+  left: 4px;
+  font-size: 0.58rem;
   color: var(--muted);
   font-weight: 700;
 }
@@ -868,21 +909,8 @@ h2 {
 .xw-letter {
   font-family: "Space Grotesk", sans-serif;
   font-weight: 700;
-  font-size: 1.2rem;
+  font-size: clamp(0.85rem, 4.2vw, 1.15rem);
   pointer-events: none;
-}
-
-.xw-keyboard {
-  display: grid;
-  gap: 0.35rem;
-  max-width: 420px;
-  margin: 0.35rem auto 1rem;
-}
-
-.xw-keyboard .kb-row {
-  display: flex;
-  justify-content: center;
-  gap: 0.3rem;
 }
 
 .xw-clues {
@@ -1010,9 +1038,16 @@ h2 {
     gap: 0.15rem;
   }
   .xw-clues { grid-template-columns: 1fr; }
-  .xw-stage { max-width: 100%; }
-  .xw-board { max-width: 100%; }
-  .xw-keyboard { max-width: 100%; }
+  .xw-play {
+    max-width: 100%;
+    gap: 0.4rem;
+  }
+  .xw-alpha-key {
+    min-width: 24px;
+    font-size: 0.68rem;
+  }
+  .xw-alpha-ctrl { min-height: 28px; }
+  .xw-num { font-size: 0.52rem; top: 1px; left: 3px; }
   .wordle-tile { width: 44px; height: 44px; font-size: 1rem; }
   .kb-key { min-width: 28px; height: 42px; }
   .kb-key.wide { min-width: 52px; }
