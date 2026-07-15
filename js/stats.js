@@ -4,7 +4,6 @@ const STREAK_KEY = "quotid-streak";
 const SCORE_KEY = "quotid-daily-score";
 
 export const GAME_META = [
-  { id: "pokemon", label: "Pokémon", icon: "⚡", key: "quotid-pokemon" },
   { id: "wordle", label: "Parola", icon: "📝", key: "quotid-wordle" },
   { id: "sudoku", label: "Sudoku", icon: "🔢", key: "quotid-sudoku-9" },
   { id: "picross", label: "Picross", icon: "⬛", key: "quotid-picross-6" },
@@ -13,6 +12,7 @@ export const GAME_META = [
   { id: "fact", label: "Curiosità", icon: "💡", key: "quotid-fact" },
   { id: "globle", label: "Paese", icon: "🌍", key: "quotid-globle" },
   { id: "riddle", label: "Indovinello", icon: "🧩", key: "quotid-riddle" },
+  { id: "pokemon", label: "Pokémon", icon: "⚡", key: "quotid-pokemon" },
   { id: "joke", label: "Barzelletta", icon: "😄", key: "quotid-joke" },
 ];
 

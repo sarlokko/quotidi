@@ -53,8 +53,7 @@
   </header>
 
   <nav class="tabs" aria-label="Giochi">
-    <button type="button" class="tab-btn active" data-tab="pokemon">⚡ Pokémon</button>
-    <button type="button" class="tab-btn" data-tab="wordle">📝 Parola</button>
+    <button type="button" class="tab-btn active" data-tab="wordle">📝 Parola</button>
     <button type="button" class="tab-btn" data-tab="sudoku">🔢 Sudoku</button>
     <button type="button" class="tab-btn" data-tab="picross">⬛ Picross</button>
     <button type="button" class="tab-btn" data-tab="crossword">🔠 Cruci</button>
@@ -62,26 +61,13 @@
     <button type="button" class="tab-btn" data-tab="fact">💡 Curiosità</button>
     <button type="button" class="tab-btn" data-tab="globle">🌍 Paese</button>
     <button type="button" class="tab-btn" data-tab="riddle">🧩 Indovinello</button>
+    <button type="button" class="tab-btn" data-tab="pokemon">⚡ Pokémon</button>
     <button type="button" class="tab-btn" data-tab="joke">😄 Barzelletta</button>
   </nav>
 
   <main class="container">
-    <section id="pokemon" class="game-panel active card">
-      <h2>Di che tipo è?</h2>
-      <p class="game-desc">Guarda il Pokémon e indovina i suoi tipi. Seleziona fino a 2 tipi, poi conferma. Hai 3 tentativi.</p>
-      <div id="pokemon-card" class="pokemon-card"></div>
-      <p id="pokemon-hint" class="pokemon-hint"></p>
-      <p id="pokemon-attempts" class="attempts"></p>
-      <div id="pokemon-history" class="guess-history" hidden></div>
-      <div id="pokemon-grid" class="type-grid"></div>
-      <div id="pokemon-feedback" class="feedback" role="status" aria-live="polite"></div>
-      <div id="pokemon-actions" class="actions">
-        <button type="button" id="pokemon-submit" class="btn primary" disabled>Indovina</button>
-        <button type="button" id="pokemon-clear" class="btn ghost">Deseleziona</button>
-      </div>
-    </section>
 
-    <section id="wordle" class="game-panel card">
+    <section id="wordle" class="game-panel active card">
       <h2>Parola del giorno</h2>
       <p class="game-desc">Wordle in italiano: 5 lettere, 6 tentativi. Usa la tastiera o quella a schermo.</p>
       <p id="wordle-status" class="game-status" role="status" aria-live="polite"></p>
@@ -94,8 +80,12 @@
 
     <section id="sudoku" class="game-panel card">
       <h2>Sudoku del giorno</h2>
-      <p class="game-desc">Il classico 9×9: riempi la griglia con i numeri da 1 a 9. Ogni riga, colonna e quadrato 3×3 deve contenere tutte le cifre senza ripetizioni.</p>
+      <p class="game-desc">Il classico 9×9: riempi la griglia con i numeri da 1 a 9. Ogni riga, colonna e quadrato 3×3 deve contenere tutte le cifre senza ripetizioni. Usa le <strong>note</strong> per i candidati.</p>
       <p id="sudoku-status" class="game-status" role="status" aria-live="polite"></p>
+      <div class="sudoku-modes actions">
+        <button type="button" id="sudoku-mode-digit" class="btn ghost active">Numero</button>
+        <button type="button" id="sudoku-mode-note" class="btn ghost">Note ✎</button>
+      </div>
       <div id="sudoku-board" class="sudoku-board" aria-label="Griglia Sudoku 9×9"></div>
       <div id="sudoku-pad" class="sudoku-pad" aria-label="Tastierino numeri"></div>
       <div class="actions">
@@ -203,6 +193,21 @@
           <button type="button" id="riddle-reveal" class="btn ghost">Mostra risposta</button>
         </div>
       </form>
+    </section>
+
+    <section id="pokemon" class="game-panel card">
+      <h2>Di che tipo è?</h2>
+      <p class="game-desc">Guarda il Pokémon e indovina i suoi tipi. Seleziona fino a 2 tipi, poi conferma. Hai 3 tentativi.</p>
+      <div id="pokemon-card" class="pokemon-card"></div>
+      <p id="pokemon-hint" class="pokemon-hint"></p>
+      <p id="pokemon-attempts" class="attempts"></p>
+      <div id="pokemon-history" class="guess-history" hidden></div>
+      <div id="pokemon-grid" class="type-grid"></div>
+      <div id="pokemon-feedback" class="feedback" role="status" aria-live="polite"></div>
+      <div id="pokemon-actions" class="actions">
+        <button type="button" id="pokemon-submit" class="btn primary" disabled>Indovina</button>
+        <button type="button" id="pokemon-clear" class="btn ghost">Deseleziona</button>
+      </div>
     </section>
 
     <section id="joke" class="game-panel card">
