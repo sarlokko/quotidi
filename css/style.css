@@ -188,23 +188,47 @@ h1 {
 }
 
 .tabs {
-  display: flex;
-  gap: 0.5rem;
-  overflow-x: auto;
-  padding: 1rem 1.25rem 0;
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 0.4rem;
+  padding: 0.85rem 1.25rem 0;
   max-width: 980px;
   margin: 0 auto;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .tab-btn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.12rem;
   border: 1px solid var(--border);
   background: var(--surface);
   color: var(--text);
-  border-radius: 999px;
-  padding: 0.65rem 1rem;
+  border-radius: 12px;
+  padding: 0.45rem 0.2rem 0.4rem;
   cursor: pointer;
-  white-space: nowrap;
+  min-width: 0;
   transition: 0.2s ease;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.tab-ico {
+  font-size: 1.05rem;
+  line-height: 1;
+}
+
+.tab-label {
+  font-size: clamp(0.62rem, 2.4vw, 0.78rem);
+  font-weight: 600;
+  line-height: 1.15;
+  text-align: center;
+  max-width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 .tab-btn:hover { border-color: var(--accent); }
@@ -213,21 +237,22 @@ h1 {
   background: var(--accent);
   border-color: var(--accent);
   color: #0f1117;
-  font-weight: 700;
 }
+
+.tab-btn.active .tab-label { font-weight: 700; }
 
 .tab-btn.done:not(.active) {
   border-color: var(--accent-2);
   box-shadow: inset 0 0 0 1px rgba(79, 209, 163, 0.35);
 }
 
-.tab-btn.done::after {
+.tab-btn.done .tab-label::after {
   content: " ✓";
   color: var(--accent-2);
   font-weight: 700;
 }
 
-.tab-btn.active.done::after { color: #0f1117; }
+.tab-btn.active.done .tab-label::after { color: #0f1117; }
 
 .container {
   max-width: 980px;
@@ -1033,6 +1058,16 @@ h2 {
 }
 
 @media (max-width: 640px) {
+  .tabs {
+    gap: 0.3rem;
+    padding: 0.65rem 0.75rem 0;
+  }
+  .tab-btn {
+    padding: 0.38rem 0.1rem 0.32rem;
+    border-radius: 10px;
+  }
+  .tab-ico { font-size: 0.95rem; }
+  .tab-label { font-size: 0.58rem; }
   .sudoku-board {
     max-width: 100%;
     gap: 0.12rem;
