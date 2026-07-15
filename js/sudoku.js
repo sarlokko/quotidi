@@ -1,12 +1,15 @@
 import { getDailyKey, hashString, loadState, saveState } from "./daily.js";
 
-const STORAGE_KEY = "quotid-sudoku";
-const SIZE = 3;
-const DIGITS = [1, 2, 3];
+const STORAGE_KEY = "quotid-sudoku-6";
+const SIZE = 6;
+const BOX_H = 2;
+const BOX_W = 3;
+const DIGITS = [1, 2, 3, 4, 5, 6];
+const CELL_COUNT = SIZE * SIZE;
 
 let solution = null;
-let given = null; // boolean[9] — celle bloccate
-let grid = null; // number|0 [9]
+let given = null;
+let grid = null;
 let selected = -1;
 let locked = false;
 let won = false;
@@ -33,43 +36,65 @@ function shuffle(arr, rand) {
   return a;
 }
 
-/** Latin square 3×3 (ogni riga/colonna ha 1–3). */
-function buildSolution(dayKey) {
-  const rand = mulberry32(hashString(`${dayKey}:sudoku`));
-  const symbols = shuffle(DIGITS, rand);
-  const rowPerm = shuffle([0, 1, 2], rand);
-  const colPerm = shuffle([0, 1, 2], rand);
-
-  // Base ciclica, poi permuta simboli / righe / colonne
-  const base = [
-    [0, 1, 2],
-    [1, 2, 0],
-    [2, 0, 1],
-  ];
-
-  const out = Array(SIZE * SIZE).fill(0);
-  for (let r = 0; r < SIZE; r++) {
-    for (let c = 0; c < SIZE; c++) {
-      const br = rowPerm[r];
-      const bc = colPerm[c];
-      out[r * SIZE + c] = symbols[base[br][bc]];
+function canPlace(board, idx, val) {
+  const r = Math.floor(idx / SIZE);
+  const c = idx % SIZE;
+  for (let i = 0; i < SIZE; i++) {
+    if (board[r * SIZE + i] === val) return false;
+    if (board[i * SIZE + c] === val) return false;
+  }
+  const br = Math.floor(r / BOX_H) * BOX_H;
+  const bc = Math.floor(c / BOX_W) * BOX_W;
+  for (let rr = br; rr < br + BOX_H; rr++) {
+    for (let cc = bc; cc < bc + BOX_W; cc++) {
+      if (board[rr * SIZE + cc] === val) return false;
     }
   }
-  return out;
+  return true;
+}
+
+/** Genera una soluzione 6×6 valida (righe, colonne, blocchi 2×3). */
+function buildSolution(dayKey) {
+  const rand = mulberry32(hashString(`${dayKey}:sudoku6`));
+  const board = Array(CELL_COUNT).fill(0);
+
+  function fill(pos) {
+    if (pos >= CELL_COUNT) return true;
+    if (board[pos]) return fill(pos + 1);
+    const nums = shuffle(DIGITS, rand);
+    for (const n of nums) {
+      if (!canPlace(board, pos, n)) continue;
+      board[pos] = n;
+      if (fill(pos + 1)) return true;
+      board[pos] = 0;
+    }
+    return false;
+  }
+
+  // Pattern iniziale a bande per accelerare + varietà
+  const bandDigits = shuffle(DIGITS, rand);
+  for (let c = 0; c < SIZE; c++) board[c] = bandDigits[c];
+  if (!fill(SIZE)) {
+    board.fill(0);
+    fill(0);
+  }
+  return board;
 }
 
 function buildPuzzle(sol, dayKey) {
-  const rand = mulberry32(hashString(`${dayKey}:sudoku-mask`));
-  const givenMask = Array(SIZE * SIZE).fill(false);
-  const puzzle = Array(SIZE * SIZE).fill(0);
+  const rand = mulberry32(hashString(`${dayKey}:sudoku6-mask`));
+  const givenMask = Array(CELL_COUNT).fill(true);
+  const puzzle = [...sol];
 
-  // 4 o 5 indizi (su 9) — abbastanza per una sola soluzione tipica
-  const clueCount = 4 + (hashString(`${dayKey}:sudoku-clues`) % 2);
-  const order = shuffle([...Array(SIZE * SIZE).keys()], rand);
-  for (let i = 0; i < clueCount; i++) {
-    const idx = order[i];
-    givenMask[idx] = true;
-    puzzle[idx] = sol[idx];
+  // 18–22 indizi su 36 (~metà / poco meno)
+  const clueCount = 18 + (hashString(`${dayKey}:sudoku6-clues`) % 5);
+  const order = shuffle([...Array(CELL_COUNT).keys()], rand);
+  let keep = CELL_COUNT;
+  for (const idx of order) {
+    if (keep <= clueCount) break;
+    givenMask[idx] = false;
+    puzzle[idx] = 0;
+    keep -= 1;
   }
   return { givenMask, puzzle };
 }
@@ -79,11 +104,21 @@ function conflictsAt(values, idx) {
   if (!v) return false;
   const r = Math.floor(idx / SIZE);
   const c = idx % SIZE;
+
   for (let i = 0; i < SIZE; i++) {
     const rowIdx = r * SIZE + i;
     const colIdx = i * SIZE + c;
     if (rowIdx !== idx && values[rowIdx] === v) return true;
     if (colIdx !== idx && values[colIdx] === v) return true;
+  }
+
+  const br = Math.floor(r / BOX_H) * BOX_H;
+  const bc = Math.floor(c / BOX_W) * BOX_W;
+  for (let rr = br; rr < br + BOX_H; rr++) {
+    for (let cc = bc; cc < bc + BOX_W; cc++) {
+      const bIdx = rr * SIZE + cc;
+      if (bIdx !== idx && values[bIdx] === v) return true;
+    }
   }
   return false;
 }
@@ -96,6 +131,15 @@ function isCompleteAndValid(values) {
   return true;
 }
 
+function isValidSaved(saved) {
+  return (
+    Array.isArray(saved?.grid) &&
+    Array.isArray(saved?.given) &&
+    saved.grid.length === CELL_COUNT &&
+    saved.given.length === CELL_COUNT
+  );
+}
+
 export function initSudoku(onDone) {
   onComplete = onDone;
   const dayKey = getDailyKey();
@@ -103,7 +147,7 @@ export function initSudoku(onDone) {
   const built = buildPuzzle(solution, dayKey);
 
   const saved = loadState(STORAGE_KEY, dayKey);
-  if (saved?.grid && saved?.given) {
+  if (isValidSaved(saved)) {
     grid = saved.grid.map(Number);
     given = saved.given.map(Boolean);
     locked = Boolean(saved.locked);
@@ -115,7 +159,7 @@ export function initSudoku(onDone) {
     won = false;
   }
 
-  selected = given.findIndex((g, i) => !g && !locked);
+  selected = given.findIndex((g) => !g && !locked);
   render();
   bindEvents();
 }
@@ -138,6 +182,17 @@ function setStatus(text, kind = "") {
   el.className = `game-status${kind ? ` ${kind}` : ""}`;
 }
 
+function cellBoxClass(idx) {
+  const r = Math.floor(idx / SIZE);
+  const c = idx % SIZE;
+  const classes = [];
+  if (c % BOX_W === 0) classes.push("box-left");
+  if (c % BOX_W === BOX_W - 1) classes.push("box-right");
+  if (r % BOX_H === 0) classes.push("box-top");
+  if (r % BOX_H === BOX_H - 1) classes.push("box-bottom");
+  return classes.join(" ");
+}
+
 function render() {
   const board = document.getElementById("sudoku-board");
   const pad = document.getElementById("sudoku-pad");
@@ -149,13 +204,14 @@ function render() {
     const bad = val && conflictsAt(grid, idx);
     const cls = [
       "sudoku-cell",
+      cellBoxClass(idx),
       isGiven ? "is-given" : "is-edit",
       isSel ? "is-selected" : "",
       bad ? "is-conflict" : "",
       locked && won ? "is-solved" : "",
     ].filter(Boolean).join(" ");
 
-    return `<button type="button" class="${cls}" data-idx="${idx}" ${locked && !isGiven ? "disabled" : ""} aria-label="Cella ${Math.floor(idx / SIZE) + 1}, ${ (idx % SIZE) + 1}">${val || ""}</button>`;
+    return `<button type="button" class="${cls}" data-idx="${idx}" ${locked && !isGiven ? "disabled" : ""} aria-label="Riga ${Math.floor(idx / SIZE) + 1}, colonna ${(idx % SIZE) + 1}">${val || ""}</button>`;
   }).join("");
 
   pad.innerHTML = `
@@ -171,15 +227,22 @@ function render() {
   if (revealBtn) revealBtn.disabled = locked;
 
   if (locked && won) {
-    setStatus("Completato! Sudoku del giorno risolto.", "win");
+    setStatus("Completato! Sudoku 6×6 del giorno risolto.", "win");
   } else if (locked && !won) {
     setStatus("Soluzione rivelata. Torna domani per un nuovo puzzle.", "hint");
   } else if (!grid.includes(0) && !isCompleteAndValid(grid)) {
     setStatus("Qualcosa non torna: controlla le celle in rosso.", "hint");
   } else {
     const empty = grid.filter((v) => !v).length;
-    setStatus(`Riempi la griglia con 1–3. Ogni riga e colonna senza ripetizioni. Celle vuote: ${empty}.`);
+    setStatus(`Numeri 1–6. Righe, colonne e blocchi 2×3 senza ripetizioni. Vuote: ${empty}.`);
   }
+}
+
+function shakeBoard() {
+  const board = document.getElementById("sudoku-board");
+  board?.classList.remove("shake");
+  void board?.offsetWidth;
+  board?.classList.add("shake");
 }
 
 function placeDigit(digit) {
@@ -192,18 +255,12 @@ function placeDigit(digit) {
     won = true;
     persist();
   } else if (digit && !grid.includes(0) && !isCompleteAndValid(grid)) {
-    // griglia piena ma errata
-    const board = document.getElementById("sudoku-board");
-    board?.classList.remove("shake");
-    void board?.offsetWidth;
-    board?.classList.add("shake");
-    setStatus("Qualcosa non torna: controlla righe e colonne.", "hint");
+    shakeBoard();
   }
 
-  // passa alla prossima cella vuota editabile
   if (!locked && digit) {
-    for (let step = 1; step <= SIZE * SIZE; step++) {
-      const next = (selected + step) % (SIZE * SIZE);
+    for (let step = 1; step <= CELL_COUNT; step++) {
+      const next = (selected + step) % CELL_COUNT;
       if (!given[next] && !grid[next]) {
         selected = next;
         break;
@@ -226,10 +283,7 @@ function checkNow() {
     render();
     return;
   }
-  const board = document.getElementById("sudoku-board");
-  board?.classList.remove("shake");
-  void board?.offsetWidth;
-  board?.classList.add("shake");
+  shakeBoard();
   setStatus("Non ancora corretto. Cerca le ripetizioni in rosso.", "hint");
   render();
 }
@@ -277,13 +331,13 @@ function bindEvents() {
   document.addEventListener("keydown", (e) => {
     if (!document.getElementById("sudoku")?.classList.contains("active")) return;
     if (locked) return;
-    if (/^[1-3]$/.test(e.key)) {
+    if (/^[1-6]$/.test(e.key)) {
       e.preventDefault();
       placeDigit(Number(e.key));
     } else if (e.key === "Backspace" || e.key === "Delete" || e.key === "0") {
       e.preventDefault();
       placeDigit(0);
-    } else if (e.key === "ArrowRight" || e.key === "ArrowLeft" || e.key === "ArrowUp" || e.key === "ArrowDown") {
+    } else if (["ArrowRight", "ArrowLeft", "ArrowUp", "ArrowDown"].includes(e.key)) {
       e.preventDefault();
       let r = Math.floor(Math.max(selected, 0) / SIZE);
       let c = Math.max(selected, 0) % SIZE;
@@ -291,8 +345,7 @@ function bindEvents() {
       if (e.key === "ArrowLeft") c = (c + SIZE - 1) % SIZE;
       if (e.key === "ArrowDown") r = (r + 1) % SIZE;
       if (e.key === "ArrowUp") r = (r + SIZE - 1) % SIZE;
-      const next = r * SIZE + c;
-      if (!given[next]) selected = next;
+      selected = r * SIZE + c;
       render();
     }
   });

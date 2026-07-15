@@ -8,7 +8,7 @@ import { initJoke, isJokeComplete } from "./joke.js";
 const GAMES = [
   { id: "pokemon", label: "Tipo Pokémon", icon: "⚡" },
   { id: "wordle", label: "Parola", icon: "📝" },
-  { id: "sudoku", label: "Sudoku 3×3", icon: "🔢" },
+  { id: "sudoku", label: "Sudoku 6×6", icon: "🔢" },
   { id: "riddle", label: "Indovinello", icon: "🧩" },
   { id: "joke", label: "Barzelletta", icon: "😄" },
 ];
