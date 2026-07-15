@@ -661,7 +661,118 @@ h2 {
   font-size: 0.9rem;
 }
 
+.picross-modes {
+  margin-top: 0;
+  margin-bottom: 0.75rem;
+}
+
+.picross-modes .btn.active {
+  background: linear-gradient(135deg, var(--accent), #8aa2ff);
+  color: #0f1117;
+  border-color: transparent;
+}
+
+.picross-modes .btn.ghost.active {
+  background: linear-gradient(135deg, var(--accent), #8aa2ff);
+  color: #0f1117;
+}
+
+.picross-board {
+  --pic-size: 6;
+  --pic-row-clues: 2;
+  --pic-col-clues: 2;
+  display: grid;
+  grid-template-columns: minmax(36px, auto) repeat(var(--pic-size), minmax(36px, 1fr));
+  grid-auto-rows: minmax(36px, auto);
+  gap: 0.2rem;
+  max-width: 420px;
+  margin: 0.75rem auto 0.5rem;
+  user-select: none;
+  touch-action: none;
+}
+
+.picross-board.shake { animation: shake 0.45s ease; }
+
+.pic-corner { min-height: 2.5rem; }
+
+.pic-clue {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.2rem;
+  color: var(--muted);
+  font-family: "Space Grotesk", sans-serif;
+  font-size: 0.78rem;
+  font-weight: 700;
+  line-height: 1.1;
+}
+
+.pic-clue-col {
+  flex-direction: column;
+  min-height: 2.5rem;
+  justify-content: flex-end;
+  padding-bottom: 0.15rem;
+}
+
+.pic-clue-row {
+  justify-content: flex-end;
+  padding-right: 0.35rem;
+  white-space: nowrap;
+}
+
+.pic-clue.is-done { color: var(--accent-2); }
+
+.pic-cell {
+  aspect-ratio: 1;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: var(--surface-2);
+  cursor: pointer;
+  position: relative;
+  padding: 0;
+}
+
+.pic-cell:hover:not(:disabled) {
+  border-color: var(--accent);
+}
+
+.pic-cell.is-fill {
+  background: linear-gradient(145deg, #8aa2ff, #4fd1a3);
+  border-color: transparent;
+}
+
+.pic-cell.is-mark {
+  background: #151925;
+}
+
+.pic-cell.is-mark::after {
+  content: "✕";
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  color: var(--muted);
+  font-size: 0.95rem;
+  font-weight: 700;
+}
+
+.pic-cell.is-solved {
+  box-shadow: inset 0 0 0 1px rgba(79, 209, 163, 0.5);
+}
+
 @media (max-width: 640px) {
+  .sudoku-board {
+    max-width: 100%;
+    gap: 0.12rem;
+    padding: 0.3rem;
+  }
+  .sudoku-key { min-width: 34px; height: 38px; font-size: 0.95rem; }
+  .picross-board {
+    max-width: 100%;
+    grid-template-columns: minmax(28px, auto) repeat(6, minmax(28px, 1fr));
+    grid-auto-rows: minmax(28px, auto);
+    gap: 0.15rem;
+  }
   .wordle-tile { width: 44px; height: 44px; font-size: 1rem; }
   .kb-key { min-width: 28px; height: 42px; }
   .kb-key.wide { min-width: 52px; }

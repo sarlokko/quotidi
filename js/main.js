@@ -2,6 +2,7 @@ import { getDailyKey, msUntilMidnightRome, formatCountdown } from "./daily.js";
 import { initPokemonType, isPokemonComplete } from "./pokemon-type.js";
 import { initWordle, isWordleComplete } from "./wordle.js";
 import { initSudoku, isSudokuComplete } from "./sudoku.js";
+import { initPicross, isPicrossComplete } from "./picross.js";
 import { initRiddle, isRiddleComplete } from "./riddle.js";
 import { initJoke, isJokeComplete } from "./joke.js";
 
@@ -9,6 +10,7 @@ const GAMES = [
   { id: "pokemon", label: "Tipo Pokémon", icon: "⚡" },
   { id: "wordle", label: "Parola", icon: "📝" },
   { id: "sudoku", label: "Sudoku", icon: "🔢" },
+  { id: "picross", label: "Picross", icon: "⬛" },
   { id: "riddle", label: "Indovinello", icon: "🧩" },
   { id: "joke", label: "Barzelletta", icon: "😄" },
 ];
@@ -17,6 +19,7 @@ const completionChecks = {
   pokemon: isPokemonComplete,
   wordle: isWordleComplete,
   sudoku: isSudokuComplete,
+  picross: isPicrossComplete,
   riddle: isRiddleComplete,
   joke: isJokeComplete,
 };
@@ -96,6 +99,7 @@ async function boot() {
       initPokemonType(onDone),
       initWordle(onDone),
       initSudoku(onDone),
+      initPicross(onDone),
       initRiddle(onDone),
       initJoke(onDone),
     ]);
