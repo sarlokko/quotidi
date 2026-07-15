@@ -196,6 +196,7 @@ h1 {
   margin: 0 auto;
   width: 100%;
   box-sizing: border-box;
+  overflow: visible;
 }
 
 .tab-btn {
@@ -211,6 +212,9 @@ h1 {
   padding: 0.45rem 0.2rem 0.4rem;
   cursor: pointer;
   min-width: 0;
+  max-width: 100%;
+  flex: none;
+  white-space: normal;
   transition: 0.2s ease;
   -webkit-tap-highlight-color: transparent;
 }
@@ -1059,12 +1063,19 @@ h2 {
 
 @media (max-width: 640px) {
   .tabs {
+    display: grid;
+    grid-template-columns: repeat(5, minmax(0, 1fr));
     gap: 0.3rem;
     padding: 0.65rem 0.75rem 0;
+    overflow: visible;
   }
   .tab-btn {
+    display: flex;
+    flex-direction: column;
     padding: 0.38rem 0.1rem 0.32rem;
     border-radius: 10px;
+    white-space: normal;
+    min-width: 0;
   }
   .tab-ico { font-size: 0.95rem; }
   .tab-label { font-size: 0.58rem; }
