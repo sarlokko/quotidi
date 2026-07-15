@@ -22,12 +22,12 @@ Il sito è statico e funziona su **GitHub Pages**.
 Dopo il push su `main`, abilita Pages da:
 **Settings → Pages → Deploy from branch → main / root**
 
-URL: https://sarlokko.github.io/quotid-/
+URL: https://sarlokko.github.io/quotidi/
 
 ## Struttura
 
 ```
-quotid-/
+quotidi/
 ├── index.html
 ├── css/style.css
 ├── js/
