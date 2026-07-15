@@ -15,21 +15,20 @@ npm start
 
 Apri http://localhost:3000
 
-## Deploy (GitHub Pages)
+## GitHub Pages (obbligatorio una volta)
 
-Il sito è statico. Il workflow `.github/workflows/pages.yml` pubblica da `main` con **GitHub Actions**.
+Il sito è statico nella root del repo. **Pages non si può abilitare da Actions** su questo repository (il token non ha permesso di creare il sito Pages), quindi serve un click manuale del proprietario:
 
-### Prima attivazione
+1. Apri **[Settings → Pages](https://github.com/sarlokko/quotidi/settings/pages)**
+2. In **Build and deployment → Source** scegli **Deploy from a branch**
+3. Branch: **`main`** · cartella: **`/ (root)`**
+4. Salva
 
-1. Vai su **Settings → Pages**
-2. In **Build and deployment → Source** seleziona **GitHub Actions**
-3. Fai push su `main` (o riesegui il workflow *Deploy GitHub Pages*)
+URL: https://sarlokko.github.io/quotidi/
 
-Il workflow usa `enablement: true` su `actions/configure-pages`, così al primo run su `main` può abilitare Pages automaticamente se i permessi del repository lo consentono.
+Il file `.nojekyll` è già presente, così GitHub non passa da Jekyll.
 
-URL previsto: https://sarlokko.github.io/quotidi/
-
-> Nota: finché Pages non è abilitato, il workflow fallisce su `configure-pages` e l’URL risponde 404.
+> Finché Pages non è abilitato, l’URL sopra risponde 404. Dopo il salvataggio, attendi 1–2 minuti.
 
 ## Struttura
 
