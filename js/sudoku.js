@@ -16,6 +16,10 @@ let locked = false;
 let won = false;
 let onComplete = null;
 let eventsBound = false;
+/** Celle da animare dopo autocompila / errore / vittoria */
+let flashCells = new Set();
+let flashKind = ""; // "autofill" | "error" | "win"
+let flashTimer = null;
 
 function mulberry32(seed) {
   let a = seed >>> 0;
@@ -296,24 +300,111 @@ function renderNotesHtml(idx) {
   return `<span class="sudoku-notes">${DIGITS.map((d) => `<i class="${set.has(d) ? "on" : ""}">${set.has(d) ? d : ""}</i>`).join("")}</span>`;
 }
 
+function countErrors() {
+  let n = 0;
+  for (let i = 0; i < CELL_COUNT; i++) {
+    if (given[i]) continue;
+    if (grid[i] && grid[i] !== solution[i]) n += 1;
+  }
+  return n;
+}
+
+function errorIndices() {
+  const out = [];
+  for (let i = 0; i < CELL_COUNT; i++) {
+    if (given[i]) continue;
+    if (grid[i] && grid[i] !== solution[i]) out.push(i);
+  }
+  return out;
+}
+
+function scheduleFlash(indices, kind, ms = 900) {
+  if (flashTimer) clearTimeout(flashTimer);
+  flashCells = new Set(indices);
+  flashKind = kind;
+  flashTimer = setTimeout(() => {
+    flashCells = new Set();
+    flashKind = "";
+    flashTimer = null;
+    render();
+  }, ms);
+}
+
+function stripDigitFromPeers(idx, digit) {
+  const r = Math.floor(idx / SIZE);
+  const c = idx % SIZE;
+  const br = Math.floor(r / BOX) * BOX;
+  const bc = Math.floor(c / BOX) * BOX;
+  for (let i = 0; i < SIZE; i++) {
+    const rowIdx = r * SIZE + i;
+    const colIdx = i * SIZE + c;
+    notes[rowIdx] = (notes[rowIdx] || []).filter((d) => d !== digit);
+    notes[colIdx] = (notes[colIdx] || []).filter((d) => d !== digit);
+  }
+  for (let rr = br; rr < br + BOX; rr++) {
+    for (let cc = bc; cc < bc + BOX; cc++) {
+      const bIdx = rr * SIZE + cc;
+      notes[bIdx] = (notes[bIdx] || []).filter((d) => d !== digit);
+    }
+  }
+}
+
+/** Autocompila celle con un solo candidato nelle note. Restituisce gli indici riempiti. */
+function autoFillSingles() {
+  const filled = [];
+  let changed = true;
+  while (changed && !locked) {
+    changed = false;
+    for (let i = 0; i < CELL_COUNT; i++) {
+      if (grid[i] || given[i]) continue;
+      const cands = notes[i] || [];
+      if (cands.length !== 1) continue;
+      const digit = cands[0];
+      grid[i] = digit;
+      notes[i] = [];
+      stripDigitFromPeers(i, digit);
+      filled.push(i);
+      changed = true;
+    }
+  }
+  return filled;
+}
+
+function tryFinish() {
+  if (!isCompleteAndValid(grid)) return false;
+  locked = true;
+  won = true;
+  persist();
+  scheduleFlash([...Array(CELL_COUNT).keys()], "win", 1200);
+  return true;
+}
+
 function render() {
   const board = document.getElementById("sudoku-board");
   const pad = document.getElementById("sudoku-pad");
   if (!board || !pad) return;
 
+  board.classList.toggle("is-won", locked && won);
+  board.classList.toggle("flash-win", flashKind === "win");
+
   board.innerHTML = grid.map((val, idx) => {
     const isGiven = given[idx];
     const isSel = selected === idx;
-    const bad = val && conflictsAt(grid, idx);
+    const conflict = val && conflictsAt(grid, idx);
+    const wrong = !isGiven && val && solution && val !== solution[idx];
     const hasNotes = !val && (notes[idx] || []).length > 0;
+    const flashing = flashCells.has(idx);
     const cls = [
       "sudoku-cell",
       cellBoxClass(idx),
       isGiven ? "is-given" : "is-edit",
       isSel ? "is-selected" : "",
-      bad ? "is-conflict" : "",
+      conflict ? "is-conflict" : "",
+      wrong ? "is-error" : "",
       hasNotes ? "has-notes" : "",
       locked && won ? "is-solved" : "",
+      flashing && flashKind === "autofill" ? "is-autofilled" : "",
+      flashing && flashKind === "error" ? "is-error-flash" : "",
     ].filter(Boolean).join(" ");
 
     const body = val
@@ -338,12 +429,17 @@ function render() {
     setStatus("Completato! Sudoku del giorno risolto.", "win");
   } else if (locked && !won) {
     setStatus("Soluzione rivelata. Torna domani per un nuovo puzzle.", "hint");
-  } else if (!grid.includes(0) && !isCompleteAndValid(grid)) {
-    setStatus("Qualcosa non torna: controlla le celle in rosso.", "hint");
   } else {
     const empty = grid.filter((v) => !v).length;
+    const errors = countErrors();
     const modeLabel = noteMode ? "Note ✎" : "Numero";
-    setStatus(`Modalità ${modeLabel} · celle vuote: ${empty}.`);
+    if (errors > 0) {
+      setStatus(`${errors} error${errors === 1 ? "e" : "i"} in rosso · ${modeLabel} · vuote: ${empty}.`, "lose");
+    } else if (!grid.includes(0) && !isCompleteAndValid(grid)) {
+      setStatus("Qualcosa non torna: controlla le celle in rosso.", "hint");
+    } else {
+      setStatus(`Modalità ${modeLabel} · celle vuote: ${empty}.`);
+    }
   }
 }
 
@@ -378,34 +474,26 @@ function placeDigit(digit) {
     return;
   }
 
+  const placedAt = selected;
   grid[selected] = digit;
   if (digit) notes[selected] = [];
-  // rimuovi questa cifra dalle note delle celle correlate
-  if (digit) {
-    const r = Math.floor(selected / SIZE);
-    const c = selected % SIZE;
-    const br = Math.floor(r / BOX) * BOX;
-    const bc = Math.floor(c / BOX) * BOX;
-    for (let i = 0; i < SIZE; i++) {
-      const rowIdx = r * SIZE + i;
-      const colIdx = i * SIZE + c;
-      notes[rowIdx] = (notes[rowIdx] || []).filter((d) => d !== digit);
-      notes[colIdx] = (notes[colIdx] || []).filter((d) => d !== digit);
-    }
-    for (let rr = br; rr < br + BOX; rr++) {
-      for (let cc = bc; cc < bc + BOX; cc++) {
-        const bIdx = rr * SIZE + cc;
-        notes[bIdx] = (notes[bIdx] || []).filter((d) => d !== digit);
-      }
-    }
-  }
+  if (digit) stripDigitFromPeers(selected, digit);
+
+  const autofilled = digit ? autoFillSingles() : [];
   persist();
 
-  if (isCompleteAndValid(grid)) {
-    locked = true;
-    won = true;
-    persist();
-  } else if (digit && !grid.includes(0)) {
+  if (tryFinish()) {
+    render();
+    return;
+  }
+
+  if (digit && grid[placedAt] && grid[placedAt] !== solution[placedAt]) {
+    scheduleFlash([placedAt], "error", 700);
+  } else if (autofilled.length) {
+    scheduleFlash(autofilled, "autofill", 900);
+  }
+
+  if (digit && !grid.includes(0)) {
     shakeBoard();
   }
 
@@ -419,23 +507,33 @@ function placeDigit(digit) {
     }
   }
   render();
+
+  if (!locked && autofilled.length) {
+    const n = autofilled.length;
+    setStatus(`Autocompilata${n === 1 ? "" : "e"} ${n} cella${n === 1 ? "" : "e"} (un solo candidato nelle note).`, "win");
+  }
 }
 
 function checkNow() {
   if (locked) return;
-  if (grid.some((v) => !v)) {
-    setStatus("Compila tutte le celle prima di controllare.", "hint");
+  if (tryFinish()) {
+    render();
     return;
   }
-  if (isCompleteAndValid(grid)) {
-    locked = true;
-    won = true;
-    persist();
+  const errs = errorIndices();
+  if (!errs.length && grid.some((v) => !v)) {
+    setStatus("Nessun errore finora, ma la griglia non è completa.", "hint");
+    return;
+  }
+  if (!errs.length) {
+    shakeBoard();
+    setStatus("Qualcosa non torna (conflitti). Controlla le celle in rosso.", "hint");
     render();
     return;
   }
   shakeBoard();
-  setStatus("Non ancora corretto. Cerca le ripetizioni in rosso.", "hint");
+  scheduleFlash(errs, "error", 1000);
+  setStatus(`${errs.length} error${errs.length === 1 ? "e" : "i"} evidenziato${errs.length === 1 ? "" : "i"} in rosso.`, "lose");
   render();
 }
 
