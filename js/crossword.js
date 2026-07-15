@@ -1,4 +1,4 @@
-import { getDailyKey, pickDailyItem, loadState, saveState, normalizeText } from "./daily.js";
+import { getDailyKey, hashString, loadState, saveState, normalizeText } from "./daily.js";
 
 const STORAGE_KEY = "quotid-crossword";
 const SIZE = 5;
@@ -12,6 +12,22 @@ let onComplete = null;
 let eventsBound = false;
 let selected = null; // {r,c}
 let direction = "across";
+
+/** Ordine deterministico senza ripetizioni fino a fine ciclo. */
+function pickCrossword(dayKey, list) {
+  const n = list.length;
+  if (!n) return null;
+  const [y, m, d] = dayKey.split("-").map(Number);
+  const ordinal = Math.floor(Date.UTC(y, m - 1, d) / 86400000);
+  const order = Array.from({ length: n }, (_, i) => i);
+  let h = hashString(`crossword-deck-v2:${n}`);
+  for (let i = n - 1; i > 0; i--) {
+    h = (Math.imul(h, 1664525) + 1013904223) >>> 0;
+    const j = h % (i + 1);
+    [order[i], order[j]] = [order[j], order[i]];
+  }
+  return list[order[((ordinal % n) + n) % n]];
+}
 
 function isBlock(r, c) {
   return puzzle.grid[r][c] === "#";
@@ -96,7 +112,7 @@ function isInActiveWord(r, c) {
 export async function initCrossword(onDone) {
   onComplete = onDone;
   const list = await (await fetch("data/crosswords.json")).json();
-  puzzle = pickDailyItem(getDailyKey(), list, "crossword");
+  puzzle = pickCrossword(getDailyKey(), list);
 
   const saved = loadState(STORAGE_KEY, getDailyKey());
   if (saved?.grid?.length === SIZE) {
