@@ -1,6 +1,6 @@
 import { getDailyKey, hashString, loadState, saveState, normalizeText } from "./daily.js";
 
-const STORAGE_KEY = "quotid-crossword";
+const STORAGE_KEY = "quotid-crossword-v2";
 const SIZE = 5;
 const LETTERS = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".split("");
 
