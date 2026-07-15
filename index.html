@@ -37,6 +37,18 @@
         <strong id="progress-text">0/10 completati oggi</strong>
       </div>
       <div class="progress-track"><div class="progress-bar" id="progress-bar"></div></div>
+      <div class="stats-row">
+        <div class="stat-chip" title="Giorni consecutivi con almeno un gioco completato">
+          <span class="stat-label">Streak</span>
+          <strong id="streak-text">🔥 0</strong>
+        </div>
+        <div class="stat-chip" title="Somma dei punteggi dei minigiochi di oggi">
+          <span class="stat-label">Punteggio</span>
+          <strong id="score-text">⭐ 0/100</strong>
+        </div>
+        <button type="button" id="share-day" class="btn ghost share-day-btn">Condividi giorno</button>
+      </div>
+      <p id="share-feedback" class="share-feedback" role="status" aria-live="polite"></p>
     </div>
   </header>
 

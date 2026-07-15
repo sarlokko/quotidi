@@ -2,7 +2,11 @@
 
 **Quotidì** — e ti diverti tutti i dì!
 
-Sito con **10 attività al giorno** che si resettano a **mezzanotte** (fuso orario Italia):
+Sito con **10 attività al giorno** che si resettano a **mezzanotte** (fuso orario Italia), più:
+
+- **Streak** condiviso (giorni consecutivi con almeno un gioco completato)
+- **Punteggio giornaliero** (fino a 100, somma dei minigiochi)
+- **Condividi giorno** (riepilogo emoji + griglia Parola, stile Wordle)
 
 1. **Tipo Pokémon** — indovina i tipi del Pokémon del giorno
 2. **Parola** — Wordle in italiano
