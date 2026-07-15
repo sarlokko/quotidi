@@ -1,25 +1,25 @@
 [
   {
-    "theme": "Mini",
+    "theme": "Casa",
     "grid": [
-      "AMARO",
-      "M#M#P",
-      "ISOLE",
-      "C#R#R",
+      "ABATE",
+      "L#G#P",
+      "ACIDO",
+      "T#L#C",
       "OPERA"
     ],
     "across": [
       {
         "row": 0,
         "col": 0,
-        "clue": "Non dolce",
-        "answer": "AMARO"
+        "clue": "Superiore di monastero",
+        "answer": "ABATE"
       },
       {
         "row": 2,
         "col": 0,
-        "clue": "Terre in mezzo al mare",
-        "answer": "ISOLE"
+        "clue": "Non basico",
+        "answer": "ACIDO"
       },
       {
         "row": 4,
@@ -32,38 +32,338 @@
       {
         "row": 0,
         "col": 0,
-        "clue": "Non è un nemico",
-        "answer": "AMICO"
+        "clue": "Con le ali",
+        "answer": "ALATO"
       },
       {
         "row": 0,
         "col": 2,
-        "clue": "Sentimento forte",
-        "answer": "AMORE"
+        "clue": "Lesto",
+        "answer": "AGILE"
       },
       {
         "row": 0,
         "col": 4,
-        "clue": "Spettacolo lirico",
-        "answer": "OPERA"
+        "clue": "Periodo storico",
+        "answer": "EPOCA"
       }
     ]
   },
   {
-    "theme": "Mini",
+    "theme": "Mare",
     "grid": [
-      "AMARO",
-      "S#M#P",
-      "ISOLE",
-      "N#R#R",
-      "OPERA"
+      "ACETO",
+      "N#B#R",
+      "SCALA",
+      "I#N#L",
+      "AMORE"
     ],
     "across": [
       {
         "row": 0,
         "col": 0,
+        "clue": "Agrodolce da cucina",
+        "answer": "ACETO"
+      },
+      {
+        "row": 2,
+        "col": 0,
+        "clue": "Si sale",
+        "answer": "SCALA"
+      },
+      {
+        "row": 4,
+        "col": 0,
+        "clue": "Sentimento forte",
+        "answer": "AMORE"
+      }
+    ],
+    "down": [
+      {
+        "row": 0,
+        "col": 0,
+        "clue": "Preoccupazione",
+        "answer": "ANSIA"
+      },
+      {
+        "row": 0,
+        "col": 2,
+        "clue": "Legno scuro",
+        "answer": "EBANO"
+      },
+      {
+        "row": 0,
+        "col": 4,
+        "clue": "A voce",
+        "answer": "ORALE"
+      }
+    ]
+  },
+  {
+    "theme": "Cibo",
+    "grid": [
+      "CAMPO",
+      "O#O#L",
+      "SOLDI",
+      "T#L#V",
+      "ARENA"
+    ],
+    "across": [
+      {
+        "row": 0,
+        "col": 0,
+        "clue": "Di calcio o coltivato",
+        "answer": "CAMPO"
+      },
+      {
+        "row": 2,
+        "col": 0,
+        "clue": "Quattrini",
+        "answer": "SOLDI"
+      },
+      {
+        "row": 4,
+        "col": 0,
+        "clue": "Circo romano",
+        "answer": "ARENA"
+      }
+    ],
+    "down": [
+      {
+        "row": 0,
+        "col": 0,
+        "clue": "Bordo del mare",
+        "answer": "COSTA"
+      },
+      {
+        "row": 0,
+        "col": 2,
+        "clue": "Non duro",
+        "answer": "MOLLE"
+      },
+      {
+        "row": 0,
+        "col": 4,
+        "clue": "Frutto dell'ulivo",
+        "answer": "OLIVA"
+      }
+    ]
+  },
+  {
+    "theme": "Natura",
+    "grid": [
+      "LISTA",
+      "U#F#M",
+      "CRISI",
+      "I#D#C",
+      "AMARO"
+    ],
+    "across": [
+      {
+        "row": 0,
+        "col": 0,
+        "clue": "Elenco",
+        "answer": "LISTA"
+      },
+      {
+        "row": 2,
+        "col": 0,
+        "clue": "Momento difficile",
+        "answer": "CRISI"
+      },
+      {
+        "row": 4,
+        "col": 0,
         "clue": "Non dolce",
         "answer": "AMARO"
+      }
+    ],
+    "down": [
+      {
+        "row": 0,
+        "col": 0,
+        "clue": "Nome di santa",
+        "answer": "LUCIA"
+      },
+      {
+        "row": 0,
+        "col": 2,
+        "clue": "Provocazione",
+        "answer": "SFIDA"
+      },
+      {
+        "row": 0,
+        "col": 4,
+        "clue": "Non è un nemico",
+        "answer": "AMICO"
+      }
+    ]
+  },
+  {
+    "theme": "Città",
+    "grid": [
+      "MEDIA",
+      "U#I#M",
+      "CREMA",
+      "C#C#R",
+      "ARIDO"
+    ],
+    "across": [
+      {
+        "row": 0,
+        "col": 0,
+        "clue": "Valore medio",
+        "answer": "MEDIA"
+      },
+      {
+        "row": 2,
+        "col": 0,
+        "clue": "Dolce o per la pelle",
+        "answer": "CREMA"
+      },
+      {
+        "row": 4,
+        "col": 0,
+        "clue": "Secco, senza acqua",
+        "answer": "ARIDO"
+      }
+    ],
+    "down": [
+      {
+        "row": 0,
+        "col": 0,
+        "clue": "Fa il latte",
+        "answer": "MUCCA"
+      },
+      {
+        "row": 0,
+        "col": 2,
+        "clue": "Dopo il nove",
+        "answer": "DIECI"
+      },
+      {
+        "row": 0,
+        "col": 4,
+        "clue": "Non dolce",
+        "answer": "AMARO"
+      }
+    ]
+  },
+  {
+    "theme": "Arte",
+    "grid": [
+      "PAURA",
+      "R#S#N",
+      "ORARI",
+      "V#R#M",
+      "ARENA"
+    ],
+    "across": [
+      {
+        "row": 0,
+        "col": 0,
+        "clue": "Timore",
+        "answer": "PAURA"
+      },
+      {
+        "row": 2,
+        "col": 0,
+        "clue": "Tabelle dei treni",
+        "answer": "ORARI"
+      },
+      {
+        "row": 4,
+        "col": 0,
+        "clue": "Circo romano",
+        "answer": "ARENA"
+      }
+    ],
+    "down": [
+      {
+        "row": 0,
+        "col": 0,
+        "clue": "Esame o tentativo",
+        "answer": "PROVA"
+      },
+      {
+        "row": 0,
+        "col": 2,
+        "clue": "Adoperare",
+        "answer": "USARE"
+      },
+      {
+        "row": 0,
+        "col": 4,
+        "clue": "Parte spirituale",
+        "answer": "ANIMA"
+      }
+    ]
+  },
+  {
+    "theme": "Sport",
+    "grid": [
+      "ALBUM",
+      "S#A#I",
+      "TORRE",
+      "R#B#L",
+      "ORALE"
+    ],
+    "across": [
+      {
+        "row": 0,
+        "col": 0,
+        "clue": "Raccolta di foto",
+        "answer": "ALBUM"
+      },
+      {
+        "row": 2,
+        "col": 0,
+        "clue": "Edificio alto",
+        "answer": "TORRE"
+      },
+      {
+        "row": 4,
+        "col": 0,
+        "clue": "A voce",
+        "answer": "ORALE"
+      }
+    ],
+    "down": [
+      {
+        "row": 0,
+        "col": 0,
+        "clue": "Corpo celeste",
+        "answer": "ASTRO"
+      },
+      {
+        "row": 0,
+        "col": 2,
+        "clue": "Sul mento",
+        "answer": "BARBA"
+      },
+      {
+        "row": 0,
+        "col": 4,
+        "clue": "Dalle api",
+        "answer": "MIELE"
+      }
+    ]
+  },
+  {
+    "theme": "Animali",
+    "grid": [
+      "SOFIA",
+      "P#U#C",
+      "ISOLE",
+      "N#R#T",
+      "ASINO"
+    ],
+    "across": [
+      {
+        "row": 0,
+        "col": 0,
+        "clue": "Nome o saggezza",
+        "answer": "SOFIA"
       },
       {
         "row": 2,
@@ -73,97 +373,197 @@
       },
       {
         "row": 4,
-        "col": 0,
-        "clue": "Spettacolo lirico",
-        "answer": "OPERA"
-      }
-    ],
-    "down": [
-      {
-        "row": 0,
         "col": 0,
         "clue": "Animale da soma",
         "answer": "ASINO"
-      },
-      {
-        "row": 0,
-        "col": 2,
-        "clue": "Sentimento forte",
-        "answer": "AMORE"
-      },
-      {
-        "row": 0,
-        "col": 4,
-        "clue": "Spettacolo lirico",
-        "answer": "OPERA"
-      }
-    ]
-  },
-  {
-    "theme": "Mini",
-    "grid": [
-      "BANCO",
-      "E#O#P",
-      "LATTE",
-      "L#T#R",
-      "OPERA"
-    ],
-    "across": [
-      {
-        "row": 0,
-        "col": 0,
-        "clue": "In classe o in banca",
-        "answer": "BANCO"
-      },
-      {
-        "row": 2,
-        "col": 0,
-        "clue": "Bevanda bianca",
-        "answer": "LATTE"
-      },
-      {
-        "row": 4,
-        "col": 0,
-        "clue": "Spettacolo lirico",
-        "answer": "OPERA"
       }
     ],
     "down": [
       {
         "row": 0,
         "col": 0,
-        "clue": "Non brutto",
-        "answer": "BELLO"
+        "clue": "Appuntita",
+        "answer": "SPINA"
       },
       {
         "row": 0,
         "col": 2,
-        "clue": "Quando c'è il buio",
-        "answer": "NOTTE"
+        "clue": "Non dentro",
+        "answer": "FUORI"
       },
       {
         "row": 0,
         "col": 4,
-        "clue": "Spettacolo lirico",
-        "answer": "OPERA"
+        "clue": "Agrodolce da cucina",
+        "answer": "ACETO"
       }
     ]
   },
   {
-    "theme": "Mini",
+    "theme": "Viaggio",
     "grid": [
-      "BOSCO",
-      "O#A#L",
+      "VASCA",
+      "I#U#M",
+      "NUOTO",
+      "C#N#R",
+      "ISOLE"
+    ],
+    "across": [
+      {
+        "row": 0,
+        "col": 0,
+        "clue": "Da bagno",
+        "answer": "VASCA"
+      },
+      {
+        "row": 2,
+        "col": 0,
+        "clue": "In piscina",
+        "answer": "NUOTO"
+      },
+      {
+        "row": 4,
+        "col": 0,
+        "clue": "Terre in mezzo al mare",
+        "answer": "ISOLE"
+      }
+    ],
+    "down": [
+      {
+        "row": 0,
+        "col": 0,
+        "clue": "Città di Leonardo",
+        "answer": "VINCI"
+      },
+      {
+        "row": 0,
+        "col": 2,
+        "clue": "Si sente",
+        "answer": "SUONO"
+      },
+      {
+        "row": 0,
+        "col": 4,
+        "clue": "Sentimento forte",
+        "answer": "AMORE"
+      }
+    ]
+  },
+  {
+    "theme": "Musica",
+    "grid": [
+      "PADRE",
+      "E#I#P",
+      "SIERO",
+      "C#C#C",
+      "ETICA"
+    ],
+    "across": [
+      {
+        "row": 0,
+        "col": 0,
+        "clue": "Genitore",
+        "answer": "PADRE"
+      },
+      {
+        "row": 2,
+        "col": 0,
+        "clue": "Vaccino o latte",
+        "answer": "SIERO"
+      },
+      {
+        "row": 4,
+        "col": 0,
+        "clue": "Morale",
+        "answer": "ETICA"
+      }
+    ],
+    "down": [
+      {
+        "row": 0,
+        "col": 0,
+        "clue": "Nuota",
+        "answer": "PESCE"
+      },
+      {
+        "row": 0,
+        "col": 2,
+        "clue": "Dopo il nove",
+        "answer": "DIECI"
+      },
+      {
+        "row": 0,
+        "col": 4,
+        "clue": "Periodo storico",
+        "answer": "EPOCA"
+      }
+    ]
+  },
+  {
+    "theme": "Scuola",
+    "grid": [
+      "BARCA",
+      "O#I#L",
+      "TASCA",
+      "T#M#T",
+      "EBANO"
+    ],
+    "across": [
+      {
+        "row": 0,
+        "col": 0,
+        "clue": "Galleggia",
+        "answer": "BARCA"
+      },
+      {
+        "row": 2,
+        "col": 0,
+        "clue": "Nei pantaloni",
+        "answer": "TASCA"
+      },
+      {
+        "row": 4,
+        "col": 0,
+        "clue": "Legno scuro",
+        "answer": "EBANO"
+      }
+    ],
+    "down": [
+      {
+        "row": 0,
+        "col": 0,
+        "clue": "Contiene vino",
+        "answer": "BOTTE"
+      },
+      {
+        "row": 0,
+        "col": 2,
+        "clue": "Di fogli",
+        "answer": "RISMA"
+      },
+      {
+        "row": 0,
+        "col": 4,
+        "clue": "Con le ali",
+        "answer": "ALATO"
+      }
+    ]
+  },
+  {
+    "theme": "Tempo",
+    "grid": [
+      "MADRE",
+      "U#O#T",
       "SOLDI",
-      "C#S#V",
+      "E#C#C",
       "OPERA"
     ],
     "across": [
       {
         "row": 0,
         "col": 0,
-        "clue": "Tanti alberi",
-        "answer": "BOSCO"
+        "clue": "Genitrice",
+        "answer": "MADRE"
       },
       {
         "row": 2,
@@ -182,14 +582,414 @@
       {
         "row": 0,
         "col": 0,
-        "clue": "Tanti alberi",
-        "answer": "BOSCO"
+        "clue": "Opere d'arte",
+        "answer": "MUSEO"
       },
       {
         "row": 0,
         "col": 2,
-        "clue": "Condimenti",
-        "answer": "SALSE"
+        "clue": "Non amaro",
+        "answer": "DOLCE"
+      },
+      {
+        "row": 0,
+        "col": 4,
+        "clue": "Morale",
+        "answer": "ETICA"
+      }
+    ]
+  },
+  {
+    "theme": "Casa",
+    "grid": [
+      "CALMA",
+      "I#U#B",
+      "NINFA",
+      "T#G#T",
+      "AMORE"
+    ],
+    "across": [
+      {
+        "row": 0,
+        "col": 0,
+        "clue": "Tranquillità",
+        "answer": "CALMA"
+      },
+      {
+        "row": 2,
+        "col": 0,
+        "clue": "Creatura dei boschi",
+        "answer": "NINFA"
+      },
+      {
+        "row": 4,
+        "col": 0,
+        "clue": "Sentimento forte",
+        "answer": "AMORE"
+      }
+    ],
+    "down": [
+      {
+        "row": 0,
+        "col": 0,
+        "clue": "Intorno alla vita",
+        "answer": "CINTA"
+      },
+      {
+        "row": 0,
+        "col": 2,
+        "clue": "Non corto",
+        "answer": "LUNGO"
+      },
+      {
+        "row": 0,
+        "col": 4,
+        "clue": "Superiore di monastero",
+        "answer": "ABATE"
+      }
+    ]
+  },
+  {
+    "theme": "Mare",
+    "grid": [
+      "BASSO",
+      "O#I#R",
+      "REGIA",
+      "S#L#L",
+      "ABATE"
+    ],
+    "across": [
+      {
+        "row": 0,
+        "col": 0,
+        "clue": "Non alto",
+        "answer": "BASSO"
+      },
+      {
+        "row": 2,
+        "col": 0,
+        "clue": "Di un film",
+        "answer": "REGIA"
+      },
+      {
+        "row": 4,
+        "col": 0,
+        "clue": "Superiore di monastero",
+        "answer": "ABATE"
+      }
+    ],
+    "down": [
+      {
+        "row": 0,
+        "col": 0,
+        "clue": "Contiene oggetti",
+        "answer": "BORSA"
+      },
+      {
+        "row": 0,
+        "col": 2,
+        "clue": "Iniziali",
+        "answer": "SIGLA"
+      },
+      {
+        "row": 0,
+        "col": 4,
+        "clue": "A voce",
+        "answer": "ORALE"
+      }
+    ]
+  },
+  {
+    "theme": "Cibo",
+    "grid": [
+      "CIELO",
+      "O#S#P",
+      "LATTE",
+      "L#R#R",
+      "EPOCA"
+    ],
+    "across": [
+      {
+        "row": 0,
+        "col": 0,
+        "clue": "Sopra le nuvole",
+        "answer": "CIELO"
+      },
+      {
+        "row": 2,
+        "col": 0,
+        "clue": "Bevanda bianca",
+        "answer": "LATTE"
+      },
+      {
+        "row": 4,
+        "col": 0,
+        "clue": "Periodo storico",
+        "answer": "EPOCA"
+      }
+    ],
+    "down": [
+      {
+        "row": 0,
+        "col": 0,
+        "clue": "Piccola altura",
+        "answer": "COLLE"
+      },
+      {
+        "row": 0,
+        "col": 2,
+        "clue": "Ispirazione",
+        "answer": "ESTRO"
+      },
+      {
+        "row": 0,
+        "col": 4,
+        "clue": "Spettacolo lirico",
+        "answer": "OPERA"
+      }
+    ]
+  },
+  {
+    "theme": "Natura",
+    "grid": [
+      "FESTA",
+      "O#P#L",
+      "RUOTA",
+      "T#S#T",
+      "EBANO"
+    ],
+    "across": [
+      {
+        "row": 0,
+        "col": 0,
+        "clue": "Celebrazione",
+        "answer": "FESTA"
+      },
+      {
+        "row": 2,
+        "col": 0,
+        "clue": "Gira",
+        "answer": "RUOTA"
+      },
+      {
+        "row": 4,
+        "col": 0,
+        "clue": "Legno scuro",
+        "answer": "EBANO"
+      }
+    ],
+    "down": [
+      {
+        "row": 0,
+        "col": 0,
+        "clue": "Non debole",
+        "answer": "FORTE"
+      },
+      {
+        "row": 0,
+        "col": 2,
+        "clue": "Il giorno del sì",
+        "answer": "SPOSA"
+      },
+      {
+        "row": 0,
+        "col": 4,
+        "clue": "Con le ali",
+        "answer": "ALATO"
+      }
+    ]
+  },
+  {
+    "theme": "Città",
+    "grid": [
+      "TOCCA",
+      "O#R#C",
+      "STILE",
+      "T#S#T",
+      "ASINO"
+    ],
+    "across": [
+      {
+        "row": 0,
+        "col": 0,
+        "clue": "Con le mani",
+        "answer": "TOCCA"
+      },
+      {
+        "row": 2,
+        "col": 0,
+        "clue": "Modo di fare",
+        "answer": "STILE"
+      },
+      {
+        "row": 4,
+        "col": 0,
+        "clue": "Animale da soma",
+        "answer": "ASINO"
+      }
+    ],
+    "down": [
+      {
+        "row": 0,
+        "col": 0,
+        "clue": "Audace",
+        "answer": "TOSTA"
+      },
+      {
+        "row": 0,
+        "col": 2,
+        "clue": "Momento difficile",
+        "answer": "CRISI"
+      },
+      {
+        "row": 0,
+        "col": 4,
+        "clue": "Agrodolce da cucina",
+        "answer": "ACETO"
+      }
+    ]
+  },
+  {
+    "theme": "Arte",
+    "grid": [
+      "PALMA",
+      "A#E#M",
+      "STOLA",
+      "T#N#R",
+      "ACETO"
+    ],
+    "across": [
+      {
+        "row": 0,
+        "col": 0,
+        "clue": "Albero tropicale",
+        "answer": "PALMA"
+      },
+      {
+        "row": 2,
+        "col": 0,
+        "clue": "Indumento",
+        "answer": "STOLA"
+      },
+      {
+        "row": 4,
+        "col": 0,
+        "clue": "Agrodolce da cucina",
+        "answer": "ACETO"
+      }
+    ],
+    "down": [
+      {
+        "row": 0,
+        "col": 0,
+        "clue": "Italiana",
+        "answer": "PASTA"
+      },
+      {
+        "row": 0,
+        "col": 2,
+        "clue": "Re della savana",
+        "answer": "LEONE"
+      },
+      {
+        "row": 0,
+        "col": 4,
+        "clue": "Non dolce",
+        "answer": "AMARO"
+      }
+    ]
+  },
+  {
+    "theme": "Sport",
+    "grid": [
+      "DANZA",
+      "U#O#R",
+      "OLTRE",
+      "M#T#N",
+      "OPERA"
+    ],
+    "across": [
+      {
+        "row": 0,
+        "col": 0,
+        "clue": "Ballo",
+        "answer": "DANZA"
+      },
+      {
+        "row": 2,
+        "col": 0,
+        "clue": "Al di là",
+        "answer": "OLTRE"
+      },
+      {
+        "row": 4,
+        "col": 0,
+        "clue": "Spettacolo lirico",
+        "answer": "OPERA"
+      }
+    ],
+    "down": [
+      {
+        "row": 0,
+        "col": 0,
+        "clue": "Cattedrale",
+        "answer": "DUOMO"
+      },
+      {
+        "row": 0,
+        "col": 2,
+        "clue": "Quando c'è il buio",
+        "answer": "NOTTE"
+      },
+      {
+        "row": 0,
+        "col": 4,
+        "clue": "Circo romano",
+        "answer": "ARENA"
+      }
+    ]
+  },
+  {
+    "theme": "Animali",
+    "grid": [
+      "SACRO",
+      "O#U#L",
+      "FUORI",
+      "I#R#V",
+      "ARENA"
+    ],
+    "across": [
+      {
+        "row": 0,
+        "col": 0,
+        "clue": "Santo",
+        "answer": "SACRO"
+      },
+      {
+        "row": 2,
+        "col": 0,
+        "clue": "Non dentro",
+        "answer": "FUORI"
+      },
+      {
+        "row": 4,
+        "col": 0,
+        "clue": "Circo romano",
+        "answer": "ARENA"
+      }
+    ],
+    "down": [
+      {
+        "row": 0,
+        "col": 0,
+        "clue": "Nome o saggezza",
+        "answer": "SOFIA"
+      },
+      {
+        "row": 0,
+        "col": 2,
+        "clue": "Batte nel petto",
+        "answer": "CUORE"
       },
       {
         "row": 0,
@@ -200,302 +1000,502 @@
     ]
   },
   {
-    "theme": "Mini",
+    "theme": "Viaggio",
     "grid": [
-      "CALDO",
-      "A#A#P",
-      "NOTTE",
-      "T#T#R",
-      "OPERA"
+      "SEDIA",
+      "E#O#M",
+      "TENDA",
+      "T#N#R",
+      "EBANO"
     ],
     "across": [
       {
         "row": 0,
         "col": 0,
-        "clue": "Non freddo",
-        "answer": "CALDO"
+        "clue": "Ci si siede",
+        "answer": "SEDIA"
       },
       {
         "row": 2,
         "col": 0,
-        "clue": "Quando c'è il buio",
-        "answer": "NOTTE"
+        "clue": "Da campeggio",
+        "answer": "TENDA"
       },
       {
         "row": 4,
         "col": 0,
+        "clue": "Legno scuro",
+        "answer": "EBANO"
+      }
+    ],
+    "down": [
+      {
+        "row": 0,
+        "col": 0,
+        "clue": "Dopo il sei",
+        "answer": "SETTE"
+      },
+      {
+        "row": 0,
+        "col": 2,
+        "clue": "Femminile di uomo",
+        "answer": "DONNA"
+      },
+      {
+        "row": 0,
+        "col": 4,
+        "clue": "Non dolce",
+        "answer": "AMARO"
+      }
+    ]
+  },
+  {
+    "theme": "Musica",
+    "grid": [
+      "TOSTA",
+      "R#P#G",
+      "ORARI",
+      "N#D#L",
+      "ORALE"
+    ],
+    "across": [
+      {
+        "row": 0,
+        "col": 0,
+        "clue": "Audace",
+        "answer": "TOSTA"
+      },
+      {
+        "row": 2,
+        "col": 0,
+        "clue": "Tabelle dei treni",
+        "answer": "ORARI"
+      },
+      {
+        "row": 4,
+        "col": 0,
+        "clue": "A voce",
+        "answer": "ORALE"
+      }
+    ],
+    "down": [
+      {
+        "row": 0,
+        "col": 0,
+        "clue": "Del sovrano",
+        "answer": "TRONO"
+      },
+      {
+        "row": 0,
+        "col": 2,
+        "clue": "Arma bianca",
+        "answer": "SPADA"
+      },
+      {
+        "row": 0,
+        "col": 4,
+        "clue": "Lesto",
+        "answer": "AGILE"
+      }
+    ]
+  },
+  {
+    "theme": "Scuola",
+    "grid": [
+      "GIOIA",
+      "O#S#M",
+      "METRO",
+      "M#I#R",
+      "ABATE"
+    ],
+    "across": [
+      {
+        "row": 0,
+        "col": 0,
+        "clue": "Grande felicità",
+        "answer": "GIOIA"
+      },
+      {
+        "row": 2,
+        "col": 0,
+        "clue": "Misura o mezzo urbano",
+        "answer": "METRO"
+      },
+      {
+        "row": 4,
+        "col": 0,
+        "clue": "Superiore di monastero",
+        "answer": "ABATE"
+      }
+    ],
+    "down": [
+      {
+        "row": 0,
+        "col": 0,
+        "clue": "Si cancella",
+        "answer": "GOMMA"
+      },
+      {
+        "row": 0,
+        "col": 2,
+        "clue": "In chiesa",
+        "answer": "OSTIA"
+      },
+      {
+        "row": 0,
+        "col": 4,
+        "clue": "Sentimento forte",
+        "answer": "AMORE"
+      }
+    ]
+  },
+  {
+    "theme": "Tempo",
+    "grid": [
+      "VESPA",
+      "I#E#B",
+      "NONNA",
+      "C#N#T",
+      "ISOLE"
+    ],
+    "across": [
+      {
+        "row": 0,
+        "col": 0,
+        "clue": "Insetto o scooter",
+        "answer": "VESPA"
+      },
+      {
+        "row": 2,
+        "col": 0,
+        "clue": "Madre di un genitore",
+        "answer": "NONNA"
+      },
+      {
+        "row": 4,
+        "col": 0,
+        "clue": "Terre in mezzo al mare",
+        "answer": "ISOLE"
+      }
+    ],
+    "down": [
+      {
+        "row": 0,
+        "col": 0,
+        "clue": "Città di Leonardo",
+        "answer": "VINCI"
+      },
+      {
+        "row": 0,
+        "col": 2,
+        "clue": "Buon giudizio",
+        "answer": "SENNO"
+      },
+      {
+        "row": 0,
+        "col": 4,
+        "clue": "Superiore di monastero",
+        "answer": "ABATE"
+      }
+    ]
+  },
+  {
+    "theme": "Casa",
+    "grid": [
+      "ALBUM",
+      "N#E#I",
+      "SALVE",
+      "I#L#L",
+      "AMORE"
+    ],
+    "across": [
+      {
+        "row": 0,
+        "col": 0,
+        "clue": "Raccolta di foto",
+        "answer": "ALBUM"
+      },
+      {
+        "row": 2,
+        "col": 0,
+        "clue": "Ciao formale",
+        "answer": "SALVE"
+      },
+      {
+        "row": 4,
+        "col": 0,
+        "clue": "Sentimento forte",
+        "answer": "AMORE"
+      }
+    ],
+    "down": [
+      {
+        "row": 0,
+        "col": 0,
+        "clue": "Preoccupazione",
+        "answer": "ANSIA"
+      },
+      {
+        "row": 0,
+        "col": 2,
+        "clue": "Non brutto",
+        "answer": "BELLO"
+      },
+      {
+        "row": 0,
+        "col": 4,
+        "clue": "Dalle api",
+        "answer": "MIELE"
+      }
+    ]
+  },
+  {
+    "theme": "Mare",
+    "grid": [
+      "FESTA",
+      "I#C#N",
+      "ORARI",
+      "R#F#M",
+      "EPOCA"
+    ],
+    "across": [
+      {
+        "row": 0,
+        "col": 0,
+        "clue": "Celebrazione",
+        "answer": "FESTA"
+      },
+      {
+        "row": 2,
+        "col": 0,
+        "clue": "Tabelle dei treni",
+        "answer": "ORARI"
+      },
+      {
+        "row": 4,
+        "col": 0,
+        "clue": "Periodo storico",
+        "answer": "EPOCA"
+      }
+    ],
+    "down": [
+      {
+        "row": 0,
+        "col": 0,
+        "clue": "Profuma nei campi",
+        "answer": "FIORE"
+      },
+      {
+        "row": 0,
+        "col": 2,
+        "clue": "Della barca",
+        "answer": "SCAFO"
+      },
+      {
+        "row": 0,
+        "col": 4,
+        "clue": "Parte spirituale",
+        "answer": "ANIMA"
+      }
+    ]
+  },
+  {
+    "theme": "Cibo",
+    "grid": [
+      "PESCA",
+      "I#T#G",
+      "CRISI",
+      "C#M#L",
+      "ORALE"
+    ],
+    "across": [
+      {
+        "row": 0,
+        "col": 0,
+        "clue": "Frutto o sport",
+        "answer": "PESCA"
+      },
+      {
+        "row": 2,
+        "col": 0,
+        "clue": "Momento difficile",
+        "answer": "CRISI"
+      },
+      {
+        "row": 4,
+        "col": 0,
+        "clue": "A voce",
+        "answer": "ORALE"
+      }
+    ],
+    "down": [
+      {
+        "row": 0,
+        "col": 0,
+        "clue": "Cima",
+        "answer": "PICCO"
+      },
+      {
+        "row": 0,
+        "col": 2,
+        "clue": "Valutazione",
+        "answer": "STIMA"
+      },
+      {
+        "row": 0,
+        "col": 4,
+        "clue": "Lesto",
+        "answer": "AGILE"
+      }
+    ]
+  },
+  {
+    "theme": "Natura",
+    "grid": [
+      "TASCA",
+      "O#O#L",
+      "CELLA",
+      "C#D#T",
+      "ARIDO"
+    ],
+    "across": [
+      {
+        "row": 0,
+        "col": 0,
+        "clue": "Nei pantaloni",
+        "answer": "TASCA"
+      },
+      {
+        "row": 2,
+        "col": 0,
+        "clue": "In prigione o alveare",
+        "answer": "CELLA"
+      },
+      {
+        "row": 4,
+        "col": 0,
+        "clue": "Secco, senza acqua",
+        "answer": "ARIDO"
+      }
+    ],
+    "down": [
+      {
+        "row": 0,
+        "col": 0,
+        "clue": "Con le mani",
+        "answer": "TOCCA"
+      },
+      {
+        "row": 0,
+        "col": 2,
+        "clue": "Quattrini",
+        "answer": "SOLDI"
+      },
+      {
+        "row": 0,
+        "col": 4,
+        "clue": "Con le ali",
+        "answer": "ALATO"
+      }
+    ]
+  },
+  {
+    "theme": "Città",
+    "grid": [
+      "PADRE",
+      "E#I#B",
+      "SCENA",
+      "C#C#N",
+      "AMICO"
+    ],
+    "across": [
+      {
+        "row": 0,
+        "col": 0,
+        "clue": "Genitore",
+        "answer": "PADRE"
+      },
+      {
+        "row": 2,
+        "col": 0,
+        "clue": "A teatro",
+        "answer": "SCENA"
+      },
+      {
+        "row": 4,
+        "col": 0,
+        "clue": "Non è un nemico",
+        "answer": "AMICO"
+      }
+    ],
+    "down": [
+      {
+        "row": 0,
+        "col": 0,
+        "clue": "Frutto o sport",
+        "answer": "PESCA"
+      },
+      {
+        "row": 0,
+        "col": 2,
+        "clue": "Dopo il nove",
+        "answer": "DIECI"
+      },
+      {
+        "row": 0,
+        "col": 4,
+        "clue": "Legno scuro",
+        "answer": "EBANO"
+      }
+    ]
+  },
+  {
+    "theme": "Arte",
+    "grid": [
+      "SASSO",
+      "E#O#P",
+      "TENUE",
+      "T#N#R",
+      "EPOCA"
+    ],
+    "across": [
+      {
+        "row": 0,
+        "col": 0,
+        "clue": "Pietra",
+        "answer": "SASSO"
+      },
+      {
+        "row": 2,
+        "col": 0,
+        "clue": "Molto lieve",
+        "answer": "TENUE"
+      },
+      {
+        "row": 4,
+        "col": 0,
+        "clue": "Periodo storico",
+        "answer": "EPOCA"
+      }
+    ],
+    "down": [
+      {
+        "row": 0,
+        "col": 0,
+        "clue": "Dopo il sei",
+        "answer": "SETTE"
+      },
+      {
+        "row": 0,
+        "col": 2,
+        "clue": "Si dorme",
+        "answer": "SONNO"
+      },
+      {
+        "row": 0,
+        "col": 4,
         "clue": "Spettacolo lirico",
         "answer": "OPERA"
-      }
-    ],
-    "down": [
-      {
-        "row": 0,
-        "col": 0,
-        "clue": "Con la voce",
-        "answer": "CANTO"
-      },
-      {
-        "row": 0,
-        "col": 2,
-        "clue": "Bevanda bianca",
-        "answer": "LATTE"
-      },
-      {
-        "row": 0,
-        "col": 4,
-        "clue": "Spettacolo lirico",
-        "answer": "OPERA"
-      }
-    ]
-  },
-  {
-    "theme": "Mini",
-    "grid": [
-      "CARTA",
-      "O#I#M",
-      "SUCCO",
-      "T#C#R",
-      "AMORE"
-    ],
-    "across": [
-      {
-        "row": 0,
-        "col": 0,
-        "clue": "Si scrive sopra",
-        "answer": "CARTA"
-      },
-      {
-        "row": 2,
-        "col": 0,
-        "clue": "Di frutta",
-        "answer": "SUCCO"
-      },
-      {
-        "row": 4,
-        "col": 0,
-        "clue": "Sentimento forte",
-        "answer": "AMORE"
-      }
-    ],
-    "down": [
-      {
-        "row": 0,
-        "col": 0,
-        "clue": "Bordo del mare",
-        "answer": "COSTA"
-      },
-      {
-        "row": 0,
-        "col": 2,
-        "clue": "Non povero",
-        "answer": "RICCO"
-      },
-      {
-        "row": 0,
-        "col": 4,
-        "clue": "Sentimento forte",
-        "answer": "AMORE"
-      }
-    ]
-  },
-  {
-    "theme": "Mini",
-    "grid": [
-      "CARTA",
-      "O#O#M",
-      "SASSO",
-      "T#S#R",
-      "AMORE"
-    ],
-    "across": [
-      {
-        "row": 0,
-        "col": 0,
-        "clue": "Si scrive sopra",
-        "answer": "CARTA"
-      },
-      {
-        "row": 2,
-        "col": 0,
-        "clue": "Pietra",
-        "answer": "SASSO"
-      },
-      {
-        "row": 4,
-        "col": 0,
-        "clue": "Sentimento forte",
-        "answer": "AMORE"
-      }
-    ],
-    "down": [
-      {
-        "row": 0,
-        "col": 0,
-        "clue": "Bordo del mare",
-        "answer": "COSTA"
-      },
-      {
-        "row": 0,
-        "col": 2,
-        "clue": "Colore",
-        "answer": "ROSSO"
-      },
-      {
-        "row": 0,
-        "col": 4,
-        "clue": "Sentimento forte",
-        "answer": "AMORE"
-      }
-    ]
-  },
-  {
-    "theme": "Mini",
-    "grid": [
-      "CORSA",
-      "O#I#M",
-      "SUCCO",
-      "T#C#R",
-      "AMORE"
-    ],
-    "across": [
-      {
-        "row": 0,
-        "col": 0,
-        "clue": "Si corre",
-        "answer": "CORSA"
-      },
-      {
-        "row": 2,
-        "col": 0,
-        "clue": "Di frutta",
-        "answer": "SUCCO"
-      },
-      {
-        "row": 4,
-        "col": 0,
-        "clue": "Sentimento forte",
-        "answer": "AMORE"
-      }
-    ],
-    "down": [
-      {
-        "row": 0,
-        "col": 0,
-        "clue": "Bordo del mare",
-        "answer": "COSTA"
-      },
-      {
-        "row": 0,
-        "col": 2,
-        "clue": "Non povero",
-        "answer": "RICCO"
-      },
-      {
-        "row": 0,
-        "col": 4,
-        "clue": "Sentimento forte",
-        "answer": "AMORE"
-      }
-    ]
-  },
-  {
-    "theme": "Mini",
-    "grid": [
-      "CORSA",
-      "O#O#M",
-      "SASSO",
-      "T#S#R",
-      "AMORE"
-    ],
-    "across": [
-      {
-        "row": 0,
-        "col": 0,
-        "clue": "Si corre",
-        "answer": "CORSA"
-      },
-      {
-        "row": 2,
-        "col": 0,
-        "clue": "Pietra",
-        "answer": "SASSO"
-      },
-      {
-        "row": 4,
-        "col": 0,
-        "clue": "Sentimento forte",
-        "answer": "AMORE"
-      }
-    ],
-    "down": [
-      {
-        "row": 0,
-        "col": 0,
-        "clue": "Bordo del mare",
-        "answer": "COSTA"
-      },
-      {
-        "row": 0,
-        "col": 2,
-        "clue": "Colore",
-        "answer": "ROSSO"
-      },
-      {
-        "row": 0,
-        "col": 4,
-        "clue": "Sentimento forte",
-        "answer": "AMORE"
-      }
-    ]
-  },
-  {
-    "theme": "Mini",
-    "grid": [
-      "PASTA",
-      "E#A#M",
-      "ROSSO",
-      "L#S#R",
-      "AMORE"
-    ],
-    "across": [
-      {
-        "row": 0,
-        "col": 0,
-        "clue": "Italiana",
-        "answer": "PASTA"
-      },
-      {
-        "row": 2,
-        "col": 0,
-        "clue": "Colore",
-        "answer": "ROSSO"
-      },
-      {
-        "row": 4,
-        "col": 0,
-        "clue": "Sentimento forte",
-        "answer": "AMORE"
-      }
-    ],
-    "down": [
-      {
-        "row": 0,
-        "col": 0,
-        "clue": "Nel mollusco",
-        "answer": "PERLA"
-      },
-      {
-        "row": 0,
-        "col": 2,
-        "clue": "Pietra",
-        "answer": "SASSO"
-      },
-      {
-        "row": 0,
-        "col": 4,
-        "clue": "Sentimento forte",
-        "answer": "AMORE"
       }
     ]
   }
