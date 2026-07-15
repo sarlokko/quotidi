@@ -143,6 +143,50 @@ h1 {
   transition: width 0.35s ease;
 }
 
+.stats-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  align-items: center;
+  margin-top: 0.85rem;
+}
+
+.stat-chip {
+  display: flex;
+  flex-direction: column;
+  gap: 0.1rem;
+  padding: 0.45rem 0.75rem;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  min-width: 5.5rem;
+}
+
+.stat-label {
+  color: var(--muted);
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.stat-chip strong {
+  font-family: "Space Grotesk", sans-serif;
+  font-size: 1rem;
+}
+
+.share-day-btn {
+  margin-left: auto;
+  padding: 0.55rem 0.9rem;
+  font-size: 0.9rem;
+}
+
+.share-feedback {
+  min-height: 1.1rem;
+  margin-top: 0.45rem;
+  color: var(--accent-2);
+  font-size: 0.85rem;
+}
+
 .tabs {
   display: flex;
   gap: 0.5rem;
