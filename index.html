@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Quotidì — e ti diverti tutti i dì!</title>
-  <meta name="description" content="Quotidì: minigiochi al giorno, compreso un Sudoku 9×9. E ti diverti tutti i dì!">
+  <meta name="description" content="Quotidì: minigiochi al giorno — Pokémon, parola, Sudoku, Picross, indovinello e barzelletta. E ti diverti tutti i dì!">
   <meta name="theme-color" content="#0f1117">
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-title" content="Quotidì">
@@ -34,7 +34,7 @@
     <div class="progress-wrap">
       <div class="progress-meta">
         <span>Progresso di oggi</span>
-        <strong id="progress-text">0/5 completati oggi</strong>
+        <strong id="progress-text">0/6 completati oggi</strong>
       </div>
       <div class="progress-track"><div class="progress-bar" id="progress-bar"></div></div>
     </div>
@@ -44,6 +44,7 @@
     <button type="button" class="tab-btn active" data-tab="pokemon">⚡ Tipo Pokémon</button>
     <button type="button" class="tab-btn" data-tab="wordle">📝 Parola</button>
     <button type="button" class="tab-btn" data-tab="sudoku">🔢 Sudoku</button>
+    <button type="button" class="tab-btn" data-tab="picross">⬛ Picross</button>
     <button type="button" class="tab-btn" data-tab="riddle">🧩 Indovinello</button>
     <button type="button" class="tab-btn" data-tab="joke">😄 Barzelletta</button>
   </nav>
@@ -85,6 +86,22 @@
         <button type="button" id="sudoku-check" class="btn primary">Controlla</button>
         <button type="button" id="sudoku-clear" class="btn ghost">Pulisci</button>
         <button type="button" id="sudoku-reveal" class="btn ghost">Mostra soluzione</button>
+      </div>
+    </section>
+
+    <section id="picross" class="game-panel card">
+      <h2>Picross 6×6</h2>
+      <p class="game-desc">Nonogram del giorno: riempi le caselle seguendo i numeri su righe e colonne. Usa ✕ per segnare le caselle vuote. Puoi trascinare per colorare.</p>
+      <p id="picross-status" class="game-status" role="status" aria-live="polite"></p>
+      <div class="picross-modes actions">
+        <button type="button" id="picross-mode-fill" class="btn ghost active">Riempi</button>
+        <button type="button" id="picross-mode-mark" class="btn ghost">Segna ✕</button>
+      </div>
+      <div id="picross-board" class="picross-board" aria-label="Griglia Picross 6×6"></div>
+      <div class="actions">
+        <button type="button" id="picross-check" class="btn primary">Controlla</button>
+        <button type="button" id="picross-clear" class="btn ghost">Pulisci</button>
+        <button type="button" id="picross-reveal" class="btn ghost">Mostra soluzione</button>
       </div>
     </section>
 

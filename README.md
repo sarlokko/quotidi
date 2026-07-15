@@ -2,13 +2,14 @@
 
 **Quotidì** — e ti diverti tutti i dì!
 
-Sito con **5 minigiochi al giorno** che si resettano a **mezzanotte** (fuso orario Italia):
+Sito con **6 minigiochi al giorno** che si resettano a **mezzanotte** (fuso orario Italia):
 
 1. **Tipo Pokémon** — indovina i tipi del Pokémon del giorno (hint sul numero di tipi, storico tentativi, 3 prove)
 2. **Parola** — Wordle in italiano (5 lettere, 6 tentativi, animazioni e condivisione risultato)
 3. **Sudoku** — classico 9×9 giornaliero (blocchi 3×3, difficoltà media)
-4. **Indovinello** — risolvi con matching flessibile o rivela la risposta
-5. **Barzelletta** — leggi il setup, rivela la punchline e lascia una reazione
+4. **Picross** — nonogram 6×6 del giorno
+5. **Indovinello** — risolvi con matching flessibile o rivela la risposta
+6. **Barzelletta** — leggi il setup, rivela la punchline e lascia una reazione
 
 ## Avvio locale
 
@@ -44,6 +45,7 @@ quotidi/
 │   ├── pokemon-type.js
 │   ├── wordle.js
 │   ├── sudoku.js
+│   ├── picross.js
 │   ├── riddle.js
 │   ├── joke.js
 │   └── main.js
