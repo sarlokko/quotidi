@@ -3,16 +3,24 @@ import { initPokemonType, isPokemonComplete } from "./pokemon-type.js";
 import { initWordle, isWordleComplete } from "./wordle.js";
 import { initSudoku, isSudokuComplete } from "./sudoku.js";
 import { initPicross, isPicrossComplete } from "./picross.js";
+import { initCrossword, isCrosswordComplete } from "./crossword.js";
+import { initMovie, isMovieComplete } from "./movie.js";
+import { initFact, isFactComplete } from "./fact.js";
+import { initGloble, isGlobleComplete } from "./globle.js";
 import { initRiddle, isRiddleComplete } from "./riddle.js";
 import { initJoke, isJokeComplete } from "./joke.js";
 
 const GAMES = [
-  { id: "pokemon", label: "Tipo Pokémon", icon: "⚡" },
-  { id: "wordle", label: "Parola", icon: "📝" },
-  { id: "sudoku", label: "Sudoku", icon: "🔢" },
-  { id: "picross", label: "Picross", icon: "⬛" },
-  { id: "riddle", label: "Indovinello", icon: "🧩" },
-  { id: "joke", label: "Barzelletta", icon: "😄" },
+  { id: "pokemon", label: "Tipo Pokémon" },
+  { id: "wordle", label: "Parola" },
+  { id: "sudoku", label: "Sudoku" },
+  { id: "picross", label: "Picross" },
+  { id: "crossword", label: "Cruciverba" },
+  { id: "movie", label: "Film" },
+  { id: "fact", label: "Curiosità" },
+  { id: "globle", label: "Paese" },
+  { id: "riddle", label: "Indovinello" },
+  { id: "joke", label: "Barzelletta" },
 ];
 
 const completionChecks = {
@@ -20,6 +28,10 @@ const completionChecks = {
   wordle: isWordleComplete,
   sudoku: isSudokuComplete,
   picross: isPicrossComplete,
+  crossword: isCrosswordComplete,
+  movie: isMovieComplete,
+  fact: isFactComplete,
+  globle: isGlobleComplete,
   riddle: isRiddleComplete,
   joke: isJokeComplete,
 };
@@ -70,7 +82,7 @@ function showBootError(err) {
   if (!main) return;
   const note = document.createElement("p");
   note.className = "boot-error";
-  note.textContent = "Qualcosa non ha caricato. Ricarica la pagina: su GitHub Pages i file devono essere serviti via HTTPS.";
+  note.textContent = "Qualcosa non ha caricato. Ricarica la pagina.";
   main.prepend(note);
 }
 
@@ -83,7 +95,6 @@ async function boot() {
     year: "numeric",
   }).format(new Date());
 
-  // Pannelli: solo quello attivo visibile (anche per screen reader)
   document.querySelectorAll(".game-panel").forEach((p) => {
     p.hidden = !p.classList.contains("active");
   });
@@ -100,6 +111,10 @@ async function boot() {
       initWordle(onDone),
       initSudoku(onDone),
       initPicross(onDone),
+      initCrossword(onDone),
+      initMovie(onDone),
+      initFact(onDone),
+      initGloble(onDone),
       initRiddle(onDone),
       initJoke(onDone),
     ]);
