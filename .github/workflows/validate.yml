@@ -1,0 +1,37 @@
+name: Validate site
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Verifica file essenziali
+        run: |
+          set -euo pipefail
+          test -f index.html
+          test -f .nojekyll
+          test -f css/style.css
+          test -f js/main.js
+          test -f data/pokemon.json
+          test -f data/words-answers.txt
+          test -f data/words-guesses.txt
+          test -f data/riddles.json
+          test -f data/jokes.json
+          python3 - <<'PY'
+          import json, pathlib
+          json.loads(pathlib.Path("data/pokemon.json").read_text())
+          json.loads(pathlib.Path("data/riddles.json").read_text())
+          json.loads(pathlib.Path("data/jokes.json").read_text())
+          answers = pathlib.Path("data/words-answers.txt").read_text().splitlines()
+          assert answers and all(len(w) == 5 for w in answers if w)
+          print("OK: dati validi")
+          PY
