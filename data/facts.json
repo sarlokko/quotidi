@@ -1,162 +1,290 @@
 [
   {
     "topic": "scienza",
-    "text": "Il miele non va mai a male: archeologi ne hanno trovato di millenni ancora commestibile."
+    "claim": "Il miele può restare commestibile per millenni.",
+    "isTrue": true,
+    "fact": "Il miele non va mai a male: archeologi ne hanno trovato di millenni ancora commestibile."
   },
   {
     "topic": "scienza",
-    "text": "Un fulmine è cinque volte più caldo della superficie del Sole."
+    "claim": "Un fulmine è più freddo della superficie del Sole.",
+    "isTrue": false,
+    "fact": "Un fulmine è circa cinque volte più caldo della superficie del Sole."
   },
   {
     "topic": "scienza",
-    "text": "Gli ottopi hanno tre cuori e il sangue bluastro per l’emocianina."
+    "claim": "I polpi hanno tre cuori e sangue bluastro.",
+    "isTrue": true,
+    "fact": "I polpi hanno tre cuori e il sangue bluastro per l’emocianina."
   },
   {
     "topic": "scienza",
-    "text": "La Via Lattea e Andromeda si avvicinano e un giorno si scontreranno (tra ~4 miliardi di anni)."
+    "claim": "La Via Lattea e Andromeda si stanno allontanando per sempre.",
+    "isTrue": false,
+    "fact": "La Via Lattea e Andromeda si avvicinano: si scontreranno tra circa 4 miliardi di anni."
   },
   {
     "topic": "scienza",
-    "text": "Le banane sono leggermente radioattive per il potassio-40."
+    "claim": "Le banane sono leggermente radioattive.",
+    "isTrue": true,
+    "fact": "Le banane sono leggermente radioattive per il potassio-40, ma in quantità innocue."
   },
   {
     "topic": "scienza",
-    "text": "L’acqua calda può congelare più in fretta di quella fredda: è l’effetto Mpemba."
+    "claim": "L’acqua calda non può mai congelare prima di quella fredda.",
+    "isTrue": false,
+    "fact": "A volte l’acqua calda congela prima: è l’effetto Mpemba."
   },
   {
     "topic": "scienza",
-    "text": "Il cervello umano consuma circa il 20% dell’energia del corpo a riposo."
+    "claim": "Il cervello usa circa un quinto dell’energia del corpo a riposo.",
+    "isTrue": true,
+    "fact": "Il cervello umano consuma circa il 20% dell’energia del corpo a riposo."
   },
   {
     "topic": "scienza",
-    "text": "Esistono più possibili partite di scacchi che atomi nell’universo osservabile."
+    "claim": "Ci sono meno partite di scacchi possibili che atomi nell’universo.",
+    "isTrue": false,
+    "fact": "Le possibili partite di scacchi sono più numerose degli atomi nell’universo osservabile."
   },
   {
     "topic": "scienza",
-    "text": "Un diamante e la grafite della matita sono entrambi carbonio puro, ma con reticoli diversi."
+    "claim": "Diamante e grafite della matita sono entrambi carbonio puro.",
+    "isTrue": true,
+    "fact": "Diamante e grafite sono entrambi carbonio puro, ma con reticoli cristallini diversi."
   },
   {
     "topic": "scienza",
-    "text": "I fenicotteri non nascono rosa: il colore arriva dai pigmenti del cibo."
+    "claim": "I fenicotteri nascono già rosa.",
+    "isTrue": false,
+    "fact": "I fenicotteri non nascono rosa: il colore arriva dai pigmenti del cibo."
   },
   {
     "topic": "scienza",
-    "text": "La Terra non è una sfera perfetta: è leggermente schiacciata ai poli (geoide)."
+    "claim": "La Terra è una sfera perfetta.",
+    "isTrue": false,
+    "fact": "La Terra non è una sfera perfetta: è leggermente schiacciata ai poli."
   },
   {
     "topic": "scienza",
-    "text": "Il suono non viaggia nel vuoto: nello spazio nessuno può sentirti urlare… davvero."
+    "claim": "Nello spazio il suono non viaggia.",
+    "isTrue": true,
+    "fact": "Il suono non viaggia nel vuoto: nello spazio non si sente un’esplosione “da film”."
   },
   {
     "topic": "scienza",
-    "text": "Le api riconoscono i volti umani e sanno fare distinzioni raffinate."
+    "claim": "Le api non distinguono i volti.",
+    "isTrue": false,
+    "fact": "Le api riconoscono i volti umani e fanno distinzioni raffinate."
   },
   {
     "topic": "scienza",
-    "text": "Venere ruota in senso opposto rispetto a quasi tutti i pianeti del Sistema Solare."
+    "claim": "Venere ruota in senso opposto rispetto a quasi tutti i pianeti.",
+    "isTrue": true,
+    "fact": "Venere ruota in senso opposto rispetto a quasi tutti i pianeti del Sistema Solare."
   },
   {
     "topic": "scienza",
-    "text": "Il DNA umano è per circa il 60% simile a quello delle banane."
+    "claim": "Il DNA umano non ha nulla in comune con quello delle banane.",
+    "isTrue": false,
+    "fact": "Il DNA umano è per circa il 60% simile a quello delle banane."
   },
   {
     "topic": "scienza",
-    "text": "Un giorno su Venere dura più di un anno su Venere."
+    "claim": "Su Venere un giorno dura più di un anno.",
+    "isTrue": true,
+    "fact": "Su Venere un giorno (rotazione) dura più di un anno (rivoluzione intorno al Sole)."
   },
   {
     "topic": "scienza",
-    "text": "I polmoni sinistro e destro non sono simmetrici: il sinistro ha un lobo in meno."
+    "claim": "I due polmoni umani sono perfettamente simmetrici.",
+    "isTrue": false,
+    "fact": "I polmoni non sono simmetrici: il sinistro ha un lobo in meno per lasciare spazio agli cuore."
   },
   {
     "topic": "scienza",
-    "text": "La luce del Sole impiega circa 8 minuti e 20 secondi per arrivare sulla Terra."
+    "claim": "La luce del Sole arriva sulla Terra in circa 8 minuti.",
+    "isTrue": true,
+    "fact": "La luce del Sole impiega circa 8 minuti e 20 secondi per arrivare sulla Terra."
   },
   {
     "topic": "scienza",
-    "text": "Esistono nubi di alcol nello spazio, grandi come il Sistema Solare."
+    "claim": "Nello spazio non esistono nubi di alcol.",
+    "isTrue": false,
+    "fact": "Esistono nubi di alcol nello spazio, grandi come il Sistema Solare."
   },
   {
     "topic": "scienza",
-    "text": "Il cuore di una balena blu può pesare quanto una macchina."
+    "claim": "Il cuore di una balena blu può pesare quanto un’auto.",
+    "isTrue": true,
+    "fact": "Il cuore di una balena blu può pesare quanto una macchina."
   },
   {
     "topic": "storia",
-    "text": "Cleopatra visse più vicina nel tempo all’atterraggio sulla Luna che alla costruzione delle Piramidi di Giza."
+    "claim": "Cleopatra visse più vicina all’allunaggio che alle Piramidi di Giza.",
+    "isTrue": true,
+    "fact": "Cleopatra visse più vicina nel tempo all’atterraggio sulla Luna che alla costruzione delle Piramidi."
   },
   {
     "topic": "storia",
-    "text": "L’Università di Bologna, fondata nel 1088, è tra le più antiche ancora attive."
+    "claim": "L’Università di Bologna è tra le più antiche ancora attive.",
+    "isTrue": true,
+    "fact": "L’Università di Bologna, fondata nel 1088, è tra le più antiche ancora attive."
   },
   {
     "topic": "storia",
-    "text": "Nell’antica Roma esisteva già una forma di “burger”: la isicia omentata."
+    "claim": "Nell’antica Roma non esisteva nulla di simile a un hamburger.",
+    "isTrue": false,
+    "fact": "A Roma esisteva già una forma di “burger”: la isicia omentata."
   },
   {
     "topic": "storia",
-    "text": "Il Faro di Alessandria era una delle Sette Meraviglie del mondo antico."
+    "claim": "Il Faro di Alessandria era una delle Sette Meraviglie del mondo antico.",
+    "isTrue": true,
+    "fact": "Il Faro di Alessandria era una delle Sette Meraviglie del mondo antico."
   },
   {
     "topic": "storia",
-    "text": "Oxford esisteva già prima dell’Impero Azteco."
+    "claim": "Oxford nacque dopo l’Impero Azteco.",
+    "isTrue": false,
+    "fact": "Oxford esisteva già prima dell’Impero Azteco."
   },
   {
     "topic": "storia",
-    "text": "La Grande Muraglia non è un’unica costruzione continua costruita in un solo periodo."
+    "claim": "La Grande Muraglia è un’unica costruzione fatta tutta nello stesso secolo.",
+    "isTrue": false,
+    "fact": "La Grande Muraglia non è un’unica costruzione continua costruita in un solo periodo."
   },
   {
     "topic": "storia",
-    "text": "Nel 1912, dopo il Titanic, fu introdotto l’obbligo di scialuppe per tutti i passeggeri."
+    "claim": "Dopo il Titanic fu reso obbligatorio avere scialuppe per tutti i passeggeri.",
+    "isTrue": true,
+    "fact": "Nel 1912, dopo il Titanic, fu introdotto l’obbligo di scialuppe per tutti i passeggeri."
   },
   {
     "topic": "storia",
-    "text": "Leonardo da Vinci scriveva spesso da destra a sinistra, in scrittura speculare."
+    "claim": "Leonardo da Vinci scriveva spesso in scrittura speculare.",
+    "isTrue": true,
+    "fact": "Leonardo da Vinci scriveva spesso da destra a sinistra, in scrittura speculare."
   },
   {
     "topic": "storia",
-    "text": "Il caffè fu bandito in alcuni regni ottomani perché considerato troppo “sovversivo”."
+    "claim": "Il caffè non è mai stato bandito in nessun regno.",
+    "isTrue": false,
+    "fact": "Il caffè fu bandito in alcuni regni ottomani perché considerato troppo “sovversivo”."
   },
   {
     "topic": "storia",
-    "text": "Pompei fu sepolta nel 79 d.C.; molte iscrizioni murali parlano ancora di vita quotidiana."
+    "claim": "Pompei fu sepolta nel 79 d.C.",
+    "isTrue": true,
+    "fact": "Pompei fu sepolta nel 79 d.C.; molte iscrizioni murali parlano ancora di vita quotidiana."
   },
   {
     "topic": "storia",
-    "text": "Il Trattato di Westfalia (1648) è spesso citato come nascita del sistema degli Stati moderni."
+    "claim": "Il Trattato di Westfalia (1648) è spesso legato alla nascita degli Stati moderni.",
+    "isTrue": true,
+    "fact": "Il Trattato di Westfalia (1648) è spesso citato come nascita del sistema degli Stati moderni."
   },
   {
     "topic": "storia",
-    "text": "La prima email risale al 1971; l’inventore Ray Tomlinson scelse il simbolo @."
+    "claim": "La prima email risale agli anni Novanta.",
+    "isTrue": false,
+    "fact": "La prima email risale al 1971; Ray Tomlinson scelse il simbolo @."
   },
   {
     "topic": "storia",
-    "text": "Nel Medioevo i libri erano così preziosi da essere a volte incatenati agli scaffali."
+    "claim": "Nel Medioevo i libri potevano essere incatenati agli scaffali.",
+    "isTrue": true,
+    "fact": "Nel Medioevo i libri erano così preziosi da essere a volte incatenati agli scaffali."
   },
   {
     "topic": "storia",
-    "text": "Marco Polo descrisse la Cina a un pubblico europeo che stentava a credergli."
+    "claim": "Marco Polo fu subito creduto da tutti in Europa.",
+    "isTrue": false,
+    "fact": "Marco Polo descrisse la Cina a un pubblico europeo che stentava a credergli."
   },
   {
     "topic": "storia",
-    "text": "La stele di Rosetta permise a Champollion di decifrare i geroglifici egizi."
+    "claim": "La stele di Rosetta aiutò a decifrare i geroglifici egizi.",
+    "isTrue": true,
+    "fact": "La stele di Rosetta permise a Champollion di decifrare i geroglifici egizi."
   },
   {
     "topic": "storia",
-    "text": "L’Impero Romano d’Occidente “cadde” ufficialmente nel 476 d.C. con Romolo Augustolo."
+    "claim": "L’Impero Romano d’Occidente cadde ufficialmente nel 476 d.C.",
+    "isTrue": true,
+    "fact": "L’Impero Romano d’Occidente “cadde” ufficialmente nel 476 d.C. con Romolo Augustolo."
   },
   {
     "topic": "storia",
-    "text": "I Vichinghi arrivarono in Nord America secoli prima di Colombo (sito di L’Anse aux Meadows)."
+    "claim": "I Vichinghi arrivarono in Nord America secoli prima di Colombo.",
+    "isTrue": true,
+    "fact": "I Vichinghi arrivarono in Nord America secoli prima di Colombo (L’Anse aux Meadows)."
   },
   {
     "topic": "storia",
-    "text": "Il canale di Suez aprì nel 1869, cambiando le rotte commerciali tra Europa e Asia."
+    "claim": "Il canale di Suez aprì nel Novecento.",
+    "isTrue": false,
+    "fact": "Il canale di Suez aprì nel 1869, cambiando le rotte tra Europa e Asia."
   },
   {
     "topic": "storia",
-    "text": "La prima Olimpiade moderna si tenne ad Atene nel 1896."
+    "claim": "La prima Olimpiade moderna si tenne ad Atene nel 1896.",
+    "isTrue": true,
+    "fact": "La prima Olimpiade moderna si tenne ad Atene nel 1896."
   },
   {
     "topic": "storia",
-    "text": "Il Codice di Hammurabi è una delle più antiche raccolte di leggi scritte arrivate fino a noi."
+    "claim": "Il Codice di Hammurabi è una raccolta di leggi molto recente.",
+    "isTrue": false,
+    "fact": "Il Codice di Hammurabi è una delle più antiche raccolte di leggi scritte arrivate fino a noi."
+  },
+  {
+    "topic": "scienza",
+    "claim": "Un anno su Mercurio dura meno di un giorno su Mercurio.",
+    "isTrue": false,
+    "fact": "Su Mercurio un giorno dura più di un anno: la rotazione è lentissima rispetto all’orbita."
+  },
+  {
+    "topic": "scienza",
+    "claim": "I gatti non possono percepire i sapori dolci come noi.",
+    "isTrue": true,
+    "fact": "I gatti mancano di un recettore del dolce: non percepiscono lo zucchero come gli umani."
+  },
+  {
+    "topic": "scienza",
+    "claim": "L’Antartide è il continente più umido della Terra.",
+    "isTrue": false,
+    "fact": "L’Antartide è tra i luoghi più secchi della Terra: gran parte è un deserto di ghiaccio."
+  },
+  {
+    "topic": "storia",
+    "claim": "La stampa a caratteri mobili di Gutenberg arrivò in Europa nel XV secolo.",
+    "isTrue": true,
+    "fact": "Gutenberg diffuse la stampa a caratteri mobili in Europa intorno alla metà del XV secolo."
+  },
+  {
+    "topic": "storia",
+    "claim": "La Torre di Pisa è stata inclinata fin dal progetto iniziale.",
+    "isTrue": false,
+    "fact": "La Torre di Pisa cominciò a inclinarsi durante la costruzione, per il terreno cedevole."
+  },
+  {
+    "topic": "scienza",
+    "claim": "Gli squali esistevano già prima degli alberi.",
+    "isTrue": true,
+    "fact": "Gli squali sono apparsi sulla Terra centinaia di milioni di anni prima degli alberi moderni."
+  },
+  {
+    "topic": "scienza",
+    "claim": "L’Everest è la montagna più alta se si misura dal centro della Terra.",
+    "isTrue": false,
+    "fact": "Dal centro della Terra il Chimborazo (Ecuador) sporge più dell’Everest, per lo schiacciamento del pianeta."
+  },
+  {
+    "topic": "storia",
+    "claim": "La prima ferrovia pubblica a vapore aprì in Inghilterra nell’Ottocento.",
+    "isTrue": true,
+    "fact": "La Stockton & Darlington Railway aprì nel 1825 ed è tra le prime ferrovie pubbliche a vapore."
   }
 ]
