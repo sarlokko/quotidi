@@ -1,7 +1,7 @@
 import { getDailyKey, msUntilMidnightRome, formatCountdown } from "./daily.js";
 import { recordDailyActivity, buildShareText, MAX_SCORE } from "./stats.js";
 import { initPokemonType, isPokemonComplete } from "./pokemon-type.js";
-import { initWordle, isWordleComplete } from "./wordle.js";
+import { initWordle, isWordleComplete } from "./wordle.js?v=20260716wordle";
 import { initSudoku, isSudokuComplete } from "./sudoku.js";
 import { initPicross, isPicrossComplete } from "./picross.js";
 import { initCrossword, isCrosswordComplete } from "./crossword.js";
