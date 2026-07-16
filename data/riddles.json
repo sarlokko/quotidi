@@ -1,52 +1,252 @@
 [
-  {"q": "Più lo mangi, più ne diventa. Cosa è?", "a": "Il buco"},
-  {"q": "Cammino senza gambe, volo senza ali. Cosa sono?", "a": "Le nuvole"},
-  {"q": "Ho città senza case, montagne senza alberi, acqua senza pesci. Cosa sono?", "a": "Una mappa"},
-  {"q": "Più è caldo, più è freddo. Cosa è?", "a": "Una pila di legna"},
-  {"q": "Non ha bocca eppure parla. Cosa è?", "a": "L'eco"},
-  {"q": "Entro leggero, esco pesante. Cosa sono?", "a": "Le pinne da sub"},
-  {"q": "Più ne prendi, più ne lasci. Cosa sono?", "a": "I passi"},
-  {"q": "Ha la testa rotonda, la coda quadrata, e tutto il corpo è un rettangolo. Cosa è?", "a": "Una moneta"},
-  {"q": "Sempre in movimento, mai si ferma. Cosa è?", "a": "Il tempo"},
-  {"q": "Ha le chiavi ma non apre porte. Cosa è?", "a": "Un pianoforte"},
-  {"q": "Più lo riempi, più pesa, ma se lo svuoti pesa ancora di più. Cosa è?", "a": "Una barca"},
-  {"q": "Ha denti ma non morde. Cosa è?", "a": "Un pettine"},
-  {"q": "Vive senza corpo, beve senza bocca. Cosa è?", "a": "Un pesce"},
-  {"q": "Più lo tagli, più cresce. Cosa è?", "a": "La barba"},
-  {"q": "Ha un occhio ma non vede. Cosa è?", "a": "Un ago"},
-  {"q": "Corre senza gambe, entra senza bussare. Cosa è?", "a": "Il vento"},
-  {"q": "Più è alto, più è basso. Cosa è?", "a": "Una montagna vista da lontano"},
-  {"q": "Ha la coda ma non è un animale. Cosa è?", "a": "Una moneta"},
-  {"q": "Non si può tenere per più di pochi minuti. Cosa è?", "a": "Il respiro"},
-  {"q": "Ha la faccia ma non ha occhi. Cosa è?", "a": "Un orologio"},
-  {"q": "Più lo asciughi, più è bagnato. Cosa è?", "a": "L'asciugamano"},
-  {"q": "Ha la gola ma non beve. Cosa è?", "a": "Una bottiglia"},
-  {"q": "Cammina di giorno, dorme di notte, e non ha mai sonno. Cosa è?", "a": "Il sole"},
-  {"q": "Ha le mani ma non può applaudire. Cosa è?", "a": "Un orologio"},
-  {"q": "Più ne hai, meno ne vedi. Cosa sono?", "a": "Le tenebre"},
-  {"q": "Ha la punta ma non è una matita. Cosa è?", "a": "Una montagna"},
-  {"q": "Non ha radici, non ha foglie, non ha fiori, ma cresce. Cosa è?", "a": "Una montagna"},
-  {"q": "Più lo usi, più diventa affilato. Cosa è?", "a": "Il cervello"},
-  {"q": "Ha la coda ma non è un gatto. Cosa è?", "a": "Una cometa"},
-  {"q": "Entra duro, esce molle. Cosa è?", "a": "La gomma da masticare"},
-  {"q": "Ha la bocca ma non parla, ha la testa ma non pensa. Cosa è?", "a": "Una bottiglia"},
-  {"q": "Più lo rompi, più forte diventa. Cosa è?", "a": "Un uovo"},
-  {"q": "Ha le ali ma non vola. Cosa è?", "a": "Un edificio"},
-  {"q": "Più lo guardi, meno lo vedi. Cosa è?", "a": "L'oscurità"},
-  {"q": "Ha la pelle ma non è un animale. Cosa è?", "a": "Una mela"},
-  {"q": "Corre veloce ma non ha gambe. Cosa è?", "a": "L'acqua"},
-  {"q": "Ha la testa e la coda ma non ha corpo. Cosa è?", "a": "Una moneta"},
-  {"q": "Più lo stringi, più scappa. Cosa è?", "a": "La sabbia"},
-  {"q": "Ha la gabbia ma non è un uccello. Cosa è?", "a": "Un ascensore"},
-  {"q": "Non ha peso ma può schiacciare. Cosa è?", "a": "L'acqua"},
-  {"q": "Ha la punta ma non fa male. Cosa è?", "a": "Una matita"},
-  {"q": "Più lo mangi, più fame hai. Cosa è?", "a": "Il sale"},
-  {"q": "Ha la coda ma non è un cane. Cosa è?", "a": "Una scimmia"},
-  {"q": "Entra piccolo, esce grande. Cosa è?", "a": "Una spugna"},
-  {"q": "Ha la faccia rossa ma non arrossisce. Cosa è?", "a": "Un pomodoro"},
-  {"q": "Più lo lavi, più è sporco. Cosa è?", "a": "L'acqua del fiume"},
-  {"q": "Ha le gambe ma non cammina. Cosa è?", "a": "Un tavolo"},
-  {"q": "Più lo tieni, più te ne manca. Cosa è?", "a": "Il tempo"},
-  {"q": "Ha la bocca ma non mangia. Cosa è?", "a": "Un fiume"},
-  {"q": "Più è pieno, più è vuoto. Cosa è?", "a": "Un tamburo"}
+  {
+    "q": "Più lo usi per asciugare, più diventa bagnato. Cos’è?",
+    "a": "l’asciugamano",
+    "aliases": ["asciugamano", "un asciugamano", "il asciugamano"]
+  },
+  {
+    "q": "Ha le chiavi, ma non apre nessuna porta. Cos’è?",
+    "a": "il pianoforte",
+    "aliases": ["pianoforte", "un pianoforte", "piano"]
+  },
+  {
+    "q": "Ha denti, ma non morde. Cos’è?",
+    "a": "il pettine",
+    "aliases": ["pettine", "un pettine"]
+  },
+  {
+    "q": "Ha un solo occhio e non vede. Cos’è?",
+    "a": "l’ago",
+    "aliases": ["ago", "un ago"]
+  },
+  {
+    "q": "Parla senza bocca e risponde senza orecchie. Cos’è?",
+    "a": "l’eco",
+    "aliases": ["eco", "un eco"]
+  },
+  {
+    "q": "Più ne fai, più ne lasci dietro di te. Cosa sono?",
+    "a": "i passi",
+    "aliases": ["passi", "il passo", "un passo", "passo"]
+  },
+  {
+    "q": "Ha la faccia e le mani, ma non ha braccia né gambe. Cos’è?",
+    "a": "l’orologio",
+    "aliases": ["orologio", "un orologio", "orologio da muro", "orologio a muro"]
+  },
+  {
+    "q": "Corre e non si ferma mai; tutti lo usano, nessuno lo vede. Cos’è?",
+    "a": "il tempo",
+    "aliases": ["tempo"]
+  },
+  {
+    "q": "Più lo riempi d’aria, più diventa leggero. Cos’è?",
+    "a": "il palloncino",
+    "aliases": ["palloncino", "un palloncino", "pallone", "un pallone"]
+  },
+  {
+    "q": "Entra in casa da tutte le finestre, ma non si bagna mai. Cos’è?",
+    "a": "il sole",
+    "aliases": ["sole"]
+  },
+  {
+    "q": "Ha la testa e la coda, ma non ha il corpo. Cos’è?",
+    "a": "la moneta",
+    "aliases": ["moneta", "una moneta", "soldino", "un soldino"]
+  },
+  {
+    "q": "Cammina sul tetto di casa e non fa rumore. Cos’è?",
+    "a": "il fumo",
+    "aliases": ["fumo"]
+  },
+  {
+    "q": "Ha molte foglie, ma non è un albero. Cos’è?",
+    "a": "il libro",
+    "aliases": ["libro", "un libro"]
+  },
+  {
+    "q": "Più lo mangi, più grande diventa. Cos’è?",
+    "a": "il buco",
+    "aliases": ["buco", "un buco"]
+  },
+  {
+    "q": "Ha quattro gambe al mattino, due a mezzogiorno e tre alla sera. Di chi si parla?",
+    "a": "l’uomo",
+    "aliases": ["uomo", "una persona", "persona", "essere umano"]
+  },
+  {
+    "q": "Bianca come la neve, ma non è neve; dolce da mettere nel caffè. Cos’è?",
+    "a": "lo zucchero",
+    "aliases": ["zucchero"]
+  },
+  {
+    "q": "Vola senza ali e piange senza occhi. Cos’è?",
+    "a": "la nuvola",
+    "aliases": ["nuvola", "una nuvola", "le nuvole", "nuvole", "nube", "una nube"]
+  },
+  {
+    "q": "Ha città senza case, fiumi senza acqua e boschi senza alberi. Cos’è?",
+    "a": "la mappa",
+    "aliases": ["mappa", "una mappa", "carta geografica", "la carta geografica", "cartina", "una cartina"]
+  },
+  {
+    "q": "Apriamo la casa e chiudiamo la strada. Cosa siamo?",
+    "a": "le chiavi",
+    "aliases": ["chiavi", "la chiave", "chiave", "una chiave"]
+  },
+  {
+    "q": "Di giorno resta a letto, di notte esce a lavorare. Cos’è?",
+    "a": "la luna",
+    "aliases": ["luna"]
+  },
+  {
+    "q": "Ha la gola, ma non beve. Cos’è?",
+    "a": "la bottiglia",
+    "aliases": ["bottiglia", "una bottiglia"]
+  },
+  {
+    "q": "Resta in piedi tutto il giorno e non si stanca mai. Cos’è?",
+    "a": "l’albero",
+    "aliases": ["albero", "un albero"]
+  },
+  {
+    "q": "Entra in acqua e non si bagna. Cos’è?",
+    "a": "l’ombra",
+    "aliases": ["ombra", "un ombra"]
+  },
+  {
+    "q": "Più la stringi tra le mani, più scappa via. Cos’è?",
+    "a": "la sabbia",
+    "aliases": ["sabbia", "rena", "la rena"]
+  },
+  {
+    "q": "Mi trovi in fondo al mare, ma non sono un pesce; mi mettono al dito. Cos’è?",
+    "a": "la perla",
+    "aliases": ["perla", "una perla"]
+  },
+  {
+    "q": "Sono piena di buchi, eppure tengo l’acqua. Cos’è?",
+    "a": "la spugna",
+    "aliases": ["spugna", "una spugna"]
+  },
+  {
+    "q": "Nasco grande e muoio piccolo. Cos’è?",
+    "a": "la candela",
+    "aliases": ["candela", "una candela"]
+  },
+  {
+    "q": "Sono nero quando mi compri, rosso quando mi usi e grigio quando mi getti. Cos’è?",
+    "a": "il carbone",
+    "aliases": ["carbone", "carboncino", "il carboncino"]
+  },
+  {
+    "q": "Tutti mi chiedono, a nessuno rispondo. Chi sono?",
+    "a": "il silenzio",
+    "aliases": ["silenzio"]
+  },
+  {
+    "q": "Vado in chiesa ma non prego, vado a scuola ma non studio. Chi sono?",
+    "a": "la strada",
+    "aliases": ["strada", "via", "la via", "una strada"]
+  },
+  {
+    "q": "Sono sempre davanti a te, ma non mi puoi vedere. Chi sono?",
+    "a": "il futuro",
+    "aliases": ["futuro", "domani"]
+  },
+  {
+    "q": "Mi spezzi la testa prima di usarmi, e poi faccio luce. Cos’è?",
+    "a": "il fiammifero",
+    "aliases": ["fiammifero", "un fiammifero", "i fiammiferi", "fiammiferi", "un match", "match"]
+  },
+  {
+    "q": "Più lavoro, più piccolo divento. Cos’è?",
+    "a": "la matita",
+    "aliases": ["matita", "una matita"]
+  },
+  {
+    "q": "Apri gli occhi e non mi vedi; chiudi gli occhi e mi vedi. Cos’è?",
+    "a": "il sogno",
+    "aliases": ["sogno", "un sogno", "i sogni", "sogni"]
+  },
+  {
+    "q": "Sono piena di buchi, eppure tengo insieme i fogli. Cos’è?",
+    "a": "la graffetta",
+    "aliases": ["graffetta", "una graffetta", "fermaglio", "il fermaglio", "clip"]
+  },
+  {
+    "q": "Ho la coda in mano e la testa a terra. Cos’è?",
+    "a": "la scopa",
+    "aliases": ["scopa", "una scopa"]
+  },
+  {
+    "q": "Ha le gambe, ma non cammina. Cos’è?",
+    "a": "il tavolo",
+    "aliases": ["tavolo", "un tavolo", "la sedia", "sedia", "una sedia"]
+  },
+  {
+    "q": "Ha la coda lunga e non è un animale: brilla in cielo. Cos’è?",
+    "a": "la cometa",
+    "aliases": ["cometa", "una cometa"]
+  },
+  {
+    "q": "Mi usi a tavola: ho i rebbi e non sono un rastrello. Cos’è?",
+    "a": "la forchetta",
+    "aliases": ["forchetta", "una forchetta"]
+  },
+  {
+    "q": "Senza di me non leggi e non scrivi; sono tante e formano le parole. Cosa sono?",
+    "a": "le lettere",
+    "aliases": ["lettere", "lettera", "la lettera", "alfabeto", "l alfabeto"]
+  },
+  {
+    "q": "Salto i fossi e non mi sporco; sto in mezzo alla faccia. Chi sono?",
+    "a": "l’occhio",
+    "aliases": ["occhio", "un occhio", "gli occhi", "occhi"]
+  },
+  {
+    "q": "Ha la pelle, ma non è un animale; a volte è rossa, a volte verde. Cos’è?",
+    "a": "la mela",
+    "aliases": ["mela", "una mela"]
+  },
+  {
+    "q": "Più ne hai intorno, meno vedi. Cosa sono?",
+    "a": "le tenebre",
+    "aliases": ["tenebre", "il buio", "buio", "l oscurità", "oscurità", "il buio pesto"]
+  },
+  {
+    "q": "Ha la bocca larga e non parla; porta l’acqua al mare. Cos’è?",
+    "a": "il fiume",
+    "aliases": ["fiume", "un fiume"]
+  },
+  {
+    "q": "Mi usi ogni giorno per scrivere, ma non sono una penna: cancello. Cos’è?",
+    "a": "la gomma",
+    "aliases": ["gomma", "una gomma", "gomma per cancellare"]
+  },
+  {
+    "q": "Ha le pagine, ma non è un libro; parla del tempo. Cos’è?",
+    "a": "il giornale",
+    "aliases": ["giornale", "un giornale", "il quotidiano", "quotidiano"]
+  },
+  {
+    "q": "Sto sopra la testa e non sono un cappello: se piove ti copro. Cos’è?",
+    "a": "l’ombrello",
+    "aliases": ["ombrello", "un ombrello", "il ombrello"]
+  },
+  {
+    "q": "Ho tante stanze e nessuna porta. Cos’è?",
+    "a": "il fungo",
+    "aliases": ["fungo", "un fungo"]
+  },
+  {
+    "q": "Mi spezzi e piangi, ma non sono triste. Cos’è?",
+    "a": "la cipolla",
+    "aliases": ["cipolla", "una cipolla"]
+  },
+  {
+    "q": "Corro sul filo e non cado; porto la luce in casa. Cos’è?",
+    "a": "l’elettricità",
+    "aliases": ["elettricità", "corrente", "la corrente", "corrente elettrica"]
+  }
 ]
