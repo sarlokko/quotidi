@@ -1,52 +1,202 @@
 [
-  {"setup": "Entra un cavallo in un bar. Il barista chiede: «Perché il muso lungo?»", "punchline": "Il cavallo: «È che oggi pago io.»"},
-  {"setup": "Due cacciatori incontrano un orso. Uno si mette le scarpe da corsa. «Non batterai l’orso!»", "punchline": "«Non devo battere l’orso. Devo battere te.»"},
-  {"setup": "Il dottore: «Beve almeno un bicchiere d’acqua al giorno?»", "punchline": "Il paziente: «Sì, ma solo per far scendere le pastiglie.»"},
-  {"setup": "Perché lo scheletro non va mai alle feste?", "punchline": "Perché non ha corpo per ballare."},
-  {"setup": "Un uomo compra un cane da guardia. La prima notte sente abbaiare e scende.", "punchline": "Il cane: «Era solo il postino. Io abbaio per sport.»"},
-  {"setup": "La maestra: «Dammi una frase con la parola “spazio”.»", "punchline": "Il bambino: «Non c’è spazio per un altro compito!»"},
-  {"setup": "Perché il libro di matematica piangeva?", "punchline": "Aveva troppi problemi."},
-  {"setup": "Due amici in montagna. «Hai portato la bussola?»", "punchline": "«No, ma ho portato il panino: almeno so dove andare a mangiare.»"},
-  {"setup": "Il cameriere: «Come ha trovato la bistecca?»", "punchline": "Il cliente: «Per caso, sotto le patate.»"},
-  {"setup": "Perché i fantasmi sono pessimi bugiardi?", "punchline": "Perché si vedono attraverso."},
-  {"setup": "Un programmatore va al supermercato: «Prendi il latte. Se ci sono uova, prendine sei.»", "punchline": "Torna con sei litri di latte: «C’erano le uova.»"},
-  {"setup": "Cosa dice un muro a un altro muro?", "punchline": "«Ci vediamo all’angolo.»"},
-  {"setup": "Il paziente: «Dottore, mi dimentico tutto.»", "punchline": "Il dottore: «Da quanto tempo?» — «Da quanto tempo cosa?»"},
-  {"setup": "Perché la bicicletta non sta in piedi da sola?", "punchline": "Perché è due-ruote."},
-  {"setup": "Due pesci nell’acquario. Uno: «Sai guidare tu?»", "punchline": "L’altro: «No, perché?» — «Perché stanno per cambiare l’acqua.»"},
-  {"setup": "Come fa un cane a segnare una pagina?", "punchline": "Con l’angolo: lascia il segno."},
-  {"setup": "La nonna al nipote: «A scuola cosa hai imparato oggi?»", "punchline": "«A non dire tutto quello che imparo a scuola.»"},
-  {"setup": "Perché il caffè ha chiamato la polizia?", "punchline": "Perché era stato rapito."},
-  {"setup": "Un uomo chiede al GPS: «Quanto manca?»", "punchline": "Il GPS: «Dipende. Se continui a girare in tondo, l’eternità.»"},
-  {"setup": "Cosa fa un’ape quando è stanca?", "punchline": "Va a fare un pisolino… nel miele."},
-  {"setup": "Il boss: «Lei arriva sempre in ritardo!»", "punchline": "L’impiegato: «Sì, ma me ne vado sempre in anticipo: media perfetta.»"},
-  {"setup": "Perché il mare non racconta mai barzellette?", "punchline": "Perché ha troppe correnti di pensiero."},
-  {"setup": "Due atomi si incontrano. «Ho perso un elettrone!»", "punchline": "«Sei positivo?» — «Sì, sono sicuro.»"},
-  {"setup": "Il cliente: «Questo caffè ha sapore di fango.»", "punchline": "Il barista: «Ma è appena macinato.»"},
-  {"setup": "Perché gli orologi in bagno sono sempre in anticipo?", "punchline": "Perché avanti di un tic."},
-  {"setup": "Un mago fa sparire l’auto di un amico. «Dove l’hai messa?»", "punchline": "«In garage. La magia vera costa troppo.»"},
-  {"setup": "Cosa dice lo zero all’otto?", "punchline": "«Bel cinturino!»"},
-  {"setup": "La maestra: «Usa “anzi” in una frase.»", "punchline": "Il bambino: «Anzi, meglio di no.»"},
-  {"setup": "Perché il panettiere è stato arrestato?", "punchline": "Perché rubava i panini: era in flagranza di pane."},
-  {"setup": "Due amici al cinema. «Questo film è lungo.»", "punchline": "«Sì, ma almeno le code al bar sono corte.»"},
-  {"setup": "Il dottore: «Deve fare più esercizio.»", "punchline": "Il paziente: «Già: ogni mattina corro… dietro all’autobus.»"},
-  {"setup": "Perché la matita ha lasciato il lavoro?", "punchline": "Era stanca di essere sotto pressione."},
-  {"setup": "Un alieno atterra e chiede: «Portatemi dal vostro leader.»", "punchline": "Gli italiani, in coro: «Anche noi lo stiamo cercando.»"},
-  {"setup": "Cosa fa un gatto al computer?", "punchline": "Il meowse."},
-  {"setup": "Il poliziotto ferma un’auto: «Aveva i fari spenti.»", "punchline": "L’autista: «Meglio: così non consumano.»"},
-  {"setup": "Perché il calendario è andato dallo psicologo?", "punchline": "Aveva i giorni contati."},
-  {"setup": "Due chiocciole. «Sei lenta!»", "punchline": "«Almeno lascio una scia. Tu che lasci?»"},
-  {"setup": "Il cameriere: «Il pesce è fresco?»", "punchline": "Il cuoco: «Sì, ma non parla mai di sé.»"},
-  {"setup": "Perché i programmatori odiano la natura?", "punchline": "Troppi bug."},
-  {"setup": "Un uomo entra in libreria: «Avete libri su come smettere di comprare libri?»", "punchline": "Il libraio: «Sì, sono nella sezione “autoaiuto”. Ne prende due?»"},
-  {"setup": "Cosa dice un chilo di ferro a un chilo di piume?", "punchline": "«Pesiamo uguale, ma io sto meglio in palestra.»"},
-  {"setup": "La mamma: «Hai fatto i compiti?»", "punchline": "Il figlio: «Quasi: ho fatto lo spazio sulla scrivania.»"},
-  {"setup": "Perché la lampadina ha cambiato lavoro?", "punchline": "Voleva una carriera più brillante."},
-  {"setup": "Due nuvole. «Oggi pioviamo?»", "punchline": "«Dipende: se c’è pressione, sì.»"},
-  {"setup": "Il paziente: «Dottore, sogno sempre di essere uno zerbino.»", "punchline": "«Si distenda pure sul lettino.»"},
-  {"setup": "Perché il Wi‑Fi è andato in terapia?", "punchline": "Problemi di connessione."},
-  {"setup": "Un fotografo al matrimonio: «Sorridete!»", "punchline": "Lo zio: «Aspetti: sto ancora cercando di capire chi ha sposato chi.»"},
-  {"setup": "Cosa fa un libro di storia quando è stanco?", "punchline": "Si mette in passato."},
-  {"setup": "Il barista a un cliente silenzioso: «Un caffè per pensare?»", "punchline": "Il cliente: «No, uno per smettere.»"},
-  {"setup": "Perché l’ascensore non racconta barzellette?", "punchline": "Ha troppi alti e bassi."}
+  {
+    "setup": "Entra un cavallo in un bar. Il barista chiede: «Perché il muso lungo?»",
+    "punchline": "Il cavallo: «È che oggi pago io.»"
+  },
+  {
+    "setup": "Due cacciatori incontrano un orso. Uno si mette le scarpe da corsa. «Non batterai l’orso!»",
+    "punchline": "«Non devo battere l’orso. Devo battere te.»"
+  },
+  {
+    "setup": "Il dottore: «Beve almeno un bicchiere d’acqua al giorno?»",
+    "punchline": "Il paziente: «Sì, ma solo per far scendere le pastiglie.»"
+  },
+  {
+    "setup": "Perché lo scheletro non va mai alle feste?",
+    "punchline": "Perché non ha corpo per ballare."
+  },
+  {
+    "setup": "Un uomo compra un cane da guardia. La prima notte sente abbaiare e scende.",
+    "punchline": "Il cane: «Era solo il postino. Io abbaio per sport.»"
+  },
+  {
+    "setup": "La maestra: «Dammi una frase con la parola “spazio”.»",
+    "punchline": "Il bambino: «Non c’è spazio per un altro compito!»"
+  },
+  {
+    "setup": "Perché il libro di matematica piangeva?",
+    "punchline": "Aveva troppi problemi."
+  },
+  {
+    "setup": "Due amici in montagna. «Hai portato la bussola?»",
+    "punchline": "«No, ma ho portato il panino: almeno so dove andare a mangiare.»"
+  },
+  {
+    "setup": "Il cameriere: «Come ha trovato la bistecca?»",
+    "punchline": "Il cliente: «Per caso, sotto le patate.»"
+  },
+  {
+    "setup": "Perché i fantasmi sono pessimi bugiardi?",
+    "punchline": "Perché si vedono attraverso."
+  },
+  {
+    "setup": "Un programmatore va al supermercato: «Prendi il latte. Se ci sono uova, prendine sei.»",
+    "punchline": "Torna con sei litri di latte: «C’erano le uova.»"
+  },
+  {
+    "setup": "Cosa dice un muro a un altro muro?",
+    "punchline": "«Ci vediamo all’angolo.»"
+  },
+  {
+    "setup": "Il paziente: «Dottore, mi dimentico tutto.»",
+    "punchline": "Il dottore: «Da quanto tempo?» — «Da quanto tempo cosa?»"
+  },
+  {
+    "setup": "Perché la bicicletta non sta in piedi da sola?",
+    "punchline": "Perché è due-ruote."
+  },
+  {
+    "setup": "Due pesci nell’acquario. Uno: «Sai guidare tu?»",
+    "punchline": "L’altro: «No, perché?» — «Perché stanno per cambiare l’acqua.»"
+  },
+  {
+    "setup": "Come fa un cane a segnare una pagina?",
+    "punchline": "Con l’angolo: lascia il segno."
+  },
+  {
+    "setup": "La nonna al nipote: «A scuola cosa hai imparato oggi?»",
+    "punchline": "«A non dire tutto quello che imparo a scuola.»"
+  },
+  {
+    "setup": "Perché il caffè ha chiamato la polizia?",
+    "punchline": "Perché era stato rapito."
+  },
+  {
+    "setup": "Un uomo chiede al GPS: «Quanto manca?»",
+    "punchline": "Il GPS: «Dipende. Se continui a girare in tondo, l’eternità.»"
+  },
+  {
+    "setup": "Cosa fa un’ape quando è stanca?",
+    "punchline": "Va a fare un pisolino… nel miele."
+  },
+  {
+    "setup": "Il boss: «Lei arriva sempre in ritardo!»",
+    "punchline": "L’impiegato: «Sì, ma me ne vado sempre in anticipo: media perfetta.»"
+  },
+  {
+    "setup": "Perché il mare non racconta mai barzellette?",
+    "punchline": "Perché ha troppe correnti di pensiero."
+  },
+  {
+    "setup": "Due atomi si incontrano. «Ho perso un elettrone!»",
+    "punchline": "«Sei positivo?» — «Sì, sono sicuro.»"
+  },
+  {
+    "setup": "Il cliente: «Questo caffè ha sapore di fango.»",
+    "punchline": "Il barista: «Ma è appena macinato.»"
+  },
+  {
+    "setup": "Perché gli orologi in bagno sono sempre in anticipo?",
+    "punchline": "Perché avanti di un tic."
+  },
+  {
+    "setup": "Un mago fa sparire l’auto di un amico. «Dove l’hai messa?»",
+    "punchline": "«In garage. La magia vera costa troppo.»"
+  },
+  {
+    "setup": "Cosa dice lo zero all’otto?",
+    "punchline": "«Bel cinturino!»"
+  },
+  {
+    "setup": "La maestra: «Usa “anzi” in una frase.»",
+    "punchline": "Il bambino: «Anzi, meglio di no.»"
+  },
+  {
+    "setup": "Perché il panettiere è stato arrestato?",
+    "punchline": "Perché rubava i panini: era in flagranza di pane."
+  },
+  {
+    "setup": "Due amici al cinema. «Questo film è lungo.»",
+    "punchline": "«Sì, ma almeno le code al bar sono corte.»"
+  },
+  {
+    "setup": "Il dottore: «Deve fare più esercizio.»",
+    "punchline": "Il paziente: «Già: ogni mattina corro… dietro all’autobus.»"
+  },
+  {
+    "setup": "Perché la matita ha lasciato il lavoro?",
+    "punchline": "Era stanca di essere sotto pressione."
+  },
+  {
+    "setup": "Un alieno atterra e chiede: «Portatemi dal vostro leader.»",
+    "punchline": "Gli italiani, in coro: «Anche noi lo stiamo cercando.»"
+  },
+  {
+    "setup": "Cosa fa un gatto sul divano tutto il giorno?",
+    "punchline": "Il suo lavoro: controllo qualità dei cuscini."
+  },
+  {
+    "setup": "Il poliziotto ferma un’auto: «Aveva i fari spenti.»",
+    "punchline": "L’autista: «Meglio: così non consumano.»"
+  },
+  {
+    "setup": "Perché il calendario è andato dallo psicologo?",
+    "punchline": "Aveva i giorni contati."
+  },
+  {
+    "setup": "Due chiocciole. «Sei lenta!»",
+    "punchline": "«Almeno lascio una scia. Tu che lasci?»"
+  },
+  {
+    "setup": "Il cameriere: «Il pesce è fresco?»",
+    "punchline": "Il cuoco: «Sì, ma non parla mai di sé.»"
+  },
+  {
+    "setup": "Perché i programmatori odiano la natura?",
+    "punchline": "Troppi bug."
+  },
+  {
+    "setup": "Un uomo entra in libreria: «Avete libri su come smettere di comprare libri?»",
+    "punchline": "Il libraio: «Sì, sono nella sezione “autoaiuto”. Ne prende due?»"
+  },
+  {
+    "setup": "Cosa dice un chilo di ferro a un chilo di piume?",
+    "punchline": "«Pesiamo uguale, ma io sto meglio in palestra.»"
+  },
+  {
+    "setup": "La mamma: «Hai fatto i compiti?»",
+    "punchline": "Il figlio: «Quasi: ho fatto lo spazio sulla scrivania.»"
+  },
+  {
+    "setup": "Perché la lampadina ha cambiato lavoro?",
+    "punchline": "Voleva una carriera più brillante."
+  },
+  {
+    "setup": "Due nuvole. «Oggi pioviamo?»",
+    "punchline": "«Dipende: se c’è pressione, sì.»"
+  },
+  {
+    "setup": "Il paziente: «Dottore, sogno sempre di essere uno zerbino.»",
+    "punchline": "«Si distenda pure sul lettino.»"
+  },
+  {
+    "setup": "Perché il Wi‑Fi è andato in terapia?",
+    "punchline": "Problemi di connessione."
+  },
+  {
+    "setup": "Un fotografo al matrimonio: «Sorridete!»",
+    "punchline": "Lo zio: «Aspetti: sto ancora cercando di capire chi ha sposato chi.»"
+  },
+  {
+    "setup": "Cosa fa un libro di storia quando è stanco?",
+    "punchline": "Si mette in passato."
+  },
+  {
+    "setup": "Il barista a un cliente silenzioso: «Un caffè per pensare?»",
+    "punchline": "Il cliente: «No, uno per smettere.»"
+  },
+  {
+    "setup": "Perché l’ascensore non racconta barzellette?",
+    "punchline": "Ha troppi alti e bassi."
+  }
 ]
