@@ -1,0 +1,1894 @@
+[
+  {
+    "answer": "abate",
+    "hint": "chiesa"
+  },
+  {
+    "answer": "aceto",
+    "hint": "insalata"
+  },
+  {
+    "answer": "acino",
+    "hint": "uva"
+  },
+  {
+    "answer": "acqua",
+    "hint": "mare"
+  },
+  {
+    "answer": "acume",
+    "hint": "intelligenza"
+  },
+  {
+    "answer": "addio",
+    "hint": "saluto"
+  },
+  {
+    "answer": "aereo",
+    "hint": "cielo"
+  },
+  {
+    "answer": "agile",
+    "hint": "veloce"
+  },
+  {
+    "answer": "aiuto",
+    "hint": "soccorso"
+  },
+  {
+    "answer": "album",
+    "hint": "foto"
+  },
+  {
+    "answer": "alito",
+    "hint": "respiro"
+  },
+  {
+    "answer": "alone",
+    "hint": "luce"
+  },
+  {
+    "answer": "alveo",
+    "hint": "fiume"
+  },
+  {
+    "answer": "amare",
+    "hint": "cuore"
+  },
+  {
+    "answer": "ambra",
+    "hint": "resina"
+  },
+  {
+    "answer": "amico",
+    "hint": "fede"
+  },
+  {
+    "answer": "amore",
+    "hint": "cuore"
+  },
+  {
+    "answer": "animo",
+    "hint": "spirito"
+  },
+  {
+    "answer": "ansia",
+    "hint": "preoccupazione"
+  },
+  {
+    "answer": "arena",
+    "hint": "gladiatore"
+  },
+  {
+    "answer": "aroma",
+    "hint": "caffè"
+  },
+  {
+    "answer": "asino",
+    "hint": "soma"
+  },
+  {
+    "answer": "astro",
+    "hint": "cielo"
+  },
+  {
+    "answer": "atrio",
+    "hint": "ingresso"
+  },
+  {
+    "answer": "audio",
+    "hint": "suono"
+  },
+  {
+    "answer": "avere",
+    "hint": "verbo"
+  },
+  {
+    "answer": "bacio",
+    "hint": "labbra"
+  },
+  {
+    "answer": "balle",
+    "hint": "bugie"
+  },
+  {
+    "answer": "ballo",
+    "hint": "musica"
+  },
+  {
+    "answer": "banca",
+    "hint": "soldi"
+  },
+  {
+    "answer": "banco",
+    "hint": "scuola"
+  },
+  {
+    "answer": "barba",
+    "hint": "mento"
+  },
+  {
+    "answer": "barca",
+    "hint": "mare"
+  },
+  {
+    "answer": "basso",
+    "hint": "alto"
+  },
+  {
+    "answer": "bello",
+    "hint": "brutto"
+  },
+  {
+    "answer": "borsa",
+    "hint": "soldi"
+  },
+  {
+    "answer": "bosco",
+    "hint": "alberi"
+  },
+  {
+    "answer": "botte",
+    "hint": "vino"
+  },
+  {
+    "answer": "braci",
+    "hint": "fuoco"
+  },
+  {
+    "answer": "bravo",
+    "hint": "applauso"
+  },
+  {
+    "answer": "brodo",
+    "hint": "zuppa"
+  },
+  {
+    "answer": "burro",
+    "hint": "pane"
+  },
+  {
+    "answer": "busta",
+    "hint": "lettera"
+  },
+  {
+    "answer": "cacao",
+    "hint": "cioccolato"
+  },
+  {
+    "answer": "caldo",
+    "hint": "estate"
+  },
+  {
+    "answer": "calma",
+    "hint": "relax"
+  },
+  {
+    "answer": "campo",
+    "hint": "grano"
+  },
+  {
+    "answer": "canto",
+    "hint": "musica"
+  },
+  {
+    "answer": "carne",
+    "hint": "bistecca"
+  },
+  {
+    "answer": "carta",
+    "hint": "penna"
+  },
+  {
+    "answer": "carte",
+    "hint": "poker"
+  },
+  {
+    "answer": "cassa",
+    "hint": "soldi"
+  },
+  {
+    "answer": "cella",
+    "hint": "prigione"
+  },
+  {
+    "answer": "cerca",
+    "hint": "trovare"
+  },
+  {
+    "answer": "chilo",
+    "hint": "peso"
+  },
+  {
+    "answer": "ciclo",
+    "hint": "ruota"
+  },
+  {
+    "answer": "cieco",
+    "hint": "vista"
+  },
+  {
+    "answer": "cielo",
+    "hint": "nuvole"
+  },
+  {
+    "answer": "cinta",
+    "hint": "vita"
+  },
+  {
+    "answer": "citta",
+    "hint": "paese"
+  },
+  {
+    "answer": "clima",
+    "hint": "tempo"
+  },
+  {
+    "answer": "colle",
+    "hint": "montagna"
+  },
+  {
+    "answer": "colpa",
+    "hint": "errore"
+  },
+  {
+    "answer": "conto",
+    "hint": "banca"
+  },
+  {
+    "answer": "copia",
+    "hint": "originale"
+  },
+  {
+    "answer": "corda",
+    "hint": "chitarra"
+  },
+  {
+    "answer": "corpo",
+    "hint": "anima"
+  },
+  {
+    "answer": "corsa",
+    "hint": "scarpe"
+  },
+  {
+    "answer": "corso",
+    "hint": "fiume"
+  },
+  {
+    "answer": "corto",
+    "hint": "lungo"
+  },
+  {
+    "answer": "costa",
+    "hint": "mare"
+  },
+  {
+    "answer": "crema",
+    "hint": "dolce"
+  },
+  {
+    "answer": "crisi",
+    "hint": "problema"
+  },
+  {
+    "answer": "croce",
+    "hint": "chiesa"
+  },
+  {
+    "answer": "cuore",
+    "hint": "amore"
+  },
+  {
+    "answer": "curva",
+    "hint": "strada"
+  },
+  {
+    "answer": "danza",
+    "hint": "ballo"
+  },
+  {
+    "answer": "dardo",
+    "hint": "bersaglio"
+  },
+  {
+    "answer": "dente",
+    "hint": "sorriso"
+  },
+  {
+    "answer": "dieci",
+    "hint": "numero"
+  },
+  {
+    "answer": "disco",
+    "hint": "musica"
+  },
+  {
+    "answer": "dolce",
+    "hint": "zucchero"
+  },
+  {
+    "answer": "donna",
+    "hint": "uomo"
+  },
+  {
+    "answer": "drago",
+    "hint": "fuoco"
+  },
+  {
+    "answer": "duomo",
+    "hint": "citta"
+  },
+  {
+    "answer": "ebreo",
+    "hint": "torah"
+  },
+  {
+    "answer": "epoca",
+    "hint": "storia"
+  },
+  {
+    "answer": "erica",
+    "hint": "pianta"
+  },
+  {
+    "answer": "esame",
+    "hint": "scuola"
+  },
+  {
+    "answer": "esito",
+    "hint": "risultato"
+  },
+  {
+    "answer": "estro",
+    "hint": "idea"
+  },
+  {
+    "answer": "etica",
+    "hint": "morale"
+  },
+  {
+    "answer": "falso",
+    "hint": "vero"
+  },
+  {
+    "answer": "fango",
+    "hint": "pioggia"
+  },
+  {
+    "answer": "farro",
+    "hint": "cereale"
+  },
+  {
+    "answer": "fatto",
+    "hint": "notizia"
+  },
+  {
+    "answer": "fermo",
+    "hint": "stop"
+  },
+  {
+    "answer": "ferro",
+    "hint": "metallo"
+  },
+  {
+    "answer": "festa",
+    "hint": "compleanno"
+  },
+  {
+    "answer": "fiato",
+    "hint": "respiro"
+  },
+  {
+    "answer": "fibra",
+    "hint": "tessuto"
+  },
+  {
+    "answer": "fieno",
+    "hint": "mucca"
+  },
+  {
+    "answer": "fiera",
+    "hint": "mercato"
+  },
+  {
+    "answer": "fiero",
+    "hint": "orgoglio"
+  },
+  {
+    "answer": "fiore",
+    "hint": "primavera"
+  },
+  {
+    "answer": "firma",
+    "hint": "carta"
+  },
+  {
+    "answer": "fiume",
+    "hint": "acqua"
+  },
+  {
+    "answer": "fobia",
+    "hint": "paura"
+  },
+  {
+    "answer": "fondo",
+    "hint": "mare"
+  },
+  {
+    "answer": "fonte",
+    "hint": "acqua"
+  },
+  {
+    "answer": "forno",
+    "hint": "pane"
+  },
+  {
+    "answer": "forte",
+    "hint": "debole"
+  },
+  {
+    "answer": "forum",
+    "hint": "discussione"
+  },
+  {
+    "answer": "fossa",
+    "hint": "buca"
+  },
+  {
+    "answer": "frase",
+    "hint": "parola"
+  },
+  {
+    "answer": "frate",
+    "hint": "convento"
+  },
+  {
+    "answer": "freno",
+    "hint": "auto"
+  },
+  {
+    "answer": "frigo",
+    "hint": "cibo"
+  },
+  {
+    "answer": "fuoco",
+    "hint": "fiamma"
+  },
+  {
+    "answer": "fuori",
+    "hint": "dentro"
+  },
+  {
+    "answer": "furia",
+    "hint": "rabbia"
+  },
+  {
+    "answer": "furto",
+    "hint": "ladro"
+  },
+  {
+    "answer": "gamba",
+    "hint": "piede"
+  },
+  {
+    "answer": "gambo",
+    "hint": "fiore"
+  },
+  {
+    "answer": "gatto",
+    "hint": "miao"
+  },
+  {
+    "answer": "gesto",
+    "hint": "mano"
+  },
+  {
+    "answer": "getto",
+    "hint": "acqua"
+  },
+  {
+    "answer": "gioco",
+    "hint": "divertimento"
+  },
+  {
+    "answer": "gioia",
+    "hint": "sorriso"
+  },
+  {
+    "answer": "globo",
+    "hint": "mondo"
+  },
+  {
+    "answer": "golfo",
+    "hint": "mare"
+  },
+  {
+    "answer": "gomma",
+    "hint": "cancellare"
+  },
+  {
+    "answer": "gotta",
+    "hint": "piede"
+  },
+  {
+    "answer": "grado",
+    "hint": "temperatura"
+  },
+  {
+    "answer": "grano",
+    "hint": "pane"
+  },
+  {
+    "answer": "greco",
+    "hint": "ateniese"
+  },
+  {
+    "answer": "grido",
+    "hint": "voce"
+  },
+  {
+    "answer": "guado",
+    "hint": "fiume"
+  },
+  {
+    "answer": "guaio",
+    "hint": "problema"
+  },
+  {
+    "answer": "guida",
+    "hint": "viaggio"
+  },
+  {
+    "answer": "gusto",
+    "hint": "sapore"
+  },
+  {
+    "answer": "hotel",
+    "hint": "vacanza"
+  },
+  {
+    "answer": "icona",
+    "hint": "immagine"
+  },
+  {
+    "answer": "idolo",
+    "hint": "fan"
+  },
+  {
+    "answer": "isola",
+    "hint": "mare"
+  },
+  {
+    "answer": "lampo",
+    "hint": "tuono"
+  },
+  {
+    "answer": "larga",
+    "hint": "stretta"
+  },
+  {
+    "answer": "latte",
+    "hint": "mucca"
+  },
+  {
+    "answer": "legge",
+    "hint": "giustizia"
+  },
+  {
+    "answer": "lento",
+    "hint": "veloce"
+  },
+  {
+    "answer": "leone",
+    "hint": "savana"
+  },
+  {
+    "answer": "letto",
+    "hint": "sonno"
+  },
+  {
+    "answer": "libro",
+    "hint": "lettura"
+  },
+  {
+    "answer": "lieto",
+    "hint": "felice"
+  },
+  {
+    "answer": "lieve",
+    "hint": "pesante"
+  },
+  {
+    "answer": "limbo",
+    "hint": "attesa"
+  },
+  {
+    "answer": "linea",
+    "hint": "retta"
+  },
+  {
+    "answer": "lista",
+    "hint": "elenco"
+  },
+  {
+    "answer": "litro",
+    "hint": "misura"
+  },
+  {
+    "answer": "lonza",
+    "hint": "carne"
+  },
+  {
+    "answer": "lotta",
+    "hint": "combattimento"
+  },
+  {
+    "answer": "lucci",
+    "hint": "pesce"
+  },
+  {
+    "answer": "luogo",
+    "hint": "posto"
+  },
+  {
+    "answer": "madre",
+    "hint": "figlio"
+  },
+  {
+    "answer": "magia",
+    "hint": "trucco"
+  },
+  {
+    "answer": "magro",
+    "hint": "grasso"
+  },
+  {
+    "answer": "mamma",
+    "hint": "figlio"
+  },
+  {
+    "answer": "manca",
+    "hint": "assenza"
+  },
+  {
+    "answer": "manda",
+    "hint": "invio"
+  },
+  {
+    "answer": "marea",
+    "hint": "luna"
+  },
+  {
+    "answer": "maree",
+    "hint": "onda"
+  },
+  {
+    "answer": "marmo",
+    "hint": "statua"
+  },
+  {
+    "answer": "massa",
+    "hint": "peso"
+  },
+  {
+    "answer": "matto",
+    "hint": "pazzo"
+  },
+  {
+    "answer": "mazza",
+    "hint": "baseball"
+  },
+  {
+    "answer": "mensa",
+    "hint": "scuola"
+  },
+  {
+    "answer": "mento",
+    "hint": "barba"
+  },
+  {
+    "answer": "merce",
+    "hint": "negozio"
+  },
+  {
+    "answer": "messa",
+    "hint": "chiesa"
+  },
+  {
+    "answer": "meteo",
+    "hint": "tempo"
+  },
+  {
+    "answer": "metro",
+    "hint": "citta"
+  },
+  {
+    "answer": "mezzo",
+    "hint": "meta"
+  },
+  {
+    "answer": "miele",
+    "hint": "ape"
+  },
+  {
+    "answer": "mirto",
+    "hint": "pianta"
+  },
+  {
+    "answer": "misto",
+    "hint": "insieme"
+  },
+  {
+    "answer": "molle",
+    "hint": "duro"
+  },
+  {
+    "answer": "mondo",
+    "hint": "terra"
+  },
+  {
+    "answer": "monte",
+    "hint": "cima"
+  },
+  {
+    "answer": "morso",
+    "hint": "dente"
+  },
+  {
+    "answer": "mosca",
+    "hint": "insetto"
+  },
+  {
+    "answer": "motto",
+    "hint": "frase"
+  },
+  {
+    "answer": "mucca",
+    "hint": "latte"
+  },
+  {
+    "answer": "muffa",
+    "hint": "umido"
+  },
+  {
+    "answer": "multa",
+    "hint": "vigile"
+  },
+  {
+    "answer": "museo",
+    "hint": "arte"
+  },
+  {
+    "answer": "mutuo",
+    "hint": "casa"
+  },
+  {
+    "answer": "nervo",
+    "hint": "tensione"
+  },
+  {
+    "answer": "nesso",
+    "hint": "legame"
+  },
+  {
+    "answer": "netto",
+    "hint": "lordo"
+  },
+  {
+    "answer": "ninfa",
+    "hint": "bosco"
+  },
+  {
+    "answer": "nonna",
+    "hint": "nipote"
+  },
+  {
+    "answer": "nonno",
+    "hint": "nipote"
+  },
+  {
+    "answer": "norma",
+    "hint": "regola"
+  },
+  {
+    "answer": "notte",
+    "hint": "luna"
+  },
+  {
+    "answer": "nozze",
+    "hint": "matrimonio"
+  },
+  {
+    "answer": "nulla",
+    "hint": "zero"
+  },
+  {
+    "answer": "nuora",
+    "hint": "suocera"
+  },
+  {
+    "answer": "nuoto",
+    "hint": "piscina"
+  },
+  {
+    "answer": "nuovo",
+    "hint": "vecchio"
+  },
+  {
+    "answer": "nutre",
+    "hint": "cibo"
+  },
+  {
+    "answer": "oblio",
+    "hint": "memoria"
+  },
+  {
+    "answer": "oliva",
+    "hint": "olio"
+  },
+  {
+    "answer": "ombra",
+    "hint": "sole"
+  },
+  {
+    "answer": "oncia",
+    "hint": "peso"
+  },
+  {
+    "answer": "onore",
+    "hint": "rispetto"
+  },
+  {
+    "answer": "opera",
+    "hint": "teatro"
+  },
+  {
+    "answer": "oppio",
+    "hint": "pianta"
+  },
+  {
+    "answer": "orale",
+    "hint": "voce"
+  },
+  {
+    "answer": "orata",
+    "hint": "pesce"
+  },
+  {
+    "answer": "orchi",
+    "hint": "favola"
+  },
+  {
+    "answer": "osare",
+    "hint": "coraggio"
+  },
+  {
+    "answer": "ostia",
+    "hint": "chiesa"
+  },
+  {
+    "answer": "ostro",
+    "hint": "vento"
+  },
+  {
+    "answer": "ovale",
+    "hint": "uovo"
+  },
+  {
+    "answer": "ovile",
+    "hint": "pecora"
+  },
+  {
+    "answer": "ovvio",
+    "hint": "chiaro"
+  },
+  {
+    "answer": "padre",
+    "hint": "figlio"
+  },
+  {
+    "answer": "paese",
+    "hint": "citta"
+  },
+  {
+    "answer": "palco",
+    "hint": "teatro"
+  },
+  {
+    "answer": "palla",
+    "hint": "gioco"
+  },
+  {
+    "answer": "palmo",
+    "hint": "mano"
+  },
+  {
+    "answer": "panno",
+    "hint": "tessuto"
+  },
+  {
+    "answer": "parco",
+    "hint": "alberi"
+  },
+  {
+    "answer": "parte",
+    "hint": "tutto"
+  },
+  {
+    "answer": "parto",
+    "hint": "nascita"
+  },
+  {
+    "answer": "pasta",
+    "hint": "sugo"
+  },
+  {
+    "answer": "pasto",
+    "hint": "cibo"
+  },
+  {
+    "answer": "patta",
+    "hint": "pareggio"
+  },
+  {
+    "answer": "paura",
+    "hint": "buio"
+  },
+  {
+    "answer": "pausa",
+    "hint": "riposo"
+  },
+  {
+    "answer": "pecca",
+    "hint": "errore"
+  },
+  {
+    "answer": "pegno",
+    "hint": "garanzia"
+  },
+  {
+    "answer": "penna",
+    "hint": "scuola"
+  },
+  {
+    "answer": "pensa",
+    "hint": "idea"
+  },
+  {
+    "answer": "perla",
+    "hint": "ostrica"
+  },
+  {
+    "answer": "perso",
+    "hint": "trovato"
+  },
+  {
+    "answer": "pesca",
+    "hint": "frutto"
+  },
+  {
+    "answer": "pesce",
+    "hint": "mare"
+  },
+  {
+    "answer": "pesto",
+    "hint": "basilico"
+  },
+  {
+    "answer": "petti",
+    "hint": "petto"
+  },
+  {
+    "answer": "pezza",
+    "hint": "buco"
+  },
+  {
+    "answer": "pezzo",
+    "hint": "puzzle"
+  },
+  {
+    "answer": "piace",
+    "hint": "simpatia"
+  },
+  {
+    "answer": "piano",
+    "hint": "musica"
+  },
+  {
+    "answer": "picco",
+    "hint": "montagna"
+  },
+  {
+    "answer": "piede",
+    "hint": "scarpa"
+  },
+  {
+    "answer": "piena",
+    "hint": "fiume"
+  },
+  {
+    "answer": "pigro",
+    "hint": "divano"
+  },
+  {
+    "answer": "pinza",
+    "hint": "attrezzo"
+  },
+  {
+    "answer": "pista",
+    "hint": "corsa"
+  },
+  {
+    "answer": "piuma",
+    "hint": "uccello"
+  },
+  {
+    "answer": "pizza",
+    "hint": "forno"
+  },
+  {
+    "answer": "plebe",
+    "hint": "popolo"
+  },
+  {
+    "answer": "poema",
+    "hint": "versi"
+  },
+  {
+    "answer": "poeta",
+    "hint": "versi"
+  },
+  {
+    "answer": "poggi",
+    "hint": "appoggio"
+  },
+  {
+    "answer": "pollo",
+    "hint": "uovo"
+  },
+  {
+    "answer": "polpa",
+    "hint": "frutto"
+  },
+  {
+    "answer": "polso",
+    "hint": "orologio"
+  },
+  {
+    "answer": "pompa",
+    "hint": "acqua"
+  },
+  {
+    "answer": "ponte",
+    "hint": "fiume"
+  },
+  {
+    "answer": "porci",
+    "hint": "fattoria"
+  },
+  {
+    "answer": "porta",
+    "hint": "chiave"
+  },
+  {
+    "answer": "porto",
+    "hint": "nave"
+  },
+  {
+    "answer": "posta",
+    "hint": "lettera"
+  },
+  {
+    "answer": "pozzo",
+    "hint": "acqua"
+  },
+  {
+    "answer": "prato",
+    "hint": "erba"
+  },
+  {
+    "answer": "preda",
+    "hint": "caccia"
+  },
+  {
+    "answer": "presa",
+    "hint": "corrente"
+  },
+  {
+    "answer": "prete",
+    "hint": "chiesa"
+  },
+  {
+    "answer": "primo",
+    "hint": "secondo"
+  },
+  {
+    "answer": "prode",
+    "hint": "eroe"
+  },
+  {
+    "answer": "prova",
+    "hint": "esame"
+  },
+  {
+    "answer": "pugno",
+    "hint": "lotta"
+  },
+  {
+    "answer": "pulce",
+    "hint": "cane"
+  },
+  {
+    "answer": "punge",
+    "hint": "spina"
+  },
+  {
+    "answer": "punta",
+    "hint": "matita"
+  },
+  {
+    "answer": "punto",
+    "hint": "frase"
+  },
+  {
+    "answer": "quale",
+    "hint": "domanda"
+  },
+  {
+    "answer": "quasi",
+    "hint": "vicino"
+  },
+  {
+    "answer": "quota",
+    "hint": "altezza"
+  },
+  {
+    "answer": "radio",
+    "hint": "antenna"
+  },
+  {
+    "answer": "ragno",
+    "hint": "tela"
+  },
+  {
+    "answer": "rampa",
+    "hint": "scale"
+  },
+  {
+    "answer": "rango",
+    "hint": "grado"
+  },
+  {
+    "answer": "rasoi",
+    "hint": "barba"
+  },
+  {
+    "answer": "ratto",
+    "hint": "topo"
+  },
+  {
+    "answer": "razza",
+    "hint": "cane"
+  },
+  {
+    "answer": "reale",
+    "hint": "corona"
+  },
+  {
+    "answer": "reato",
+    "hint": "crimine"
+  },
+  {
+    "answer": "regia",
+    "hint": "film"
+  },
+  {
+    "answer": "regno",
+    "hint": "re"
+  },
+  {
+    "answer": "resta",
+    "hint": "rimani"
+  },
+  {
+    "answer": "retta",
+    "hint": "linea"
+  },
+  {
+    "answer": "ricco",
+    "hint": "soldi"
+  },
+  {
+    "answer": "righe",
+    "hint": "quaderno"
+  },
+  {
+    "answer": "rione",
+    "hint": "quartiere"
+  },
+  {
+    "answer": "risma",
+    "hint": "carta"
+  },
+  {
+    "answer": "ritmo",
+    "hint": "musica"
+  },
+  {
+    "answer": "robot",
+    "hint": "macchina"
+  },
+  {
+    "answer": "rombo",
+    "hint": "suono"
+  },
+  {
+    "answer": "rosso",
+    "hint": "colore"
+  },
+  {
+    "answer": "ruota",
+    "hint": "bici"
+  },
+  {
+    "answer": "ruote",
+    "hint": "auto"
+  },
+  {
+    "answer": "ruspa",
+    "hint": "cantiere"
+  },
+  {
+    "answer": "sabba",
+    "hint": "strega"
+  },
+  {
+    "answer": "sacre",
+    "hint": "santo"
+  },
+  {
+    "answer": "sagra",
+    "hint": "paese"
+  },
+  {
+    "answer": "saldo",
+    "hint": "negozio"
+  },
+  {
+    "answer": "salma",
+    "hint": "bara"
+  },
+  {
+    "answer": "salmo",
+    "hint": "chiesa"
+  },
+  {
+    "answer": "salto",
+    "hint": "trampolino"
+  },
+  {
+    "answer": "salve",
+    "hint": "ciao"
+  },
+  {
+    "answer": "samba",
+    "hint": "ballo"
+  },
+  {
+    "answer": "sanno",
+    "hint": "sapere"
+  },
+  {
+    "answer": "santo",
+    "hint": "chiesa"
+  },
+  {
+    "answer": "sarta",
+    "hint": "ago"
+  },
+  {
+    "answer": "sasso",
+    "hint": "pietra"
+  },
+  {
+    "answer": "sauna",
+    "hint": "caldo"
+  },
+  {
+    "answer": "savio",
+    "hint": "saggio"
+  },
+  {
+    "answer": "sazio",
+    "hint": "fame"
+  },
+  {
+    "answer": "scala",
+    "hint": "piani"
+  },
+  {
+    "answer": "scena",
+    "hint": "teatro"
+  },
+  {
+    "answer": "scudo",
+    "hint": "spada"
+  },
+  {
+    "answer": "scuro",
+    "hint": "luce"
+  },
+  {
+    "answer": "secco",
+    "hint": "umido"
+  },
+  {
+    "answer": "sedia",
+    "hint": "tavolo"
+  },
+  {
+    "answer": "segno",
+    "hint": "traccia"
+  },
+  {
+    "answer": "senno",
+    "hint": "giudizio"
+  },
+  {
+    "answer": "senso",
+    "hint": "odorato"
+  },
+  {
+    "answer": "serpe",
+    "hint": "bosco"
+  },
+  {
+    "answer": "sesto",
+    "hint": "numero"
+  },
+  {
+    "answer": "setta",
+    "hint": "gruppo"
+  },
+  {
+    "answer": "sfida",
+    "hint": "gara"
+  },
+  {
+    "answer": "sfogo",
+    "hint": "rabbia"
+  },
+  {
+    "answer": "siamo",
+    "hint": "essere"
+  },
+  {
+    "answer": "siero",
+    "hint": "vaccino"
+  },
+  {
+    "answer": "sigla",
+    "hint": "iniziali"
+  },
+  {
+    "answer": "sisma",
+    "hint": "terremoto"
+  },
+  {
+    "answer": "sogno",
+    "hint": "notte"
+  },
+  {
+    "answer": "solco",
+    "hint": "campo"
+  },
+  {
+    "answer": "soldi",
+    "hint": "banca"
+  },
+  {
+    "answer": "somma",
+    "hint": "addizione"
+  },
+  {
+    "answer": "sonno",
+    "hint": "letto"
+  },
+  {
+    "answer": "sordo",
+    "hint": "orecchio"
+  },
+  {
+    "answer": "sorso",
+    "hint": "bevanda"
+  },
+  {
+    "answer": "sosta",
+    "hint": "pausa"
+  },
+  {
+    "answer": "sotto",
+    "hint": "sopra"
+  },
+  {
+    "answer": "spada",
+    "hint": "duello"
+  },
+  {
+    "answer": "sparo",
+    "hint": "arma"
+  },
+  {
+    "answer": "spesa",
+    "hint": "supermercato"
+  },
+  {
+    "answer": "spina",
+    "hint": "rosa"
+  },
+  {
+    "answer": "spola",
+    "hint": "filo"
+  },
+  {
+    "answer": "sport",
+    "hint": "palla"
+  },
+  {
+    "answer": "sposa",
+    "hint": "matrimonio"
+  },
+  {
+    "answer": "stadi",
+    "hint": "calcio"
+  },
+  {
+    "answer": "stare",
+    "hint": "essere"
+  },
+  {
+    "answer": "stato",
+    "hint": "nazione"
+  },
+  {
+    "answer": "stelo",
+    "hint": "fiore"
+  },
+  {
+    "answer": "stesa",
+    "hint": "letto"
+  },
+  {
+    "answer": "stile",
+    "hint": "moda"
+  },
+  {
+    "answer": "stima",
+    "hint": "valore"
+  },
+  {
+    "answer": "stiva",
+    "hint": "nave"
+  },
+  {
+    "answer": "stola",
+    "hint": "abito"
+  },
+  {
+    "answer": "stufa",
+    "hint": "caldo"
+  },
+  {
+    "answer": "succo",
+    "hint": "frutta"
+  },
+  {
+    "answer": "suino",
+    "hint": "maiale"
+  },
+  {
+    "answer": "suono",
+    "hint": "orecchio"
+  },
+  {
+    "answer": "suora",
+    "hint": "convento"
+  },
+  {
+    "answer": "svago",
+    "hint": "divertimento"
+  },
+  {
+    "answer": "svaso",
+    "hint": "fiore"
+  },
+  {
+    "answer": "talco",
+    "hint": "polvere"
+  },
+  {
+    "answer": "tappa",
+    "hint": "viaggio"
+  },
+  {
+    "answer": "tappo",
+    "hint": "bottiglia"
+  },
+  {
+    "answer": "tardi",
+    "hint": "orologio"
+  },
+  {
+    "answer": "targa",
+    "hint": "auto"
+  },
+  {
+    "answer": "tarlo",
+    "hint": "legno"
+  },
+  {
+    "answer": "tasca",
+    "hint": "pantaloni"
+  },
+  {
+    "answer": "tassa",
+    "hint": "stato"
+  },
+  {
+    "answer": "tatto",
+    "hint": "mano"
+  },
+  {
+    "answer": "tazza",
+    "hint": "te"
+  },
+  {
+    "answer": "tempo",
+    "hint": "orologio"
+  },
+  {
+    "answer": "tenda",
+    "hint": "campeggio"
+  },
+  {
+    "answer": "tenue",
+    "hint": "lieve"
+  },
+  {
+    "answer": "terme",
+    "hint": "acqua"
+  },
+  {
+    "answer": "terra",
+    "hint": "pianeta"
+  },
+  {
+    "answer": "terzo",
+    "hint": "posto"
+  },
+  {
+    "answer": "testa",
+    "hint": "cappello"
+  },
+  {
+    "answer": "tetto",
+    "hint": "casa"
+  },
+  {
+    "answer": "tigre",
+    "hint": "giungla"
+  },
+  {
+    "answer": "tinta",
+    "hint": "colore"
+  },
+  {
+    "answer": "tocco",
+    "hint": "mano"
+  },
+  {
+    "answer": "tonno",
+    "hint": "pesce"
+  },
+  {
+    "answer": "tonta",
+    "hint": "sciocco"
+  },
+  {
+    "answer": "torba",
+    "hint": "suolo"
+  },
+  {
+    "answer": "torce",
+    "hint": "luce"
+  },
+  {
+    "answer": "tordo",
+    "hint": "uccello"
+  },
+  {
+    "answer": "torre",
+    "hint": "campanile"
+  },
+  {
+    "answer": "torso",
+    "hint": "corpo"
+  },
+  {
+    "answer": "torta",
+    "hint": "festa"
+  },
+  {
+    "answer": "torte",
+    "hint": "festa"
+  },
+  {
+    "answer": "tosse",
+    "hint": "raffreddore"
+  },
+  {
+    "answer": "tosta",
+    "hint": "pane"
+  },
+  {
+    "answer": "trama",
+    "hint": "storia"
+  },
+  {
+    "answer": "trave",
+    "hint": "tetto"
+  },
+  {
+    "answer": "trema",
+    "hint": "paura"
+  },
+  {
+    "answer": "treno",
+    "hint": "binari"
+  },
+  {
+    "answer": "trito",
+    "hint": "carne"
+  },
+  {
+    "answer": "trono",
+    "hint": "re"
+  },
+  {
+    "answer": "trota",
+    "hint": "fiume"
+  },
+  {
+    "answer": "tuffo",
+    "hint": "piscina"
+  },
+  {
+    "answer": "tuono",
+    "hint": "lampo"
+  },
+  {
+    "answer": "turno",
+    "hint": "lavoro"
+  },
+  {
+    "answer": "tutto",
+    "hint": "niente"
+  },
+  {
+    "answer": "udito",
+    "hint": "orecchio"
+  },
+  {
+    "answer": "ulivo",
+    "hint": "olio"
+  },
+  {
+    "answer": "umido",
+    "hint": "secco"
+  },
+  {
+    "answer": "umile",
+    "hint": "orgoglio"
+  },
+  {
+    "answer": "unire",
+    "hint": "separare"
+  },
+  {
+    "answer": "unita",
+    "hint": "insieme"
+  },
+  {
+    "answer": "urina",
+    "hint": "bagno"
+  },
+  {
+    "answer": "usare",
+    "hint": "adoperare"
+  },
+  {
+    "answer": "uscio",
+    "hint": "porta"
+  },
+  {
+    "answer": "utile",
+    "hint": "inutile"
+  },
+  {
+    "answer": "vacca",
+    "hint": "latte"
+  },
+  {
+    "answer": "valle",
+    "hint": "montagna"
+  },
+  {
+    "answer": "vanga",
+    "hint": "orto"
+  },
+  {
+    "answer": "varco",
+    "hint": "passaggio"
+  },
+  {
+    "answer": "vasca",
+    "hint": "bagno"
+  },
+  {
+    "answer": "vasto",
+    "hint": "ampio"
+  },
+  {
+    "answer": "venda",
+    "hint": "negozio"
+  },
+  {
+    "answer": "venia",
+    "hint": "perdono"
+  },
+  {
+    "answer": "vento",
+    "hint": "aria"
+  },
+  {
+    "answer": "verde",
+    "hint": "erba"
+  },
+  {
+    "answer": "verme",
+    "hint": "terra"
+  },
+  {
+    "answer": "verso",
+    "hint": "poesia"
+  },
+  {
+    "answer": "vespa",
+    "hint": "pungiglione"
+  },
+  {
+    "answer": "veste",
+    "hint": "abito"
+  },
+  {
+    "answer": "vetro",
+    "hint": "finestra"
+  },
+  {
+    "answer": "viale",
+    "hint": "alberi"
+  },
+  {
+    "answer": "vibra",
+    "hint": "suono"
+  },
+  {
+    "answer": "video",
+    "hint": "schermo"
+  },
+  {
+    "answer": "vigna",
+    "hint": "uva"
+  },
+  {
+    "answer": "villa",
+    "hint": "casa"
+  },
+  {
+    "answer": "viola",
+    "hint": "colore"
+  },
+  {
+    "answer": "vista",
+    "hint": "occhi"
+  },
+  {
+    "answer": "volpe",
+    "hint": "astuzia"
+  },
+  {
+    "answer": "volto",
+    "hint": "viso"
+  },
+  {
+    "answer": "zaino",
+    "hint": "scuola"
+  },
+  {
+    "answer": "zampa",
+    "hint": "cane"
+  },
+  {
+    "answer": "zanna",
+    "hint": "lupo"
+  },
+  {
+    "answer": "zebra",
+    "hint": "strisce"
+  },
+  {
+    "answer": "zeppa",
+    "hint": "legno"
+  },
+  {
+    "answer": "zeppo",
+    "hint": "pieno"
+  },
+  {
+    "answer": "zitto",
+    "hint": "silenzio"
+  },
+  {
+    "answer": "zolfo",
+    "hint": "chimica"
+  },
+  {
+    "answer": "zolla",
+    "hint": "terra"
+  },
+  {
+    "answer": "zompo",
+    "hint": "salto"
+  },
+  {
+    "answer": "zonzo",
+    "hint": "passeggio"
+  },
+  {
+    "answer": "zoppo",
+    "hint": "gamba"
+  },
+  {
+    "answer": "zucca",
+    "hint": "halloween"
+  },
+  {
+    "answer": "zuffa",
+    "hint": "rissa"
+  },
+  {
+    "answer": "zuppa",
+    "hint": "cucchiaio"
+  }
+]

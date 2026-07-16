@@ -1,13 +1,13 @@
-import { getDailyKey, pickDailyIndex, hashString, loadState, saveState, normalizeText } from "./daily.js";
+import { getDailyKey, hashString, loadState, saveState, normalizeText } from "./daily.js";
 
-const STORAGE_KEY = "quotid-wordle-v2";
+const STORAGE_KEY = "quotid-wordle-v3";
 const MAX_ATTEMPTS = 5;
 const WORD_LEN = 5;
 
 let answerWords = [];
 let guessWords = new Set();
 let answer = "";
-let hintText = "";
+let hintWord = "";
 let guesses = [];
 let current = "";
 let locked = false;
@@ -38,12 +38,20 @@ function evaluateGuess(guess, target) {
   return result;
 }
 
-/** Un indizio leggero: rivela 1 lettera nella posizione giusta. */
-function buildHint(word, dayKey) {
-  const letters = word.split("");
-  const idx = hashString(`${dayKey}:wordle-hint:${word}`) % WORD_LEN;
-  const slots = letters.map((ch, i) => (i === idx ? ch.toUpperCase() : "·"));
-  return `Indizio: ${slots.join(" ")}`;
+/** Scelta giornaliera da un mazzo mescolato di coppie parola+indizio. */
+function pickDailyPair(dayKey, pairs) {
+  const n = pairs.length;
+  if (!n) return null;
+  const [y, m, d] = dayKey.split("-").map(Number);
+  const ordinal = Math.floor(Date.UTC(y, m - 1, d) / 86400000);
+  const order = Array.from({ length: n }, (_, i) => i);
+  let h = hashString(`wordle-hint-deck-v3:${n}`);
+  for (let i = n - 1; i > 0; i--) {
+    h = (Math.imul(h, 1664525) + 1013904223) >>> 0;
+    const j = h % (i + 1);
+    [order[i], order[j]] = [order[j], order[i]];
+  }
+  return pairs[order[((ordinal % n) + n) % n]];
 }
 
 function keyboardState() {
@@ -63,12 +71,13 @@ function keyboardState() {
 export async function initWordle(onDone) {
   onComplete = onDone;
 
-  const [answersRes, guessesRes] = await Promise.all([
+  const [answersRes, guessesRes, hintsRes] = await Promise.all([
     fetch("data/words-answers.txt"),
     fetch("data/words-guesses.txt"),
+    fetch("data/wordle-hints.json"),
   ]);
 
-  if (!answersRes.ok || !guessesRes.ok) {
+  if (!answersRes.ok || !guessesRes.ok || !hintsRes.ok) {
     document.getElementById("wordle-status").textContent = "Impossibile caricare il dizionario.";
     document.getElementById("wordle-status").className = "game-status lose";
     return;
@@ -78,9 +87,19 @@ export async function initWordle(onDone) {
   guessWords = new Set((await guessesRes.text()).trim().split("\n").filter(Boolean));
   answerWords.forEach((w) => guessWords.add(w));
 
+  const pairs = (await hintsRes.json()).filter(
+    (p) => p?.answer && p?.hint && guessWords.has(p.answer) && p.answer.length === WORD_LEN
+  );
+  if (!pairs.length) {
+    document.getElementById("wordle-status").textContent = "Nessun indizio disponibile.";
+    document.getElementById("wordle-status").className = "game-status lose";
+    return;
+  }
+
   const dayKey = getDailyKey();
-  answer = answerWords[pickDailyIndex(dayKey, answerWords.length, "wordle")];
-  hintText = buildHint(answer, dayKey);
+  const pair = pickDailyPair(dayKey, pairs);
+  answer = pair.answer;
+  hintWord = pair.hint;
 
   const saved = loadState(STORAGE_KEY, dayKey);
   if (saved) {
@@ -110,7 +129,8 @@ function persist() {
 
 function renderHint() {
   const el = document.getElementById("wordle-hint");
-  if (el) el.textContent = hintText;
+  if (!el) return;
+  el.innerHTML = `<span class="wordle-hint-label">Indizio</span><span class="wordle-hint-word">${hintWord}</span>`;
 }
 
 function renderBoard(animateRow = -1) {

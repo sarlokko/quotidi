@@ -49,6 +49,7 @@ alveo
 alzai
 amaca
 amala
+amare
 amaro
 amato
 amavo
@@ -56,6 +57,7 @@ ambra
 ameba
 ameni
 amici
+amico
 amido
 amore
 ampio
@@ -185,10 +187,12 @@ botte
 botti
 bozza
 brace
+braci
 brado
 brame
 brano
 bravi
+bravo
 breve
 briga
 brina
@@ -224,6 +228,7 @@ calci
 calco
 caldo
 calli
+calma
 calme
 calva
 calze
@@ -273,6 +278,7 @@ cenno
 censo
 cento
 ceppo
+cerca
 cerco
 cerro
 certa
@@ -290,6 +296,7 @@ cibai
 cicca
 ciclo
 cieca
+cieco
 cielo
 cifra
 cigli
@@ -302,6 +309,7 @@ circo
 cirri
 cisti
 citai
+citta
 ciuco
 clava
 clero
@@ -318,10 +326,12 @@ coffa
 colai
 colgo
 colla
+colle
 collo
 colma
 colmo
 colon
+colpa
 colpe
 colpi
 colse
@@ -398,6 +408,7 @@ dardo
 dazio
 degna
 denso
+dente
 denti
 desco
 desio
@@ -608,6 +619,7 @@ gergo
 germe
 gesso
 gesti
+gesto
 getto
 ghiro
 ghisa
@@ -638,6 +650,7 @@ gorgo
 gotta
 gozzo
 gradi
+grado
 grafo
 grama
 grana
@@ -649,6 +662,7 @@ greco
 greto
 greve
 grida
+grido
 grigi
 grumo
 guado
@@ -685,6 +699,7 @@ lampo
 lance
 lanci
 lardo
+larga
 largo
 larva
 lasci
@@ -705,6 +720,7 @@ legno
 lembo
 lemma
 lenta
+lento
 lenza
 leone
 lepri
@@ -716,6 +732,7 @@ liana
 libro
 liceo
 lieta
+lieto
 lieve
 ligio
 limbo
@@ -756,6 +773,7 @@ mambo
 mamma
 manca
 mance
+manda
 mandi
 mangi
 mango
@@ -767,6 +785,7 @@ mappa
 marca
 marce
 marea
+maree
 marmo
 marna
 marre
@@ -804,6 +823,7 @@ modem
 mogio
 mogli
 molla
+molle
 molti
 monca
 mondo
@@ -842,6 +862,7 @@ nembo
 nenia
 nerbo
 nervi
+nervo
 nesso
 netto
 nevai
@@ -852,6 +873,8 @@ nocca
 nomea
 nonio
 nonna
+nonno
+norma
 norme
 notai
 notte
@@ -874,6 +897,7 @@ odore
 offro
 ogiva
 oliai
+oliva
 olive
 oltre
 ombra
@@ -960,6 +984,7 @@ peana
 pecca
 pecco
 pegni
+pegno
 pelai
 pelle
 pelli
@@ -979,7 +1004,9 @@ pesce
 pesco
 peste
 pesto
+petti
 petto
+pezza
 pezzo
 piace
 piada
@@ -1033,6 +1060,7 @@ posta
 posto
 pozza
 pozzi
+pozzo
 prato
 preda
 prego
@@ -1049,16 +1077,19 @@ prole
 prono
 prora
 prosa
+prova
 prove
 prude
 pruno
 puffi
 pugni
+pugno
 pulce
 pulsa
 punge
 punta
 punti
+punto
 purga
 puzzi
 quale
@@ -1093,6 +1124,7 @@ remai
 rende
 renna
 ressa
+resta
 resto
 retro
 retta
@@ -1107,6 +1139,7 @@ rione
 risma
 rissa
 ritmi
+ritmo
 ritto
 riuso
 robot
@@ -1120,10 +1153,12 @@ rogna
 rombo
 rompa
 ronda
+ronde
 ronfa
 rosea
 rospo
 rossa
+rosso
 rotta
 rozza
 rubai
@@ -1133,6 +1168,7 @@ rullo
 rumba
 ruolo
 ruota
+ruote
 rupia
 ruppe
 ruspa
@@ -1156,9 +1192,11 @@ samba
 sanno
 sansa
 santa
+santo
 sappi
 sarde
 sarei
+sarta
 sarti
 sasso
 sauna
@@ -1183,6 +1221,7 @@ scopo
 scova
 scudo
 scure
+scuro
 scusa
 secca
 secco
@@ -1251,6 +1290,7 @@ sopra
 sorbo
 sorci
 sordi
+sordo
 sorge
 sorso
 sorto
@@ -1267,11 +1307,13 @@ spelo
 spera
 spesa
 spiga
+spina
 spine
 spira
 spola
 spore
 sport
+sposa
 sposi
 spuma
 sputo
@@ -1288,6 +1330,7 @@ stiva
 stola
 stona
 studi
+stufa
 stufo
 sturo
 succo
@@ -1300,6 +1343,7 @@ sunto
 suola
 suolo
 suono
+suora
 suore
 svago
 svaso
@@ -1317,6 +1361,7 @@ talpa
 tanfo
 tango
 tanto
+tappa
 tappe
 tappo
 tardi
@@ -1366,6 +1411,7 @@ tinta
 tirai
 tizio
 tocca
+tocco
 toghe
 togli
 tolda
@@ -1374,6 +1420,7 @@ tomba
 tonda
 tonfo
 tonno
+tonta
 tonti
 toppa
 torba
@@ -1384,6 +1431,7 @@ torni
 torre
 torso
 torta
+torte
 torto
 torve
 tosai
@@ -1393,6 +1441,7 @@ totem
 tozza
 trama
 trave
+trema
 tremo
 treno
 trino
@@ -1408,6 +1457,7 @@ turco
 turno
 turpe
 tutte
+tutto
 ubbia
 udire
 udito
@@ -1418,11 +1468,13 @@ ulivo
 ulula
 umana
 umida
+umido
 umile
 umore
 umori
 unico
 unire
+unita
 unito
 univa
 upupa
@@ -1453,6 +1505,7 @@ vasto
 vegli
 velai
 vello
+venda
 vendo
 venga
 venia
@@ -1461,6 +1514,7 @@ vento
 verbo
 verde
 verga
+verme
 vermi
 versi
 verso
@@ -1478,6 +1532,7 @@ vieto
 vigna
 villa
 vinai
+vinci
 vinco
 vinse
 vinti
@@ -1504,6 +1559,7 @@ vuole
 vuoti
 zaino
 zampa
+zanna
 zanne
 zappa
 zebra
@@ -1513,6 +1569,7 @@ zeppo
 zinco
 zirlo
 zitti
+zitto
 zolfo
 zolla
 zompo
