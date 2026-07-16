@@ -13,7 +13,7 @@ export const GAME_META = [
   { id: "globle", label: "Paese", icon: "🌍", key: "quotid-globle" },
   { id: "riddle", label: "Indovinello", icon: "🧩", key: "quotid-riddle" },
   { id: "pokemon", label: "Pokémon", icon: "⚡", key: "quotid-pokemon" },
-  { id: "joke", label: "Barzelletta", icon: "😄", key: "quotid-joke" },
+  { id: "joke", label: "Barzelletta", icon: "😄", key: "quotid-joke-v2" },
 ];
 
 export const MAX_SCORE = GAME_META.length * 10;
@@ -154,9 +154,9 @@ export function scoreGame(id, dayKey = getDailyKey()) {
       return { status: "lost", points: 3, tile: "🟧" };
     }
     case "joke": {
-      const s = state("quotid-joke", dayKey);
+      const s = state("quotid-joke-v2", dayKey);
       if (!s?.revealed) return { status: "empty", points: 0, tile: "⬜" };
-      const bonus = s.reaction ? 2 : 0;
+      const bonus = s.reaction === "lol" ? 3 : s.reaction === "smile" ? 2 : s.reaction ? 1 : 0;
       return { status: "done", points: 5 + bonus, tile: "🟨" };
     }
     default:

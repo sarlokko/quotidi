@@ -1,90 +1,153 @@
-import { getDailyKey, pickDailyItem, loadState, saveState } from "./daily.js";
+import { getDailyKey, hashString, loadState, saveState } from "./daily.js";
 
-const STORAGE_KEY = "quotid-joke";
+const STORAGE_KEY = "quotid-joke-v2";
+
 let daily = null;
+let revealed = false;
+let reaction = null;
 let onComplete = null;
 let eventsBound = false;
 
 const REACTION_MSG = {
-  lol: "Ottimo! Condividi la risata con qualcuno.",
-  smile: "Una smorfia conta lo stesso.",
-  meh: "Domani magari va meglio…",
+  lol: "Perfetto: anche una risata conta come sport.",
+  smile: "Un sorrisetto vale lo stesso.",
+  meh: "Domani ne arriva un’altra. Promesso.",
 };
+
+function pickJoke(dayKey, list) {
+  const n = list.length;
+  if (!n) return null;
+  const [y, m, d] = dayKey.split("-").map(Number);
+  const ordinal = Math.floor(Date.UTC(y, m - 1, d) / 86400000);
+  const order = Array.from({ length: n }, (_, i) => i);
+  let h = hashString(`joke-deck-v2:${n}`);
+  for (let i = n - 1; i > 0; i--) {
+    h = (Math.imul(h, 1664525) + 1013904223) >>> 0;
+    const j = h % (i + 1);
+    [order[i], order[j]] = [order[j], order[i]];
+  }
+  return list[order[((ordinal % n) + n) % n]];
+}
 
 export async function initJoke(onDone) {
   onComplete = onDone;
   const jokes = await (await fetch("data/jokes.json")).json();
-  daily = pickDailyItem(getDailyKey(), jokes, "joke");
+  daily = pickJoke(getDailyKey(), jokes);
+  if (!daily?.setup || !daily?.punchline) {
+    throw new Error("Barzelletta del giorno non valida");
+  }
 
   const saved = loadState(STORAGE_KEY, getDailyKey()) || {};
-  const revealed = saved.revealed ?? false;
-  const reaction = saved.reaction || null;
+  revealed = Boolean(saved.revealed);
+  reaction = saved.reaction || null;
 
-  document.getElementById("joke-setup").textContent = daily.setup;
-  const punch = document.getElementById("joke-punchline");
-  punch.textContent = revealed ? daily.punchline : "Premi il bottone per la risposta…";
-  punch.classList.toggle("is-hidden", !revealed);
-  punch.classList.toggle("revealed", revealed);
-
-  const revealBtn = document.getElementById("joke-reveal");
-  revealBtn.disabled = revealed;
-  revealBtn.hidden = revealed;
-
-  const reactionBox = document.getElementById("joke-reaction");
-  reactionBox.hidden = !revealed;
-  if (revealed && reaction) {
-    markReaction(reaction, false);
-  } else {
-    document.getElementById("joke-reaction-msg").textContent = "";
-    document.querySelectorAll(".reaction-btn").forEach((b) => b.classList.remove("picked"));
-  }
-
-  if (revealed && onComplete) onComplete(true);
+  render();
   bindEvents();
+  if (revealed && onComplete) onComplete(true);
 }
 
-function markReaction(reaction, persistIt) {
-  document.querySelectorAll(".reaction-btn").forEach((b) => {
-    b.classList.toggle("picked", b.dataset.reaction === reaction);
-    b.disabled = true;
+function persist() {
+  saveState(STORAGE_KEY, getDailyKey(), {
+    revealed,
+    reaction,
+    completed: revealed,
   });
-  document.getElementById("joke-reaction-msg").textContent = REACTION_MSG[reaction] || "Grazie!";
-  if (persistIt) {
-    const saved = loadState(STORAGE_KEY, getDailyKey()) || {};
-    saveState(STORAGE_KEY, getDailyKey(), { ...saved, revealed: true, completed: true, reaction });
+  if (revealed && onComplete) onComplete(true);
+}
+
+function setStatus(text, kind = "") {
+  const el = document.getElementById("joke-status");
+  if (!el) return;
+  el.textContent = text;
+  el.className = `game-status${kind ? ` ${kind}` : ""}`;
+}
+
+function render() {
+  const setup = document.getElementById("joke-setup");
+  const punch = document.getElementById("joke-punchline");
+  const wrap = document.getElementById("joke-punch-wrap");
+  const revealBtn = document.getElementById("joke-reveal");
+  const reactionBox = document.getElementById("joke-reaction");
+  const msg = document.getElementById("joke-reaction-msg");
+  if (!setup || !punch || !revealBtn || !reactionBox) return;
+
+  setup.textContent = daily.setup;
+
+  if (revealed) {
+    punch.textContent = daily.punchline;
+    punch.classList.remove("is-hidden");
+    punch.classList.add("revealed");
+    wrap?.classList.add("is-open");
+    wrap?.setAttribute("aria-expanded", "true");
+    revealBtn.hidden = true;
+    revealBtn.disabled = true;
+    reactionBox.hidden = false;
+    setStatus("Punchline rivelata. Dimmi se ha funzionato.", "win");
+  } else {
+    punch.textContent = "La risposta è nascosta qui sotto…";
+    punch.classList.add("is-hidden");
+    punch.classList.remove("revealed");
+    wrap?.classList.remove("is-open");
+    wrap?.setAttribute("aria-expanded", "false");
+    revealBtn.hidden = false;
+    revealBtn.disabled = false;
+    reactionBox.hidden = true;
+    setStatus("Leggi il setup, poi rivela la battuta.");
   }
+
+  document.querySelectorAll(".reaction-btn").forEach((b) => {
+    const picked = reaction && b.dataset.reaction === reaction;
+    b.classList.toggle("picked", Boolean(picked));
+    b.disabled = Boolean(reaction);
+  });
+
+  if (msg) {
+    msg.textContent = reaction ? REACTION_MSG[reaction] || "Grazie!" : "";
+  }
+}
+
+function revealJoke() {
+  if (revealed || !daily) return;
+  revealed = true;
+  persist();
+
+  const punch = document.getElementById("joke-punchline");
+  punch?.classList.remove("pop-in");
+  void punch?.offsetWidth;
+  punch?.classList.add("pop-in");
+  render();
+}
+
+function pickReaction(value) {
+  if (!revealed || reaction) return;
+  reaction = value;
+  persist();
+  render();
 }
 
 function bindEvents() {
   if (eventsBound) return;
   eventsBound = true;
 
-  document.getElementById("joke-reveal")?.addEventListener("click", () => {
-    const saved = loadState(STORAGE_KEY, getDailyKey()) || {};
-    if (saved.revealed) return;
+  document.getElementById("joke-reveal")?.addEventListener("click", revealJoke);
 
-    const punch = document.getElementById("joke-punchline");
-    punch.textContent = daily.punchline;
-    punch.classList.remove("is-hidden");
-    punch.classList.add("revealed", "pop-in");
+  document.getElementById("joke-punch-wrap")?.addEventListener("click", () => {
+    if (!revealed) revealJoke();
+  });
 
-    document.getElementById("joke-reveal").disabled = true;
-    document.getElementById("joke-reveal").hidden = true;
-    document.getElementById("joke-reaction").hidden = false;
-
-    saveState(STORAGE_KEY, getDailyKey(), { revealed: true, completed: true });
-    if (onComplete) onComplete(true);
+  document.getElementById("joke-punch-wrap")?.addEventListener("keydown", (e) => {
+    if (revealed) return;
+    if (e.key === "Enter" || e.key === " ") {
+      e.preventDefault();
+      revealJoke();
+    }
   });
 
   document.getElementById("joke-reaction")?.addEventListener("click", (e) => {
     const btn = e.target.closest("[data-reaction]");
-    if (!btn) return;
-    markReaction(btn.dataset.reaction, true);
+    if (!btn || btn.disabled) return;
+    pickReaction(btn.dataset.reaction);
   });
-}
-
-export function initJokeEvents() {
-  // Compatibilità: gli eventi sono legati in initJoke
 }
 
 export function isJokeComplete() {
