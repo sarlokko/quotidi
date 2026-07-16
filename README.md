@@ -34,6 +34,17 @@ Apri http://localhost:3000
 
 URL: https://sarlokko.github.io/quotidi/
 
+## Statistiche visite (GoatCounter)
+
+Privacy-friendly, senza cookie. Per attivarle:
+
+1. Crea un account gratuito su [goatcounter.com](https://www.goatcounter.com)
+2. Aggiungi un sito con codice **`quotidi`** (endpoint: `https://quotidi.goatcounter.com/count`)
+3. Nelle impostazioni del sito, consenti il dominio **`sarlokko.github.io`**
+4. Apri la dashboard: **[quotidi.goatcounter.com](https://quotidi.goatcounter.com)**
+
+Se il codice `quotidi` è già preso, creane un altro e aggiorna `data-goatcounter` in `index.html`.
+
 ## Crediti
 
 - Dati Pokémon ispirati a [lecartepokemondiluca](https://github.com/sarlokko/lecartepokemondiluca)
