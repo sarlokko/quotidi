@@ -765,21 +765,77 @@ h2 {
 }
 
 .joke-setup {
-  font-size: 1.2rem;
+  font-family: "Space Grotesk", sans-serif;
+  font-size: clamp(1.05rem, 3.4vw, 1.25rem);
+  font-weight: 700;
   margin-bottom: 0.85rem;
   line-height: 1.45;
 }
 
+.joke-punch-wrap {
+  display: block;
+  width: 100%;
+  text-align: left;
+  border: 1px dashed var(--border);
+  border-radius: 12px;
+  background: rgba(15, 17, 23, 0.35);
+  padding: 0.85rem 1rem;
+  cursor: pointer;
+  color: inherit;
+  font: inherit;
+  -webkit-tap-highlight-color: transparent;
+  transition: border-color 0.15s ease, background 0.15s ease;
+}
+
+.joke-punch-wrap:hover,
+.joke-punch-wrap:focus-visible {
+  border-color: var(--accent);
+  outline: none;
+}
+
+.joke-punch-wrap.is-open {
+  border-style: solid;
+  border-color: rgba(79, 209, 163, 0.45);
+  background: rgba(79, 209, 163, 0.08);
+  cursor: default;
+}
+
+.joke-punch-hint {
+  display: block;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--muted);
+  margin-bottom: 0.35rem;
+}
+
+.joke-punch-wrap.is-open .joke-punch-hint {
+  display: none;
+}
+
 .joke-punchline {
-  font-size: 1.1rem;
+  font-size: 1.08rem;
   color: var(--accent-2);
   line-height: 1.45;
+  margin: 0;
 }
 
 .joke-punchline.is-hidden {
-  opacity: 0.45;
+  opacity: 0.55;
   font-style: italic;
   color: var(--muted);
+  filter: blur(4px);
+  user-select: none;
+}
+
+.joke-punchline.revealed {
+  filter: none;
+  font-style: normal;
+  opacity: 1;
+}
+
+.joke-punchline.pop-in {
+  animation: pop-in 0.28s ease;
 }
 
 .joke-reaction {
@@ -801,7 +857,12 @@ h2 {
 
 .reaction-btn.picked {
   border-color: var(--accent-2);
-  color: var(--accent-2);
+  color: #0f1117;
+  background: linear-gradient(135deg, var(--accent-2), #7decc0);
+}
+
+.reaction-btn:disabled:not(.picked) {
+  opacity: 0.45;
 }
 
 .joke-reaction-msg {

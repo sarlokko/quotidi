@@ -15,7 +15,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,600;0,9..40,700;1,9..40,400&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/style.css?v=20260716fact">
+  <link rel="stylesheet" href="css/style.css?v=20260716joke">
   <style>
     /* Critico: categorie sempre in griglia 5×2 (anche con CSS vecchio in cache) */
     nav.tabs {
@@ -251,15 +251,17 @@
 
     <section id="joke" class="game-panel card">
       <h2>Barzelletta del giorno</h2>
-      <p class="game-desc">Una barzelletta nuova ogni mattina. Leggi il setup, poi rivela la punchline.</p>
+      <p class="game-desc">Setup, poi la punchline. Tocca la zona nascosta o il bottone per rivelarla.</p>
+      <p id="joke-status" class="game-status" role="status" aria-live="polite"></p>
       <div class="joke-stage">
         <p id="joke-setup" class="joke-setup"></p>
-        <div id="joke-punch-wrap" class="joke-punch-wrap">
-          <p id="joke-punchline" class="joke-punchline is-hidden">?</p>
-        </div>
+        <button type="button" id="joke-punch-wrap" class="joke-punch-wrap" aria-expanded="false" aria-controls="joke-punchline">
+          <span class="joke-punch-hint">Tocca per rivelare</span>
+          <p id="joke-punchline" class="joke-punchline is-hidden">La risposta è nascosta qui sotto…</p>
+        </button>
       </div>
       <div class="actions">
-        <button type="button" id="joke-reveal" class="btn primary">Rivela la risposta</button>
+        <button type="button" id="joke-reveal" class="btn primary">Rivela la battuta</button>
       </div>
       <div id="joke-reaction" class="joke-reaction" hidden>
         <p>Ti ha fatto ridere?</p>
@@ -277,6 +279,6 @@
     <p><strong>Quotidì</strong> — e ti diverti tutti i dì! · Reset a mezzanotte · Ispirato a <a href="https://github.com/sarlokko/lecartepokemondiluca" target="_blank" rel="noopener">Le Carte Pokémon di Luca</a> e <a href="https://pietroppeter.github.io/wordle-it/" target="_blank" rel="noopener">Parole</a></p>
   </footer>
 
-  <script type="module" src="js/main.js?v=20260716fact"></script>
+  <script type="module" src="js/main.js?v=20260716joke"></script>
 </body>
 </html>
