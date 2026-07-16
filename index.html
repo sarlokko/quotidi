@@ -15,7 +15,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,600;0,9..40,700;1,9..40,400&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/style.css?v=20260715tabs">
+  <link rel="stylesheet" href="css/style.css?v=20260716fact">
   <style>
     /* Critico: categorie sempre in griglia 5×2 (anche con CSS vecchio in cache) */
     nav.tabs {
@@ -185,12 +185,17 @@
 
     <section id="fact" class="game-panel card">
       <h2>Curiosità del giorno</h2>
-      <p class="game-desc">Una pillola di storia o scienza, nuova ogni mattina.</p>
-      <p id="fact-status" class="game-status" role="status"></p>
+      <p class="game-desc">Una affermazione di storia o scienza: è vera o falsa? Dopo la risposta leggi la curiosità completa.</p>
+      <p id="fact-status" class="game-status" role="status" aria-live="polite"></p>
       <p class="fact-topic" id="fact-topic"></p>
-      <blockquote id="fact-text" class="fact-text"></blockquote>
-      <div class="actions">
-        <button type="button" id="fact-done" class="btn primary">Segna come letto</button>
+      <p id="fact-claim" class="fact-claim"></p>
+      <div id="fact-actions" class="fact-actions">
+        <button type="button" id="fact-true" class="btn primary fact-choice">Vero</button>
+        <button type="button" id="fact-false" class="btn ghost fact-choice">Falso</button>
+      </div>
+      <div id="fact-reveal" class="fact-reveal" hidden>
+        <p class="fact-reveal-label">Curiosità</p>
+        <blockquote id="fact-text" class="fact-text"></blockquote>
       </div>
     </section>
 
@@ -272,6 +277,6 @@
     <p><strong>Quotidì</strong> — e ti diverti tutti i dì! · Reset a mezzanotte · Ispirato a <a href="https://github.com/sarlokko/lecartepokemondiluca" target="_blank" rel="noopener">Le Carte Pokémon di Luca</a> e <a href="https://pietroppeter.github.io/wordle-it/" target="_blank" rel="noopener">Parole</a></p>
   </footer>
 
-  <script type="module" src="js/main.js?v=20260715tabs"></script>
+  <script type="module" src="js/main.js?v=20260716fact"></script>
 </body>
 </html>

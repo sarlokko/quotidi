@@ -1011,13 +1011,67 @@ h2 {
   margin-bottom: 0.65rem;
 }
 
+.fact-claim {
+  font-family: "Space Grotesk", sans-serif;
+  font-size: clamp(1.05rem, 3.5vw, 1.25rem);
+  font-weight: 700;
+  line-height: 1.4;
+  padding: 1rem 1.1rem;
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  margin-bottom: 0.9rem;
+}
+
+.fact-actions {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.55rem;
+  margin-bottom: 0.85rem;
+}
+
+.fact-choice {
+  width: 100%;
+  min-height: 46px;
+  font-weight: 700;
+}
+
+.fact-choice.is-picked {
+  box-shadow: 0 0 0 2px rgba(108, 140, 255, 0.35);
+}
+
+.fact-choice.is-correct {
+  border-color: var(--accent-2) !important;
+  color: #0f1117;
+  background: linear-gradient(135deg, var(--accent-2), #7decc0) !important;
+}
+
+.fact-choice.is-wrong {
+  border-color: var(--danger) !important;
+  color: var(--danger);
+  background: rgba(255, 107, 138, 0.12) !important;
+}
+
+.fact-reveal {
+  animation: pop-in 0.28s ease;
+}
+
+.fact-reveal-label {
+  color: var(--muted);
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-bottom: 0.35rem;
+}
+
 .fact-text {
-  font-size: 1.15rem;
+  font-size: 1.05rem;
   line-height: 1.55;
   padding: 1rem 1.1rem;
   background: var(--surface-2);
   border-radius: 14px;
-  margin-bottom: 1rem;
+  margin: 0;
+  border-left: 3px solid var(--accent);
 }
 
 /* Globle */
