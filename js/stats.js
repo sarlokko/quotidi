@@ -4,7 +4,7 @@ const STREAK_KEY = "quotid-streak";
 const SCORE_KEY = "quotid-daily-score";
 
 export const GAME_META = [
-  { id: "wordle", label: "Parola", icon: "📝", key: "quotid-wordle" },
+  { id: "wordle", label: "Parola", icon: "📝", key: "quotid-wordle-v2" },
   { id: "sudoku", label: "Sudoku", icon: "🔢", key: "quotid-sudoku-9" },
   { id: "picross", label: "Picross", icon: "⬛", key: "quotid-picross-6" },
   { id: "crossword", label: "Cruci", icon: "🔠", key: "quotid-crossword-v2" },
@@ -88,13 +88,13 @@ export function scoreGame(id, dayKey = getDailyKey()) {
       return { status: "lost", points: 2, tile: "🟧" };
     }
     case "wordle": {
-      const s = state("quotid-wordle", dayKey);
+      const s = state("quotid-wordle-v2", dayKey);
       if (!s?.locked) return { status: "empty", points: 0, tile: "⬜" };
       const guesses = s.guesses || [];
       const won = guesses.some((g) => Array.isArray(g.result) && g.result.length && g.result.every((r) => r === "correct"));
       if (won) {
         const n = guesses.findIndex((g) => g.result.every((r) => r === "correct")) + 1;
-        const pts = n <= 1 ? 10 : n === 2 ? 9 : n === 3 ? 8 : n === 4 ? 7 : n === 5 ? 6 : 5;
+        const pts = n <= 1 ? 10 : n === 2 ? 9 : n === 3 ? 8 : n === 4 ? 7 : 6;
         return { status: "won", points: pts, tile: "🟩" };
       }
       return { status: "lost", points: 2, tile: "🟧" };
@@ -188,7 +188,7 @@ export function recordDailyActivity(dayKey = getDailyKey()) {
 }
 
 function wordleGridEmoji(dayKey) {
-  const s = state("quotid-wordle", dayKey);
+  const s = state("quotid-wordle-v2", dayKey);
   if (!s?.guesses?.length) return null;
   return s.guesses
     .map((g) =>

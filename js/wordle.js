@@ -1,12 +1,13 @@
-import { getDailyKey, pickDailyIndex, loadState, saveState, normalizeText } from "./daily.js";
+import { getDailyKey, pickDailyIndex, hashString, loadState, saveState, normalizeText } from "./daily.js";
 
-const STORAGE_KEY = "quotid-wordle";
-const MAX_ATTEMPTS = 6;
+const STORAGE_KEY = "quotid-wordle-v2";
+const MAX_ATTEMPTS = 5;
 const WORD_LEN = 5;
 
 let answerWords = [];
 let guessWords = new Set();
 let answer = "";
+let hintText = "";
 let guesses = [];
 let current = "";
 let locked = false;
@@ -35,6 +36,14 @@ function evaluateGuess(guess, target) {
   }
 
   return result;
+}
+
+/** Un indizio leggero: rivela 1 lettera nella posizione giusta. */
+function buildHint(word, dayKey) {
+  const letters = word.split("");
+  const idx = hashString(`${dayKey}:wordle-hint:${word}`) % WORD_LEN;
+  const slots = letters.map((ch, i) => (i === idx ? ch.toUpperCase() : "·"));
+  return `Indizio: ${slots.join(" ")}`;
 }
 
 function keyboardState() {
@@ -71,28 +80,37 @@ export async function initWordle(onDone) {
 
   const dayKey = getDailyKey();
   answer = answerWords[pickDailyIndex(dayKey, answerWords.length, "wordle")];
+  hintText = buildHint(answer, dayKey);
 
   const saved = loadState(STORAGE_KEY, dayKey);
   if (saved) {
-    guesses = saved.guesses || [];
+    guesses = (saved.guesses || []).slice(0, MAX_ATTEMPTS);
     current = saved.current || "";
-    locked = saved.locked || false;
+    locked = Boolean(saved.locked);
+    if (!locked && guesses.length >= MAX_ATTEMPTS) locked = true;
   } else {
     guesses = [];
     current = "";
     locked = false;
   }
 
+  renderHint();
   renderBoard();
   renderKeyboard();
   updateStatus();
   updateShare();
   bindEvents();
+  if (locked && onComplete) onComplete(true);
 }
 
 function persist() {
   saveState(STORAGE_KEY, getDailyKey(), { guesses, current, locked, completed: locked });
   if (locked && onComplete) onComplete(true);
+}
+
+function renderHint() {
+  const el = document.getElementById("wordle-hint");
+  if (el) el.textContent = hintText;
 }
 
 function renderBoard(animateRow = -1) {
