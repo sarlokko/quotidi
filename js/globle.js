@@ -1,11 +1,11 @@
 import { getDailyKey, pickDailyItem, loadState, saveState, normalizeText } from "./daily.js";
 
-const STORAGE_KEY = "quotid-globle";
+const STORAGE_KEY = "quotid-globle-v2";
 const MAX = 8;
 
 let countries = [];
 let target = null;
-let guesses = []; // {name, km, dir}
+let guesses = []; // {name, code, km, arrow}
 let locked = false;
 let won = false;
 let onComplete = null;
@@ -45,17 +45,44 @@ function dirArrow(deg) {
 function findCountry(query) {
   const q = normalizeText(query);
   if (!q) return null;
-  return (
-    countries.find((c) => normalizeText(c.name) === q) ||
-    countries.find((c) => (c.aliases || []).some((a) => normalizeText(a) === q)) ||
-    countries.find((c) => normalizeText(c.name).startsWith(q) && q.length >= 3) ||
-    null
+
+  const exactName = countries.find((c) => normalizeText(c.name) === q);
+  if (exactName) return exactName;
+
+  const exactAlias = countries.find((c) =>
+    (c.aliases || []).some((a) => normalizeText(a) === q)
   );
+  if (exactAlias) return exactAlias;
+
+  // Prefisso solo se univoco (es. "Ital" → Italia), mai se ambiguo.
+  if (q.length >= 3) {
+    const prefixHits = countries.filter((c) => {
+      const name = normalizeText(c.name);
+      const aliases = (c.aliases || []).map(normalizeText);
+      return name.startsWith(q) || aliases.some((a) => a.startsWith(q));
+    });
+    if (prefixHits.length === 1) return prefixHits[0];
+  }
+
+  return null;
+}
+
+function remainingAttempts() {
+  return Math.max(0, MAX - guesses.length);
+}
+
+function statusPlaying() {
+  const left = remainingAttempts();
+  if (guesses.length === 0) {
+    return `Hai ${MAX} tentativi. Digita un paese (ci sono ${countries.length} paesi nell'elenco).`;
+  }
+  const last = guesses[guesses.length - 1];
+  return `Tentativo ${guesses.length} di ${MAX}: ${last.name} a ${last.km.toLocaleString("it-IT")} km. Ne restano ${left}.`;
 }
 
 export async function initGloble(onDone) {
   onComplete = onDone;
-  countries = await (await fetch("data/countries.json")).json();
+  countries = await (await fetch(`data/countries.json?v=20260717globle`)).json();
   target = pickDailyItem(getDailyKey(), countries, "globle");
 
   const saved = loadState(STORAGE_KEY, getDailyKey());
@@ -107,13 +134,13 @@ function render() {
 
   const status = document.getElementById("globle-status");
   if (locked && won) {
-    status.textContent = `Esatto! Il paese era ${target.name}.`;
+    status.textContent = `Esatto! Il paese era ${target.name} (${guesses.length}/${MAX} tentativi).`;
     status.className = "game-status win";
   } else if (locked) {
-    status.textContent = `Era ${target.name}.`;
+    status.textContent = `Tentativi finiti. Era ${target.name}.`;
     status.className = "game-status hint";
   } else {
-    status.textContent = `Indovina il paese (${guesses.length}/${MAX}). Più sei vicino, più la barra si riempie.`;
+    status.textContent = statusPlaying();
     status.className = "game-status";
   }
 }
@@ -123,7 +150,8 @@ function submit() {
   const input = document.getElementById("globle-input");
   const country = findCountry(input.value.trim());
   if (!country) {
-    document.getElementById("globle-status").textContent = "Paese non trovato. Scegline uno dalla lista.";
+    document.getElementById("globle-status").textContent =
+      "Paese non trovato. Usa un nome dall'elenco (suggerimenti mentre digiti).";
     document.getElementById("globle-status").className = "game-status hint";
     return;
   }

@@ -10,7 +10,7 @@ export const GAME_META = [
   { id: "crossword", label: "Cruci", icon: "🔠", key: "quotid-crossword-v2" },
   { id: "movie", label: "Film", icon: "🎬", key: "quotid-movie" },
   { id: "fact", label: "Curiosità", icon: "💡", key: "quotid-fact-v2" },
-  { id: "globle", label: "Paese", icon: "🌍", key: "quotid-globle" },
+  { id: "globle", label: "Paese", icon: "🌍", key: "quotid-globle-v2" },
   { id: "riddle", label: "Indovinello", icon: "🧩", key: "quotid-riddle-v2" },
   { id: "pokemon", label: "Pokémon", icon: "⚡", key: "quotid-pokemon" },
   { id: "joke", label: "Barzelletta", icon: "😄", key: "quotid-joke-v2" },
@@ -138,7 +138,7 @@ export function scoreGame(id, dayKey = getDailyKey()) {
         : { status: "lost", points: 4, tile: "🟧" };
     }
     case "globle": {
-      const s = state("quotid-globle", dayKey);
+      const s = state("quotid-globle-v2", dayKey);
       if (!s?.locked) return { status: "empty", points: 0, tile: "⬜" };
       if (s.won) {
         const n = (s.guesses || []).length || 1;
