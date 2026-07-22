@@ -45,7 +45,7 @@
   </style>
 </head>
 <body>
-  <header class="site-header">
+  <header class="site-hero">
     <div class="header-inner">
       <div class="brand-block">
         <h1 class="brand">Quotidì</h1>
@@ -54,43 +54,49 @@
       </div>
       <div class="reset-box">
         <p class="reset-label">Prossimo reset</p>
-        <p class="countdown" id="countdown">--:--:--</p>
+        <p class="countdown" id="countdown-hero">--:--:--</p>
         <p class="reset-hint">Mezzanotte (Italia)</p>
       </div>
     </div>
-    <div class="progress-wrap">
-      <div class="progress-meta">
-        <span>Progresso di oggi</span>
-        <strong id="progress-text">0/10 completati oggi</strong>
+  </header>
+
+  <div class="site-chrome">
+    <div class="toolbar" aria-label="Progresso giornaliero">
+      <div class="toolbar-progress">
+        <strong id="progress-text">0/10</strong>
+        <div class="progress-track"><div class="progress-bar" id="progress-bar"></div></div>
       </div>
-      <div class="progress-track"><div class="progress-bar" id="progress-bar"></div></div>
-      <div class="stats-row">
-        <div class="stat-chip" title="Giorni consecutivi con almeno un gioco completato">
+      <div class="toolbar-stats">
+        <span class="stat-pill" title="Giorni consecutivi con almeno un gioco completato">
           <span class="stat-label">Streak</span>
           <strong id="streak-text">🔥 0</strong>
-        </div>
-        <div class="stat-chip" title="Somma dei punteggi dei minigiochi di oggi">
-          <span class="stat-label">Punteggio</span>
+        </span>
+        <span class="stat-pill" title="Somma dei punteggi dei minigiochi di oggi">
+          <span class="stat-label">Punti</span>
           <strong id="score-text">⭐ 0/100</strong>
-        </div>
-        <button type="button" id="share-day" class="btn ghost share-day-btn">Condividi giorno</button>
+        </span>
+        <span class="stat-pill toolbar-reset" title="Prossimo reset a mezzanotte (Italia)">
+          <span class="stat-label">Reset</span>
+          <strong id="countdown" class="countdown-mini">--:--:--</strong>
+        </span>
+        <button type="button" id="share-day" class="btn ghost share-day-btn" title="Condividi giorno">Condividi</button>
       </div>
       <p id="share-feedback" class="share-feedback" role="status" aria-live="polite"></p>
     </div>
-  </header>
 
-  <nav class="tabs" aria-label="Giochi">
-    <button type="button" class="tab-btn active" data-tab="wordle" title="Parola"><span class="tab-ico" aria-hidden="true">📝</span><span class="tab-label">Parola</span></button>
-    <button type="button" class="tab-btn" data-tab="sudoku" title="Sudoku"><span class="tab-ico" aria-hidden="true">🔢</span><span class="tab-label">Sudoku</span></button>
-    <button type="button" class="tab-btn" data-tab="picross" title="Picross"><span class="tab-ico" aria-hidden="true">⬛</span><span class="tab-label">Picross</span></button>
-    <button type="button" class="tab-btn" data-tab="crossword" title="Cruciverba"><span class="tab-ico" aria-hidden="true">🔠</span><span class="tab-label">Cruci</span></button>
-    <button type="button" class="tab-btn" data-tab="movie" title="Film"><span class="tab-ico" aria-hidden="true">🎬</span><span class="tab-label">Film</span></button>
-    <button type="button" class="tab-btn" data-tab="fact" title="Curiosità"><span class="tab-ico" aria-hidden="true">💡</span><span class="tab-label">Curio</span></button>
-    <button type="button" class="tab-btn" data-tab="globle" title="Paese"><span class="tab-ico" aria-hidden="true">🌍</span><span class="tab-label">Paese</span></button>
-    <button type="button" class="tab-btn" data-tab="riddle" title="Indovinello"><span class="tab-ico" aria-hidden="true">🧩</span><span class="tab-label">Indov.</span></button>
-    <button type="button" class="tab-btn" data-tab="pokemon" title="Pokémon"><span class="tab-ico" aria-hidden="true">⚡</span><span class="tab-label">Poké</span></button>
-    <button type="button" class="tab-btn" data-tab="joke" title="Barzelletta"><span class="tab-ico" aria-hidden="true">😄</span><span class="tab-label">Barzel.</span></button>
-  </nav>
+    <nav class="tabs" aria-label="Giochi">
+      <button type="button" class="tab-btn active" data-tab="wordle" title="Parola"><span class="tab-ico" aria-hidden="true">📝</span><span class="tab-label">Parola</span></button>
+      <button type="button" class="tab-btn" data-tab="sudoku" title="Sudoku"><span class="tab-ico" aria-hidden="true">🔢</span><span class="tab-label">Sudoku</span></button>
+      <button type="button" class="tab-btn" data-tab="picross" title="Picross"><span class="tab-ico" aria-hidden="true">⬛</span><span class="tab-label">Picross</span></button>
+      <button type="button" class="tab-btn" data-tab="crossword" title="Cruciverba"><span class="tab-ico" aria-hidden="true">🔠</span><span class="tab-label">Cruci</span></button>
+      <button type="button" class="tab-btn" data-tab="movie" title="Film"><span class="tab-ico" aria-hidden="true">🎬</span><span class="tab-label">Film</span></button>
+      <button type="button" class="tab-btn" data-tab="fact" title="Curiosità"><span class="tab-ico" aria-hidden="true">💡</span><span class="tab-label">Curio</span></button>
+      <button type="button" class="tab-btn" data-tab="globle" title="Paese"><span class="tab-ico" aria-hidden="true">🌍</span><span class="tab-label">Paese</span></button>
+      <button type="button" class="tab-btn" data-tab="riddle" title="Indovinello"><span class="tab-ico" aria-hidden="true">🧩</span><span class="tab-label">Indov.</span></button>
+      <button type="button" class="tab-btn" data-tab="pokemon" title="Pokémon"><span class="tab-ico" aria-hidden="true">⚡</span><span class="tab-label">Poké</span></button>
+      <button type="button" class="tab-btn" data-tab="joke" title="Barzelletta"><span class="tab-ico" aria-hidden="true">😄</span><span class="tab-label">Barzel.</span></button>
+    </nav>
+  </div>
 
   <main class="container">
 
