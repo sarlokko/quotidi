@@ -11,7 +11,7 @@ export const GAME_META = [
   { id: "movie", label: "Film", icon: "🎬", key: "quotid-movie" },
   { id: "fact", label: "Curiosità", icon: "💡", key: "quotid-fact-v2" },
   { id: "globle", label: "Paese", icon: "🌍", key: "quotid-globle-v2" },
-  { id: "riddle", label: "Indovinello", icon: "🧩", key: "quotid-riddle-v2" },
+  { id: "riddle", label: "Indovinello", icon: "🧩", key: "quotid-riddle-v3" },
   { id: "pokemon", label: "Pokémon", icon: "⚡", key: "quotid-pokemon" },
   { id: "joke", label: "Barzelletta", icon: "😄", key: "quotid-joke-v2" },
 ];
@@ -148,7 +148,7 @@ export function scoreGame(id, dayKey = getDailyKey()) {
       return { status: "lost", points: 2, tile: "🟧" };
     }
     case "riddle": {
-      const s = state("quotid-riddle-v2", dayKey);
+      const s = state("quotid-riddle-v3", dayKey);
       if (!s?.solved && !s?.revealed) return { status: "empty", points: 0, tile: "⬜" };
       if (s.solved) return { status: "won", points: 10, tile: "🟩" };
       return { status: "lost", points: 3, tile: "🟧" };
