@@ -76,7 +76,7 @@ a { color: var(--accent); }
   max-height: 11.5rem;
   object-fit: contain;
   object-position: left center;
-  filter: drop-shadow(0 10px 24px rgba(0, 0, 0, 0.28));
+  filter: drop-shadow(0 0 18px rgba(108, 140, 255, 0.18));
 }
 
 .tagline {
