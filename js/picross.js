@@ -1,33 +1,24 @@
-import { getDailyKey, hashString, loadState, saveState } from "./daily.js";
+import { getDailyKey, hashString, loadState, saveState, pickDailyItem } from "./daily.js";
 
-const STORAGE_KEY = "quotid-picross-6";
-const SIZE = 6;
+const STORAGE_KEY = "quotid-picross-10";
+const SIZE = 10;
 const CELL_COUNT = SIZE * SIZE;
 const EMPTY = 0;
 const FILL = 1;
 const MARK = 2;
 
-let solution = null; // 0/1 length 36
+let puzzles = [];
+let puzzle = null; // { title, grid }
+let solution = null;
 let rowClues = null;
 let colClues = null;
-let grid = null; // 0/1/2
-let mode = FILL; // FILL or MARK
+let grid = null;
+let mode = FILL;
 let locked = false;
 let won = false;
 let onComplete = null;
 let eventsBound = false;
-let paintValue = null; // for drag paint
-
-function mulberry32(seed) {
-  let a = seed >>> 0;
-  return () => {
-    a = (a + 0x6d2b79f5) >>> 0;
-    let t = a;
-    t = Math.imul(t ^ (t >>> 15), t | 1);
-    t ^= t + Math.imul(t ^ (t >>> 7), t | 61);
-    return ((t ^ (t >>> 14)) >>> 0) / 4294967296;
-  };
-}
+let paintValue = null;
 
 function lineClues(line) {
   const clues = [];
@@ -42,61 +33,6 @@ function lineClues(line) {
   }
   if (run) clues.push(run);
   return clues.length ? clues : [0];
-}
-
-function buildSolution(dayKey) {
-  const rand = mulberry32(hashString(`${dayKey}:picross6`));
-  const board = Array(CELL_COUNT).fill(0);
-
-  // Pattern base: blob connesso + qualche dettaglio, densità ~35–50%
-  const target = 14 + Math.floor(rand() * 8); // 14–21 celle
-  const start = Math.floor(rand() * CELL_COUNT);
-  const queue = [start];
-  board[start] = 1;
-  let filled = 1;
-
-  const neighbors = (idx) => {
-    const r = Math.floor(idx / SIZE);
-    const c = idx % SIZE;
-    const out = [];
-    if (r > 0) out.push(idx - SIZE);
-    if (r < SIZE - 1) out.push(idx + SIZE);
-    if (c > 0) out.push(idx - 1);
-    if (c < SIZE - 1) out.push(idx + 1);
-    return out;
-  };
-
-  while (filled < target && queue.length) {
-    const i = Math.floor(rand() * queue.length);
-    const cur = queue.splice(i, 1)[0];
-    const nbs = neighbors(cur).filter((n) => !board[n]);
-    for (const n of shuffle(nbs, rand)) {
-      if (filled >= target) break;
-      if (rand() < 0.72) {
-        board[n] = 1;
-        filled += 1;
-        queue.push(n);
-      }
-    }
-  }
-
-  // Assicura che ogni riga/colonna abbia almeno un pezzo o uno 0 indizio sensato
-  // Aggiungi 1–3 celle sparse se troppo vuoto
-  if (filled < 12) {
-    const empty = [...Array(CELL_COUNT).keys()].filter((i) => !board[i]);
-    shuffle(empty, rand).slice(0, 12 - filled).forEach((i) => { board[i] = 1; });
-  }
-
-  return board;
-}
-
-function shuffle(arr, rand) {
-  const a = [...arr];
-  for (let i = a.length - 1; i > 0; i--) {
-    const j = Math.floor(rand() * (i + 1));
-    [a[i], a[j]] = [a[j], a[i]];
-  }
-  return a;
 }
 
 function computeClues(sol) {
@@ -126,32 +62,44 @@ function lineSatisfied(values, isRow, index) {
   const line = [];
   for (let i = 0; i < SIZE; i++) {
     const idx = isRow ? index * SIZE + i : i * SIZE + index;
-    // per i clue contano solo i FILL; MARK e EMPTY spezzano i run come vuoto
     line.push(values[idx] === FILL ? 1 : 0);
   }
   const clues = isRow ? rowClues[index] : colClues[index];
   const current = lineClues(line);
   if (JSON.stringify(current) !== JSON.stringify(clues)) return false;
-  // riga/col "fatta" solo se non restano celle vuote (tutto fill o mark)
   return [...Array(SIZE).keys()].every((i) => {
     const idx = isRow ? index * SIZE + i : i * SIZE + index;
     return values[idx] !== EMPTY;
   });
 }
 
-export function initPicross(onDone) {
+function pickPuzzle(dayKey, list) {
+  const n = list.length;
+  if (!n) return null;
+  const [y, m, d] = dayKey.split("-").map(Number);
+  const ordinal = Math.floor(Date.UTC(y, m - 1, d) / 86400000);
+  const order = Array.from({ length: n }, (_, i) => i);
+  let h = hashString(`picross-deck-v10:${n}`);
+  for (let i = n - 1; i > 0; i--) {
+    h = (Math.imul(h, 1664525) + 1013904223) >>> 0;
+    const j = h % (i + 1);
+    [order[i], order[j]] = [order[j], order[i]];
+  }
+  return list[order[((ordinal % n) + n) % n]];
+}
+
+export async function initPicross(onDone) {
   onComplete = onDone;
   const dayKey = getDailyKey();
-  solution = buildSolution(dayKey);
+  puzzles = await (await fetch("data/picross.json?v=20260722pic")).json();
+  puzzle = pickPuzzle(dayKey, puzzles) || pickDailyItem(dayKey, puzzles, "picross10");
+  solution = puzzle.grid.map(Number);
   const clues = computeClues(solution);
   rowClues = clues.rows;
   colClues = clues.cols;
 
   const saved = loadState(STORAGE_KEY, dayKey);
-  if (
-    Array.isArray(saved?.grid) &&
-    saved.grid.length === CELL_COUNT
-  ) {
+  if (Array.isArray(saved?.grid) && saved.grid.length === CELL_COUNT) {
     grid = saved.grid.map(Number);
     locked = Boolean(saved.locked);
     won = Boolean(saved.won);
@@ -198,7 +146,6 @@ function render() {
 
   let html = `<div class="pic-corner"></div>`;
 
-  // header col clues
   for (let c = 0; c < SIZE; c++) {
     const ok = lineSatisfied(grid, false, c);
     html += `<div class="pic-clue pic-clue-col ${ok ? "is-done" : ""}">${colClues[c].map((n) => `<span>${n}</span>`).join("")}</div>`;
@@ -228,14 +175,15 @@ function render() {
   document.getElementById("picross-clear").disabled = locked;
   document.getElementById("picross-reveal").disabled = locked;
 
+  const title = puzzle?.title || "disegno";
   if (locked && won) {
-    setStatus("Completato! Picross del giorno risolto.", "win");
+    setStatus(`Completato! Era: ${title}.`, "win");
   } else if (locked && !won) {
-    setStatus("Soluzione rivelata. Torna domani per un nuovo schema.", "hint");
+    setStatus(`Soluzione: ${title}. Torna domani per un nuovo disegno.`, "hint");
   } else {
     const filled = grid.filter((v) => v === FILL).length;
     const need = solution.filter((v) => v === 1).length;
-    setStatus(`Picross 6×6 · modalità ${mode === FILL ? "Riempi" : "Segna ✕"} · piene ${filled}/${need}`);
+    setStatus(`Picross 10×10 · ${mode === FILL ? "Riempi" : "Segna ✕"} · piene ${filled}/${need}`);
   }
 }
 
@@ -253,7 +201,6 @@ function applyCell(idx, value) {
 function paintAt(idx) {
   if (locked) return;
   if (paintValue === null) {
-    // primo tocco: se già nello stato del mode, svuota; altrimenti applica mode
     if (mode === FILL) {
       paintValue = grid[idx] === FILL ? EMPTY : FILL;
     } else {
@@ -340,7 +287,6 @@ function bindEvents() {
   board?.addEventListener("pointercancel", endPaint);
   board?.addEventListener("lostpointercapture", endPaint);
 
-  // click destro = segna
   board?.addEventListener("contextmenu", (e) => {
     const cell = e.target.closest("[data-idx]");
     if (!cell || locked) return;

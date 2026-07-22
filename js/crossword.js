@@ -1,10 +1,10 @@
 import { getDailyKey, hashString, loadState, saveState, normalizeText } from "./daily.js";
 
-const STORAGE_KEY = "quotid-crossword-v2";
-const SIZE = 5;
+const STORAGE_KEY = "quotid-crossword-v3";
 const LETTERS = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".split("");
 
 let puzzle = null;
+let size = 10;
 let grid = null; // letters or '' ; '#' blocked
 let locked = false;
 let won = false;
@@ -12,6 +12,7 @@ let onComplete = null;
 let eventsBound = false;
 let selected = null; // {r,c}
 let direction = "across";
+let hiddenInput = null;
 
 /** Ordine deterministico senza ripetizioni fino a fine ciclo. */
 function pickCrossword(dayKey, list) {
@@ -20,7 +21,7 @@ function pickCrossword(dayKey, list) {
   const [y, m, d] = dayKey.split("-").map(Number);
   const ordinal = Math.floor(Date.UTC(y, m - 1, d) / 86400000);
   const order = Array.from({ length: n }, (_, i) => i);
-  let h = hashString(`crossword-deck-v2:${n}`);
+  let h = hashString(`crossword-deck-v3:${n}`);
   for (let i = n - 1; i > 0; i--) {
     h = (Math.imul(h, 1664525) + 1013904223) >>> 0;
     const j = h % (i + 1);
@@ -39,6 +40,26 @@ function buildEmpty() {
   );
 }
 
+function extractAnswer(r, c, dir) {
+  if (isBlock(r, c)) return "";
+  if (dir === "across") {
+    while (c > 0 && !isBlock(r, c - 1)) c -= 1;
+    let s = "";
+    while (c < size && !isBlock(r, c)) {
+      s += puzzle.grid[r][c];
+      c += 1;
+    }
+    return s;
+  }
+  while (r > 0 && !isBlock(r - 1, c)) r -= 1;
+  let s = "";
+  while (r < size && !isBlock(r, c)) {
+    s += puzzle.grid[r][c];
+    r += 1;
+  }
+  return s;
+}
+
 function cellNumber(r, c) {
   if (isBlock(r, c)) return null;
   const startAcross = c === 0 || isBlock(r, c - 1);
@@ -47,8 +68,8 @@ function cellNumber(r, c) {
   const startsD = startDown && extractAnswer(r, c, "down").length >= 2;
   if (!startsA && !startsD) return null;
   let n = 1;
-  for (let rr = 0; rr < SIZE; rr++) {
-    for (let cc = 0; cc < SIZE; cc++) {
+  for (let rr = 0; rr < size; rr++) {
+    for (let cc = 0; cc < size; cc++) {
       if (isBlock(rr, cc)) continue;
       const sa = (cc === 0 || isBlock(rr, cc - 1)) && extractAnswer(rr, cc, "across").length >= 2;
       const sd = (rr === 0 || isBlock(rr - 1, cc)) && extractAnswer(rr, cc, "down").length >= 2;
@@ -58,26 +79,6 @@ function cellNumber(r, c) {
     }
   }
   return null;
-}
-
-function extractAnswer(r, c, dir) {
-  if (isBlock(r, c)) return "";
-  if (dir === "across") {
-    while (c > 0 && !isBlock(r, c - 1)) c -= 1;
-    let s = "";
-    while (c < SIZE && !isBlock(r, c)) {
-      s += puzzle.grid[r][c];
-      c += 1;
-    }
-    return s;
-  }
-  while (r > 0 && !isBlock(r - 1, c)) r -= 1;
-  let s = "";
-  while (r < SIZE && !isBlock(r, c)) {
-    s += puzzle.grid[r][c];
-    r += 1;
-  }
-  return s;
 }
 
 function wordCells(r, c, dir) {
@@ -91,12 +92,12 @@ function wordCells(r, c, dir) {
   }
   const cells = [];
   if (dir === "across") {
-    while (sc < SIZE && !isBlock(r, sc)) {
+    while (sc < size && !isBlock(r, sc)) {
       cells.push({ r, c: sc });
       sc += 1;
     }
   } else {
-    while (sr < SIZE && !isBlock(sr, c)) {
+    while (sr < size && !isBlock(sr, c)) {
       cells.push({ r: sr, c });
       sr += 1;
     }
@@ -109,13 +110,45 @@ function isInActiveWord(r, c) {
   return wordCells(selected.r, selected.c, direction).some((p) => p.r === r && p.c === c);
 }
 
+function ensureHiddenInput() {
+  if (hiddenInput) return hiddenInput;
+  hiddenInput = document.getElementById("crossword-input");
+  if (!hiddenInput) {
+    hiddenInput = document.createElement("input");
+    hiddenInput.id = "crossword-input";
+    hiddenInput.className = "xw-hidden-input";
+    hiddenInput.setAttribute("autocomplete", "off");
+    hiddenInput.setAttribute("autocapitalize", "characters");
+    hiddenInput.setAttribute("autocorrect", "off");
+    hiddenInput.setAttribute("spellcheck", "false");
+    hiddenInput.setAttribute("inputmode", "text");
+    hiddenInput.setAttribute("enterkeyhint", "done");
+    hiddenInput.setAttribute("aria-label", "Digita una lettera");
+    document.getElementById("crossword")?.appendChild(hiddenInput);
+  }
+  return hiddenInput;
+}
+
+function focusHiddenInput() {
+  if (locked) return;
+  const input = ensureHiddenInput();
+  input.value = "";
+  // Keep focus for mobile soft keyboard without scrolling the page abruptly.
+  try {
+    input.focus({ preventScroll: true });
+  } catch {
+    input.focus();
+  }
+}
+
 export async function initCrossword(onDone) {
   onComplete = onDone;
-  const list = await (await fetch("data/crosswords.json")).json();
+  const list = await (await fetch("data/crosswords.json?v=20260722xw")).json();
   puzzle = pickCrossword(getDailyKey(), list);
+  size = puzzle.grid.length;
 
   const saved = loadState(STORAGE_KEY, getDailyKey());
-  if (saved?.grid?.length === SIZE) {
+  if (saved?.grid?.length === size) {
     grid = saved.grid.map((row) => row.slice());
     locked = Boolean(saved.locked);
     won = Boolean(saved.won);
@@ -125,8 +158,8 @@ export async function initCrossword(onDone) {
     won = false;
   }
 
-  outer: for (let r = 0; r < SIZE; r++) {
-    for (let c = 0; c < SIZE; c++) {
+  outer: for (let r = 0; r < size; r++) {
+    for (let c = 0; c < size; c++) {
       if (!isBlock(r, c)) {
         selected = { r, c };
         break outer;
@@ -134,8 +167,10 @@ export async function initCrossword(onDone) {
     }
   }
 
+  ensureHiddenInput();
   render();
   bindEvents();
+  focusHiddenInput();
 }
 
 function persist() {
@@ -144,8 +179,8 @@ function persist() {
 }
 
 function isSolved() {
-  for (let r = 0; r < SIZE; r++) {
-    for (let c = 0; c < SIZE; c++) {
+  for (let r = 0; r < size; r++) {
+    for (let c = 0; c < size; c++) {
       if (isBlock(r, c)) continue;
       if ((grid[r][c] || "").toUpperCase() !== puzzle.grid[r][c]) return false;
     }
@@ -184,9 +219,10 @@ function render() {
   const downEl = document.getElementById("crossword-down");
   if (!board) return;
 
+  board.style.setProperty("--xw-size", String(size));
   board.innerHTML = "";
-  for (let r = 0; r < SIZE; r++) {
-    for (let c = 0; c < SIZE; c++) {
+  for (let r = 0; r < size; r++) {
+    for (let c = 0; c < size; c++) {
       const cell = document.createElement("button");
       cell.type = "button";
       if (isBlock(r, c)) {
@@ -239,16 +275,16 @@ function render() {
   else if (locked) setStatus("Soluzione rivelata. Torna domani!", "hint");
   else {
     const dirLabel = direction === "across" ? "orizzontale →" : "verticale ↓";
-    setStatus(`Direzione ${dirLabel} · tema: ${puzzle.theme || "giornaliero"}`);
+    setStatus(`Schema ${size}×${size} · direzione ${dirLabel} · usa anche la tastiera del telefono`);
   }
 }
 
 function move(dr, dc) {
   if (!selected) return;
   let { r, c } = selected;
-  for (let i = 0; i < SIZE * SIZE; i++) {
-    r = (r + dr + SIZE) % SIZE;
-    c = (c + dc + SIZE) % SIZE;
+  for (let i = 0; i < size * size; i++) {
+    r = (r + dr + size) % size;
+    c = (c + dc + size) % size;
     if (!isBlock(r, c)) {
       selected = { r, c };
       return;
@@ -273,6 +309,7 @@ function typeLetter(ch) {
     else move(1, 0);
   }
   render();
+  focusHiddenInput();
 }
 
 function deleteLetter() {
@@ -283,11 +320,13 @@ function deleteLetter() {
   else move(-1, 0);
   persist();
   render();
+  focusHiddenInput();
 }
 
 function toggleDirection() {
   direction = direction === "across" ? "down" : "across";
   render();
+  focusHiddenInput();
 }
 
 function selectCell(r, c, { toggleDir = false } = {}) {
@@ -297,6 +336,7 @@ function selectCell(r, c, { toggleDir = false } = {}) {
   }
   selected = { r, c };
   render();
+  focusHiddenInput();
 }
 
 function bindEvents() {
@@ -321,6 +361,55 @@ function bindEvents() {
 
   document.getElementById("crossword-backspace")?.addEventListener("click", () => {
     if (!locked) deleteLetter();
+  });
+
+  const input = ensureHiddenInput();
+  input.addEventListener("input", () => {
+    if (locked) {
+      input.value = "";
+      return;
+    }
+    const raw = input.value || "";
+    input.value = "";
+    const letters = normalizeText(raw).replace(/[^a-z]/g, "");
+    if (!letters) return;
+    // Support paste / swipe of a short sequence.
+    for (const ch of letters.slice(0, 12)) typeLetter(ch);
+  });
+  input.addEventListener("keydown", (e) => {
+    if (!document.getElementById("crossword")?.classList.contains("active")) return;
+    if (locked) return;
+    if (e.key === "Backspace") {
+      e.preventDefault();
+      deleteLetter();
+    } else if (e.key === " ") {
+      e.preventDefault();
+      toggleDirection();
+    } else if (e.key === "ArrowRight") {
+      e.preventDefault();
+      direction = "across";
+      move(0, 1);
+      render();
+      focusHiddenInput();
+    } else if (e.key === "ArrowLeft") {
+      e.preventDefault();
+      direction = "across";
+      move(0, -1);
+      render();
+      focusHiddenInput();
+    } else if (e.key === "ArrowDown") {
+      e.preventDefault();
+      direction = "down";
+      move(1, 0);
+      render();
+      focusHiddenInput();
+    } else if (e.key === "ArrowUp") {
+      e.preventDefault();
+      direction = "down";
+      move(-1, 0);
+      render();
+      focusHiddenInput();
+    }
   });
 
   document.addEventListener("keydown", (e) => {
@@ -371,6 +460,7 @@ function bindEvents() {
       return;
     }
     setStatus("Non ancora: controlla le lettere.", "hint");
+    focusHiddenInput();
   });
 
   document.getElementById("crossword-clear")?.addEventListener("click", () => {
@@ -378,6 +468,7 @@ function bindEvents() {
     grid = buildEmpty();
     persist();
     render();
+    focusHiddenInput();
   });
 
   document.getElementById("crossword-reveal")?.addEventListener("click", () => {
