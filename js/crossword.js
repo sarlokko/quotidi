@@ -1,10 +1,10 @@
 import { getDailyKey, hashString, loadState, saveState, normalizeText } from "./daily.js";
 
-const STORAGE_KEY = "quotid-crossword-v3";
+const STORAGE_KEY = "quotid-crossword-v4";
 const LETTERS = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".split("");
 
 let puzzle = null;
-let size = 10;
+let size = 9;
 let grid = null; // letters or '' ; '#' blocked
 let locked = false;
 let won = false;
@@ -21,7 +21,7 @@ function pickCrossword(dayKey, list) {
   const [y, m, d] = dayKey.split("-").map(Number);
   const ordinal = Math.floor(Date.UTC(y, m - 1, d) / 86400000);
   const order = Array.from({ length: n }, (_, i) => i);
-  let h = hashString(`crossword-deck-v3:${n}`);
+  let h = hashString(`crossword-deck-v4:${n}`);
   for (let i = n - 1; i > 0; i--) {
     h = (Math.imul(h, 1664525) + 1013904223) >>> 0;
     const j = h % (i + 1);
@@ -143,7 +143,7 @@ function focusHiddenInput() {
 
 export async function initCrossword(onDone) {
   onComplete = onDone;
-  const list = await (await fetch("data/crosswords.json?v=20260722xw")).json();
+  const list = await (await fetch("data/crosswords.json?v=20260722xw2")).json();
   puzzle = pickCrossword(getDailyKey(), list);
   size = puzzle.grid.length;
 

@@ -918,7 +918,7 @@ h2 {
 }
 
 .xw-board {
-  --xw-size: 10;
+  --xw-size: 9;
   display: grid;
   grid-template-columns: repeat(var(--xw-size), minmax(0, 1fr));
   gap: 0.12rem;
