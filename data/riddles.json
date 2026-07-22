@@ -1,252 +1,252 @@
 [
   {
-    "q": "Più lo usi per asciugare, più diventa bagnato. Cos’è?",
+    "q": "Lo usi dopo la doccia: più asciuga, più si bagna. Cos’è?",
     "a": "l’asciugamano",
-    "aliases": ["asciugamano", "un asciugamano", "il asciugamano"]
+    "aliases": ["asciugamano", "un asciugamano", "il asciugamano", "asciugamani", "gli asciugamani"]
   },
   {
-    "q": "Ha le chiavi, ma non apre nessuna porta. Cos’è?",
-    "a": "il pianoforte",
-    "aliases": ["pianoforte", "un pianoforte", "piano"]
+    "q": "In cucina taglia il pane: ha i denti, ma non è un animale. Cos’è?",
+    "a": "il coltello",
+    "aliases": ["coltello", "un coltello"]
   },
   {
-    "q": "Ha denti, ma non morde. Cos’è?",
+    "q": "Per pettinarti i capelli usi questo oggetto con tanti denti. Cos’è?",
     "a": "il pettine",
     "aliases": ["pettine", "un pettine"]
   },
   {
-    "q": "Ha un solo occhio e non vede. Cos’è?",
+    "q": "Per cucire serve un filo e questo piccolo strumento con un buchino in cima. Cos’è?",
     "a": "l’ago",
     "aliases": ["ago", "un ago"]
   },
   {
-    "q": "Parla senza bocca e risponde senza orecchie. Cos’è?",
+    "q": "In montagna o in una stanza vuota, se urli ti torna indietro la voce. Cos’è?",
     "a": "l’eco",
-    "aliases": ["eco", "un eco"]
+    "aliases": ["eco", "un eco", "l eco"]
   },
   {
-    "q": "Più ne fai, più ne lasci dietro di te. Cosa sono?",
+    "q": "Camminando ne lasci uno dietro l’altro per terra. Cosa sono?",
     "a": "i passi",
-    "aliases": ["passi", "il passo", "un passo", "passo"]
+    "aliases": ["passi", "passo", "il passo", "un passo", "impronte", "le impronte", "impronta"]
   },
   {
-    "q": "Ha la faccia e le mani, ma non ha braccia né gambe. Cos’è?",
+    "q": "Alla parete o al polso indica le ore con due lancette. Cos’è?",
     "a": "l’orologio",
-    "aliases": ["orologio", "un orologio", "orologio da muro", "orologio a muro"]
+    "aliases": ["orologio", "un orologio", "orologio da polso", "orologio a muro", "orologio da muro"]
   },
   {
-    "q": "Corre e non si ferma mai; tutti lo usano, nessuno lo vede. Cos’è?",
-    "a": "il tempo",
-    "aliases": ["tempo"]
-  },
-  {
-    "q": "Più lo riempi d’aria, più diventa leggero. Cos’è?",
+    "q": "Per una festa di compleanno lo gonfi d’aria e vola leggero. Cos’è?",
     "a": "il palloncino",
-    "aliases": ["palloncino", "un palloncino", "pallone", "un pallone"]
+    "aliases": ["palloncino", "un palloncino", "palloncini", "i palloncini"]
   },
   {
-    "q": "Entra in casa da tutte le finestre, ma non si bagna mai. Cos’è?",
+    "q": "Di giorno illumina tutto e fa le ombre lunghe verso sera. Cos’è?",
     "a": "il sole",
     "aliases": ["sole"]
   },
   {
-    "q": "Ha la testa e la coda, ma non ha il corpo. Cos’è?",
+    "q": "Per pagare in contanti la giri: ha testa e croce. Cos’è?",
     "a": "la moneta",
-    "aliases": ["moneta", "una moneta", "soldino", "un soldino"]
+    "aliases": ["moneta", "una moneta", "soldino", "un soldino", "monetine", "le monetine"]
   },
   {
-    "q": "Cammina sul tetto di casa e non fa rumore. Cos’è?",
-    "a": "il fumo",
-    "aliases": ["fumo"]
-  },
-  {
-    "q": "Ha molte foglie, ma non è un albero. Cos’è?",
+    "q": "Lo leggi a letto o a scuola: ha le pagine e le parole. Cos’è?",
     "a": "il libro",
-    "aliases": ["libro", "un libro"]
+    "aliases": ["libro", "un libro", "libri", "i libri"]
   },
   {
-    "q": "Più lo mangi, più grande diventa. Cos’è?",
-    "a": "il buco",
-    "aliases": ["buco", "un buco"]
-  },
-  {
-    "q": "Ha quattro gambe al mattino, due a mezzogiorno e tre alla sera. Di chi si parla?",
-    "a": "l’uomo",
-    "aliases": ["uomo", "una persona", "persona", "essere umano"]
-  },
-  {
-    "q": "Bianca come la neve, ma non è neve; dolce da mettere nel caffè. Cos’è?",
+    "q": "Nel caffè o sul dolce lo metti bianco e dolce. Cos’è?",
     "a": "lo zucchero",
     "aliases": ["zucchero"]
   },
   {
-    "q": "Vola senza ali e piange senza occhi. Cos’è?",
+    "q": "Nel cielo è bianca o grigia e da lì cade la pioggia. Cos’è?",
     "a": "la nuvola",
-    "aliases": ["nuvola", "una nuvola", "le nuvole", "nuvole", "nube", "una nube"]
+    "aliases": ["nuvola", "una nuvola", "nuvole", "le nuvole", "nube", "una nube", "nubi", "le nubi"]
   },
   {
-    "q": "Ha città senza case, fiumi senza acqua e boschi senza alberi. Cos’è?",
+    "q": "In viaggio ti guida: ci sono città e strade disegnate sopra. Cos’è?",
     "a": "la mappa",
-    "aliases": ["mappa", "una mappa", "carta geografica", "la carta geografica", "cartina", "una cartina"]
+    "aliases": ["mappa", "una mappa", "cartina", "una cartina", "carta geografica", "la carta geografica"]
   },
   {
-    "q": "Apriamo la casa e chiudiamo la strada. Cosa siamo?",
-    "a": "le chiavi",
-    "aliases": ["chiavi", "la chiave", "chiave", "una chiave"]
-  },
-  {
-    "q": "Di giorno resta a letto, di notte esce a lavorare. Cos’è?",
+    "q": "Di notte brilla nel cielo e cambia forma nelle settimane. Cos’è?",
     "a": "la luna",
     "aliases": ["luna"]
   },
   {
-    "q": "Ha la gola, ma non beve. Cos’è?",
+    "q": "In tavola ci versi l’acqua o il vino: di vetro o plastica. Cos’è?",
     "a": "la bottiglia",
-    "aliases": ["bottiglia", "una bottiglia"]
+    "aliases": ["bottiglia", "una bottiglia", "bottiglie", "le bottiglie"]
   },
   {
-    "q": "Resta in piedi tutto il giorno e non si stanca mai. Cos’è?",
+    "q": "Nel parco o nel bosco ha tronco, rami e foglie. Cos’è?",
     "a": "l’albero",
-    "aliases": ["albero", "un albero"]
+    "aliases": ["albero", "un albero", "alberi", "gli alberi"]
   },
   {
-    "q": "Entra in acqua e non si bagna. Cos’è?",
-    "a": "l’ombra",
-    "aliases": ["ombra", "un ombra"]
-  },
-  {
-    "q": "Più la stringi tra le mani, più scappa via. Cos’è?",
+    "q": "In spiaggia ti scivola tra le dita se la stringi. Cos’è?",
     "a": "la sabbia",
     "aliases": ["sabbia", "rena", "la rena"]
   },
   {
-    "q": "Mi trovi in fondo al mare, ma non sono un pesce; mi mettono al dito. Cos’è?",
-    "a": "la perla",
-    "aliases": ["perla", "una perla"]
-  },
-  {
-    "q": "Sono piena di buchi, eppure tengo l’acqua. Cos’è?",
+    "q": "In bagno lava i piatti o il corpo: è piena di buchini e trattiene l’acqua. Cos’è?",
     "a": "la spugna",
     "aliases": ["spugna", "una spugna"]
   },
   {
-    "q": "Nasco grande e muoio piccolo. Cos’è?",
+    "q": "Sul tavolo di compleanno si accende e poi si fa sempre più corta. Cos’è?",
     "a": "la candela",
-    "aliases": ["candela", "una candela"]
+    "aliases": ["candela", "una candela", "candele", "le candele"]
   },
   {
-    "q": "Sono nero quando mi compri, rosso quando mi usi e grigio quando mi getti. Cos’è?",
-    "a": "il carbone",
-    "aliases": ["carbone", "carboncino", "il carboncino"]
+    "q": "Per aprire il portone di casa ti serve questo piccolo oggetto di metallo. Cos’è?",
+    "a": "la chiave",
+    "aliases": ["chiave", "una chiave", "chiavi", "le chiavi"]
   },
   {
-    "q": "Tutti mi chiedono, a nessuno rispondo. Chi sono?",
-    "a": "il silenzio",
-    "aliases": ["silenzio"]
-  },
-  {
-    "q": "Vado in chiesa ma non prego, vado a scuola ma non studio. Chi sono?",
-    "a": "la strada",
-    "aliases": ["strada", "via", "la via", "una strada"]
-  },
-  {
-    "q": "Sono sempre davanti a te, ma non mi puoi vedere. Chi sono?",
-    "a": "il futuro",
-    "aliases": ["futuro", "domani"]
-  },
-  {
-    "q": "Mi spezzi la testa prima di usarmi, e poi faccio luce. Cos’è?",
-    "a": "il fiammifero",
-    "aliases": ["fiammifero", "un fiammifero", "i fiammiferi", "fiammiferi", "un match", "match"]
-  },
-  {
-    "q": "Più lavoro, più piccolo divento. Cos’è?",
+    "q": "A scuola scrivi e poi si accorcia: ha la mina dentro. Cos’è?",
     "a": "la matita",
-    "aliases": ["matita", "una matita"]
+    "aliases": ["matita", "una matita", "matite", "le matite"]
   },
   {
-    "q": "Apri gli occhi e non mi vedi; chiudi gli occhi e mi vedi. Cos’è?",
-    "a": "il sogno",
-    "aliases": ["sogno", "un sogno", "i sogni", "sogni"]
-  },
-  {
-    "q": "Sono piena di buchi, eppure tengo insieme i fogli. Cos’è?",
+    "q": "Per tenere uniti due fogli di carta usi questo pezzettino di metallo. Cos’è?",
     "a": "la graffetta",
-    "aliases": ["graffetta", "una graffetta", "fermaglio", "il fermaglio", "clip"]
+    "aliases": ["graffetta", "una graffetta", "fermaglio", "il fermaglio", "clip", "una clip"]
   },
   {
-    "q": "Ho la coda in mano e la testa a terra. Cos’è?",
+    "q": "Per pulire il pavimento la tieni in mano e spazzi a terra. Cos’è?",
     "a": "la scopa",
     "aliases": ["scopa", "una scopa"]
   },
   {
-    "q": "Ha le gambe, ma non cammina. Cos’è?",
-    "a": "il tavolo",
-    "aliases": ["tavolo", "un tavolo", "la sedia", "sedia", "una sedia"]
-  },
-  {
-    "q": "Ha la coda lunga e non è un animale: brilla in cielo. Cos’è?",
-    "a": "la cometa",
-    "aliases": ["cometa", "una cometa"]
-  },
-  {
-    "q": "Mi usi a tavola: ho i rebbi e non sono un rastrello. Cos’è?",
+    "q": "A tavola raccogli spaghetti e verdura con i rebbi. Cos’è?",
     "a": "la forchetta",
-    "aliases": ["forchetta", "una forchetta"]
+    "aliases": ["forchetta", "una forchetta", "forchette", "le forchette"]
   },
   {
-    "q": "Senza di me non leggi e non scrivi; sono tante e formano le parole. Cosa sono?",
-    "a": "le lettere",
-    "aliases": ["lettere", "lettera", "la lettera", "alfabeto", "l alfabeto"]
-  },
-  {
-    "q": "Salto i fossi e non mi sporco; sto in mezzo alla faccia. Chi sono?",
-    "a": "l’occhio",
-    "aliases": ["occhio", "un occhio", "gli occhi", "occhi"]
-  },
-  {
-    "q": "Ha la pelle, ma non è un animale; a volte è rossa, a volte verde. Cos’è?",
-    "a": "la mela",
-    "aliases": ["mela", "una mela"]
-  },
-  {
-    "q": "Più ne hai intorno, meno vedi. Cosa sono?",
-    "a": "le tenebre",
-    "aliases": ["tenebre", "il buio", "buio", "l oscurità", "oscurità", "il buio pesto"]
-  },
-  {
-    "q": "Ha la bocca larga e non parla; porta l’acqua al mare. Cos’è?",
-    "a": "il fiume",
-    "aliases": ["fiume", "un fiume"]
-  },
-  {
-    "q": "Mi usi ogni giorno per scrivere, ma non sono una penna: cancello. Cos’è?",
-    "a": "la gomma",
-    "aliases": ["gomma", "una gomma", "gomma per cancellare"]
-  },
-  {
-    "q": "Ha le pagine, ma non è un libro; parla del tempo. Cos’è?",
-    "a": "il giornale",
-    "aliases": ["giornale", "un giornale", "il quotidiano", "quotidiano"]
-  },
-  {
-    "q": "Sto sopra la testa e non sono un cappello: se piove ti copro. Cos’è?",
+    "q": "Quando piove lo apri sopra la testa e resti asciutto. Cos’è?",
     "a": "l’ombrello",
-    "aliases": ["ombrello", "un ombrello", "il ombrello"]
+    "aliases": ["ombrello", "un ombrello", "il ombrello", "ombrelli", "gli ombrelli"]
   },
   {
-    "q": "Cresco dopo la pioggia; ho il cappello ma non la testa. Cos’è?",
+    "q": "Nel bosco dopo la pioggia spunta dal terreno con il cappello tondo. Cos’è?",
     "a": "il fungo",
-    "aliases": ["fungo", "un fungo"]
+    "aliases": ["fungo", "un fungo", "funghi", "i funghi"]
   },
   {
-    "q": "Mi spezzi e piangi, ma non sono triste. Cos’è?",
+    "q": "In cucina, se la tagli, ti vengono le lacrime agli occhi. Cos’è?",
     "a": "la cipolla",
-    "aliases": ["cipolla", "una cipolla"]
+    "aliases": ["cipolla", "una cipolla", "cipolle", "le cipolle"]
   },
   {
-    "q": "Corro sul filo e non cado; porto la luce in casa. Cos’è?",
-    "a": "l’elettricità",
-    "aliases": ["elettricità", "corrente", "la corrente", "corrente elettrica"]
+    "q": "A tavola bevi da questo oggetto con manico: caffè o tè. Cos’è?",
+    "a": "la tazza",
+    "aliases": ["tazza", "una tazza", "tazze", "le tazze", "tazzina", "una tazzina", "la tazzina"]
+  },
+  {
+    "q": "Al mattino ci guardi dentro per pettinarti: ti restituisce l’immagine. Cos’è?",
+    "a": "lo specchio",
+    "aliases": ["specchio", "uno specchio"]
+  },
+  {
+    "q": "In frigo tiene fresco il cibo e ha lo sportello davanti. Cos’è?",
+    "a": "il frigorifero",
+    "aliases": ["frigorifero", "un frigorifero", "frigo", "il frigo", "un frigo"]
+  },
+  {
+    "q": "In cucina cuoce pizza e pane: dentro fa molto caldo. Cos’è?",
+    "a": "il forno",
+    "aliases": ["forno", "un forno"]
+  },
+  {
+    "q": "Per accendere il fornello o una candela lo sfreghi e fa una fiamma corta. Cos’è?",
+    "a": "il fiammifero",
+    "aliases": ["fiammifero", "un fiammifero", "fiammiferi", "i fiammiferi"]
+  },
+  {
+    "q": "Di inverno cade bianca dal cielo e si scioglie al tocco. Cos’è?",
+    "a": "la neve",
+    "aliases": ["neve"]
+  },
+  {
+    "q": "Nel mare o in piscina ci nuoti dentro, ma non la puoi afferrare. Cos’è?",
+    "a": "l’acqua",
+    "aliases": ["acqua"]
+  },
+  {
+    "q": "A tavola tagli la bistecca e spargi il sale da questo oggetto con buchini sopra. Cos’è?",
+    "a": "la saliera",
+    "aliases": ["saliera", "una saliera"]
+  },
+  {
+    "q": "Per scrivere a penna lo tieni in mano e lascia l’inchiostro sulla carta. Cos’è?",
+    "a": "la penna",
+    "aliases": ["penna", "una penna", "penne", "le penne", "biro", "la biro", "una biro"]
+  },
+  {
+    "q": "A scuola, se sbagli una parola a matita, usi questa per cancellare. Cos’è?",
+    "a": "la gomma",
+    "aliases": ["gomma", "una gomma", "gomma per cancellare", "cancellino", "il cancellino"]
+  },
+  {
+    "q": "Ogni mattina arriva a casa con le notizie del giorno stampate. Cos’è?",
+    "a": "il giornale",
+    "aliases": ["giornale", "un giornale", "quotidiano", "il quotidiano", "un quotidiano"]
+  },
+  {
+    "q": "In giardino o sul davanzale cresce colorata e profuma. Cos’è?",
+    "a": "il fiore",
+    "aliases": ["fiore", "un fiore", "fiori", "i fiori"]
+  },
+  {
+    "q": "Al dito porti questo cerchietto di metallo, spesso d’oro. Cos’è?",
+    "a": "l’anello",
+    "aliases": ["anello", "un anello", "fede", "la fede", "una fede"]
+  },
+  {
+    "q": "Per chiudere una lettera o un pacco usi questa striscia adesiva. Cos’è?",
+    "a": "lo scotch",
+    "aliases": ["scotch", "nastro adesivo", "il nastro adesivo", "nastro", "il nastro", "nastrino"]
+  },
+  {
+    "q": "In camera ci dormi sopra di notte, con cuscino e coperte. Cos’è?",
+    "a": "il letto",
+    "aliases": ["letto", "un letto"]
+  },
+  {
+    "q": "A tavola ci mangi: ha un piano e quattro gambe. Cos’è?",
+    "a": "il tavolo",
+    "aliases": ["tavolo", "un tavolo", "tavola", "la tavola"]
+  },
+  {
+    "q": "Per sederti a tavola usi questo mobile con schienale. Cos’è?",
+    "a": "la sedia",
+    "aliases": ["sedia", "una sedia", "sedie", "le sedie"]
+  },
+  {
+    "q": "Al buio in casa lo schiacci sul muro e si accende la luce. Cos’è?",
+    "a": "l’interruttore",
+    "aliases": ["interruttore", "un interruttore", "pulsante della luce", "il pulsante della luce", "interruttore della luce"]
+  },
+  {
+    "q": "In estate ti rinfresca: gira le pale e muove l’aria. Cos’è?",
+    "a": "il ventilatore",
+    "aliases": ["ventilatore", "un ventilatore"]
+  },
+  {
+    "q": "Per guardare i film a casa lo accendi sul mobile del salotto. Cos’è?",
+    "a": "la televisione",
+    "aliases": ["televisione", "una televisione", "tv", "la tv", "televisore", "il televisore", "un televisore", "tele"]
+  },
+  {
+    "q": "Nel cassetto tieni le calze; ai piedi le indossi dentro le scarpe. Cosa sono?",
+    "a": "le calze",
+    "aliases": ["calze", "calza", "una calza", "la calza", "calzini", "i calzini", "calzino", "un calzino"]
+  },
+  {
+    "q": "Al mattino ci metti il latte e i cereali e mangi con il cucchiaio. Cos’è?",
+    "a": "la ciotola",
+    "aliases": ["ciotola", "una ciotola", "scodella", "una scodella", "la scodella", "bowl", "il bowl"]
   }
 ]
