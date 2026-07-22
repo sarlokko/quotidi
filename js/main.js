@@ -4,7 +4,7 @@ import { initPokemonType, isPokemonComplete } from "./pokemon-type.js";
 import { initWordle, isWordleComplete } from "./wordle.js?v=20260722games";
 import { initSudoku, isSudokuComplete } from "./sudoku.js";
 import { initPicross, isPicrossComplete } from "./picross.js?v=20260722games";
-import { initCrossword, isCrosswordComplete } from "./crossword.js?v=20260722games";
+import { initCrossword, isCrosswordComplete } from "./crossword.js?v=20260722xw2";
 import { initMovie, isMovieComplete } from "./movie.js";
 import { initFact, isFactComplete } from "./fact.js";
 import { initGloble, isGlobleComplete } from "./globle.js";

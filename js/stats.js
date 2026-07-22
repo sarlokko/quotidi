@@ -7,7 +7,7 @@ export const GAME_META = [
   { id: "wordle", label: "Parola", icon: "📝", key: "quotid-wordle-v4" },
   { id: "sudoku", label: "Sudoku", icon: "🔢", key: "quotid-sudoku-9" },
   { id: "picross", label: "Picross", icon: "⬛", key: "quotid-picross-10" },
-  { id: "crossword", label: "Cruci", icon: "🔠", key: "quotid-crossword-v3" },
+  { id: "crossword", label: "Cruci", icon: "🔠", key: "quotid-crossword-v4" },
   { id: "movie", label: "Film", icon: "🎬", key: "quotid-movie" },
   { id: "fact", label: "Curiosità", icon: "💡", key: "quotid-fact-v2" },
   { id: "globle", label: "Paese", icon: "🌍", key: "quotid-globle-v2" },
@@ -114,7 +114,7 @@ export function scoreGame(id, dayKey = getDailyKey()) {
         : { status: "lost", points: 2, tile: "🟧" };
     }
     case "crossword": {
-      const s = state("quotid-crossword-v3", dayKey);
+      const s = state("quotid-crossword-v4", dayKey);
       if (!s?.locked) return { status: "empty", points: 0, tile: "⬜" };
       return s.won
         ? { status: "won", points: 10, tile: "🟩" }
