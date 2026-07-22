@@ -58,15 +58,25 @@ a { color: var(--accent); }
 }
 
 .brand-block {
-  max-width: 28rem;
+  max-width: min(28rem, 100%);
 }
 
 .brand {
   font-family: "Space Grotesk", sans-serif;
-  font-size: clamp(2.75rem, 10vw, 4.25rem);
-  line-height: 0.95;
+  font-size: 0;
+  line-height: 0;
   letter-spacing: -0.03em;
   font-weight: 700;
+}
+
+.brand-logo {
+  display: block;
+  width: min(100%, 26rem);
+  height: auto;
+  max-height: 11.5rem;
+  object-fit: contain;
+  object-position: left center;
+  filter: drop-shadow(0 10px 24px rgba(0, 0, 0, 0.28));
 }
 
 .tagline {
@@ -1260,12 +1270,12 @@ h2 {
   .site-hero {
     padding: 1rem 0.85rem 0.75rem;
   }
-  .brand {
-    font-size: clamp(2.1rem, 11vw, 2.8rem);
+  .brand-block {
+    max-width: 100%;
   }
-  .tagline {
-    font-size: 0.95rem;
-    margin-top: 0.35rem;
+  .brand-logo {
+    width: min(100%, 20.5rem);
+    max-height: 9.25rem;
   }
   .subtitle {
     margin-top: 0.35rem;
