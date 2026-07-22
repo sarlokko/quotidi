@@ -4,10 +4,10 @@ const STREAK_KEY = "quotid-streak";
 const SCORE_KEY = "quotid-daily-score";
 
 export const GAME_META = [
-  { id: "wordle", label: "Parola", icon: "📝", key: "quotid-wordle-v3" },
+  { id: "wordle", label: "Parola", icon: "📝", key: "quotid-wordle-v4" },
   { id: "sudoku", label: "Sudoku", icon: "🔢", key: "quotid-sudoku-9" },
-  { id: "picross", label: "Picross", icon: "⬛", key: "quotid-picross-6" },
-  { id: "crossword", label: "Cruci", icon: "🔠", key: "quotid-crossword-v2" },
+  { id: "picross", label: "Picross", icon: "⬛", key: "quotid-picross-10" },
+  { id: "crossword", label: "Cruci", icon: "🔠", key: "quotid-crossword-v3" },
   { id: "movie", label: "Film", icon: "🎬", key: "quotid-movie" },
   { id: "fact", label: "Curiosità", icon: "💡", key: "quotid-fact-v2" },
   { id: "globle", label: "Paese", icon: "🌍", key: "quotid-globle-v2" },
@@ -88,13 +88,13 @@ export function scoreGame(id, dayKey = getDailyKey()) {
       return { status: "lost", points: 2, tile: "🟧" };
     }
     case "wordle": {
-      const s = state("quotid-wordle-v3", dayKey);
+      const s = state("quotid-wordle-v4", dayKey);
       if (!s?.locked) return { status: "empty", points: 0, tile: "⬜" };
       const guesses = s.guesses || [];
       const won = guesses.some((g) => Array.isArray(g.result) && g.result.length && g.result.every((r) => r === "correct"));
       if (won) {
         const n = guesses.findIndex((g) => g.result.every((r) => r === "correct")) + 1;
-        const pts = n <= 1 ? 10 : n === 2 ? 9 : n === 3 ? 8 : n === 4 ? 7 : 6;
+        const pts = n <= 1 ? 10 : n === 2 ? 9 : n === 3 ? 8 : n === 4 ? 7 : n === 5 ? 6 : 5;
         return { status: "won", points: pts, tile: "🟩" };
       }
       return { status: "lost", points: 2, tile: "🟧" };
@@ -107,14 +107,14 @@ export function scoreGame(id, dayKey = getDailyKey()) {
         : { status: "lost", points: 2, tile: "🟧" };
     }
     case "picross": {
-      const s = state("quotid-picross-6", dayKey);
+      const s = state("quotid-picross-10", dayKey);
       if (!s?.locked) return { status: "empty", points: 0, tile: "⬜" };
       return s.won
         ? { status: "won", points: 10, tile: "🟩" }
         : { status: "lost", points: 2, tile: "🟧" };
     }
     case "crossword": {
-      const s = state("quotid-crossword-v2", dayKey);
+      const s = state("quotid-crossword-v3", dayKey);
       if (!s?.locked) return { status: "empty", points: 0, tile: "⬜" };
       return s.won
         ? { status: "won", points: 10, tile: "🟩" }
@@ -188,7 +188,7 @@ export function recordDailyActivity(dayKey = getDailyKey()) {
 }
 
 function wordleGridEmoji(dayKey) {
-  const s = state("quotid-wordle-v3", dayKey);
+  const s = state("quotid-wordle-v4", dayKey);
   if (!s?.guesses?.length) return null;
   return s.guesses
     .map((g) =>

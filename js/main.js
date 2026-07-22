@@ -1,10 +1,10 @@
 import { getDailyKey, msUntilMidnightRome, formatCountdown } from "./daily.js";
 import { recordDailyActivity, buildShareText, MAX_SCORE } from "./stats.js";
 import { initPokemonType, isPokemonComplete } from "./pokemon-type.js";
-import { initWordle, isWordleComplete } from "./wordle.js?v=20260716hintword";
+import { initWordle, isWordleComplete } from "./wordle.js?v=20260722games";
 import { initSudoku, isSudokuComplete } from "./sudoku.js";
-import { initPicross, isPicrossComplete } from "./picross.js";
-import { initCrossword, isCrosswordComplete } from "./crossword.js";
+import { initPicross, isPicrossComplete } from "./picross.js?v=20260722games";
+import { initCrossword, isCrosswordComplete } from "./crossword.js?v=20260722games";
 import { initMovie, isMovieComplete } from "./movie.js";
 import { initFact, isFactComplete } from "./fact.js";
 import { initGloble, isGlobleComplete } from "./globle.js";

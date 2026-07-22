@@ -26,11 +26,17 @@ jobs:
           test -f data/words-guesses.txt
           test -f data/riddles.json
           test -f data/jokes.json
+          test -f data/picross.json
+          test -f data/crosswords.json
           python3 - <<'PY'
           import json, pathlib
           json.loads(pathlib.Path("data/pokemon.json").read_text())
           json.loads(pathlib.Path("data/riddles.json").read_text())
           json.loads(pathlib.Path("data/jokes.json").read_text())
+          pic = json.loads(pathlib.Path("data/picross.json").read_text())
+          assert pic and all(p.get("size") == 10 and len(p.get("grid", [])) == 100 for p in pic)
+          xw = json.loads(pathlib.Path("data/crosswords.json").read_text())
+          assert xw and all(len(p.get("grid", [])) >= 9 for p in xw)
           answers = pathlib.Path("data/words-answers.txt").read_text().splitlines()
           assert answers and all(len(w) == 5 for w in answers if w)
           print("OK: dati validi")
