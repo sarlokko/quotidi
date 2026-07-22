@@ -1,31 +1,11 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Quotidì">
-  <defs>
-    <linearGradient id="bg" x1="8" y1="4" x2="56" y2="60" gradientUnits="userSpaceOnUse">
-      <stop stop-color="#6C8CFF"/>
-      <stop offset="1" stop-color="#4FD1A3"/>
-    </linearGradient>
-    <linearGradient id="sun" x1="20" y1="16" x2="44" y2="48" gradientUnits="userSpaceOnUse">
-      <stop stop-color="#FFE08A"/>
-      <stop offset="1" stop-color="#FFB347"/>
-    </linearGradient>
-  </defs>
-  <rect width="64" height="64" rx="16" fill="url(#bg)"/>
-  <!-- rays -->
-  <g stroke="#FFE8A8" stroke-width="3" stroke-linecap="round" opacity="0.95">
-    <path d="M32 8v5"/>
-    <path d="M32 51v5"/>
-    <path d="M8 32h5"/>
-    <path d="M51 32h5"/>
-    <path d="M14 14l3.5 3.5"/>
-    <path d="M46.5 46.5L50 50"/>
-    <path d="M50 14l-3.5 3.5"/>
-    <path d="M17.5 46.5L14 50"/>
-  </g>
-  <!-- sun face -->
-  <circle cx="32" cy="32" r="14" fill="url(#sun)"/>
-  <circle cx="27" cy="29" r="2.2" fill="#2A2F45"/>
-  <circle cx="37" cy="29" r="2.2" fill="#2A2F45"/>
-  <path d="M26 37c2.2 2.8 9.8 2.8 12 0" fill="none" stroke="#2A2F45" stroke-width="2.4" stroke-linecap="round"/>
-  <!-- tiny sparkle -->
-  <path d="M48 18l1.2 2.6L52 22l-2.8 1.2L48 26l-1.2-2.8L44 22l2.8-1.4z" fill="#FFFFFF" opacity="0.9"/>
+  <rect width="64" height="64" rx="14" fill="#ffffff"/>
+  <rect x="4" y="4" width="56" height="56" rx="12" fill="#0b1b4a"/>
+  <text x="32" y="30" text-anchor="middle" font-family="Arial Rounded MT Bold, Arial, sans-serif" font-size="13" font-weight="700" fill="#ffffff">Quotidì</text>
+  <rect x="10" y="36" width="44" height="12" rx="6" fill="#14245c"/>
+  <circle cx="18" cy="42" r="2" fill="#4fd1a3"/>
+  <circle cx="26" cy="42" r="2" fill="#6c8cff"/>
+  <circle cx="34" cy="42" r="2" fill="#c084fc"/>
+  <circle cx="42" cy="42" r="2" fill="#ffb347"/>
+  <path d="M22 52c4 3.2 16 3.2 20 0" fill="none" stroke="#4fd1a3" stroke-width="2.2" stroke-linecap="round"/>
 </svg>
