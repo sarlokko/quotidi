@@ -38,8 +38,10 @@ const completionChecks = {
 };
 
 function updateCountdown() {
-  const el = document.getElementById("countdown");
-  if (el) el.textContent = formatCountdown(msUntilMidnightRome());
+  const text = formatCountdown(msUntilMidnightRome());
+  document.querySelectorAll("#countdown, #countdown-hero").forEach((el) => {
+    el.textContent = text;
+  });
 }
 
 function updateStatsUI() {
@@ -59,7 +61,10 @@ function updateProgress() {
   const done = GAMES.filter((g) => completionChecks[g.id]()).length;
   const text = document.getElementById("progress-text");
   const bar = document.getElementById("progress-bar");
-  if (text) text.textContent = `${done}/${GAMES.length} completati oggi`;
+  if (text) {
+    text.textContent = `${done}/${GAMES.length} oggi`;
+    text.title = `${done} di ${GAMES.length} giochi completati oggi`;
+  }
   if (bar) bar.style.width = `${(done / GAMES.length) * 100}%`;
 
   GAMES.forEach((g) => {
@@ -84,6 +89,15 @@ function showTab(id) {
     b.classList.toggle("active", active);
     b.setAttribute("aria-pressed", active ? "true" : "false");
   });
+
+  // Porta la barra compatta in cima così griglie (picross, sudoku…) hanno più spazio
+  const chrome = document.querySelector(".site-chrome");
+  if (chrome) {
+    const offset = chrome.getBoundingClientRect().top;
+    if (offset > 1) {
+      window.scrollBy({ top: offset, behavior: "smooth" });
+    }
+  }
 }
 
 function bindTabs() {
