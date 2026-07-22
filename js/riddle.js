@@ -1,6 +1,6 @@
 import { getDailyKey, hashString, loadState, saveState, normalizeText } from "./daily.js";
 
-const STORAGE_KEY = "quotid-riddle-v3";
+const STORAGE_KEY = "quotid-riddle-v4";
 
 let daily = null;
 let onComplete = null;
@@ -45,7 +45,7 @@ function pickRiddle(dayKey, list) {
   const [y, m, d] = dayKey.split("-").map(Number);
   const ordinal = Math.floor(Date.UTC(y, m - 1, d) / 86400000);
   const order = Array.from({ length: n }, (_, i) => i);
-  let h = hashString(`riddle-deck-v3:${n}`);
+  let h = hashString(`riddle-deck-v4:${n}`);
   for (let i = n - 1; i > 0; i--) {
     h = (Math.imul(h, 1664525) + 1013904223) >>> 0;
     const j = h % (i + 1);
@@ -56,7 +56,7 @@ function pickRiddle(dayKey, list) {
 
 export async function initRiddle(onDone) {
   onComplete = onDone;
-  const riddles = await (await fetch("data/riddles.json?v=20260722riddle")).json();
+  const riddles = await (await fetch("data/riddles.json?v=20260722riddle2")).json();
   daily = pickRiddle(getDailyKey(), riddles);
   if (!daily?.q || !daily?.a) {
     throw new Error("Indovinello del giorno non valido");
