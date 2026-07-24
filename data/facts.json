@@ -3,7 +3,7 @@
     "topic": "scienza",
     "claim": "Il miele può restare commestibile per millenni.",
     "isTrue": true,
-    "fact": "Il miele non va mai a male: archeologi ne hanno trovato di millenni ancora commestibile."
+    "fact": "Se ben conservato, il miele può restare commestibile per tempi lunghissimi: se ne è trovato di antichissimo ancora buono."
   },
   {
     "topic": "scienza",
@@ -31,9 +31,9 @@
   },
   {
     "topic": "scienza",
-    "claim": "L’acqua calda non può mai congelare prima di quella fredda.",
+    "claim": "L’acqua calda non può mai congelare prima di quella fredda, in nessun caso.",
     "isTrue": false,
-    "fact": "A volte l’acqua calda congela prima: è l’effetto Mpemba."
+    "fact": "In alcune condizioni l’acqua calda può congelare prima di quella fredda: è il controverso effetto Mpemba."
   },
   {
     "topic": "scienza",
@@ -87,7 +87,7 @@
     "topic": "scienza",
     "claim": "Il DNA umano non ha nulla in comune con quello delle banane.",
     "isTrue": false,
-    "fact": "Il DNA umano è per circa il 60% simile a quello delle banane."
+    "fact": "Condividiamo con le banane una parte notevole di geni di base (ordine di grandezza spesso citato intorno al 40–60%): non siamo ‘uguali’, ma non siamo nemmeno senza nulla in comune."
   },
   {
     "topic": "scienza",
@@ -99,7 +99,7 @@
     "topic": "scienza",
     "claim": "I due polmoni umani sono perfettamente simmetrici.",
     "isTrue": false,
-    "fact": "I polmoni non sono simmetrici: il sinistro ha un lobo in meno per lasciare spazio agli cuore."
+    "fact": "I polmoni non sono simmetrici: il sinistro ha un lobo in meno per lasciare spazio al cuore."
   },
   {
     "topic": "scienza",
@@ -133,15 +133,15 @@
   },
   {
     "topic": "storia",
-    "claim": "Nell’antica Roma non esisteva nulla di simile a un hamburger.",
-    "isTrue": false,
-    "fact": "A Roma esisteva già una forma di “burger”: la isicia omentata."
+    "claim": "Nell’antica Roma esistevano già i fast food di strada.",
+    "isTrue": true,
+    "fact": "A Roma i thermopolia servivano cibi caldi da asporto: i ‘bar’ e i take-away non sono un’invenzione moderna."
   },
   {
     "topic": "storia",
     "claim": "Il Faro di Alessandria era una delle Sette Meraviglie del mondo antico.",
     "isTrue": true,
-    "fact": "Il Faro di Alessandria era una delle Sette Meraviglie del mondo antico."
+    "fact": "Sì: il Faro di Alessandria, in Egitto, era una delle Sette Meraviglie del mondo antico."
   },
   {
     "topic": "storia",
@@ -231,7 +231,7 @@
     "topic": "storia",
     "claim": "La prima Olimpiade moderna si tenne ad Atene nel 1896.",
     "isTrue": true,
-    "fact": "La prima Olimpiade moderna si tenne ad Atene nel 1896."
+    "fact": "Sì: le prime Olimpiadi moderne si tennero ad Atene nel 1896, riprendendo lo spirito dei Giochi antichi."
   },
   {
     "topic": "storia",
@@ -241,9 +241,9 @@
   },
   {
     "topic": "scienza",
-    "claim": "Un anno su Mercurio dura meno di un giorno su Mercurio.",
-    "isTrue": false,
-    "fact": "Su Mercurio un giorno dura più di un anno: la rotazione è lentissima rispetto all’orbita."
+    "claim": "Su Mercurio un anno dura meno di un giorno.",
+    "isTrue": true,
+    "fact": "Su Mercurio la rotazione è lentissima: un giorno (alba–alba) dura più di un anno orbitale, quindi l’anno è più corto del giorno."
   },
   {
     "topic": "scienza",

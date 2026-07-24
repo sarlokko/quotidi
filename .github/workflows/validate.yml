@@ -26,6 +26,7 @@ jobs:
           test -f data/words-guesses.txt
           test -f data/riddles.json
           test -f data/jokes.json
+          test -f data/facts.json
           test -f data/picross.json
           test -f data/crosswords.json
           python3 - <<'PY'
@@ -33,6 +34,11 @@ jobs:
           json.loads(pathlib.Path("data/pokemon.json").read_text())
           json.loads(pathlib.Path("data/riddles.json").read_text())
           json.loads(pathlib.Path("data/jokes.json").read_text())
+          facts = json.loads(pathlib.Path("data/facts.json").read_text())
+          assert facts and all(
+              f.get("claim") and f.get("fact") and isinstance(f.get("isTrue"), bool)
+              for f in facts
+          )
           pic = json.loads(pathlib.Path("data/picross.json").read_text())
           assert pic and all(p.get("size") == 10 and len(p.get("grid", [])) == 100 for p in pic)
           xw = json.loads(pathlib.Path("data/crosswords.json").read_text())
