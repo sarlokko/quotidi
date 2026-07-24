@@ -32,7 +32,8 @@ jobs:
           python3 - <<'PY'
           import json, pathlib
           json.loads(pathlib.Path("data/pokemon.json").read_text())
-          json.loads(pathlib.Path("data/riddles.json").read_text())
+          riddles = json.loads(pathlib.Path("data/riddles.json").read_text())
+          assert riddles and all(r.get("q") and r.get("a") for r in riddles)
           json.loads(pathlib.Path("data/jokes.json").read_text())
           facts = json.loads(pathlib.Path("data/facts.json").read_text())
           assert facts and all(
