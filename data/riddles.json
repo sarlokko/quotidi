@@ -1,6 +1,6 @@
 [
   {
-    "q": "Più lavoro e più mi bagno. Chi sono?",
+    "q": "Quanto più asciuga, tanto più si bagna. Cos’è?",
     "a": "l’asciugamano",
     "aliases": [
       "asciugamano",
@@ -10,7 +10,7 @@
     ]
   },
   {
-    "q": "Più mi togli e più divento grande. Cosa sono?",
+    "q": "Più ne togli e più diventa grande. Cos’è?",
     "a": "il buco",
     "aliases": [
       "buco",
@@ -22,7 +22,7 @@
     ]
   },
   {
-    "q": "Mi butti quando ti servo, mi tieni quando non ti servo. Chi sono?",
+    "q": "La butti quando ti serve e la tieni quando non ti serve. Cos’è?",
     "a": "l’ancora",
     "aliases": [
       "ancora",
@@ -32,7 +32,7 @@
     ]
   },
   {
-    "q": "Ho città senza case, monti senza sassi, fiumi senz’acqua. Chi sono?",
+    "q": "Ha città senza case, monti senza pietre e fiumi senz’acqua. Cos’è?",
     "a": "la mappa",
     "aliases": [
       "mappa",
@@ -45,7 +45,7 @@
     ]
   },
   {
-    "q": "Parlo senza bocca, sento senza orecchie, non ho corpo ma do risposta al vento. Chi sono?",
+    "q": "Risponde senza che nessuno gli abbia parlato, e torna indietro se lo chiami. Cos’è?",
     "a": "l’eco",
     "aliases": [
       "eco",
@@ -54,7 +54,7 @@
     ]
   },
   {
-    "q": "Quanto più vivo, tanto più piccolo divento. Chi sono?",
+    "q": "Più vive e più diventa piccola, finché si spegne. Cos’è?",
     "a": "la candela",
     "aliases": [
       "candela",
@@ -64,20 +64,7 @@
     ]
   },
   {
-    "q": "Cammino tutto il giorno sotto di te e non ho gambe. Cosa lascio?",
-    "a": "i passi",
-    "aliases": [
-      "passi",
-      "passo",
-      "il passo",
-      "impronte",
-      "le impronte",
-      "impronta",
-      "l’impronta"
-    ]
-  },
-  {
-    "q": "Ti seguo di giorno, di notte sparisco; se corri corro, se ti fermi resto. Chi sono?",
+    "q": "Ti segue al sole e sparisce al buio: non ha gambe, ma sta ai tuoi piedi. Cos’è?",
     "a": "l’ombra",
     "aliases": [
       "ombra",
@@ -86,18 +73,19 @@
     ]
   },
   {
-    "q": "Ho la testa e la coda, ma non sono un animale. Chi sono?",
+    "q": "Ha testa e croce, ma non è una persona. Cos’è?",
     "a": "la moneta",
     "aliases": [
       "moneta",
       "una moneta",
       "soldino",
       "un soldino",
-      "monetine"
+      "monetine",
+      "le monetine"
     ]
   },
   {
-    "q": "Corro senza piedi, mormoro senza bocca, ho un letto ma non dormo. Chi sono?",
+    "q": "Corre senza gambe, ha un letto ma non dorme, e scende sempre a valle. Cos’è?",
     "a": "il fiume",
     "aliases": [
       "fiume",
@@ -109,7 +97,7 @@
     ]
   },
   {
-    "q": "Nasco grande, muoio piccolo; più lavoro, più mi accorcio. Chi sono?",
+    "q": "Nasce lunga e muore corta: più scrive, più si accorcia. Cos’è?",
     "a": "la matita",
     "aliases": [
       "matita",
@@ -119,7 +107,7 @@
     ]
   },
   {
-    "q": "Volano senza ali, piangono senza occhi. Cosa sono?",
+    "q": "Volano senza ali e, quando sono grigie, spesso piangono. Cosa sono?",
     "a": "le nuvole",
     "aliases": [
       "nuvole",
@@ -132,7 +120,7 @@
     ]
   },
   {
-    "q": "Mangio le parole e resto muto; se mi apri, viaggio lontano. Chi sono?",
+    "q": "Non parla, ma racconta storie; non cammina, ma ti porta lontano. Cos’è?",
     "a": "il libro",
     "aliases": [
       "libro",
@@ -144,7 +132,7 @@
     ]
   },
   {
-    "q": "Di giorno riposo in un angolo; di notte viaggio e non mi muovo. Chi sono?",
+    "q": "Di giorno resta nascosto; di notte arriva senza bussare e se ne va al risveglio. Cos’è?",
     "a": "il sogno",
     "aliases": [
       "sogno",
@@ -154,7 +142,7 @@
     ]
   },
   {
-    "q": "Ho denti in fila e non mordo mai. Chi sono?",
+    "q": "Ha cento denti e non morde: sistema i capelli. Cos’è?",
     "a": "il pettine",
     "aliases": [
       "pettine",
@@ -162,7 +150,7 @@
     ]
   },
   {
-    "q": "Porto il tetto in mano e non sono una casa. Chi sono?",
+    "q": "Quando piove lo apri sopra la testa; chiuso, sta in una custodia. Cos’è?",
     "a": "l’ombrello",
     "aliases": [
       "ombrello",
@@ -172,7 +160,7 @@
     ]
   },
   {
-    "q": "Piena di buchi eppure tengo l’acqua. Chi sono?",
+    "q": "È piena di buchi, eppure trattiene l’acqua. Cos’è?",
     "a": "la spugna",
     "aliases": [
       "spugna",
@@ -180,7 +168,7 @@
     ]
   },
   {
-    "q": "Mi spezzi e piangi tu, non io. Chi sono?",
+    "q": "La tagli e piangi tu, non lei. Cos’è?",
     "a": "la cipolla",
     "aliases": [
       "cipolla",
@@ -190,7 +178,7 @@
     ]
   },
   {
-    "q": "Ho le lancette e non cucio. Chi sono?",
+    "q": "Ha due braccia che girano e segna le ore senza parlare. Cos’è?",
     "a": "l’orologio",
     "aliases": [
       "orologio",
@@ -200,7 +188,7 @@
     ]
   },
   {
-    "q": "Ho una faccia e non parlo; se mi guardi, ti guardi. Chi sono?",
+    "q": "Ha una faccia e non parla; se lo guardi, vedi te stesso. Cos’è?",
     "a": "lo specchio",
     "aliases": [
       "specchio",
@@ -208,7 +196,7 @@
     ]
   },
   {
-    "q": "Cinque in una casa di pelle: escono al freddo. Chi sono?",
+    "q": "Cinque dita senza essere una mano: si mettono quando fa freddo. Cosa sono?",
     "a": "i guanti",
     "aliases": [
       "guanti",
@@ -218,24 +206,28 @@
     ]
   },
   {
-    "q": "Bianco al suolo, sparisco al sole; mi prendi in mano e mi perdi. Chi sono?",
+    "q": "Cade bianca d’inverno e, se la stringi, sparisce. Cos’è?",
     "a": "la neve",
     "aliases": [
       "neve",
       "fiocco di neve",
-      "fiocchi di neve",
+      "il fiocco di neve",
+      "fiocchi",
       "i fiocchi"
     ]
   },
   {
-    "q": "Entro senza bussare, riempio senza peso, sparisco se chiudi. Chi sono?",
+    "q": "Entra dalla finestra senza bussare, riempie la stanza e non pesa niente. Cos’è?",
     "a": "la luce",
     "aliases": [
-      "luce"
+      "luce",
+      "il sole",
+      "sole",
+      "raggio di sole"
     ]
   },
   {
-    "q": "Ho un occhio e non vedo; trascino un filo e unisco i pezzi. Chi sono?",
+    "q": "Ha un occhio solo e non vede; passa il filo e cuce. Cos’è?",
     "a": "l’ago",
     "aliases": [
       "ago",
@@ -243,7 +235,7 @@
     ]
   },
   {
-    "q": "Salto senza gambe, volo senza ali, scoppia e sparisco. Chi sono?",
+    "q": "Lo gonfi d’aria, vola senza ali e, se lo pungono, sparisce. Cos’è?",
     "a": "il palloncino",
     "aliases": [
       "palloncino",
@@ -253,14 +245,14 @@
     ]
   },
   {
-    "q": "Cambio faccia ogni settimana e di notte presto la luce altrui. Chi sono?",
+    "q": "Di notte illumina senza corrente e cambia forma nelle settimane. Cos’è?",
     "a": "la luna",
     "aliases": [
       "luna"
     ]
   },
   {
-    "q": "Bevo dai piedi, cresco verso il cielo, se mi ferisci non verso sangue. Chi sono?",
+    "q": "Beve con le radici, cresce verso il cielo e, se lo tagli, non versa sangue. Cos’è?",
     "a": "l’albero",
     "aliases": [
       "albero",
@@ -270,29 +262,28 @@
     ]
   },
   {
-    "q": "Siamo in tanti e nessuno conta; in mano diventiamo poco, al vento voliamo. Chi siamo?",
+    "q": "In spiaggia è ovunque: la stringi e ti scivola tra le dita. Cos’è?",
     "a": "la sabbia",
     "aliases": [
       "sabbia",
       "rena",
-      "la rena",
-      "granelli di sabbia",
-      "i granelli"
+      "la rena"
     ]
   },
   {
-    "q": "Abbraccio i fogli senza braccia e sto piegato a ferro. Chi sono?",
+    "q": "Tiene uniti i fogli senza colla: piccola, di metallo, piegata. Cos’è?",
     "a": "la graffetta",
     "aliases": [
       "graffetta",
       "una graffetta",
       "fermaglio",
       "il fermaglio",
-      "clip"
+      "clip",
+      "una clip"
     ]
   },
   {
-    "q": "Cancello senza avere denti né lingua. Chi sono?",
+    "q": "Se sbagli a matita, lei cancella senza mangiare la carta. Cos’è?",
     "a": "la gomma",
     "aliases": [
       "gomma",
@@ -303,7 +294,7 @@
     ]
   },
   {
-    "q": "Cambio pelle ogni mattina e porto voci stampate. Chi sono?",
+    "q": "Ogni mattina porta notizie fresche, ma non ha voce. Cos’è?",
     "a": "il giornale",
     "aliases": [
       "giornale",
@@ -313,17 +304,19 @@
     ]
   },
   {
-    "q": "Un dito mi piega e la notte diventa giorno in stanza. Chi sono?",
+    "q": "Lo schiacci sul muro e la stanza si illumina. Cos’è?",
     "a": "l’interruttore",
     "aliases": [
       "interruttore",
       "un interruttore",
-      "pulsante della luce",
-      "interruttore della luce"
+      "pulsante",
+      "il pulsante",
+      "interruttore della luce",
+      "pulsante della luce"
     ]
   },
   {
-    "q": "Giro senza camminare e muovo l’aria senza essere vento. Chi sono?",
+    "q": "Gira le pale e muove l’aria, ma non è un elicottero. Cos’è?",
     "a": "il ventilatore",
     "aliases": [
       "ventilatore",
@@ -331,7 +324,7 @@
     ]
   },
   {
-    "q": "Nasco dallo sfregare, vivo un attimo, muoio carbone. Chi sono?",
+    "q": "Lo sfreghi e nasce una fiamma corta; poi resta carbone. Cos’è?",
     "a": "il fiammifero",
     "aliases": [
       "fiammifero",
@@ -341,7 +334,7 @@
     ]
   },
   {
-    "q": "Salgo dal pentolone come una nuvola, ma non sono nel cielo. Chi sono?",
+    "q": "Sale dalla pentola bollente come una nuvola, ma resta in cucina. Cos’è?",
     "a": "il vapore",
     "aliases": [
       "vapore",
@@ -350,7 +343,7 @@
     ]
   },
   {
-    "q": "Salgo e scendo nella stessa gabbia, senza scale. Chi sono?",
+    "q": "Sale e scende in casa senza scale, chiuso in una cabina. Cos’è?",
     "a": "l’ascensore",
     "aliases": [
       "ascensore",
@@ -358,7 +351,7 @@
     ]
   },
   {
-    "q": "Ho corde e non lego; un collo senza testa; se mi pizzichi, parlo in musica. Chi sono?",
+    "q": "Ha sei corde sul legno: se le tocchi, suona. Cos’è?",
     "a": "la chitarra",
     "aliases": [
       "chitarra",
@@ -366,7 +359,7 @@
     ]
   },
   {
-    "q": "Apro la bocca sul tetto e canto senza parole. Chi sono?",
+    "q": "Sta sul campanile, apre la bocca e canta senza parole. Cos’è?",
     "a": "la campana",
     "aliases": [
       "campana",
@@ -376,7 +369,7 @@
     ]
   },
   {
-    "q": "Comparo solo se pioggia e sole si stringono la mano. Chi sono?",
+    "q": "Compare in cielo solo quando pioggia e sole si incontrano. Cos’è?",
     "a": "l’arcobaleno",
     "aliases": [
       "arcobaleno",
@@ -384,28 +377,29 @@
     ]
   },
   {
-    "q": "Lascio tracce bianche che uno straccio uccide. Chi sono?",
+    "q": "Sulla lavagna lascia segni bianchi; uno straccio li fa sparire. Cos’è?",
     "a": "il gesso",
     "aliases": [
       "gesso",
       "un gesso",
       "gessetto",
-      "il gessetto"
+      "il gessetto",
+      "un gessetto"
     ]
   },
   {
-    "q": "Ti abbraccio tutta la notte e non ho braccia. Chi sono?",
+    "q": "Di notte ti tiene al caldo sul letto, ma non ha braccia. Cos’è?",
     "a": "la coperta",
     "aliases": [
       "coperta",
       "una coperta",
       "piumone",
       "il piumone",
-      "duvet"
+      "un piumone"
     ]
   },
   {
-    "q": "Prima striscio, poi dormo chiuso, poi rubo i colori ai fiori. Chi sono?",
+    "q": "Prima striscia, poi si chiude in una custodia, poi vola colorata. Cos’è?",
     "a": "la farfalla",
     "aliases": [
       "farfalla",
@@ -415,7 +409,7 @@
     ]
   },
   {
-    "q": "Due sorelle si baciano quando tagliano. Chi sono?",
+    "q": "Due lame sorelle: si aprono, si chiudono e tagliano la carta. Cosa sono?",
     "a": "le forbici",
     "aliases": [
       "forbici",
@@ -426,7 +420,7 @@
     ]
   },
   {
-    "q": "Viaggio chiuso in una busta e apro un dialogo a distanza. Chi sono?",
+    "q": "La scrivi, la pieghi, la metti in busta e viaggia da sola. Cos’è?",
     "a": "la lettera",
     "aliases": [
       "lettera",
@@ -437,44 +431,47 @@
     ]
   },
   {
-    "q": "Piegato taccio in tasca; aperto asciugo senza essere un asciugamano. Chi sono?",
+    "q": "In tasca è piegato; aperto, asciuga il naso. Cos’è?",
     "a": "il fazzoletto",
     "aliases": [
       "fazzoletto",
       "un fazzoletto",
-      "kleenex"
+      "fazzoletti",
+      "kleenex",
+      "un kleenex"
     ]
   },
   {
-    "q": "Ho i rebbi e non sono un mostro: raccolgo senza mani. Chi sono?",
+    "q": "A tavola infilza pasta e verdura con i rebbi. Cos’è?",
     "a": "la forchetta",
     "aliases": [
       "forchetta",
-      "una forchetta",
-      "forchette"
+      "una forchetta"
     ]
   },
   {
-    "q": "Cerchio al dito, a volte promessa, a volte solo ornamento. Chi sono?",
+    "q": "Cerchio di metallo al dito: a volte è una promessa. Cos’è?",
     "a": "l’anello",
     "aliases": [
       "anello",
       "un anello",
       "fede",
-      "la fede"
+      "la fede",
+      "una fede"
     ]
   },
   {
-    "q": "Piccola di metallo, grande di potere: senza di me resti fuori. Chi sono?",
+    "q": "Piccola di metallo, apre la porta di casa. Cos’è?",
     "a": "la chiave",
     "aliases": [
       "chiave",
       "una chiave",
-      "chiavi"
+      "chiavi",
+      "le chiavi"
     ]
   },
   {
-    "q": "Cresco dopo la pioggia con un cappello che non mi protegge. Chi sono?",
+    "q": "Dopo la pioggia spunta nel bosco col cappello tondo. Cos’è?",
     "a": "il fungo",
     "aliases": [
       "fungo",
@@ -484,7 +481,7 @@
     ]
   },
   {
-    "q": "Ho una schiena e una lama, denti senza bocca: divido ciò che incontro. Chi sono?",
+    "q": "Ha la lama e taglia il pane, ma non è un’arma. Cos’è?",
     "a": "il coltello",
     "aliases": [
       "coltello",
@@ -492,18 +489,19 @@
     ]
   },
   {
-    "q": "In strada raccolgo segreti piegati: ho una fessura e un tettuccio. Chi sono?",
+    "q": "In strada aspetta le lettere: ha una fessura e spesso un tettuccio. Cos’è?",
     "a": "la cassetta della posta",
     "aliases": [
       "cassetta della posta",
       "cassetta postale",
+      "la cassetta postale",
       "buca delle lettere",
       "la buca delle lettere",
       "cassetta delle lettere"
     ]
   },
   {
-    "q": "Quattro scarpe che non camminano, un cuore che ronza: mi guidi eppure non sono un cavallo. Chi sono?",
+    "q": "Ha quattro ruote e ti porta via, ma non è un cavallo. Cos’è?",
     "a": "l’automobile",
     "aliases": [
       "automobile",
@@ -515,25 +513,24 @@
     ]
   },
   {
-    "q": "Mi stringi e giri: senza di me il passaggio resta muto. Chi sono?",
-    "a": "la maniglia",
+    "q": "Ha lettere senza essere un libro, e spazi senza essere una casa. Cos’è?",
+    "a": "la tastiera",
     "aliases": [
-      "maniglia",
-      "una maniglia",
-      "pomello",
-      "il pomello"
+      "tastiera",
+      "una tastiera",
+      "tastiera del computer"
     ]
   },
   {
-    "q": "Spazzo il mondo e non ho mani: mi presti le tue. Chi sono?",
-    "a": "la scopa",
+    "q": "Bianco fuori, giallo dentro: se lo rompi a colazione, non si ripara. Cos’è?",
+    "a": "l’uovo",
     "aliases": [
-      "scopa",
-      "una scopa"
+      "uovo",
+      "un uovo"
     ]
   },
   {
-    "q": "Collo stretto, pancia piena: mi stappi e verso senza parlare. Chi sono?",
+    "q": "Ha il collo stretto e la pancia piena: se la stappi, versa. Cos’è?",
     "a": "la bottiglia",
     "aliases": [
       "bottiglia",
@@ -541,7 +538,7 @@
     ]
   },
   {
-    "q": "Vado in giro con la casa sulla schiena. Chi sono?",
+    "q": "Cammina lenta col guscio sulla schiena. Cos’è?",
     "a": "la lumaca",
     "aliases": [
       "lumaca",
@@ -552,14 +549,16 @@
     ]
   },
   {
-    "q": "Cado senza farmi male; riempio i fossi e bagno i tetti. Chi sono?",
+    "q": "Cade dal cielo, bagna i tetti e riempie le pozzanghere. Cos’è?",
     "a": "la pioggia",
     "aliases": [
-      "pioggia"
+      "pioggia",
+      "acquazzone",
+      "un acquazzone"
     ]
   },
   {
-    "q": "Nero quando mi compri, rosso quando mi usi, grigio quando mi butti. Chi sono?",
+    "q": "Nero da nuovo, rosso quando brucia, grigio quando è finito. Cos’è?",
     "a": "il carbone",
     "aliases": [
       "carbone",
@@ -568,7 +567,7 @@
     ]
   },
   {
-    "q": "Dò calore senza abbracciare e luce senza occhi: mi nutri di legno. Chi sono?",
+    "q": "Scalda e illumina, mangia il legno e ha paura dell’acqua. Cos’è?",
     "a": "il fuoco",
     "aliases": [
       "fuoco",
@@ -577,7 +576,7 @@
     ]
   },
   {
-    "q": "Sono leggero come una piuma, eppure nessuno mi tiene a lungo. Chi sono?",
+    "q": "È leggerissimo e nessuno lo trattiene a lungo: lo fai senza pensarci. Cos’è?",
     "a": "il respiro",
     "aliases": [
       "respiro",
@@ -589,7 +588,7 @@
     ]
   },
   {
-    "q": "Mi alzi e mi abbassi tra due vetri: filtro il sole senza essere una nuvola. Chi sono?",
+    "q": "Si alza e si abbassa alla finestra per filtrare il sole. Cos’è?",
     "a": "la tenda",
     "aliases": [
       "tenda",
@@ -602,7 +601,7 @@
     ]
   },
   {
-    "q": "Seguo una riga d’acciaio e porto folle senza volare. Chi sono?",
+    "q": "Corre sui binari e porta persone senza volare. Cos’è?",
     "a": "il treno",
     "aliases": [
       "treno",
@@ -610,26 +609,24 @@
     ]
   },
   {
-    "q": "Mi girano intorno e da me prendono calore e giorno. Chi sono?",
+    "q": "Ci dà luce e calore di giorno; i pianeti gli girano intorno. Cos’è?",
     "a": "il sole",
     "aliases": [
       "sole"
     ]
   },
   {
-    "q": "Chi mi fa, non mi vuole; chi mi compra, non mi usa; chi mi usa, non mi vede. Chi sono?",
+    "q": "Chi la fa non la vuole, chi la compra non la usa, chi la usa non la vede. Cos’è?",
     "a": "la bara",
     "aliases": [
       "bara",
       "una bara",
       "cassa da morto",
-      "la cassa da morto",
-      "cassa",
-      "una cassa"
+      "la cassa da morto"
     ]
   },
   {
-    "q": "Ho le ali e non volo, ho la schiena e non cammino: sto sul naso. Chi sono?",
+    "q": "Due vetri sul naso: senza di loro molti non leggono. Cosa sono?",
     "a": "gli occhiali",
     "aliases": [
       "occhiali",
@@ -637,6 +634,94 @@
       "un paio di occhiali",
       "lenti",
       "le lenti"
+    ]
+  },
+  {
+    "q": "Camminando ne lasci uno dopo l’altro, ma non li puoi raccogliere. Cosa sono?",
+    "a": "i passi",
+    "aliases": [
+      "passi",
+      "passo",
+      "il passo",
+      "impronte",
+      "le impronte",
+      "impronta"
+    ]
+  },
+  {
+    "q": "Esce di casa bagnato e torna asciutto. Cos’è?",
+    "a": "il bucato",
+    "aliases": [
+      "bucato",
+      "i panni",
+      "panni",
+      "panni stesi",
+      "i panni stesi"
+    ]
+  },
+  {
+    "q": "Trentadue soldati bianchi: se ne cade uno, ti manca. Cosa sono?",
+    "a": "i denti",
+    "aliases": [
+      "denti",
+      "dente",
+      "un dente"
+    ]
+  },
+  {
+    "q": "Quello che puoi spezzare senza toccarlo. Cos’è?",
+    "a": "il silenzio",
+    "aliases": [
+      "silenzio",
+      "un silenzio",
+      "la quiete",
+      "quiete"
+    ]
+  },
+  {
+    "q": "Appartiene a te, ma gli altri lo usano più di te. Cos’è?",
+    "a": "il nome",
+    "aliases": [
+      "nome",
+      "il tuo nome",
+      "nome proprio"
+    ]
+  },
+  {
+    "q": "Nasce dall’acqua e ha paura dell’acqua: se lo bagni, si scioglie. Cos’è?",
+    "a": "il sale",
+    "aliases": [
+      "sale"
+    ]
+  },
+  {
+    "q": "Piccolo, appuntito, ha la testa tonda: serve a tenere uniti i tessuti. Cos’è?",
+    "a": "lo spillo",
+    "aliases": [
+      "spillo",
+      "uno spillo",
+      "spilla",
+      "una spilla",
+      "spillo da sarta"
+    ]
+  },
+  {
+    "q": "Lo tiri e si allunga; lo lasci e torna come prima. Cos’è?",
+    "a": "l’elastico",
+    "aliases": [
+      "elastico",
+      "un elastico"
+    ]
+  },
+  {
+    "q": "Ha quattro gambe al mattino, due a mezzogiorno e tre alla sera. Cos’è?",
+    "a": "l’uomo",
+    "aliases": [
+      "uomo",
+      "un uomo",
+      "persona",
+      "la persona",
+      "essere umano"
     ]
   }
 ]
