@@ -1,6 +1,6 @@
 import { getDailyKey, hashString, loadState, saveState } from "./daily.js";
 
-const STORAGE_KEY = "quotid-fact-v2";
+const STORAGE_KEY = "quotid-fact-v3";
 
 let fact = null;
 let locked = false;
@@ -15,7 +15,7 @@ function pickFact(dayKey, list) {
   const [y, m, d] = dayKey.split("-").map(Number);
   const ordinal = Math.floor(Date.UTC(y, m - 1, d) / 86400000);
   const order = Array.from({ length: n }, (_, i) => i);
-  let h = hashString(`fact-deck-v2:${n}`);
+  let h = hashString(`fact-deck-v3:${n}`);
   for (let i = n - 1; i > 0; i--) {
     h = (Math.imul(h, 1664525) + 1013904223) >>> 0;
     const j = h % (i + 1);
@@ -32,10 +32,12 @@ function topicLabel(topic) {
 
 export async function initFact(onDone) {
   onComplete = onDone;
-  const list = await (await fetch("data/facts.json")).json();
+  const list = await (await fetch("data/facts.json?v=20260724fact")).json();
   fact = pickFact(getDailyKey(), list);
   if (!fact?.claim || !fact?.fact || typeof fact.isTrue !== "boolean") {
-    throw new Error("Curiosità del giorno non valida");
+    setStatus("Curiosità non disponibile, riprova più tardi.", "lose");
+    console.error("Curiosità del giorno non valida", fact);
+    return;
   }
 
   const saved = loadState(STORAGE_KEY, getDailyKey());

@@ -9,7 +9,7 @@ export const GAME_META = [
   { id: "picross", label: "Picross", icon: "⬛", key: "quotid-picross-10" },
   { id: "crossword", label: "Cruci", icon: "🔠", key: "quotid-crossword-v4" },
   { id: "movie", label: "Film", icon: "🎬", key: "quotid-movie" },
-  { id: "fact", label: "Curiosità", icon: "💡", key: "quotid-fact-v2" },
+  { id: "fact", label: "Curiosità", icon: "💡", key: "quotid-fact-v3" },
   { id: "globle", label: "Paese", icon: "🌍", key: "quotid-globle-v2" },
   { id: "riddle", label: "Indovinello", icon: "🧩", key: "quotid-riddle-v5" },
   { id: "pokemon", label: "Pokémon", icon: "⚡", key: "quotid-pokemon" },
@@ -131,7 +131,7 @@ export function scoreGame(id, dayKey = getDailyKey()) {
       return { status: "lost", points: 2, tile: "🟧" };
     }
     case "fact": {
-      const s = state("quotid-fact-v2", dayKey);
+      const s = state("quotid-fact-v3", dayKey);
       if (!s?.locked) return { status: "empty", points: 0, tile: "⬜" };
       return s.won
         ? { status: "won", points: 10, tile: "🟩" }
