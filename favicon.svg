@@ -1,10 +1,8 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Quotidì">
   <rect width="64" height="64" rx="14" fill="#0f1117"/>
-  <text x="32" y="30" text-anchor="middle" font-family="Arial Rounded MT Bold, Arial, sans-serif" font-size="12" font-weight="700" fill="#eef1ff">Quotidì</text>
-  <rect x="10" y="36" width="44" height="12" rx="6" fill="#1f2433"/>
-  <circle cx="18" cy="42" r="2" fill="#4fd1a3"/>
-  <circle cx="26" cy="42" r="2" fill="#6c8cff"/>
-  <circle cx="34" cy="42" r="2" fill="#c084fc"/>
-  <circle cx="42" cy="42" r="2" fill="#ffb347"/>
-  <path d="M22 52c4 3.2 16 3.2 20 0" fill="none" stroke="#4fd1a3" stroke-width="2.2" stroke-linecap="round"/>
+  <text x="32" y="28" text-anchor="middle" font-family="Arial Rounded MT Bold, Arial, sans-serif" font-size="11" font-weight="700" fill="#eef1ff">Quotidì</text>
+  <circle cx="32" cy="42" r="7" fill="none" stroke="#ffb347" stroke-width="2"/>
+  <path d="M24 42h-3M43 42h3" stroke="#ffb347" stroke-width="2" stroke-linecap="round"/>
+  <circle cx="18" cy="42" r="1.6" fill="#4fd1a3"/>
+  <circle cx="46" cy="42" r="1.6" fill="#6c8cff"/>
 </svg>
