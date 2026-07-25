@@ -830,6 +830,33 @@ h2 {
   opacity: 0.9;
 }
 
+.guess-list .dish-guess-name {
+  font-weight: 700;
+}
+
+.guess-list .dish-guess-meta {
+  display: block;
+  margin-top: 0.2rem;
+  font-size: 0.85rem;
+  color: var(--muted);
+  font-weight: 500;
+}
+
+.dish-heat {
+  font-weight: 700;
+}
+
+.heat-exact,
+.heat-boiling { color: #ff6b4a; }
+.heat-fire { color: #ff8f4a; }
+.heat-ember { color: #f0b429; }
+.heat-warm { color: #7eb6ff; }
+.heat-cold { color: #8aa0c2; }
+
+.dish-continent {
+  color: var(--accent-2);
+}
+
 .text-input {
   width: 100%;
   padding: 0.85rem 1rem;
