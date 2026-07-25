@@ -49,3 +49,4 @@ Se il codice `quotidi` è già preso, creane un altro e aggiorna `data-goatcount
 
 - Dati Pokémon ispirati a [lecartepokemondiluca](https://github.com/sarlokko/lecartepokemondiluca)
 - Dizionario parole da [wordle-it](https://github.com/pietroppeter/wordle-it)
+- Foto dei piatti da [Wikimedia Commons](https://commons.wikimedia.org) (licenze libere)
