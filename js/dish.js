@@ -119,7 +119,7 @@ function buildGuess(country) {
 export async function initDish(onDone) {
   onComplete = onDone;
   const [list, countryList] = await Promise.all([
-    fetch("data/dishes.json?v=20260725dish2").then((r) => r.json()),
+    fetch("data/dishes.json?v=20260726heat").then((r) => r.json()),
     fetch("data/countries.json").then((r) => r.json()),
   ]);
   countries = countryList;
@@ -165,11 +165,17 @@ function setStatus(text, kind = "") {
   el.className = `game-status${kind ? ` ${kind}` : ""}`;
 }
 
+function heatPct(km) {
+  if (!Number.isFinite(km)) return 0;
+  if (km <= 0) return 100;
+  return Math.max(4, Math.min(99, Math.round(100 - (km / 20000) * 100)));
+}
+
 function formatGuessMeta(g) {
   const parts = [];
   if (g.heat) parts.push(`<span class="dish-heat ${g.heatCls || ""}">${g.heat}</span>`);
   if (g.sameContinent && g.continent) {
-    parts.push(`<span class="dish-continent">stesso continente (${g.continent})</span>`);
+    parts.push(`<span class="dish-continent">✓ continente ${g.continent}</span>`);
   }
   if (Number.isFinite(g.km)) {
     parts.push(`<span class="dish-km">${g.km.toLocaleString("it-IT")} km</span>`);
@@ -188,7 +194,7 @@ function render() {
   const answer = document.getElementById("dish-answer");
   if (!img || !blurb || !list) return;
 
-  img.src = `${dish.image}${dish.image.includes("?") ? "&" : "?"}v=20260725dish2`;
+  img.src = `${dish.image}${dish.image.includes("?") ? "&" : "?"}v=20260726heat`;
   img.alt = locked ? `${dish.dish} — ${dish.country}` : "Piatto del giorno da indovinare";
   blurb.textContent = dish.blurb;
 
@@ -199,10 +205,17 @@ function render() {
   list.innerHTML = guesses
     .map((g) => {
       const ok = matchCountry(g);
-      const meta = ok ? "" : formatGuessMeta(g);
-      return `<li class="${ok ? "is-win" : "is-miss"}">
+      if (ok) {
+        return `<li class="dish-guess is-win">
+          <span class="dish-guess-name">${g.name || g}</span>
+          <span class="dish-guess-meta"><span class="dish-heat heat-exact">Esatto</span></span>
+        </li>`;
+      }
+      const pct = heatPct(g.km);
+      return `<li class="dish-guess is-miss">
         <span class="dish-guess-name">${g.name || g}</span>
-        ${meta ? `<span class="dish-guess-meta">${meta}</span>` : ""}
+        <span class="dish-guess-meta">${formatGuessMeta(g)}</span>
+        <span class="dish-heat-bar" aria-hidden="true"><i style="width:${pct}%"></i></span>
       </li>`;
     })
     .join("");

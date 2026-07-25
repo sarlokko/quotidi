@@ -8,7 +8,7 @@ import { initCrossword, isCrosswordComplete } from "./crossword.js?v=20260722xw2
 import { initMovie, isMovieComplete } from "./movie.js";
 import { initFact, isFactComplete } from "./fact.js?v=20260724fact";
 import { initGloble, isGlobleComplete } from "./globle.js";
-import { initDish, isDishComplete } from "./dish.js?v=20260725dish";
+import { initDish, isDishComplete } from "./dish.js?v=20260726heat";
 import { initJoke, isJokeComplete } from "./joke.js";
 
 const GAMES = [
