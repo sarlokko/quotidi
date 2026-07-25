@@ -37,6 +37,7 @@ jobs:
           assert len(dishes) >= 30
           assert all(
               d.get("dish") and d.get("country") and d.get("blurb") and d.get("image")
+              and d.get("continent") in {"Europa", "Americhe", "Asia", "Africa", "Oceania"}
               and pathlib.Path(d["image"]).is_file()
               for d in dishes
           )

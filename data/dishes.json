@@ -8,7 +8,8 @@
     "aliases": [
       "italy",
       "italiano"
-    ]
+    ],
+    "continent": "Europa"
   },
   {
     "id": "croissant",
@@ -18,7 +19,8 @@
     "image": "img/dishes/croissant.jpg",
     "aliases": [
       "france"
-    ]
+    ],
+    "continent": "Europa"
   },
   {
     "id": "paella",
@@ -30,7 +32,8 @@
       "spain",
       "españa",
       "espana"
-    ]
+    ],
+    "continent": "Europa"
   },
   {
     "id": "moussaka",
@@ -40,7 +43,8 @@
     "image": "img/dishes/moussaka.jpg",
     "aliases": [
       "greece"
-    ]
+    ],
+    "continent": "Europa"
   },
   {
     "id": "schnitzel",
@@ -48,7 +52,8 @@
     "country": "Austria",
     "blurb": "Fetta di carne impanata e fritta, spesso con una fetta di limone.",
     "image": "img/dishes/schnitzel.jpg",
-    "aliases": []
+    "aliases": [],
+    "continent": "Europa"
   },
   {
     "id": "bratwurst",
@@ -59,7 +64,8 @@
     "aliases": [
       "germany",
       "deutschland"
-    ]
+    ],
+    "continent": "Europa"
   },
   {
     "id": "fishchips",
@@ -74,7 +80,8 @@
       "great britain",
       "england",
       "united kingdom"
-    ]
+    ],
+    "continent": "Europa"
   },
   {
     "id": "pastel",
@@ -84,7 +91,8 @@
     "image": "img/dishes/pastel.jpg",
     "aliases": [
       "portugal"
-    ]
+    ],
+    "continent": "Europa"
   },
   {
     "id": "moules",
@@ -94,7 +102,8 @@
     "image": "img/dishes/moules.jpg",
     "aliases": [
       "belgium"
-    ]
+    ],
+    "continent": "Europa"
   },
   {
     "id": "stroopwafel",
@@ -106,7 +115,8 @@
       "olanda",
       "netherlands",
       "holland"
-    ]
+    ],
+    "continent": "Europa"
   },
   {
     "id": "meatballs",
@@ -116,7 +126,8 @@
     "image": "img/dishes/meatballs.jpg",
     "aliases": [
       "sweden"
-    ]
+    ],
+    "continent": "Europa"
   },
   {
     "id": "pierogi",
@@ -126,7 +137,8 @@
     "image": "img/dishes/pierogi.jpg",
     "aliases": [
       "poland"
-    ]
+    ],
+    "continent": "Europa"
   },
   {
     "id": "goulash",
@@ -136,7 +148,8 @@
     "image": "img/dishes/goulash.jpg",
     "aliases": [
       "hungary"
-    ]
+    ],
+    "continent": "Europa"
   },
   {
     "id": "irishstew",
@@ -146,7 +159,8 @@
     "image": "img/dishes/irishstew.jpg",
     "aliases": [
       "ireland"
-    ]
+    ],
+    "continent": "Europa"
   },
   {
     "id": "fondue",
@@ -156,7 +170,8 @@
     "image": "img/dishes/fondue.jpg",
     "aliases": [
       "switzerland"
-    ]
+    ],
+    "continent": "Europa"
   },
   {
     "id": "borscht",
@@ -166,7 +181,8 @@
     "image": "img/dishes/borscht.jpg",
     "aliases": [
       "ukraine"
-    ]
+    ],
+    "continent": "Europa"
   },
   {
     "id": "kebab",
@@ -178,7 +194,8 @@
       "turkey",
       "turkiye",
       "türkiye"
-    ]
+    ],
+    "continent": "Europa"
   },
   {
     "id": "sarmale",
@@ -186,7 +203,8 @@
     "country": "Romania",
     "blurb": "Involtini di cavolo ripieni di carne e riso.",
     "image": "img/dishes/sarmale.jpg",
-    "aliases": []
+    "aliases": [],
+    "continent": "Europa"
   },
   {
     "id": "svickova",
@@ -201,7 +219,8 @@
       "czech",
       "czech republic",
       "repubblica ceca"
-    ]
+    ],
+    "continent": "Europa"
   },
   {
     "id": "burger",
@@ -215,7 +234,8 @@
       "united states",
       "stati uniti d'america",
       "us"
-    ]
+    ],
+    "continent": "Americhe"
   },
   {
     "id": "taco",
@@ -225,7 +245,8 @@
     "image": "img/dishes/taco.jpg",
     "aliases": [
       "mexico"
-    ]
+    ],
+    "continent": "Americhe"
   },
   {
     "id": "feijoada",
@@ -235,7 +256,8 @@
     "image": "img/dishes/feijoada.jpg",
     "aliases": [
       "brazil"
-    ]
+    ],
+    "continent": "Americhe"
   },
   {
     "id": "asado",
@@ -243,7 +265,8 @@
     "country": "Argentina",
     "blurb": "Grigliata di carni cotte lentamente sulla brace.",
     "image": "img/dishes/asado.jpg",
-    "aliases": []
+    "aliases": [],
+    "continent": "Americhe"
   },
   {
     "id": "ceviche",
@@ -254,7 +277,8 @@
     "aliases": [
       "peru",
       "perù"
-    ]
+    ],
+    "continent": "Americhe"
   },
   {
     "id": "poutine",
@@ -262,7 +286,8 @@
     "country": "Canada",
     "blurb": "Patatine fritte con cagliata di formaggio e salsa gravy.",
     "image": "img/dishes/poutine.jpg",
-    "aliases": []
+    "aliases": [],
+    "continent": "Americhe"
   },
   {
     "id": "ropa",
@@ -270,7 +295,8 @@
     "country": "Cuba",
     "blurb": "Manzo sfilacciato in salsa di pomodoro, peperoni e cipolle.",
     "image": "img/dishes/ropa.jpg",
-    "aliases": []
+    "aliases": [],
+    "continent": "Americhe"
   },
   {
     "id": "bandeja",
@@ -280,7 +306,8 @@
     "image": "img/dishes/bandeja.jpg",
     "aliases": [
       "columbia"
-    ]
+    ],
+    "continent": "Americhe"
   },
   {
     "id": "empanada",
@@ -290,7 +317,8 @@
     "image": "img/dishes/empanada.jpg",
     "aliases": [
       "chile"
-    ]
+    ],
+    "continent": "Americhe"
   },
   {
     "id": "arepa",
@@ -298,7 +326,8 @@
     "country": "Venezuela",
     "blurb": "Focaccia di farina di mais, spesso farcita.",
     "image": "img/dishes/arepa.jpg",
-    "aliases": []
+    "aliases": [],
+    "continent": "Americhe"
   },
   {
     "id": "sushi",
@@ -308,7 +337,8 @@
     "image": "img/dishes/sushi.jpg",
     "aliases": [
       "japan"
-    ]
+    ],
+    "continent": "Asia"
   },
   {
     "id": "cantonese",
@@ -319,7 +349,8 @@
     "aliases": [
       "china",
       "prc"
-    ]
+    ],
+    "continent": "Asia"
   },
   {
     "id": "biryani",
@@ -327,7 +358,8 @@
     "country": "India",
     "blurb": "Riso speziato cotto con carne o verdure e aromi intensi.",
     "image": "img/dishes/biryani.jpg",
-    "aliases": []
+    "aliases": [],
+    "continent": "Asia"
   },
   {
     "id": "padthai",
@@ -338,7 +370,8 @@
     "aliases": [
       "thailand",
       "tailandia"
-    ]
+    ],
+    "continent": "Asia"
   },
   {
     "id": "bibimbap",
@@ -351,7 +384,8 @@
       "korea",
       "south korea",
       "corea sud"
-    ]
+    ],
+    "continent": "Asia"
   },
   {
     "id": "pho",
@@ -361,7 +395,8 @@
     "image": "img/dishes/pho.jpg",
     "aliases": [
       "viet nam"
-    ]
+    ],
+    "continent": "Asia"
   },
   {
     "id": "nasigoreng",
@@ -369,7 +404,8 @@
     "country": "Indonesia",
     "blurb": "Riso fritto speziato, spesso con uovo e ketchup di peperoncino.",
     "image": "img/dishes/nasigoreng.jpg",
-    "aliases": []
+    "aliases": [],
+    "continent": "Asia"
   },
   {
     "id": "hummus",
@@ -379,7 +415,8 @@
     "image": "img/dishes/hummus.jpg",
     "aliases": [
       "lebanon"
-    ]
+    ],
+    "continent": "Asia"
   },
   {
     "id": "adobo",
@@ -389,18 +426,21 @@
     "image": "img/dishes/adobo.jpg",
     "aliases": [
       "philippines"
-    ]
+    ],
+    "continent": "Asia"
   },
   {
     "id": "nasilemak",
     "dish": "Nasi lemak",
-    "country": "Malaysia",
+    "country": "Malesia",
     "blurb": "Riso al cocco servito con sambal, arachidi e uovo.",
     "image": "img/dishes/nasilemak.jpg",
     "aliases": [
-      "malesia",
-      "malaya"
-    ]
+      "malaya",
+      "malaysia",
+      "malesia"
+    ],
+    "continent": "Asia"
   },
   {
     "id": "chilicrab",
@@ -410,6 +450,7 @@
     "image": "img/dishes/chilicrab.jpg",
     "aliases": [
       "singapour"
-    ]
+    ],
+    "continent": "Asia"
   }
 ]

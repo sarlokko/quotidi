@@ -1,11 +1,11 @@
 import { getDailyKey, hashString, loadState, saveState, normalizeText } from "./daily.js";
 
-const STORAGE_KEY = "quotid-dish-v1";
+const STORAGE_KEY = "quotid-dish-v2";
 const MAX = 6;
 
 let dish = null;
 let countries = [];
-let guesses = []; // strings
+let guesses = []; // { name, km, heat, sameContinent }
 let locked = false;
 let won = false;
 let onComplete = null;
@@ -27,18 +27,40 @@ function pickDish(dayKey, list) {
   return list[order[((ordinal % n) + n) % n]];
 }
 
+function toRad(d) {
+  return (d * Math.PI) / 180;
+}
+
+function haversineKm(a, b) {
+  const R = 6371;
+  const dLat = toRad(b.lat - a.lat);
+  const dLng = toRad(b.lng - a.lng);
+  const la1 = toRad(a.lat);
+  const la2 = toRad(b.lat);
+  const h =
+    Math.sin(dLat / 2) ** 2 +
+    Math.cos(la1) * Math.cos(la2) * Math.sin(dLng / 2) ** 2;
+  return Math.round(2 * R * Math.asin(Math.sqrt(h)));
+}
+
+/** Scala “acqua / fuochino / fuoco” in base alla distanza. */
+function heatFromKm(km) {
+  if (km <= 0) return { key: "exact", label: "Esatto", cls: "heat-exact" };
+  if (km < 400) return { key: "boiling", label: "Bollente", cls: "heat-boiling" };
+  if (km < 1000) return { key: "fire", label: "Fuoco", cls: "heat-fire" };
+  if (km < 2500) return { key: "ember", label: "Fuochino", cls: "heat-ember" };
+  if (km < 5000) return { key: "warm", label: "Acqua fuocherello", cls: "heat-warm" };
+  return { key: "cold", label: "Acqua", cls: "heat-cold" };
+}
+
 function countryAliases(name) {
   const fromList = countries.find((c) => normalizeText(c.name) === normalizeText(name));
   const extra = dish?.aliases || [];
-  return [
-    name,
-    ...(fromList?.aliases || []),
-    ...extra,
-  ];
+  return [name, ...(fromList?.aliases || []), ...extra];
 }
 
 function matchCountry(guess) {
-  const g = normalizeText(guess);
+  const g = normalizeText(typeof guess === "string" ? guess : guess?.name || "");
   if (!g || !dish) return false;
   return countryAliases(dish.country).some((a) => {
     const t = normalizeText(a);
@@ -50,26 +72,54 @@ function findKnownCountry(guess) {
   const g = normalizeText(guess);
   if (!g) return null;
   const exact = countries.find((c) => normalizeText(c.name) === g);
-  if (exact) return exact.name;
+  if (exact) return exact;
   const alias = countries.find((c) => (c.aliases || []).some((a) => normalizeText(a) === g));
-  if (alias) return alias.name;
-  // Also accept dish-specific aliases mapped back to dish.country only for display
-  if ((dish?.aliases || []).some((a) => normalizeText(a) === g)) return dish.country;
+  if (alias) return alias;
+  if ((dish?.aliases || []).some((a) => normalizeText(a) === g)) {
+    return countries.find((c) => normalizeText(c.name) === normalizeText(dish.country)) || {
+      name: dish.country,
+    };
+  }
   if (g.length >= 3) {
     const hits = countries.filter((c) => {
       const name = normalizeText(c.name);
       const aliases = (c.aliases || []).map(normalizeText);
       return name.startsWith(g) || aliases.some((a) => a.startsWith(g));
     });
-    if (hits.length === 1) return hits[0].name;
+    if (hits.length === 1) return hits[0];
   }
   return null;
+}
+
+function targetCountry() {
+  if (!dish) return null;
+  return countries.find((c) => normalizeText(c.name) === normalizeText(dish.country)) || null;
+}
+
+function buildGuess(country) {
+  const target = targetCountry();
+  const km =
+    target && Number.isFinite(country.lat) && Number.isFinite(country.lng)
+      ? haversineKm(country, target)
+      : null;
+  const heat = heatFromKm(km ?? 99999);
+  const sameContinent = Boolean(
+    dish?.continent && country.continent && dish.continent === country.continent
+  );
+  return {
+    name: country.name,
+    km,
+    heat: heat.label,
+    heatCls: heat.cls,
+    sameContinent,
+    continent: dish?.continent || "",
+  };
 }
 
 export async function initDish(onDone) {
   onComplete = onDone;
   const [list, countryList] = await Promise.all([
-    fetch("data/dishes.json?v=20260725dish").then((r) => r.json()),
+    fetch("data/dishes.json?v=20260726heat").then((r) => r.json()),
     fetch("data/countries.json").then((r) => r.json()),
   ]);
   countries = countryList;
@@ -79,13 +129,17 @@ export async function initDish(onDone) {
   }
 
   const saved = loadState(STORAGE_KEY, getDailyKey());
-  guesses = saved?.guesses || [];
+  guesses = (saved?.guesses || []).map((g) =>
+    typeof g === "string"
+      ? { name: g, km: null, heat: "—", heatCls: "heat-cold", sameContinent: false, continent: "" }
+      : g
+  );
   locked = Boolean(saved?.locked);
   won = Boolean(saved?.won);
 
   const datalist = document.getElementById("dish-list");
   if (datalist) {
-    const names = [...new Set(list.map((d) => d.country))].sort((a, b) => a.localeCompare(b, "it"));
+    const names = countries.map((c) => c.name).sort((a, b) => a.localeCompare(b, "it"));
     datalist.innerHTML = names.map((n) => `<option value="${n}"></option>`).join("");
   }
 
@@ -111,6 +165,24 @@ function setStatus(text, kind = "") {
   el.className = `game-status${kind ? ` ${kind}` : ""}`;
 }
 
+function heatPct(km) {
+  if (!Number.isFinite(km)) return 0;
+  if (km <= 0) return 100;
+  return Math.max(4, Math.min(99, Math.round(100 - (km / 20000) * 100)));
+}
+
+function formatGuessMeta(g) {
+  const parts = [];
+  if (g.heat) parts.push(`<span class="dish-heat ${g.heatCls || ""}">${g.heat}</span>`);
+  if (g.sameContinent && g.continent) {
+    parts.push(`<span class="dish-continent">✓ continente ${g.continent}</span>`);
+  }
+  if (Number.isFinite(g.km)) {
+    parts.push(`<span class="dish-km">${g.km.toLocaleString("it-IT")} km</span>`);
+  }
+  return parts.join(" · ");
+}
+
 function render() {
   const img = document.getElementById("dish-image");
   const nameEl = document.getElementById("dish-name");
@@ -122,7 +194,7 @@ function render() {
   const answer = document.getElementById("dish-answer");
   if (!img || !blurb || !list) return;
 
-  img.src = dish.image;
+  img.src = `${dish.image}${dish.image.includes("?") ? "&" : "?"}v=20260726heat`;
   img.alt = locked ? `${dish.dish} — ${dish.country}` : "Piatto del giorno da indovinare";
   blurb.textContent = dish.blurb;
 
@@ -133,7 +205,18 @@ function render() {
   list.innerHTML = guesses
     .map((g) => {
       const ok = matchCountry(g);
-      return `<li class="${ok ? "is-win" : "is-miss"}">${g}</li>`;
+      if (ok) {
+        return `<li class="dish-guess is-win">
+          <span class="dish-guess-name">${g.name || g}</span>
+          <span class="dish-guess-meta"><span class="dish-heat heat-exact">Esatto</span></span>
+        </li>`;
+      }
+      const pct = heatPct(g.km);
+      return `<li class="dish-guess is-miss">
+        <span class="dish-guess-name">${g.name || g}</span>
+        <span class="dish-guess-meta">${formatGuessMeta(g)}</span>
+        <span class="dish-heat-bar" aria-hidden="true"><i style="width:${pct}%"></i></span>
+      </li>`;
     })
     .join("");
 
@@ -156,7 +239,15 @@ function render() {
   } else if (locked) {
     setStatus(`Era ${dish.dish}, tipico di: ${dish.country}.`, "hint");
   } else {
-    setStatus(`Di che paese è questo piatto? Tentativi ${guesses.length}/${MAX}.`);
+    const last = guesses[guesses.length - 1];
+    if (last && !matchCountry(last)) {
+      const bits = [last.heat];
+      if (last.sameContinent && last.continent) bits.push(`continente: ${last.continent}`);
+      if (Number.isFinite(last.km)) bits.push(`${last.km.toLocaleString("it-IT")} km`);
+      setStatus(`${bits.join(" · ")}. Tentativi ${guesses.length}/${MAX}.`, "hint");
+    } else {
+      setStatus(`Di che paese è questo piatto? Tentativi ${guesses.length}/${MAX}.`);
+    }
   }
 }
 
@@ -170,14 +261,25 @@ function submit() {
   }
 
   const known = findKnownCountry(raw);
-  const label = known || raw;
-  if (guesses.some((g) => normalizeText(g) === normalizeText(label))) {
+  if (!known) {
+    setStatus("Paese non riconosciuto. Prova un nome completo (es. Italia).", "hint");
+    input?.select();
+    return;
+  }
+
+  const label = known.name;
+  if (guesses.some((g) => normalizeText(g.name || g) === normalizeText(label))) {
     setStatus("Hai già provato questo paese.", "hint");
     input.select();
     return;
   }
 
-  guesses.push(label);
+  // Enrich country with continent from dish list mapping when countries.json lacks it
+  const guessCountry = {
+    ...known,
+    continent: known.continent || continentOf(known.name),
+  };
+  guesses.push(buildGuess(guessCountry));
   if (input) input.value = "";
 
   if (matchCountry(label)) {
@@ -190,6 +292,50 @@ function submit() {
   persist();
   render();
 }
+
+function continentOf(name) {
+  const n = normalizeText(name);
+  const map = CONTINENT_BY_COUNTRY;
+  for (const [continent, list] of Object.entries(map)) {
+    if (list.some((c) => normalizeText(c) === n)) return continent;
+  }
+  return "";
+}
+
+const CONTINENT_BY_COUNTRY = {
+  Europa: [
+    "Italia", "Francia", "Spagna", "Grecia", "Austria", "Germania", "Regno Unito",
+    "Portogallo", "Belgio", "Paesi Bassi", "Svezia", "Polonia", "Ungheria", "Irlanda",
+    "Svizzera", "Ucraina", "Turchia", "Romania", "Repubblica Ceca", "Norvegia", "Danimarca",
+    "Finlandia", "Islanda", "Croazia", "Serbia", "Bulgaria", "Slovacchia", "Slovenia",
+    "Albania", "Bosnia ed Erzegovina", "Macedonia del Nord", "Montenegro", "Kosovo",
+    "Estonia", "Lettonia", "Lituania", "Moldavia", "Bielorussia", "Lussemburgo", "Malta",
+    "Cipro", "Andorra", "Monaco", "San Marino", "Città del Vaticano", "Liechtenstein",
+  ],
+  Americhe: [
+    "Stati Uniti", "Messico", "Brasile", "Argentina", "Perù", "Canada", "Cuba", "Colombia",
+    "Cile", "Venezuela", "Uruguay", "Paraguay", "Bolivia", "Ecuador", "Panama", "Costa Rica",
+    "Guatemala", "Honduras", "El Salvador", "Nicaragua", "Belize", "Giamaica", "Haiti",
+    "Repubblica Dominicana", "Trinidad e Tobago", "Bahamas", "Barbados", "Guyana", "Suriname",
+  ],
+  Asia: [
+    "Giappone", "Cina", "India", "Thailandia", "Corea del Sud", "Vietnam", "Indonesia",
+    "Libano", "Filippine", "Malaysia", "Singapore", "Corea del Nord", "Taiwan", "Mongolia",
+    "Pakistan", "Bangladesh", "Sri Lanka", "Nepal", "Bhutan", "Myanmar", "Cambogia", "Laos",
+    "Brunei", "Timor Est", "Afghanistan", "Iran", "Iraq", "Siria", "Giordania", "Israele",
+    "Palestina", "Arabia Saudita", "Emirati Arabi Uniti", "Qatar", "Kuwait", "Oman", "Yemen",
+    "Bahrein", "Georgia", "Armenia", "Azerbaigian", "Kazakistan", "Uzbekistan", "Turkmenistan",
+    "Kirghizistan", "Tagikistan", "Malesia", "Malaysia",
+  ],
+  Africa: [
+    "Egitto", "Marocco", "Tunisia", "Algeria", "Libia", "Sudan", "Etiopia", "Kenya",
+    "Tanzania", "Uganda", "Nigeria", "Ghana", "Senegal", "Sudafrica", "Zimbabwe", "Botswana",
+    "Namibia", "Mozambico", "Angola", "Camerun", "Costa d'Avorio", "Mali", "Niger", "Ciad",
+  ],
+  Oceania: [
+    "Australia", "Nuova Zelanda", "Figi", "Papua Nuova Guinea", "Samoa", "Tonga",
+  ],
+};
 
 function bindEvents() {
   if (eventsBound) return;

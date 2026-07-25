@@ -11,7 +11,7 @@ export const GAME_META = [
   { id: "movie", label: "Film", icon: "🎬", key: "quotid-movie" },
   { id: "fact", label: "Curiosità", icon: "💡", key: "quotid-fact-v3" },
   { id: "globle", label: "Paese", icon: "🌍", key: "quotid-globle-v2" },
-  { id: "dish", label: "Piatto", icon: "🍽️", key: "quotid-dish-v1" },
+  { id: "dish", label: "Piatto", icon: "🍽️", key: "quotid-dish-v2" },
   { id: "pokemon", label: "Pokémon", icon: "⚡", key: "quotid-pokemon" },
   { id: "joke", label: "Barzelletta", icon: "😄", key: "quotid-joke-v2" },
 ];
@@ -148,7 +148,7 @@ export function scoreGame(id, dayKey = getDailyKey()) {
       return { status: "lost", points: 2, tile: "🟧" };
     }
     case "dish": {
-      const s = state("quotid-dish-v1", dayKey);
+      const s = state("quotid-dish-v2", dayKey);
       if (!s?.locked) return { status: "empty", points: 0, tile: "⬜" };
       if (s.won) {
         const n = (s.guesses || []).length || 1;

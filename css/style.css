@@ -826,8 +826,69 @@ h2 {
   color: var(--accent-2);
 }
 
-.guess-list .is-miss {
-  opacity: 0.9;
+.dish-guesses {
+  list-style: none;
+  display: grid;
+  gap: 0.5rem;
+  margin: 0.75rem 0 1rem;
+  padding: 0;
+}
+
+.dish-guesses .dish-guess {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 0.2rem 0.75rem;
+  align-items: center;
+  padding: 0.65rem 0.8rem;
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  color: var(--text);
+}
+
+.dish-guesses .dish-guess.is-win {
+  border-color: rgba(79, 209, 163, 0.55);
+}
+
+.dish-guess-name {
+  font-weight: 700;
+}
+
+.dish-guess-meta {
+  color: var(--muted);
+  font-size: 0.85rem;
+  grid-column: 2;
+  grid-row: 1;
+  text-align: right;
+}
+
+.dish-heat {
+  font-weight: 700;
+}
+
+.heat-exact,
+.heat-boiling { color: #ff6b4a; }
+.heat-fire { color: #ff8f4a; }
+.heat-ember { color: #f0b429; }
+.heat-warm { color: #7eb6ff; }
+.heat-cold { color: #8aa0c2; }
+
+.dish-continent {
+  color: var(--accent-2);
+}
+
+.dish-heat-bar {
+  grid-column: 1 / -1;
+  height: 6px;
+  background: #2a3145;
+  border-radius: 999px;
+  overflow: hidden;
+}
+
+.dish-heat-bar i {
+  display: block;
+  height: 100%;
+  background: linear-gradient(90deg, #5b8def, #ff8f4a 55%, #ff6b4a);
 }
 
 .text-input {
