@@ -8,7 +8,7 @@ import { initCrossword, isCrosswordComplete } from "./crossword.js?v=20260722xw2
 import { initMovie, isMovieComplete } from "./movie.js";
 import { initFact, isFactComplete } from "./fact.js?v=20260724fact";
 import { initGloble, isGlobleComplete } from "./globle.js";
-import { initRiddle, isRiddleComplete } from "./riddle.js?v=20260724riddle";
+import { initDish, isDishComplete } from "./dish.js?v=20260725dish";
 import { initJoke, isJokeComplete } from "./joke.js";
 
 const GAMES = [
@@ -19,7 +19,7 @@ const GAMES = [
   { id: "movie", label: "Film" },
   { id: "fact", label: "Curiosità" },
   { id: "globle", label: "Paese" },
-  { id: "riddle", label: "Indovinello" },
+  { id: "dish", label: "Piatto" },
   { id: "pokemon", label: "Tipo Pokémon" },
   { id: "joke", label: "Barzelletta" },
 ];
@@ -33,7 +33,7 @@ const completionChecks = {
   movie: isMovieComplete,
   fact: isFactComplete,
   globle: isGlobleComplete,
-  riddle: isRiddleComplete,
+  dish: isDishComplete,
   joke: isJokeComplete,
 };
 
@@ -177,7 +177,7 @@ async function boot() {
       initMovie(onDone),
       initFact(onDone),
       initGloble(onDone),
-      initRiddle(onDone),
+      initDish(onDone),
       initJoke(onDone),
     ]);
   } catch (err) {

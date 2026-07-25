@@ -16,7 +16,7 @@ Sito con **10 attività al giorno** che si resettano a **mezzanotte** (fuso orar
 6. **Film** — indovina il titolo dalle emoji (stile Framed)
 7. **Curiosità** — fun fact di storia o scienza
 8. **Paese** — quiz geografico stile Globle (km + direzione)
-9. **Indovinello**
+9. **Piatto** — indovina il paese del piatto (foto + descrizione, 6 tentativi)
 10. **Barzelletta**
 
 ## Avvio locale
@@ -49,3 +49,4 @@ Se il codice `quotidi` è già preso, creane un altro e aggiorna `data-goatcount
 
 - Dati Pokémon ispirati a [lecartepokemondiluca](https://github.com/sarlokko/lecartepokemondiluca)
 - Dizionario parole da [wordle-it](https://github.com/pietroppeter/wordle-it)
+- Foto dei piatti da [Wikimedia Commons](https://commons.wikimedia.org) (licenze libere)

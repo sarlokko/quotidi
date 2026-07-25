@@ -24,16 +24,22 @@ jobs:
           test -f data/pokemon.json
           test -f data/words-answers.txt
           test -f data/words-guesses.txt
-          test -f data/riddles.json
+          test -f data/dishes.json
           test -f data/jokes.json
           test -f data/facts.json
           test -f data/picross.json
           test -f data/crosswords.json
+          test -f js/dish.js
           python3 - <<'PY'
           import json, pathlib
           json.loads(pathlib.Path("data/pokemon.json").read_text())
-          riddles = json.loads(pathlib.Path("data/riddles.json").read_text())
-          assert riddles and all(r.get("q") and r.get("a") for r in riddles)
+          dishes = json.loads(pathlib.Path("data/dishes.json").read_text())
+          assert len(dishes) >= 30
+          assert all(
+              d.get("dish") and d.get("country") and d.get("blurb") and d.get("image")
+              and pathlib.Path(d["image"]).is_file()
+              for d in dishes
+          )
           json.loads(pathlib.Path("data/jokes.json").read_text())
           facts = json.loads(pathlib.Path("data/facts.json").read_text())
           assert facts and all(

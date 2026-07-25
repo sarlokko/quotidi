@@ -782,25 +782,53 @@ h2 {
 .game-status.lose { color: var(--danger); }
 .game-status.hint { color: var(--warn); }
 
-.riddle-text {
-  font-size: 1.15rem;
-  line-height: 1.5;
-  padding: 1rem;
+.dish-figure {
+  margin: 0 0 0.85rem;
+  border-radius: 14px;
+  overflow: hidden;
+  border: 1px solid var(--border);
   background: var(--surface-2);
-  border-radius: 12px;
-  margin-bottom: 1rem;
 }
 
-.answer-box {
-  display: flex;
-  gap: 0.5rem;
-  align-items: center;
-  margin-bottom: 0.75rem;
+.dish-image {
+  display: block;
+  width: 100%;
+  max-height: min(42vh, 320px);
+  object-fit: cover;
+  background: #12151f;
+}
+
+.dish-figure figcaption {
+  padding: 0.75rem 0.9rem 0.9rem;
+}
+
+.dish-figure figcaption strong {
+  font-family: "Space Grotesk", sans-serif;
+  font-size: 1.05rem;
+}
+
+.dish-blurb {
+  margin-top: 0.35rem;
   color: var(--muted);
+  line-height: 1.4;
+  font-size: 0.95rem;
 }
 
-.hidden-answer { opacity: 0.45; font-style: italic; }
-.revealed { opacity: 1; font-style: normal; color: var(--accent-2); }
+.dish-answer {
+  margin: 0 0 0.75rem;
+  color: var(--accent-2);
+  font-weight: 700;
+  font-family: "Space Grotesk", sans-serif;
+}
+
+.guess-list .is-win {
+  border-color: rgba(79, 209, 163, 0.55);
+  color: var(--accent-2);
+}
+
+.guess-list .is-miss {
+  opacity: 0.9;
+}
 
 .text-input {
   width: 100%;

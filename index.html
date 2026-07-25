@@ -16,7 +16,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,600;0,9..40,700;1,9..40,400&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/style.css?v=20260722logo2">
+  <link rel="stylesheet" href="css/style.css?v=20260725dish">
   <style>
     /* Critico: categorie sempre in griglia 5×2 (anche con CSS vecchio in cache) */
     nav.tabs {
@@ -102,7 +102,7 @@
       <button type="button" class="tab-btn" data-tab="movie" title="Film"><span class="tab-ico" aria-hidden="true">🎬</span><span class="tab-label">Film</span></button>
       <button type="button" class="tab-btn" data-tab="fact" title="Curiosità"><span class="tab-ico" aria-hidden="true">💡</span><span class="tab-label">Curio</span></button>
       <button type="button" class="tab-btn" data-tab="globle" title="Paese"><span class="tab-ico" aria-hidden="true">🌍</span><span class="tab-label">Paese</span></button>
-      <button type="button" class="tab-btn" data-tab="riddle" title="Indovinello"><span class="tab-ico" aria-hidden="true">🧩</span><span class="tab-label">Indov.</span></button>
+      <button type="button" class="tab-btn" data-tab="dish" title="Piatto"><span class="tab-ico" aria-hidden="true">🍽️</span><span class="tab-label">Piatto</span></button>
       <button type="button" class="tab-btn" data-tab="pokemon" title="Pokémon"><span class="tab-ico" aria-hidden="true">⚡</span><span class="tab-label">Poké</span></button>
       <button type="button" class="tab-btn" data-tab="joke" title="Barzelletta"><span class="tab-ico" aria-hidden="true">😄</span><span class="tab-label">Barzel.</span></button>
     </nav>
@@ -232,21 +232,26 @@
       </form>
     </section>
 
-    <section id="riddle" class="game-panel card">
-      <h2>Indovinello</h2>
-      <p class="game-desc">Un indovinello italiano al giorno, chiaro e con un po’ di pepe. Scrivi la risposta (anche senza articolo).</p>
-      <blockquote id="riddle-text" class="riddle-text"></blockquote>
-      <div class="answer-box">
-        <span>Risposta:</span>
-        <strong id="riddle-answer" class="hidden-answer">???</strong>
-      </div>
-      <form id="riddle-form" class="riddle-form" autocomplete="off">
-        <label class="sr-only" for="riddle-input">La tua risposta</label>
-        <input id="riddle-input" class="text-input" type="text" placeholder="Scrivi la risposta e premi Invio..." autocomplete="off" enterkeyhint="done">
-        <div id="riddle-feedback" class="feedback" role="status" aria-live="polite"></div>
+    <section id="dish" class="game-panel card">
+      <h2>Indovina il piatto</h2>
+      <p class="game-desc">Guarda la foto e la descrizione: di che <strong>paese</strong> è tipico? Hai <strong>6 tentativi</strong>.</p>
+      <p id="dish-status" class="game-status" role="status" aria-live="polite"></p>
+      <figure class="dish-figure">
+        <img id="dish-image" class="dish-image" src="" alt="Piatto del giorno" width="900" height="600" decoding="async">
+        <figcaption>
+          <strong id="dish-name">Piatto del giorno</strong>
+          <p id="dish-blurb" class="dish-blurb"></p>
+        </figcaption>
+      </figure>
+      <p id="dish-answer" class="dish-answer" hidden></p>
+      <ul id="dish-guesses" class="guess-list"></ul>
+      <form id="dish-form" autocomplete="off">
+        <label class="sr-only" for="dish-input">Paese del piatto</label>
+        <input id="dish-input" class="text-input" list="dish-list" type="text" placeholder="Es. Italia, Giappone, Messico…" autocomplete="off" enterkeyhint="done">
+        <datalist id="dish-list"></datalist>
         <div class="actions">
-          <button type="submit" id="riddle-check" class="btn primary">Controlla</button>
-          <button type="button" id="riddle-reveal" class="btn ghost">Mostra risposta</button>
+          <button type="submit" id="dish-submit" class="btn primary">Prova</button>
+          <button type="button" id="dish-reveal" class="btn ghost">Mostra risposta</button>
         </div>
       </form>
     </section>
