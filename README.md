@@ -7,6 +7,7 @@ Sito con **10 attività al giorno** che si resettano a **mezzanotte** (fuso orar
 - **Streak** condiviso (giorni consecutivi con almeno un gioco completato)
 - **Punteggio giornaliero** (fino a 100, somma dei minigiochi)
 - **Condividi giorno** (riepilogo emoji + griglia Parola, stile Wordle)
+- **Musica di sottofondo** rilassante (originale, senza copyright; tasto Musica in toolbar)
 
 1. **Tipo Pokémon** — indovina i tipi del Pokémon del giorno
 2. **Parola** — Wordle in italiano
@@ -50,3 +51,4 @@ Se il codice `quotidi` è già preso, creane un altro e aggiorna `data-goatcount
 - Dati Pokémon ispirati a [lecartepokemondiluca](https://github.com/sarlokko/lecartepokemondiluca)
 - Dizionario parole da [wordle-it](https://github.com/pietroppeter/wordle-it)
 - Foto dei piatti da [Wikimedia Commons](https://commons.wikimedia.org) (licenze libere)
+- Musica ambiente originale in `audio/` (dominio pubblico)

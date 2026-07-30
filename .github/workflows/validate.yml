@@ -30,6 +30,9 @@ jobs:
           test -f data/crosswords.json
           test -f js/dish.js
           test -f js/mahjong.js
+          test -f js/music.js
+          test -f audio/ambient.ogg
+          test -f audio/ambient.mp3
           python3 - <<'PY'
           import json, pathlib
           json.loads(pathlib.Path("data/pokemon.json").read_text())
