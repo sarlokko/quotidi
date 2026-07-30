@@ -908,119 +908,87 @@ h2 {
 
 .text-input:disabled { opacity: 0.65; }
 
-.joke-stage {
-  background: var(--surface-2);
-  border-radius: 14px;
-  padding: 1.25rem;
-  margin-bottom: 1rem;
-  min-height: 140px;
+/* Mahjong */
+.mj-board {
+  --mj-cols: 6;
+  --mj-rows: 4;
+  position: relative;
+  width: min(100%, 420px);
+  aspect-ratio: 6 / 4.35;
+  margin: 0.35rem auto 1rem;
+  touch-action: manipulation;
 }
 
-.joke-setup {
-  font-family: "Space Grotesk", sans-serif;
-  font-size: clamp(1.05rem, 3.4vw, 1.25rem);
-  font-weight: 700;
-  margin-bottom: 0.85rem;
-  line-height: 1.45;
-}
-
-.joke-punch-wrap {
-  display: block;
-  width: 100%;
-  text-align: left;
-  border: 1px dashed var(--border);
-  border-radius: 12px;
-  background: rgba(15, 17, 23, 0.35);
-  padding: 0.85rem 1rem;
+.mj-tile {
+  --x: 0;
+  --y: 0;
+  --z: 0;
+  position: absolute;
+  left: calc(var(--x) * (100% / var(--mj-cols)) + var(--z) * 1.2%);
+  top: calc(var(--y) * (100% / var(--mj-rows)) - var(--z) * 2.2%);
+  width: calc(100% / var(--mj-cols) - 2px);
+  height: calc(100% / var(--mj-rows) - 4px);
+  display: grid;
+  place-items: center;
+  padding: 0;
+  border: 1px solid #c9b896;
+  border-radius: 8px;
+  background:
+    linear-gradient(145deg, #fff8e8 0%, #f0e2c4 55%, #e2d0a8 100%);
+  color: #1a1a1a;
+  font-size: clamp(1.15rem, 5.2vw, 1.65rem);
+  line-height: 1;
+  box-shadow:
+    2px 3px 0 rgba(20, 16, 10, 0.28),
+    inset 0 1px 0 rgba(255, 255, 255, 0.65);
   cursor: pointer;
-  color: inherit;
-  font: inherit;
   -webkit-tap-highlight-color: transparent;
-  transition: border-color 0.15s ease, background 0.15s ease;
-}
-
-.joke-punch-wrap:hover,
-.joke-punch-wrap:focus-visible {
-  border-color: var(--accent);
-  outline: none;
-}
-
-.joke-punch-wrap.is-open {
-  border-style: solid;
-  border-color: rgba(79, 209, 163, 0.45);
-  background: rgba(79, 209, 163, 0.08);
-  cursor: default;
-}
-
-.joke-punch-hint {
-  display: block;
-  font-size: 0.75rem;
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
-  color: var(--muted);
-  margin-bottom: 0.35rem;
-}
-
-.joke-punch-wrap.is-open .joke-punch-hint {
-  display: none;
-}
-
-.joke-punchline {
-  font-size: 1.08rem;
-  color: var(--accent-2);
-  line-height: 1.45;
-  margin: 0;
-}
-
-.joke-punchline.is-hidden {
-  opacity: 0.55;
-  font-style: italic;
-  color: var(--muted);
-  filter: blur(4px);
+  transition: transform 0.12s ease, box-shadow 0.12s ease, filter 0.12s ease;
   user-select: none;
 }
 
-.joke-punchline.revealed {
-  filter: none;
-  font-style: normal;
-  opacity: 1;
+.mj-tile.is-blocked {
+  filter: saturate(0.75) brightness(0.92);
+  cursor: default;
 }
 
-.joke-punchline.pop-in {
-  animation: pop-in 0.28s ease;
+.mj-tile.is-free:not(:disabled):hover,
+.mj-tile.is-free:not(:disabled):focus-visible {
+  transform: translateY(-2px);
+  outline: none;
+  box-shadow:
+    2px 5px 0 rgba(20, 16, 10, 0.3),
+    0 0 0 2px rgba(108, 140, 255, 0.55);
 }
 
-.joke-reaction {
-  margin-top: 1rem;
-  padding-top: 1rem;
-  border-top: 1px solid var(--border);
+.mj-tile.is-selected {
+  transform: translateY(-3px) scale(1.04);
+  box-shadow:
+    2px 6px 0 rgba(20, 16, 10, 0.32),
+    0 0 0 2px rgba(79, 209, 163, 0.85);
 }
 
-.joke-reaction > p {
-  color: var(--muted);
-  margin-bottom: 0.65rem;
+.mj-tile.is-hint {
+  animation: mj-pulse 0.9s ease 2;
+  box-shadow:
+    2px 4px 0 rgba(20, 16, 10, 0.28),
+    0 0 0 2px rgba(240, 180, 41, 0.95);
 }
 
-.reaction-row {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.5rem;
+.mj-tile:disabled {
+  cursor: default;
 }
 
-.reaction-btn.picked {
-  border-color: var(--accent-2);
-  color: #0f1117;
-  background: linear-gradient(135deg, var(--accent-2), #7decc0);
+@keyframes mj-pulse {
+  0%, 100% { filter: none; }
+  50% { filter: brightness(1.12); }
 }
 
-.reaction-btn:disabled:not(.picked) {
-  opacity: 0.45;
-}
-
-.joke-reaction-msg {
-  margin-top: 0.75rem;
-  color: var(--accent-2);
-  min-height: 1.2rem;
+@media (max-width: 420px) {
+  .mj-tile {
+    border-radius: 6px;
+    font-size: clamp(1rem, 6.5vw, 1.35rem);
+  }
 }
 
 .site-footer {

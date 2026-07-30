@@ -25,11 +25,11 @@ jobs:
           test -f data/words-answers.txt
           test -f data/words-guesses.txt
           test -f data/dishes.json
-          test -f data/jokes.json
           test -f data/facts.json
           test -f data/picross.json
           test -f data/crosswords.json
           test -f js/dish.js
+          test -f js/mahjong.js
           python3 - <<'PY'
           import json, pathlib
           json.loads(pathlib.Path("data/pokemon.json").read_text())
@@ -41,7 +41,9 @@ jobs:
               and pathlib.Path(d["image"]).is_file()
               for d in dishes
           )
-          json.loads(pathlib.Path("data/jokes.json").read_text())
+          assert pathlib.Path("js/mahjong.js").is_file()
+          assert "initMahjong" in pathlib.Path("js/mahjong.js").read_text()
+          assert "initJoke" not in pathlib.Path("js/main.js").read_text()
           facts = json.loads(pathlib.Path("data/facts.json").read_text())
           assert facts and all(
               f.get("claim") and f.get("fact") and isinstance(f.get("isTrue"), bool)
