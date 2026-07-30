@@ -9,7 +9,7 @@ import { initMovie, isMovieComplete } from "./movie.js";
 import { initFact, isFactComplete } from "./fact.js?v=20260724fact";
 import { initGloble, isGlobleComplete } from "./globle.js";
 import { initDish, isDishComplete } from "./dish.js?v=20260726heat";
-import { initJoke, isJokeComplete } from "./joke.js";
+import { initMahjong, isMahjongComplete } from "./mahjong.js?v=20260730mahjong";
 
 const GAMES = [
   { id: "wordle", label: "Parola" },
@@ -21,7 +21,7 @@ const GAMES = [
   { id: "globle", label: "Paese" },
   { id: "dish", label: "Piatto" },
   { id: "pokemon", label: "Tipo Pokémon" },
-  { id: "joke", label: "Barzelletta" },
+  { id: "mahjong", label: "Mahjong" },
 ];
 
 const completionChecks = {
@@ -34,7 +34,7 @@ const completionChecks = {
   fact: isFactComplete,
   globle: isGlobleComplete,
   dish: isDishComplete,
-  joke: isJokeComplete,
+  mahjong: isMahjongComplete,
 };
 
 function updateCountdown() {
@@ -178,7 +178,7 @@ async function boot() {
       initFact(onDone),
       initGloble(onDone),
       initDish(onDone),
-      initJoke(onDone),
+      initMahjong(onDone),
     ]);
   } catch (err) {
     showBootError(err);

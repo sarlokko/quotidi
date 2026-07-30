@@ -16,7 +16,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,600;0,9..40,700;1,9..40,400&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/style.css?v=20260726heat">
+  <link rel="stylesheet" href="css/style.css?v=20260730mahjong">
   <style>
     /* Critico: categorie sempre in griglia 5×2 (anche con CSS vecchio in cache) */
     nav.tabs {
@@ -104,7 +104,7 @@
       <button type="button" class="tab-btn" data-tab="globle" title="Paese"><span class="tab-ico" aria-hidden="true">🌍</span><span class="tab-label">Paese</span></button>
       <button type="button" class="tab-btn" data-tab="dish" title="Piatto"><span class="tab-ico" aria-hidden="true">🍽️</span><span class="tab-label">Piatto</span></button>
       <button type="button" class="tab-btn" data-tab="pokemon" title="Pokémon"><span class="tab-ico" aria-hidden="true">⚡</span><span class="tab-label">Poké</span></button>
-      <button type="button" class="tab-btn" data-tab="joke" title="Barzelletta"><span class="tab-ico" aria-hidden="true">😄</span><span class="tab-label">Barzel.</span></button>
+      <button type="button" class="tab-btn" data-tab="mahjong" title="Mahjong"><span class="tab-ico" aria-hidden="true">🀄</span><span class="tab-label">Mahjong</span></button>
     </nav>
   </div>
 
@@ -271,28 +271,15 @@
       </div>
     </section>
 
-    <section id="joke" class="game-panel card">
-      <h2>Barzelletta del giorno</h2>
-      <p class="game-desc">Setup, poi la punchline. Tocca la zona nascosta o il bottone per rivelarla.</p>
-      <p id="joke-status" class="game-status" role="status" aria-live="polite"></p>
-      <div class="joke-stage">
-        <p id="joke-setup" class="joke-setup"></p>
-        <button type="button" id="joke-punch-wrap" class="joke-punch-wrap" aria-expanded="false" aria-controls="joke-punchline">
-          <span class="joke-punch-hint">Tocca per rivelare</span>
-          <p id="joke-punchline" class="joke-punchline is-hidden">La risposta è nascosta qui sotto…</p>
-        </button>
-      </div>
+    <section id="mahjong" class="game-panel card">
+      <h2>Mahjong del giorno</h2>
+      <p class="game-desc">Shanghai in miniatura: <strong>3 livelli</strong>, <strong>20 coppie</strong>. Tocca due tessere <strong>libere</strong> uguali per toglierle. Il tavolo cambia ogni giorno.</p>
+      <p id="mahjong-status" class="game-status" role="status" aria-live="polite"></p>
+      <div id="mahjong-board" class="mj-board" aria-label="Tavolo Mahjong"></div>
       <div class="actions">
-        <button type="button" id="joke-reveal" class="btn primary">Rivela la battuta</button>
-      </div>
-      <div id="joke-reaction" class="joke-reaction" hidden>
-        <p>Ti ha fatto ridere?</p>
-        <div class="reaction-row">
-          <button type="button" class="btn ghost reaction-btn" data-reaction="lol">😂 Molto</button>
-          <button type="button" class="btn ghost reaction-btn" data-reaction="smile">🙂 Un po'</button>
-          <button type="button" class="btn ghost reaction-btn" data-reaction="meh">😐 Boh</button>
-        </div>
-        <p id="joke-reaction-msg" class="joke-reaction-msg" role="status"></p>
+        <button type="button" id="mahjong-hint" class="btn primary">Suggerimento</button>
+        <button type="button" id="mahjong-shuffle" class="btn ghost">Rimescola</button>
+        <button type="button" id="mahjong-giveup" class="btn ghost">Mi arrendo</button>
       </div>
     </section>
   </main>
@@ -301,7 +288,7 @@
     <p><strong>Quotidì</strong> — e ti diverti tutti i dì! · Reset a mezzanotte · Ispirato a <a href="https://github.com/sarlokko/lecartepokemondiluca" target="_blank" rel="noopener">Le Carte Pokémon di Luca</a> e <a href="https://pietroppeter.github.io/wordle-it/" target="_blank" rel="noopener">Parole</a></p>
   </footer>
 
-  <script type="module" src="js/main.js?v=20260726heat"></script>
+  <script type="module" src="js/main.js?v=20260730mahjong"></script>
   <!-- Analytics: crea il sito "quotidi" su https://www.goatcounter.com → dashboard https://quotidi.goatcounter.com -->
   <script
     data-goatcounter="https://quotidi.goatcounter.com/count"

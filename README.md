@@ -17,7 +17,7 @@ Sito con **10 attività al giorno** che si resettano a **mezzanotte** (fuso orar
 7. **Curiosità** — fun fact di storia o scienza
 8. **Paese** — quiz geografico stile Globle (km + direzione)
 9. **Piatto** — indovina il paese del piatto (foto + descrizione, 6 tentativi; hint acqua/fuoco + continente)
-10. **Barzelletta**
+10. **Mahjong** — solitaire a 3 livelli con 20 coppie (tavolo nuovo ogni giorno)
 
 ## Avvio locale
 

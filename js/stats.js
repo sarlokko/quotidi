@@ -13,7 +13,7 @@ export const GAME_META = [
   { id: "globle", label: "Paese", icon: "🌍", key: "quotid-globle-v2" },
   { id: "dish", label: "Piatto", icon: "🍽️", key: "quotid-dish-v2" },
   { id: "pokemon", label: "Pokémon", icon: "⚡", key: "quotid-pokemon" },
-  { id: "joke", label: "Barzelletta", icon: "😄", key: "quotid-joke-v2" },
+  { id: "mahjong", label: "Mahjong", icon: "🀄", key: "quotid-mahjong-v1" },
 ];
 
 export const MAX_SCORE = GAME_META.length * 10;
@@ -157,11 +157,15 @@ export function scoreGame(id, dayKey = getDailyKey()) {
       }
       return { status: "lost", points: 2, tile: "🟧" };
     }
-    case "joke": {
-      const s = state("quotid-joke-v2", dayKey);
-      if (!s?.revealed) return { status: "empty", points: 0, tile: "⬜" };
-      const bonus = s.reaction === "lol" ? 3 : s.reaction === "smile" ? 2 : s.reaction ? 1 : 0;
-      return { status: "done", points: 5 + bonus, tile: "🟨" };
+    case "mahjong": {
+      const s = state("quotid-mahjong-v1", dayKey);
+      if (!s?.locked) return { status: "empty", points: 0, tile: "⬜" };
+      if (s.won) {
+        const h = s.hints || 0;
+        const pts = Math.max(4, 10 - Math.min(6, h));
+        return { status: "won", points: pts, tile: "🟩" };
+      }
+      return { status: "lost", points: 2, tile: "🟧" };
     }
     default:
       return { status: "empty", points: 0, tile: "⬜" };
