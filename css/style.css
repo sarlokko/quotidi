@@ -211,6 +211,27 @@ h1 {
   white-space: nowrap;
 }
 
+.music-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.28rem;
+  padding: 0.28rem 0.65rem;
+  font-size: 0.78rem;
+  border-radius: 999px;
+  white-space: nowrap;
+}
+
+.music-toggle .music-ico {
+  font-size: 0.9rem;
+  line-height: 1;
+}
+
+.music-toggle.is-on {
+  border-color: rgba(79, 209, 163, 0.55);
+  color: var(--accent-2);
+  background: rgba(79, 209, 163, 0.1);
+}
+
 .share-feedback {
   grid-column: 1 / -1;
   min-height: 0;
@@ -1508,6 +1529,13 @@ h2 {
   .share-day-btn {
     padding: 0.22rem 0.55rem;
     font-size: 0.72rem;
+  }
+  .music-toggle {
+    padding: 0.22rem 0.55rem;
+    font-size: 0.72rem;
+  }
+  .music-toggle .music-label {
+    display: none;
   }
   .tabs {
     display: grid;
