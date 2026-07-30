@@ -9,7 +9,7 @@ import { initMovie, isMovieComplete } from "./movie.js";
 import { initFact, isFactComplete } from "./fact.js?v=20260724fact";
 import { initGloble, isGlobleComplete } from "./globle.js";
 import { initDish, isDishComplete } from "./dish.js?v=20260726heat";
-import { initMahjong, isMahjongComplete } from "./mahjong.js?v=20260730mahjong";
+import { initMahjong, isMahjongComplete } from "./mahjong.js?v=20260730mjtiles";
 
 const GAMES = [
   { id: "wordle", label: "Parola" },

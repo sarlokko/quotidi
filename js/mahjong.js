@@ -1,26 +1,39 @@
 import { getDailyKey, hashString, loadState, saveState } from "./daily.js";
 
-const STORAGE_KEY = "quotid-mahjong-v1";
+const STORAGE_KEY = "quotid-mahjong-v2";
 const PAIRS = 20;
 
-/** Facce tessere (Unicode Mahjong + fallback leggibili). */
-const FACES = [
-  "🀙", "🀚", "🀛", "🀜", "🀝", "🀞", "🀟", "🀠", "🀡",
-  "🀐", "🀑", "🀒", "🀓", "🀔", "🀕", "🀖", "🀗", "🀘",
-  "🀇", "🀈", "🀉", "🀊", "🀋", "🀌", "🀍", "🀎", "🀏",
-  "🀄", "🀅", "🀆", "🀀", "🀁", "🀂", "🀃",
+const MAN = ["一", "二", "三", "四", "五", "六", "七", "八", "九"];
+
+/** Set completo stile Riichi: pin (cerchi), sou (bambù), man (caratteri), draghi, venti. */
+const TILE_DEFS = [
+  ...[1, 2, 3, 4, 5, 6, 7, 8, 9].map((n) => ({ id: `pin${n}`, suit: "pin", n, name: `${n} cerchi` })),
+  ...[1, 2, 3, 4, 5, 6, 7, 8, 9].map((n) => ({ id: `sou${n}`, suit: "sou", n, name: `${n} bambù` })),
+  ...[1, 2, 3, 4, 5, 6, 7, 8, 9].map((n) => ({
+    id: `man${n}`,
+    suit: "man",
+    n,
+    glyph: MAN[n - 1],
+    name: `${MAN[n - 1]}万`,
+  })),
+  { id: "dong", suit: "wind", glyph: "東", name: "Est" },
+  { id: "nan", suit: "wind", glyph: "南", name: "Sud" },
+  { id: "xi", suit: "wind", glyph: "西", name: "Ovest" },
+  { id: "bei", suit: "wind", glyph: "北", name: "Nord" },
+  { id: "chun", suit: "dragon-red", glyph: "中", name: "Drago rosso" },
+  { id: "hatsu", suit: "dragon-green", glyph: "發", name: "Drago verde" },
+  { id: "haku", suit: "dragon-white", glyph: "白", name: "Drago bianco" },
 ];
+
+const DEF_BY_ID = Object.fromEntries(TILE_DEFS.map((d) => [d.id, d]));
 
 /**
  * Layout fisso: 40 tessere su 3 livelli (24 + 12 + 4).
  * z=0 base 6×4, z=1 centro 4×3, z=2 cima 2×2.
  */
 const LAYOUT = [
-  // z0 — 24
   ...[0, 1, 2, 3].flatMap((y) => [0, 1, 2, 3, 4, 5].map((x) => ({ x, y, z: 0 }))),
-  // z1 — 12
   ...[0, 1, 2].flatMap((y) => [1, 2, 3, 4].map((x) => ({ x, y, z: 1 }))),
-  // z2 — 4
   ...[1, 2].flatMap((y) => [2, 3].map((x) => ({ x, y, z: 2 }))),
 ];
 
@@ -49,20 +62,20 @@ function shuffleInPlace(arr, rnd) {
   return arr;
 }
 
-function pickFaces(dayKey) {
-  const rnd = seededRng(hashString(`mahjong-faces:${dayKey}`));
-  const pool = [...FACES];
+function pickFaceIds(dayKey) {
+  const rnd = seededRng(hashString(`mahjong-faces-v2:${dayKey}`));
+  const pool = TILE_DEFS.map((d) => d.id);
   shuffleInPlace(pool, rnd);
   return pool.slice(0, PAIRS);
 }
 
 function buildTiles(dayKey) {
-  const faces = pickFaces(dayKey);
+  const faces = pickFaceIds(dayKey);
   const deck = [];
   faces.forEach((face) => {
     deck.push(face, face);
   });
-  const rnd = seededRng(hashString(`mahjong-deal:${dayKey}`));
+  const rnd = seededRng(hashString(`mahjong-deal-v2:${dayKey}`));
   shuffleInPlace(deck, rnd);
 
   return LAYOUT.map((slot, i) => ({
@@ -73,6 +86,133 @@ function buildTiles(dayKey) {
     face: deck[i],
     gone: false,
   }));
+}
+
+/** Layout punti pinzu / bastoncini souzu come sulle tessere vere. */
+const DOT_LAYOUTS = {
+  1: [[50, 50]],
+  2: [
+    [32, 28],
+    [68, 72],
+  ],
+  3: [
+    [28, 24],
+    [50, 50],
+    [72, 76],
+  ],
+  4: [
+    [30, 28],
+    [70, 28],
+    [30, 72],
+    [70, 72],
+  ],
+  5: [
+    [30, 28],
+    [70, 28],
+    [50, 50],
+    [30, 72],
+    [70, 72],
+  ],
+  6: [
+    [30, 22],
+    [70, 22],
+    [30, 50],
+    [70, 50],
+    [30, 78],
+    [70, 78],
+  ],
+  7: [
+    [30, 20],
+    [70, 20],
+    [50, 38],
+    [30, 55],
+    [70, 55],
+    [30, 80],
+    [70, 80],
+  ],
+  8: [
+    [30, 18],
+    [70, 18],
+    [30, 40],
+    [70, 40],
+    [30, 62],
+    [70, 62],
+    [30, 84],
+    [70, 84],
+  ],
+  9: [
+    [28, 18],
+    [50, 18],
+    [72, 18],
+    [28, 50],
+    [50, 50],
+    [72, 50],
+    [28, 82],
+    [50, 82],
+    [72, 82],
+  ],
+};
+
+function pinColors(n, i) {
+  // Classico: 1 e 5 rossi, 2 verdi, resto blu (con 9 mix)
+  if (n === 1) return "red";
+  if (n === 2) return i === 0 ? "green" : "green";
+  if (n === 5) return i === 2 ? "red" : "blue";
+  if (n === 9) return i % 3 === 1 ? "red" : "blue";
+  if (n === 7 && i === 2) return "red";
+  return "blue";
+}
+
+function faceMarkup(faceId) {
+  const def = DEF_BY_ID[faceId];
+  if (!def) return `<span class="mj-glyph">${faceId}</span>`;
+
+  if (def.suit === "pin") {
+    const dots = (DOT_LAYOUTS[def.n] || [])
+      .map(([x, y], i) => {
+        const c = pinColors(def.n, i);
+        return `<i class="mj-dot mj-dot-${c}" style="left:${x}%;top:${y}%"></i>`;
+      })
+      .join("");
+    return `<span class="mj-face mj-face-pin" aria-hidden="true">${dots}</span>`;
+  }
+
+  if (def.suit === "sou") {
+    if (def.n === 1) {
+      // 1 bambù classico = uccellino verde
+      return `<span class="mj-face mj-face-sou mj-face-bird" aria-hidden="true">
+        <svg viewBox="0 0 48 56" width="78%" height="78%" focusable="false">
+          <ellipse cx="24" cy="30" rx="14" ry="12" fill="#2f9e44"/>
+          <circle cx="30" cy="18" r="8" fill="#40c057"/>
+          <circle cx="33" cy="16" r="1.6" fill="#1a1a1a"/>
+          <path d="M36 18 L44 16 L36 21 Z" fill="#f08c00"/>
+          <path d="M12 28 Q4 20 8 34 Q14 36 18 32 Z" fill="#37b24d"/>
+          <path d="M20 40 L24 48 L28 40 Z" fill="#f08c00"/>
+          <rect x="21" y="38" width="3" height="10" rx="1" fill="#1b7a34"/>
+        </svg>
+      </span>`;
+    }
+    const sticks = (DOT_LAYOUTS[def.n] || [])
+      .map(([x, y]) => `<i class="mj-stick" style="left:${x}%;top:${y}%"></i>`)
+      .join("");
+    return `<span class="mj-face mj-face-sou" aria-hidden="true">${sticks}</span>`;
+  }
+
+  if (def.suit === "man") {
+    return `<span class="mj-face mj-face-man" aria-hidden="true"><b>${def.glyph}</b><small>萬</small></span>`;
+  }
+
+  if (def.suit === "wind") {
+    return `<span class="mj-face mj-face-wind" aria-hidden="true">${def.glyph}</span>`;
+  }
+
+  if (def.suit === "dragon-red") {
+    return `<span class="mj-face mj-face-dragon mj-face-chun" aria-hidden="true">${def.glyph}</span>`;
+  }
+  if (def.suit === "dragon-green") {
+    return `<span class="mj-face mj-face-dragon mj-face-hatsu" aria-hidden="true">${def.glyph}</span>`;
+  }
+  return `<span class="mj-face mj-face-dragon mj-face-haku" aria-hidden="true"><i></i></span>`;
 }
 
 function alive() {
@@ -105,6 +245,10 @@ function findMatchPair() {
 
 function pairsLeft() {
   return alive().length / 2;
+}
+
+function faceLabel(faceId) {
+  return DEF_BY_ID[faceId]?.name || faceId;
 }
 
 export async function initMahjong(onDone) {
@@ -164,13 +308,13 @@ function render() {
   board.style.setProperty("--mj-cols", "6");
   board.style.setProperty("--mj-rows", "4");
 
-  // Disegna dal basso verso l’alto così lo stacking CSS funziona
   const ordered = [...tiles].sort((a, b) => a.z - b.z || a.y - b.y || a.x - b.x);
   for (const t of ordered) {
     if (t.gone) continue;
+    const def = DEF_BY_ID[t.face];
     const btn = document.createElement("button");
     btn.type = "button";
-    btn.className = "mj-tile";
+    btn.className = `mj-tile mj-suit-${def?.suit || "unknown"}`;
     btn.dataset.id = String(t.id);
     btn.style.setProperty("--x", String(t.x));
     btn.style.setProperty("--y", String(t.y));
@@ -181,8 +325,8 @@ function render() {
     btn.classList.toggle("is-blocked", !free && !locked);
     btn.classList.toggle("is-selected", t.id === selectedId);
     btn.disabled = locked || !free;
-    btn.setAttribute("aria-label", `Tessera ${t.face}${free ? ", libera" : ", bloccata"}`);
-    btn.textContent = t.face;
+    btn.setAttribute("aria-label", `Tessera ${faceLabel(t.face)}${free ? ", libera" : ", bloccata"}`);
+    btn.innerHTML = faceMarkup(t.face);
     board.appendChild(btn);
   }
 
