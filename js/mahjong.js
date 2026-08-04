@@ -1,6 +1,6 @@
 import { getDailyKey, hashString, loadState, saveState } from "./daily.js";
 
-const STORAGE_KEY = "quotid-mahjong-v2";
+const STORAGE_KEY = "quotid-mahjong-v3";
 const PAIRS = 20;
 
 const MAN = ["一", "二", "三", "四", "五", "六", "七", "八", "九"];
@@ -28,13 +28,23 @@ const TILE_DEFS = [
 const DEF_BY_ID = Object.fromEntries(TILE_DEFS.map((d) => [d.id, d]));
 
 /**
- * Layout fisso: 40 tessere su 3 livelli (24 + 12 + 4).
- * z=0 base 6×4, z=1 centro 4×3, z=2 cima 2×2.
+ * Layout “pagoda aperta”: bordi liberi, 3 livelli, 40 tessere.
+ * z0 20 · z1 12 · z2 8 — molte tessere laterali sempre accessibili.
  */
 const LAYOUT = [
-  ...[0, 1, 2, 3].flatMap((y) => [0, 1, 2, 3, 4, 5].map((x) => ({ x, y, z: 0 }))),
-  ...[0, 1, 2].flatMap((y) => [1, 2, 3, 4].map((x) => ({ x, y, z: 1 }))),
-  ...[1, 2].flatMap((y) => [2, 3].map((x) => ({ x, y, z: 2 }))),
+  // z0 — base a trapezio (20)
+  ...[1, 2, 3, 4].map((x) => ({ x, y: 0, z: 0 })),
+  ...[0, 1, 2, 3, 4, 5].map((x) => ({ x, y: 1, z: 0 })),
+  ...[0, 1, 2, 3, 4, 5].map((x) => ({ x, y: 2, z: 0 })),
+  ...[1, 2, 3, 4].map((x) => ({ x, y: 3, z: 0 })),
+  // z1 — piano medio (12)
+  ...[2, 3].map((x) => ({ x, y: 0, z: 1 })),
+  ...[1, 2, 3, 4].map((x) => ({ x, y: 1, z: 1 })),
+  ...[1, 2, 3, 4].map((x) => ({ x, y: 2, z: 1 })),
+  ...[2, 3].map((x) => ({ x, y: 3, z: 1 })),
+  // z2 — cima (8)
+  ...[1, 2, 3, 4].map((x) => ({ x, y: 1, z: 2 })),
+  ...[1, 2, 3, 4].map((x) => ({ x, y: 2, z: 2 })),
 ];
 
 let tiles = []; // { id, x, y, z, face, gone }
@@ -62,28 +72,88 @@ function shuffleInPlace(arr, rnd) {
   return arr;
 }
 
+function slotKey(s) {
+  return `${s.x},${s.y},${s.z}`;
+}
+
+/** Libera tra le posizioni ancora presenti (stesse regole di gioco). */
+function isFreeInSet(slot, remainingKeys) {
+  for (let z = slot.z + 1; z <= 2; z++) {
+    if (remainingKeys.has(`${slot.x},${slot.y},${z}`)) return false;
+  }
+  const left = remainingKeys.has(`${slot.x - 1},${slot.y},${slot.z}`);
+  const right = remainingKeys.has(`${slot.x + 1},${slot.y},${slot.z}`);
+  return !left || !right;
+}
+
+/**
+ * Distribuisce le facce in modo risolvibile: simula la rimozione di coppie
+ * libere a tavolo pieno e assegna le facce a quelle coppie.
+ */
+function solvableAssignment(slots, facePairs, rnd) {
+  const remaining = new Map(slots.map((s) => [slotKey(s), s]));
+  const faces = [...facePairs];
+  shuffleInPlace(faces, rnd);
+  const byIndex = new Map();
+
+  for (const face of faces) {
+    let ok = false;
+    for (let attempt = 0; attempt < 60; attempt++) {
+      const free = [...remaining.values()].filter((s) => isFreeInSet(s, remaining));
+      if (free.length < 2) return null;
+      shuffleInPlace(free, rnd);
+      const a = free[0];
+      const b = free[1];
+      byIndex.set(a.i, face);
+      byIndex.set(b.i, face);
+      remaining.delete(slotKey(a));
+      remaining.delete(slotKey(b));
+      ok = true;
+      break;
+    }
+    if (!ok) return null;
+  }
+  if (remaining.size !== 0) return null;
+  return byIndex;
+}
+
 function pickFaceIds(dayKey) {
-  const rnd = seededRng(hashString(`mahjong-faces-v2:${dayKey}`));
+  const rnd = seededRng(hashString(`mahjong-faces-v3:${dayKey}`));
   const pool = TILE_DEFS.map((d) => d.id);
   shuffleInPlace(pool, rnd);
   return pool.slice(0, PAIRS);
 }
 
 function buildTiles(dayKey) {
-  const faces = pickFaceIds(dayKey);
-  const deck = [];
-  faces.forEach((face) => {
-    deck.push(face, face);
-  });
-  const rnd = seededRng(hashString(`mahjong-deal-v2:${dayKey}`));
-  shuffleInPlace(deck, rnd);
+  const facePairs = pickFaceIds(dayKey);
+  const slots = LAYOUT.map((slot, i) => ({ ...slot, i }));
+  let assigned = null;
+  const base = hashString(`mahjong-deal-v3:${dayKey}`);
+  for (let t = 0; t < 48; t++) {
+    assigned = solvableAssignment(slots, facePairs, seededRng((base + t * 9973) >>> 0));
+    if (assigned) break;
+  }
+  if (!assigned) {
+    // fallback rarissimo: shuffle semplice
+    const deck = [];
+    facePairs.forEach((f) => deck.push(f, f));
+    shuffleInPlace(deck, seededRng(base));
+    return LAYOUT.map((slot, i) => ({
+      id: i,
+      x: slot.x,
+      y: slot.y,
+      z: slot.z,
+      face: deck[i],
+      gone: false,
+    }));
+  }
 
   return LAYOUT.map((slot, i) => ({
     id: i,
     x: slot.x,
     y: slot.y,
     z: slot.z,
-    face: deck[i],
+    face: assigned.get(i),
     gone: false,
   }));
 }
@@ -326,13 +396,19 @@ function render() {
     btn.classList.toggle("is-selected", t.id === selectedId);
     btn.disabled = locked || !free;
     btn.setAttribute("aria-label", `Tessera ${faceLabel(t.face)}${free ? ", libera" : ", bloccata"}`);
-    btn.innerHTML = faceMarkup(t.face);
+    btn.innerHTML = `${faceMarkup(t.face)}${free ? "" : '<span class="mj-lock" aria-hidden="true"></span>'}`;
     board.appendChild(btn);
   }
 
   if (hintBtn) hintBtn.disabled = locked;
   if (shuffleBtn) shuffleBtn.disabled = locked || alive().length < 2;
   if (giveupBtn) giveupBtn.disabled = locked;
+
+  const freeCount = locked ? 0 : freeTiles().length;
+  const legendFree = document.getElementById("mahjong-legend-free");
+  const legendBlocked = document.getElementById("mahjong-legend-blocked");
+  if (legendFree) legendFree.textContent = locked ? "—" : String(freeCount);
+  if (legendBlocked) legendBlocked.textContent = locked ? "—" : String(alive().length - freeCount);
 
   if (locked && won) {
     setStatus(`Completato! ${moves} mosse · ${hints} suggerimenti.`, "win");
@@ -342,9 +418,9 @@ function render() {
     const pair = findMatchPair();
     const left = pairsLeft();
     if (!pair && left > 0) {
-      setStatus(`Nessuna coppia libera (${left} rimaste). Prova a rimescolare.`, "hint");
+      setStatus(`Nessuna coppia libera (${left} rimaste). Tocca Rimescola.`, "hint");
     } else {
-      setStatus(`Abbina le tessere libere. Coppie rimaste: ${left} · livelli: 3.`);
+      setStatus(`Tessere illuminate = libere. Coppie: ${left} · selezionabili: ${freeCount}.`);
     }
   }
 }
@@ -396,6 +472,10 @@ function onTileClick(id) {
   if (alive().length === 0) {
     locked = true;
     won = true;
+  } else if (!findMatchPair()) {
+    shuffleFaces();
+    setStatus(`Niente mosse: tavolo rimescolato automaticamente. Coppie: ${pairsLeft()}.`, "hint");
+    return;
   }
 
   persist();
@@ -425,16 +505,44 @@ function shuffleFaces() {
   if (locked) return;
   const live = alive();
   if (live.length < 2) return;
-  const faces = live.map((t) => t.face);
-  const rnd = seededRng(hashString(`mahjong-reshuffle:${getDailyKey()}:${moves}:${Date.now()}`));
-  shuffleInPlace(faces, rnd);
-  live.forEach((t, i) => {
-    t.face = faces[i];
-  });
+
+  const slots = live.map((t) => ({ x: t.x, y: t.y, z: t.z, i: t.id }));
+  const counts = new Map();
+  live.forEach((t) => counts.set(t.face, (counts.get(t.face) || 0) + 1));
+  const facePairs = [];
+  for (const [face, n] of counts) {
+    for (let k = 0; k < n / 2; k++) facePairs.push(face);
+  }
+
+  const seed = hashString(`mahjong-reshuffle-v3:${getDailyKey()}:${moves}:${Date.now()}`);
+  let assigned = null;
+  for (let t = 0; t < 64; t++) {
+    assigned = solvableAssignment(slots, facePairs, seededRng((seed + t * 7919) >>> 0));
+    if (assigned) break;
+  }
+
+  if (assigned) {
+    live.forEach((t) => {
+      t.face = assigned.get(t.id);
+    });
+  } else {
+    const faces = live.map((t) => t.face);
+    shuffleInPlace(faces, seededRng(seed));
+    live.forEach((t, i) => {
+      t.face = faces[i];
+    });
+  }
+
   selectedId = null;
   persist();
   render();
-  setStatus(`Tessere rimescolate. Coppie rimaste: ${pairsLeft()}.`);
+  const pair = findMatchPair();
+  setStatus(
+    pair
+      ? `Rimescolato (tavolo giocabile). Coppie rimaste: ${pairsLeft()}.`
+      : `Rimescolato. Se non vedi mosse, riprova Rimescola. Coppie: ${pairsLeft()}.`,
+    pair ? "" : "hint"
+  );
 }
 
 function giveUp() {
