@@ -16,7 +16,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,600;0,9..40,700;1,9..40,400&family=Noto+Serif+JP:wght@700;900&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/style.css?v=20260730musicon">
+  <link rel="stylesheet" href="css/style.css?v=20260804layout">
   <style>
     /* Critico: categorie sempre in griglia 5×2 (anche con CSS vecchio in cache) */
     nav.tabs {
@@ -277,8 +277,12 @@
 
     <section id="mahjong" class="game-panel card">
       <h2>Mahjong del giorno</h2>
-      <p class="game-desc">Shanghai in miniatura: <strong>3 livelli</strong>, <strong>20 coppie</strong>. Tocca due tessere <strong>libere</strong> uguali per toglierle. Il tavolo cambia ogni giorno.</p>
+      <p class="game-desc">Shanghai in miniatura: <strong>3 livelli</strong>, <strong>20 coppie</strong>. Solo le tessere <strong>illuminate</strong> sono libere (niente sopra e almeno un lato libero). Il tavolo è sempre giocabile e cambia ogni giorno.</p>
       <p id="mahjong-status" class="game-status" role="status" aria-live="polite"></p>
+      <div class="mj-legend" aria-hidden="true">
+        <span class="mj-legend-item mj-legend-free">Libere <strong id="mahjong-legend-free">0</strong></span>
+        <span class="mj-legend-item mj-legend-blocked">Bloccate <strong id="mahjong-legend-blocked">0</strong></span>
+      </div>
       <div id="mahjong-board" class="mj-board" aria-label="Tavolo Mahjong"></div>
       <div class="actions">
         <button type="button" id="mahjong-hint" class="btn primary">Suggerimento</button>
@@ -292,7 +296,7 @@
     <p><strong>Quotidì</strong> — e ti diverti tutti i dì! · Reset a mezzanotte · Musica ambiente originale (senza copyright) · Ispirato a <a href="https://github.com/sarlokko/lecartepokemondiluca" target="_blank" rel="noopener">Le Carte Pokémon di Luca</a> e <a href="https://pietroppeter.github.io/wordle-it/" target="_blank" rel="noopener">Parole</a></p>
   </footer>
 
-  <script type="module" src="js/main.js?v=20260730musicon"></script>
+  <script type="module" src="js/main.js?v=20260804layout"></script>
   <!-- Analytics: crea il sito "quotidi" su https://www.goatcounter.com → dashboard https://quotidi.goatcounter.com -->
   <script
     data-goatcounter="https://quotidi.goatcounter.com/count"
